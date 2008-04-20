@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Hashtable;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
 import org.dom4j.Document;
 import org.dom4j.DocumentFactory;
 import org.dom4j.io.SAXReader;
 import org.xml.sax.InputSource;
 
 public class DocFactory {
-	private static final Log LOG = LogFactory.getLog("ticketline.tdg");
+	private static final Logger LOG = LogManager.getLogger("ticketline.tdg");
 
 	private final Hashtable<String, Document> docs;
 

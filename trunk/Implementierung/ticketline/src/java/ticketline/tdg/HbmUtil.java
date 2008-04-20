@@ -23,8 +23,6 @@ import java.util.Random;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.XPath;
@@ -34,6 +32,9 @@ import org.hibernate.mapping.Property;
 import org.hibernate.mapping.RootClass;
 import org.hibernate.mapping.Subclass;
 import org.hibernate.mapping.Value;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
 
 public class HbmUtil {
 
@@ -47,7 +48,7 @@ public class HbmUtil {
 
 	static String[] number = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
-	private static final Log LOG = LogFactory.getLog("ticketline.hbmutil");
+	private static final Logger LOG = LogManager.getLogger("ticketline.hbmutil");
 
 	private final DocFactory docFac;
 

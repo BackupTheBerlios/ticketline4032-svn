@@ -8,8 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import ticketline.dao.DAOFactory;
 import ticketline.db.Auffuehrung;
 import ticketline.db.Belegung;

@@ -8,6 +8,7 @@ package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
 import javax.faces.FacesException;
+import ticketline.db.Kunde;
 
 /**
  * <p>Session scope data bean for your application.  Create properties
@@ -19,7 +20,7 @@ import javax.faces.FacesException;
  * or method binding expression that references a managed bean using
  * this class.</p>
  *
- * @author RedFalcon
+ * @author Michael Morak
  */
 public class SessionBean1 extends AbstractSessionBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
@@ -121,5 +122,14 @@ public class SessionBean1 extends AbstractSessionBean {
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
     }
+    
+    private Kunde login = null;
 
+    public Kunde getLogin() {
+        return login;
+    }
+
+    public void setLogin(Kunde login) {
+        this.login = login;
+    }
 }

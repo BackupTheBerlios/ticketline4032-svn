@@ -1,28 +1,19 @@
 /*
- * LoginPage.java
+ * MainPage.java
  *
- * Created on Apr 14, 2008, 11:23:51 PM
+ * Created on Apr 20, 2008, 6:08:44 PM
  */
  
 package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
-import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
-import com.sun.webui.jsf.component.Listbox;
 import com.sun.webui.jsf.component.Page;
-import com.sun.webui.jsf.component.StaticText;
-import com.sun.webui.jsf.component.TextField;
-import com.sun.webui.jsf.model.DefaultOptionsList;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.FacesException;
-import ticketline.db.Kunde;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -31,9 +22,9 @@ import ticketline.db.Kunde;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @author RedFalcon
+ * @author Michael Morak
  */
-public class LoginPage extends AbstractPageBean {
+public class MainPage extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -103,40 +94,13 @@ public class LoginPage extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
-    private Button button1 = new Button();
-
-    public Button getButton1() {
-        return button1;
-    }
-
-    public void setButton1(Button b) {
-        this.button1 = b;
-    }
-    private TextField textField1 = new TextField();
-
-    public TextField getTextField1() {
-        return textField1;
-    }
-
-    public void setTextField1(TextField tf) {
-        this.textField1 = tf;
-    }
-    private StaticText staticText1 = new StaticText();
-
-    public StaticText getStaticText1() {
-        return staticText1;
-    }
-
-    public void setStaticText1(StaticText st) {
-        this.staticText1 = st;
-    }
 
     // </editor-fold>
 
     /**
      * <p>Construct a new Page bean instance.</p>
      */
-    public LoginPage() {
+    public MainPage() {
     }
 
     /**
@@ -165,7 +129,7 @@ public class LoginPage extends AbstractPageBean {
         try {
             _init();
         } catch (Exception e) {
-            log("LoginPage Initialization Failure", e);
+            log("MainPage Initialization Failure", e);
             throw e instanceof FacesException ? (FacesException) e: new FacesException(e);
         }
         
@@ -215,15 +179,6 @@ public class LoginPage extends AbstractPageBean {
      *
      * @return reference to the scoped data bean
      */
-    protected RequestBean1 getRequestBean1() {
-        return (RequestBean1) getBean("RequestBean1");
-    }
-
-    /**
-     * <p>Return a reference to the scoped data bean.</p>
-     *
-     * @return reference to the scoped data bean
-     */
     protected SessionBean1 getSessionBean1() {
         return (SessionBean1) getBean("SessionBean1");
     }
@@ -233,15 +188,17 @@ public class LoginPage extends AbstractPageBean {
      *
      * @return reference to the scoped data bean
      */
-    protected ApplicationBean1 getApplicationBean1() {
-        return (ApplicationBean1) getBean("ApplicationBean1");
+    protected RequestBean1 getRequestBean1() {
+        return (RequestBean1) getBean("RequestBean1");
     }
 
-    public String button1_action() {
-        
-        this.textField1.setText("Hello world!");
-        
-        return null;
+    /**
+     * <p>Return a reference to the scoped data bean.</p>
+     *
+     * @return reference to the scoped data bean
+     */
+    protected ApplicationBean1 getApplicationBean1() {
+        return (ApplicationBean1) getBean("ApplicationBean1");
     }
     
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : MasterFragment
+    Created on : Apr 20, 2008, 6:08:34 PM
+    Author     : Michael Morak
+-->
+<div style="height: 200px; width: 400px; -rave-layout: grid" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
+    <f:subview id="MasterFragment">
+        <webuijsf:panelLayout binding="#{MasterFragment.panelSide}" id="panelSide" panelLayout="grid" style="padding: 10px; background-color: rgb(255, 175, 70); height: 458px; left: 10px; top: 120px; position: absolute; width: 146px; -rave-layout: grid">
+            <webuijsf:panelLayout binding="#{MasterFragment.panelLogin}" id="panelLogin" panelLayout="flow" style="height: 128px; width: 143px" visible="true">
+                <br/>
+                <webuijsf:textField binding="#{MasterFragment.textFieldUsername}" id="textFieldUsername" label="Kartennummer"/>
+                <br/>
+                <webuijsf:passwordField binding="#{MasterFragment.passwordField}" id="passwordField" label="Passwort"/>
+                <br/>
+                <webuijsf:button actionExpression="#{MasterFragment.buttonLogin_action}" binding="#{MasterFragment.buttonLogin}" id="buttonLogin" text="Einloggen"/>
+                <br/>
+                <br/>
+                <webuijsf:label binding="#{MasterFragment.labelStatusMessage}" id="labelStatusMessage"/>
+            </webuijsf:panelLayout>
+            <webuijsf:panelLayout binding="#{MasterFragment.panelLogout}" id="panelLogout" panelLayout="flow" style="height: 128px; width: 143px" visible="false">
+                <webuijsf:label binding="#{MasterFragment.label1}" id="label1" text="Eingeloggt als: "/>
+                <br/>
+                <webuijsf:staticText binding="#{MasterFragment.textUsername}" id="textUsername" text="#{SessionBean1.login.nname}"/>
+                <br/>
+                <br/>
+                <webuijsf:button actionExpression="#{MasterFragment.buttonLogout_action}" binding="#{MasterFragment.buttonLogout}" id="buttonLogout" text="Ausloggen"/>
+            </webuijsf:panelLayout>
+        </webuijsf:panelLayout>
+        <webuijsf:panelLayout binding="#{MasterFragment.panelTop}" id="panelTop" panelLayout="grid" style="padding: 10px; background-color: rgb(255, 175, 70); height: 98px; left: 10px; top: 0px; position: absolute; width: 915px; -rave-layout: grid">
+            <webuijsf:staticText binding="#{MasterFragment.staticTextTitle}" id="staticTextTitle"
+                style="font-size: 60px; left: 110px; top: 14px; position: absolute" text="TicketLine"/>
+            <webuijsf:image binding="#{MasterFragment.imageLogo}" height="80" id="imageLogo" style="left: 10px; top: 8px; position: absolute"
+                url="resources/logo.png" width="80"/>
+        </webuijsf:panelLayout>
+    </f:subview>
+</div>

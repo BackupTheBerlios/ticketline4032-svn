@@ -4,8 +4,8 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
+import org.apache.log4j.LogManager;
 
 import ticketline.dao.DAOFactory;
 import ticketline.db.Saal;
@@ -15,7 +15,7 @@ import ticketline.db.Saal;
  */
 public class HbmTDG {
 
-	private static final Log LOG = LogFactory.getLog("ticketline.tdg");
+        private static final Logger LOG = LogManager.getLogger("ticketline.tdg");
 
 	private static final String CONF = "tdg.cfg.xml";
 

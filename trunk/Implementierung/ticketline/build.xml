@@ -87,8 +87,9 @@
             If you get errors after "Static Data Creation starting" stop and
             restart this task. Be patient this takes some time. -->
     <target name="testdatagenerator" depends="schemaexport">
-        <java classname="ticketline.tdg.HbmTDG" fork="true"
-                classpath="${bin.dir}"/>
+        <java classname="ticketline.tdg.HbmTDG" fork="true">
+            <classpath refid="classpath" />
+        </java>
     </target>
 
     <!-- Start the database server. -->

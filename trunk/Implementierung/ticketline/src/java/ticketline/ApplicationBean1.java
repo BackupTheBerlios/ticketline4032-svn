@@ -19,7 +19,7 @@ import javax.faces.FacesException;
  * or method binding expression that references a managed bean using
  * this class.</p>
  *
- * @author RedFalcon
+ * @author Michael Morak
  */
 public class ApplicationBean1 extends AbstractApplicationBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">

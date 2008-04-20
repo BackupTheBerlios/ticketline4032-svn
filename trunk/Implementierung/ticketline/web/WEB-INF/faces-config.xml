@@ -22,8 +22,13 @@
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>LoginPage</managed-bean-name>
-        <managed-bean-class>ticketline.LoginPage</managed-bean-class>
+        <managed-bean-name>MasterFragment</managed-bean-name>
+        <managed-bean-class>ticketline.MasterFragment</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>MainPage</managed-bean-name>
+        <managed-bean-class>ticketline.MainPage</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
 </faces-config>
