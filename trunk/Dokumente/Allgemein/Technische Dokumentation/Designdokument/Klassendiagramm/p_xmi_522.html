@@ -1,0 +1,9239 @@
+<html>
+<link href="styles.css" rel="stylesheet" type="text/css">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-16">
+</head>
+<body class="body">
+<table width="100%">
+<tr>
+<td><span class="p_name">Package: ticketline.db</span></td>
+<td class="t_cell"><a href="p_xmi_522_diagram.html">Diagram</a></td>
+<td class="t_cell"><a href="overview.html">Back to overview</a></td>
+</tr>
+</table>
+<p></p><a name="xmi_11"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Artikel</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">artikelnr</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kurzbezeichnung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">beschreibung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">preis</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kategorie</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">abbildung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">veranstaltung</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bestellungen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Artikel</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kurzbezeichnung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">beschreibung</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preis</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">abbildung</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a></td>
+<td class="t_cell">veranstaltung</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">bestellungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Artikel</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Artikel</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kurzbezeichnung</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preis</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a></td>
+<td class="t_cell">veranstaltung</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">bestellungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getArtikelnr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setArtikelnr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">artikelnr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKurzbezeichnung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKurzbezeichnung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kurzbezeichnung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBeschreibung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBeschreibung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">beschreibung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPreis</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPreis</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preis</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKategorie</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKategorie</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAbbildung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAbbildung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">abbildung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getVeranstaltung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setVeranstaltung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a></td>
+<td class="t_cell">veranstaltung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBestellungen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBestellungen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">bestellungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_47"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Auffuehrung</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_49">AuffuehrungKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">storniert</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">preis</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">hinweis</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">saal</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_25">Saal</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">veranstaltung</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">belegungen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Auffuehrung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_49">AuffuehrungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">storniert</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">preis</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">hinweis</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_25">Saal</a></td>
+<td class="t_cell">saal</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a></td>
+<td class="t_cell">veranstaltung</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">belegungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Auffuehrung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Auffuehrung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_49">AuffuehrungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">storniert</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">preis</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a></td>
+<td class="t_cell">veranstaltung</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">belegungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_49">AuffuehrungKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_49">AuffuehrungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isStorniert</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setStorniert</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">storniert</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPreis</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPreis</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">preis</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getHinweis</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setHinweis</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">hinweis</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSaal</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_25">Saal</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSaal</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_25">Saal</a></td>
+<td class="t_cell">saal</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getVeranstaltung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setVeranstaltung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a></td>
+<td class="t_cell">veranstaltung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBelegungen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBelegungen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">belegungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_49"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>AuffuehrungKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">datumuhrzeit</td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">saalbez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ortbez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ort</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">AuffuehrungKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">datumuhrzeit</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">saalbez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">AuffuehrungKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getDatumuhrzeit</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setDatumuhrzeit</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">datumuhrzeit</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSaalbez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSaalbez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">saalbez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrtbez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrtbez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_43"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Belegung</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_45">BelegungKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">belegung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">anzfrei</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">anzres</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">anzverk</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">reihe</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_17">Reihe</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">auffuehrung</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_47">Auffuehrung</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">transaktionen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Belegung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_45">BelegungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">belegung</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzfrei</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzres</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzverk</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_17">Reihe</a></td>
+<td class="t_cell">reihe</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_47">Auffuehrung</a></td>
+<td class="t_cell">auffuehrung</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Belegung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Belegung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_45">BelegungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzfrei</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzres</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzverk</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_45">BelegungKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_45">BelegungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBelegung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBelegung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">belegung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAnzfrei</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAnzfrei</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzfrei</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAnzres</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAnzres</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzres</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAnzverk</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAnzverk</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzverk</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getReihe</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_17">Reihe</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setReihe</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_17">Reihe</a></td>
+<td class="t_cell">reihe</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAuffuehrung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_47">Auffuehrung</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAuffuehrung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_47">Auffuehrung</a></td>
+<td class="t_cell">auffuehrung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTransaktionen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTransaktionen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_45"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>BelegungKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">reihebez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kategoriebez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">saalbez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ortbez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ort</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">datumuhrzeit</td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">BelegungKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">reihebez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategoriebez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">saalbez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">datumuhrzeit</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">BelegungKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getReihebez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setReihebez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">reihebez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKategoriebez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKategoriebez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategoriebez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSaalbez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSaalbez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">saalbez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrtbez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrtbez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getDatumuhrzeit</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setDatumuhrzeit</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">datumuhrzeit</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_51"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Bestellung</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_53">BestellungKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">menge</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">zahlart</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">artikel</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_11">Artikel</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kunde</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_37">Kunde</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Bestellung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_53">BestellungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">menge</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">zahlart</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_11">Artikel</a></td>
+<td class="t_cell">artikel</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_37">Kunde</a></td>
+<td class="t_cell">kunde</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Bestellung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Bestellung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_53">BestellungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">menge</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">zahlart</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_53">BestellungKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_53">BestellungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getMenge</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setMenge</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">menge</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getZahlart</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setZahlart</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">zahlart</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getArtikel</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_11">Artikel</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setArtikel</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_11">Artikel</a></td>
+<td class="t_cell">artikel</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKunde</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_37">Kunde</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKunde</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_37">Kunde</a></td>
+<td class="t_cell">kunde</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_53"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>BestellungKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">datumuhrzeit</td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">artikelnr</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kartennr</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">BestellungKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">datumuhrzeit</td>
+</tr>
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">artikelnr</td>
+</tr>
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">kartennr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">BestellungKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getDatumuhrzeit</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setDatumuhrzeit</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">datumuhrzeit</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getArtikelnr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setArtikelnr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">artikelnr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKartennr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKartennr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">kartennr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_55"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Engagement</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_57">EngagementKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">funktion</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">gage</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kuenstler</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_59">Kuenstler</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">veranstaltung</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Engagement</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_57">EngagementKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">funktion</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">gage</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_59">Kuenstler</a></td>
+<td class="t_cell">kuenstler</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a></td>
+<td class="t_cell">veranstaltung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Engagement</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Engagement</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_57">EngagementKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_57">EngagementKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_57">EngagementKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getFunktion</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setFunktion</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">funktion</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getGage</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setGage</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">gage</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKuenstler</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_59">Kuenstler</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKuenstler</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_59">Kuenstler</a></td>
+<td class="t_cell">kuenstler</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getVeranstaltung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setVeranstaltung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_13">Veranstaltung</a></td>
+<td class="t_cell">veranstaltung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_57"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>EngagementKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kuenstlernr</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bezeichnung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kategorie</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">EngagementKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">kuenstlernr</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">EngagementKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKuenstlernr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKuenstlernr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">kuenstlernr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBezeichnung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBezeichnung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKategorie</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKategorie</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_566"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Entity</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>
+
+    Subclasses: 
+
+    <a href="p_xmi_522.html#xmi_11">Artikel</a>,  <a href="p_xmi_522.html#xmi_13">Veranstaltung</a>,  <a href="p_xmi_522.html#xmi_15">VeranstaltungKey</a>,  <a href="p_xmi_522.html#xmi_17">Reihe</a>,  <a href="p_xmi_522.html#xmi_19">ReiheKey</a>,  <a href="p_xmi_522.html#xmi_21">Kategorie</a>,  <a href="p_xmi_522.html#xmi_23">KategorieKey</a>,  <a href="p_xmi_522.html#xmi_25">Saal</a>,  <a href="p_xmi_522.html#xmi_27">SaalKey</a>,  <a href="p_xmi_522.html#xmi_29">Ort</a>,  <a href="p_xmi_522.html#xmi_31">OrtKey</a>,  <a href="p_xmi_522.html#xmi_33">Transaktion</a>,  <a href="p_xmi_522.html#xmi_35">TransaktionKey</a>,  <a href="p_xmi_522.html#xmi_39">Ticketcard</a>,  <a href="p_xmi_522.html#xmi_43">Belegung</a>,  <a href="p_xmi_522.html#xmi_45">BelegungKey</a>,  <a href="p_xmi_522.html#xmi_47">Auffuehrung</a>,  <a href="p_xmi_522.html#xmi_49">AuffuehrungKey</a>,  <a href="p_xmi_522.html#xmi_51">Bestellung</a>,  <a href="p_xmi_522.html#xmi_53">BestellungKey</a>,  <a href="p_xmi_522.html#xmi_55">Engagement</a>,  <a href="p_xmi_522.html#xmi_57">EngagementKey</a>,  <a href="p_xmi_522.html#xmi_59">Kuenstler</a><br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">saved</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">onSave</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">onLoad</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isSaved</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_21"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Kategorie</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_23">KategorieKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">preismin</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">preisstd</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">preismax</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">saal</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_25">Saal</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">reihen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Kategorie</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_23">KategorieKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preismin</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preisstd</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preismax</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_25">Saal</a></td>
+<td class="t_cell">saal</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">reihen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Kategorie</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Kategorie</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_23">KategorieKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preismin</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preisstd</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preismax</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">reihen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_23">KategorieKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_23">KategorieKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPreismin</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPreismin</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preismin</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPreisstd</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPreisstd</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preisstd</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPreismax</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPreismax</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preismax</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSaal</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_25">Saal</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSaal</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_25">Saal</a></td>
+<td class="t_cell">saal</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getReihen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setReihen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">reihen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_23"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>KategorieKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bezeichnung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">saalbez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ortbez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ort</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">KategorieKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">saalbez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">KategorieKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBezeichnung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBezeichnung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSaalbez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSaalbez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">saalbez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrtbez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrtbez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_59"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Kuenstler</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kuenstlernr</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">nname</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">vname</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">titel</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">geschlecht</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">geburtsdatum</td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">biographie</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">engagements</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Kuenstler</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">nname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">vname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">titel</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">geschlecht</td>
+</tr>
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">geburtsdatum</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">biographie</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">engagements</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Kuenstler</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Kuenstler</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">nname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">vname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">geschlecht</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">engagements</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKuenstlernr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKuenstlernr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">kuenstlernr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getNname</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setNname</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">nname</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getVname</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setVname</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">vname</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTitel</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTitel</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">titel</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getGeschlecht</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setGeschlecht</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">geschlecht</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getGeburtsdatum</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setGeburtsdatum</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">geburtsdatum</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBiographie</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBiographie</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">biographie</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getEngagements</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setEngagements</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">engagements</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_37"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Kunde</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_39">Ticketcard</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">blz</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kontonr</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ermaechtigung</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kreditkartennr</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kkgueltigbis</td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kontostand</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kontolimit</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ermaessigung</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">tkgueltigbis</td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">gesperrt</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">onlinepwd</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">gruppe</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">vorlieben</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bestellungen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">transaktionen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Kunde</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">nname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">vname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">titel</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">geschlecht</td>
+</tr>
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">geburtsdatum</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">strasse</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">plz</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">telnr</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">email</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ortverk</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">blz</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kontonr</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">ermaechtigung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kreditkartennr</td>
+</tr>
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">kkgueltigbis</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">kontostand</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">kontolimit</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">ermaessigung</td>
+</tr>
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">tkgueltigbis</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">gesperrt</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">onlinepwd</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">gruppe</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">vorlieben</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">bestellungen</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Kunde</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Kunde</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ortverk</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">ermaechtigung</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">ermaessigung</td>
+</tr>
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">tkgueltigbis</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">gesperrt</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">gruppe</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">bestellungen</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBlz</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBlz</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">blz</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKontonr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKontonr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kontonr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isErmaechtigung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setErmaechtigung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">ermaechtigung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKreditkartennr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKreditkartennr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kreditkartennr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKkgueltigbis</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKkgueltigbis</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">kkgueltigbis</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKontostand</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKontostand</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">kontostand</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKontolimit</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKontolimit</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">kontolimit</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getErmaessigung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setErmaessigung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">ermaessigung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTkgueltigbis</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTkgueltigbis</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">tkgueltigbis</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isGesperrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setGesperrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">gesperrt</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOnlinepwd</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOnlinepwd</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">onlinepwd</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getGruppe</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setGruppe</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">gruppe</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getVorlieben</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setVorlieben</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">vorlieben</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBestellungen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBestellungen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">bestellungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTransaktionen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTransaktionen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_41"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Mitarbeiter</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_39">Ticketcard</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">blz</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kontonr</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">pin</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">berechtigung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">passwort</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">transaktionen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">username</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Mitarbeiter</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">nname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">vname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">titel</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">geschlecht</td>
+</tr>
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">geburtsdatum</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">strasse</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">plz</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">telnr</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">email</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ortverk</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">blz</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kontonr</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">pin</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">berechtigung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">passwort</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">username</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Mitarbeiter</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Mitarbeiter</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ortverk</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">blz</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kontonr</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">pin</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">berechtigung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">passwort</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">username</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getUsername</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setUsername</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">username</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBlz</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBlz</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">blz</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKontonr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKontonr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kontonr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPin</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPin</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">pin</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBerechtigung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBerechtigung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">berechtigung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPasswort</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPasswort</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">passwort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTransaktionen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTransaktionen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_29"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Ort</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_31">OrtKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kategorie</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">strasse</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">plz</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bundesland</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">telnr</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">besitzer</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">oeffnungszeiten</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kiosk</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">verkaufsstelle</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">auffuehrungsort</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ticketcards</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">transaktionen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">saele</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">news</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Ort</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_31">OrtKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">strasse</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">plz</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bundesland</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">telnr</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">besitzer</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">oeffnungszeiten</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">kiosk</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">verkaufsstelle</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">auffuehrungsort</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">ticketcards</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">saele</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">news</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Ort</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Ort</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_31">OrtKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">strasse</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">plz</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bundesland</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">kiosk</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">verkaufsstelle</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">auffuehrungsort</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">ticketcards</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">saele</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">news</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_31">OrtKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_31">OrtKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKategorie</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKategorie</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getStrasse</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setStrasse</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">strasse</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPlz</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPlz</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">plz</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBundesland</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBundesland</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bundesland</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTelnr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTelnr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">telnr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBesitzer</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBesitzer</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">besitzer</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOeffnungszeiten</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOeffnungszeiten</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">oeffnungszeiten</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isKiosk</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKiosk</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">kiosk</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isVerkaufsstelle</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setVerkaufsstelle</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">verkaufsstelle</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isAuffuehrungsort</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAuffuehrungsort</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">auffuehrungsort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTicketcards</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTicketcards</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">ticketcards</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTransaktionen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTransaktionen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">transaktionen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSaele</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSaele</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">saele</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getNews</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setNews</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">news</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_31"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>OrtKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bezeichnung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ort</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">OrtKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">OrtKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBezeichnung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBezeichnung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_17"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Reihe</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_19">ReiheKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">startplatz</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">anzplaetze</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">sitzplatz</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kategorie</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_21">Kategorie</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">belegungen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Reihe</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_19">ReiheKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">startplatz</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzplaetze</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">sitzplatz</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_21">Kategorie</a></td>
+<td class="t_cell">kategorie</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">belegungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Reihe</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Reihe</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_19">ReiheKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">startplatz</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzplaetze</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">sitzplatz</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">belegungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_19">ReiheKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_19">ReiheKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getStartplatz</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setStartplatz</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">startplatz</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAnzplaetze</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAnzplaetze</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzplaetze</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isSitzplatz</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSitzplatz</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">sitzplatz</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKategorie</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_21">Kategorie</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKategorie</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_21">Kategorie</a></td>
+<td class="t_cell">kategorie</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBelegungen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBelegungen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">belegungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_19"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>ReiheKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bezeichnung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kategoriebez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">saalbez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ortbez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ort</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">ReiheKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategoriebez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">saalbez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">ReiheKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBezeichnung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBezeichnung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKategoriebez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKategoriebez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategoriebez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSaalbez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSaalbez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">saalbez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrtbez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrtbez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_25"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Saal</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_27">SaalKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">typ</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">anzplaetze</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kostenprotag</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ort</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">auffuehrungen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kategorien</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Saal</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_27">SaalKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzplaetze</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">kostenprotag</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ort</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">auffuehrungen</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">kategorien</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Saal</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Saal</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_27">SaalKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzplaetze</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">auffuehrungen</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">kategorien</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_27">SaalKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_27">SaalKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTyp</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTyp</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAnzplaetze</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAnzplaetze</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzplaetze</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKostenprotag</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKostenprotag</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">kostenprotag</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAuffuehrungen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAuffuehrungen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">auffuehrungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKategorien</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKategorien</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">kategorien</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_27"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>SaalKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bezeichnung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ortbez</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ort</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">SaalKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">SaalKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBezeichnung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBezeichnung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrtbez</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrtbez</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ortbez</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_39"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Ticketcard</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br>
+
+    Subclasses: 
+
+    <a href="p_xmi_522.html#xmi_37">Kunde</a>,  <a href="p_xmi_522.html#xmi_41">Mitarbeiter</a><br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kartennr</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">typ</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">nname</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">vname</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">titel</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">geschlecht</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">geburtsdatum</td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">strasse</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">plz</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ort</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">telnr</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">email</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ortverk</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Ticketcard</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">nname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">vname</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">titel</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">geschlecht</td>
+</tr>
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">geburtsdatum</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">strasse</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">plz</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">telnr</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">email</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ortverk</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Ticketcard</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Ticketcard</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ortverk</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKartennr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKartennr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">kartennr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTyp</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTyp</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">typ</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getNname</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setNname</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">nname</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getVname</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setVname</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">vname</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTitel</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTitel</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">titel</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getGeschlecht</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setGeschlecht</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">geschlecht</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getGeburtsdatum</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setGeburtsdatum</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">geburtsdatum</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getStrasse</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setStrasse</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">strasse</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPlz</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPlz</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">plz</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getTelnr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setTelnr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">telnr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getEmail</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setEmail</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">email</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrtverk</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrtverk</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ortverk</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_33"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Transaktion</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_35">TransaktionKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">verkauft</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">storniert</td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">resnr</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">preis</td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">startplatz</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">anzplaetze</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">zahlart</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kunde</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_37">Kunde</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">mitarbeiter</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_41">Mitarbeiter</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">belegung</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_43">Belegung</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">ort</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Transaktion</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_35">TransaktionKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">verkauft</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">storniert</td>
+</tr>
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">resnr</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preis</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">startplatz</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzplaetze</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">zahlart</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_37">Kunde</a></td>
+<td class="t_cell">kunde</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_41">Mitarbeiter</a></td>
+<td class="t_cell">mitarbeiter</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_43">Belegung</a></td>
+<td class="t_cell">belegung</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Transaktion</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Transaktion</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_35">TransaktionKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">verkauft</td>
+</tr>
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">storniert</td>
+</tr>
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preis</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">startplatz</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzplaetze</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_43">Belegung</a></td>
+<td class="t_cell">belegung</td>
+</tr>
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_35">TransaktionKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_35">TransaktionKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isVerkauft</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setVerkauft</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">verkauft</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">isStorniert</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setStorniert</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">boolean</td>
+<td class="t_cell">storniert</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getResnr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setResnr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">resnr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getPreis</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">BigDecimal
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setPreis</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">BigDecimal</td>
+<td class="t_cell">preis</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getStartplatz</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setStartplatz</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">startplatz</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAnzplaetze</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAnzplaetze</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">anzplaetze</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getZahlart</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setZahlart</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">zahlart</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKunde</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_37">Kunde</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKunde</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_37">Kunde</a></td>
+<td class="t_cell">kunde</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getMitarbeiter</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_41">Mitarbeiter</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setMitarbeiter</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_41">Mitarbeiter</a></td>
+<td class="t_cell">mitarbeiter</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBelegung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_43">Belegung</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBelegung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_43">Belegung</a></td>
+<td class="t_cell">belegung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getOrt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setOrt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_29">Ort</a></td>
+<td class="t_cell">ort</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_35"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>TransaktionKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">datumuhrzeit</td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kundennr</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">mitarbeiternr</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">TransaktionKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">datumuhrzeit</td>
+</tr>
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">kundennr</td>
+</tr>
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">mitarbeiternr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">TransaktionKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getDatumuhrzeit</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Date
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setDatumuhrzeit</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Date</td>
+<td class="t_cell">datumuhrzeit</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKundennr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKundennr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">kundennr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getMitarbeiternr</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setMitarbeiternr</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">mitarbeiternr</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_13"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>Veranstaltung</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">comp_id</td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_15">VeranstaltungKey</a>
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">subkategorie</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">jahrerstellung</td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">spracheton</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">spracheut</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">dauer</td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">freigabe</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">abbildung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">inhalt</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kritik</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bewertung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">hinweis</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">artikel</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">auffuehrungen</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">engagements</td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">Veranstaltung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_15">VeranstaltungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">subkategorie</td>
+</tr>
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">jahrerstellung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">spracheton</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">spracheut</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">dauer</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">freigabe</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">abbildung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">inhalt</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kritik</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bewertung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">hinweis</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">artikel</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">auffuehrungen</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">engagements</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Veranstaltung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">Veranstaltung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_15">VeranstaltungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">dauer</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">inhalt</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">artikel</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">auffuehrungen</td>
+</tr>
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">engagements</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getComp_id</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_15">VeranstaltungKey</a>
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setComp_id</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell"><a href="p_xmi_522.html#xmi_15">VeranstaltungKey</a></td>
+<td class="t_cell">comp_id</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSubkategorie</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSubkategorie</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">subkategorie</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getJahrerstellung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Integer
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setJahrerstellung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Integer</td>
+<td class="t_cell">jahrerstellung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSpracheton</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSpracheton</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">spracheton</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getSpracheut</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setSpracheut</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">spracheut</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getDauer</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setDauer</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">int</td>
+<td class="t_cell">dauer</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getFreigabe</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setFreigabe</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">freigabe</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAbbildung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAbbildung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">abbildung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getInhalt</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setInhalt</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">inhalt</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKritik</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKritik</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kritik</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBewertung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBewertung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bewertung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getHinweis</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setHinweis</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">hinweis</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getArtikel</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setArtikel</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">artikel</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getAuffuehrungen</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setAuffuehrungen</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">auffuehrungen</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getEngagements</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">Set
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setEngagements</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Set</td>
+<td class="t_cell">engagements</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br><a name="xmi_15"></a><table width="500" cellspacing="1" cellpadding="2" border="0">
+<tr>
+<td class="ClassTableHeader" width="200"><b>VeranstaltungKey</b></td>
+<td class="ClassTableHeader" width="150">
+        class
+      </td>
+</tr>
+</table>    
+
+    Inherits from: 
+
+    <a href="p_xmi_522.html#xmi_566">Entity</a><br>
+
+    Implements: 
+
+    Serializable<br><b>Attributes</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Type</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">serialVersionUID</td>
+<td class="t_cell">long
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">bezeichnung</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+<tr>
+<td class="t_cell">kategorie</td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">private</td>
+</tr>
+</table><b>Operations</b><table width="100%" cellpadding="3" cellspacing="0" border="1">
+<tr>
+<td class="tableheader">Name</td>
+<td class="tableheader">Parameters</td>
+<td class="tableheader">Returns</td>
+<td class="tableheader">Visibility</td>
+</tr>
+<tr>
+<td class="t_cell">VeranstaltungKey</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">VeranstaltungKey</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getBezeichnung</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setBezeichnung</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">bezeichnung</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">getKategorie</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">setKategorie</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">String</td>
+<td class="t_cell">kategorie</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">toString</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">String
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">equals</td>
+<td class="t_cell">
+<table cellpadding="2" cellspacing="1" border="0">
+<tr>
+<td class="t_cell">Object</td>
+<td class="t_cell">other</td>
+</tr>
+</table>
+       
+    </td>
+<td class="t_cell">boolean
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+<tr>
+<td class="t_cell">hashCode</td>
+<td class="t_cell">
+       
+    </td>
+<td class="t_cell">int
+       
+    </td>
+<td class="t_cell">public</td>
+</tr>
+</table><br><br></body>
+</html>
