@@ -16,7 +16,7 @@ import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.TextField;
 import javax.faces.FacesException;
 import ticketline.db.Kunde;
-import ticketline.helper.LoginHelper;
+import ticketline.helper.SystemHelper;
 
 /**
  * <p>Fragment bean that corresponds to a similarly named JSP page
@@ -238,7 +238,7 @@ public class MasterFragment extends AbstractFragmentBean {
         try {
             knr = Integer.parseInt(this.textFieldUsername.getText().toString());
             Kunde k;
-            if((k = LoginHelper.checkLogin(knr, this.passwordField.getPassword().toString())) != null)
+            if((k = SystemHelper.checkLogin(knr, this.passwordField.getPassword().toString())) != null)
             {
                 this.getSessionBean1().setLogin(k);
                 
