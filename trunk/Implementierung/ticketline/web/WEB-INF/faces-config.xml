@@ -41,4 +41,24 @@
         <managed-bean-class>ticketline.ManageAccount</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>Products</managed-bean-name>
+        <managed-bean-class>ticketline.Products</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>Top10_1</managed-bean-name>
+        <managed-bean-class>ticketline.Top10_1</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>Products_2</managed-bean-name>
+        <managed-bean-class>ticketline.Products_2</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>Kassa</managed-bean-name>
+        <managed-bean-class>ticketline.Kassa</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

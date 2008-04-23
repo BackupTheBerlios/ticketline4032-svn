@@ -20,8 +20,10 @@
                         <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
                             <webuijsf:staticText binding="#{MainPage.id_News}" id="id_News"
                                 style="font-family: 'Arial','Helvetica',sans-serif; font-size: 24px; height: 45px; left: 24px; top: 24px; position: absolute; width: 69px" text="News"/>
-                            <div style="height: 400px; left: 24px; top: 72px; position: absolute; width: 600px">
-                                <webuijsf:table augmentTitle="false" binding="#{MainPage.table1}" id="table1" width="599">
+                            <div
+                                    style="height: 400px; left: 24px; top: 72px; position: absolute; width: 600px">
+                                <webuijsf:table
+                                    augmentTitle="false" binding="#{MainPage.table1}" id="table1" width="599">
                                     <webuijsf:tableRowGroup binding="#{MainPage.tableRowGroup1}" id="tableRowGroup1" rows="10"
                                         sourceData="#{MainPage.defaultTableDataProvider}" sourceVar="currentRow">
                                         <webuijsf:tableColumn binding="#{MainPage.tableColumn1}" headerText="Datum" id="tableColumn1" sort="column1">
@@ -35,7 +37,7 @@
                             </div>
                         </div>
                         <webuijsf:staticText binding="#{MainPage.id_News1}" id="id_News1"
-                            style="font-family: 'Arial','Helvetica',sans-serif; font-size: 12px; height: 22px; left: 216px; top: 408px; position: absolute; width: 502px" text="Hier könnten ihre News stehen ..."/>
+                            style="font-family: 'Arial','Helvetica',sans-serif; font-size: 12px; height: 118px; left: 216px; top: 408px; position: absolute; width: 502px" text="Hier könnten ihre News stehen ... und hier und hier und hier und hier und hier und hier und hier und hier und hier und hier und hier und hier und hier und hier und hier"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

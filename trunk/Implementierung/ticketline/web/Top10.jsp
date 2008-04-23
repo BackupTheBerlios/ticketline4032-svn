@@ -26,11 +26,11 @@
                                         <webuijsf:staticText binding="#{Top10.staticText1}" id="staticText1" text="#{currentRow.value['column1']}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{Top10.tableColumn2}" headerText="Name der Veranstaltung / Kategorie" id="tableColumn2"
-                                        sort="column2" width="477">
+                                        sort="column2" width="515">
                                         <webuijsf:staticText binding="#{Top10.staticText2}" id="staticText2" text="#{currentRow.value['column2']}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{Top10.tableColumn3}" headerText="Tickets" id="tableColumn3" sort="column3"
-                                            width="92">t
+                                            width="92">
                                         <webuijsf:staticText binding="#{Top10.staticText3}"
                                             id="staticText3" text="#{currentRow.value['column3']}"/>
                                     </webuijsf:tableColumn>
