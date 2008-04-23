@@ -15,6 +15,7 @@ import com.sun.webui.jsf.component.PasswordField;
 import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.TextField;
 import javax.faces.FacesException;
+import javax.faces.event.ValueChangeEvent;
 import ticketline.db.Kunde;
 import ticketline.helper.SystemHelper;
 
@@ -269,6 +270,9 @@ public class MasterFragment extends AbstractFragmentBean {
         this.getSessionBean1().setLogin(null);
         
         return null;
+    }
+
+    public void textFieldUsername_processValueChange(ValueChangeEvent event) {
     }
 
 }

@@ -31,4 +31,14 @@
         <managed-bean-class>ticketline.MainPage</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>Top10</managed-bean-name>
+        <managed-bean-class>ticketline.Top10</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>ManageAccount</managed-bean-name>
+        <managed-bean-class>ticketline.ManageAccount</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>

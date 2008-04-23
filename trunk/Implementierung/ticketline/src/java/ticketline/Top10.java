@@ -1,12 +1,11 @@
 /*
- * MainPage.java
+ * Top10.java
  *
- * Created on Apr 20, 2008, 6:08:44 PM
+ * Created on 23.04.2008, 10:17:07
  */
  
 package ticketline;
 
-import com.sun.rave.faces.data.DefaultTableDataModel;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
 import com.sun.webui.jsf.component.Form;
@@ -20,9 +19,6 @@ import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import javax.faces.FacesException;
-import javax.faces.component.UIColumn;
-import javax.faces.component.html.HtmlDataTable;
-import javax.faces.component.html.HtmlOutputText;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -31,9 +27,9 @@ import javax.faces.component.html.HtmlOutputText;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @author Michael Morak
+ * @author Dominik
  */
-public class MainPage extends AbstractPageBean {
+public class Top10 extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -103,96 +99,6 @@ public class MainPage extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
-    private StaticText id_News = new StaticText();
-
-    public StaticText getId_News() {
-        return id_News;
-    }
-
-    public void setId_News(StaticText st) {
-        this.id_News = st;
-    }
-    private HtmlDataTable dataTable1 = new HtmlDataTable();
-
-    public HtmlDataTable getDataTable1() {
-        return dataTable1;
-    }
-
-    public void setDataTable1(HtmlDataTable hdt) {
-        this.dataTable1 = hdt;
-    }
-    private DefaultTableDataModel dataTable1Model = new DefaultTableDataModel();
-
-    public DefaultTableDataModel getDataTable1Model() {
-        return dataTable1Model;
-    }
-
-    public void setDataTable1Model(DefaultTableDataModel dtdm) {
-        this.dataTable1Model = dtdm;
-    }
-    private UIColumn column2 = new UIColumn();
-
-    public UIColumn getColumn2() {
-        return column2;
-    }
-
-    public void setColumn2(UIColumn uic) {
-        this.column2 = uic;
-    }
-    private HtmlOutputText outputText3 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText3() {
-        return outputText3;
-    }
-
-    public void setOutputText3(HtmlOutputText hot) {
-        this.outputText3 = hot;
-    }
-    private HtmlOutputText outputText4 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText4() {
-        return outputText4;
-    }
-
-    public void setOutputText4(HtmlOutputText hot) {
-        this.outputText4 = hot;
-    }
-    private UIColumn column3 = new UIColumn();
-
-    public UIColumn getColumn3() {
-        return column3;
-    }
-
-    public void setColumn3(UIColumn uic) {
-        this.column3 = uic;
-    }
-    private HtmlOutputText outputText5 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText5() {
-        return outputText5;
-    }
-
-    public void setOutputText5(HtmlOutputText hot) {
-        this.outputText5 = hot;
-    }
-    private HtmlOutputText outputText6 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText6() {
-        return outputText6;
-    }
-
-    public void setOutputText6(HtmlOutputText hot) {
-        this.outputText6 = hot;
-    }
-    private StaticText id_News1 = new StaticText();
-
-    public StaticText getId_News1() {
-        return id_News1;
-    }
-
-    public void setId_News1(StaticText st) {
-        this.id_News1 = st;
-    }
     private Table table1 = new Table();
 
     public Table getTable1() {
@@ -256,13 +162,58 @@ public class MainPage extends AbstractPageBean {
     public void setStaticText2(StaticText st) {
         this.staticText2 = st;
     }
+    private TableColumn tableColumn3 = new TableColumn();
+
+    public TableColumn getTableColumn3() {
+        return tableColumn3;
+    }
+
+    public void setTableColumn3(TableColumn tc) {
+        this.tableColumn3 = tc;
+    }
+    private StaticText staticText3 = new StaticText();
+
+    public StaticText getStaticText3() {
+        return staticText3;
+    }
+
+    public void setStaticText3(StaticText st) {
+        this.staticText3 = st;
+    }
+    private StaticText id_News1 = new StaticText();
+
+    public StaticText getId_News1() {
+        return id_News1;
+    }
+
+    public void setId_News1(StaticText st) {
+        this.id_News1 = st;
+    }
+    private StaticText staticText4 = new StaticText();
+
+    public StaticText getStaticText4() {
+        return staticText4;
+    }
+
+    public void setStaticText4(StaticText st) {
+        this.staticText4 = st;
+    }
+    private StaticText staticText5 = new StaticText();
+
+    public StaticText getStaticText5() {
+        return staticText5;
+    }
+
+    public void setStaticText5(StaticText st) {
+        this.staticText5 = st;
+    }
 
     // </editor-fold>
 
     /**
      * <p>Construct a new Page bean instance.</p>
      */
-    public MainPage() {
+    public Top10() {
     }
 
     /**
@@ -291,7 +242,7 @@ public class MainPage extends AbstractPageBean {
         try {
             _init();
         } catch (Exception e) {
-            log("MainPage Initialization Failure", e);
+            log("Top10 Initialization Failure", e);
             throw e instanceof FacesException ? (FacesException) e: new FacesException(e);
         }
         
@@ -341,8 +292,8 @@ public class MainPage extends AbstractPageBean {
      *
      * @return reference to the scoped data bean
      */
-    protected SessionBean1 getSessionBean1() {
-        return (SessionBean1) getBean("SessionBean1");
+    protected RequestBean1 getRequestBean1() {
+        return (RequestBean1) getBean("RequestBean1");
     }
 
     /**
@@ -350,8 +301,8 @@ public class MainPage extends AbstractPageBean {
      *
      * @return reference to the scoped data bean
      */
-    protected RequestBean1 getRequestBean1() {
-        return (RequestBean1) getBean("RequestBean1");
+    protected SessionBean1 getSessionBean1() {
+        return (SessionBean1) getBean("SessionBean1");
     }
 
     /**

@@ -1,28 +1,29 @@
 /*
- * MainPage.java
+ * LoginPage.java
  *
- * Created on Apr 20, 2008, 6:08:44 PM
+ * Created on Apr 14, 2008, 11:23:51 PM
  */
  
 package ticketline;
 
-import com.sun.rave.faces.data.DefaultTableDataModel;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
+import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
+import com.sun.webui.jsf.component.Listbox;
 import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.StaticText;
-import com.sun.webui.jsf.component.Table;
-import com.sun.webui.jsf.component.TableColumn;
-import com.sun.webui.jsf.component.TableRowGroup;
-import com.sun.webui.jsf.model.DefaultTableDataProvider;
+import com.sun.webui.jsf.component.TextField;
+import com.sun.webui.jsf.model.DefaultOptionsList;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.FacesException;
-import javax.faces.component.UIColumn;
-import javax.faces.component.html.HtmlDataTable;
-import javax.faces.component.html.HtmlOutputText;
+import javax.faces.event.ValueChangeEvent;
+import ticketline.db.Kunde;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -31,9 +32,9 @@ import javax.faces.component.html.HtmlOutputText;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @author Michael Morak
+ * @author RedFalcon
  */
-public class MainPage extends AbstractPageBean {
+public class LoginPage extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -103,131 +104,23 @@ public class MainPage extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
-    private StaticText id_News = new StaticText();
+    private Button button1 = new Button();
 
-    public StaticText getId_News() {
-        return id_News;
+    public Button getButton1() {
+        return button1;
     }
 
-    public void setId_News(StaticText st) {
-        this.id_News = st;
+    public void setButton1(Button b) {
+        this.button1 = b;
     }
-    private HtmlDataTable dataTable1 = new HtmlDataTable();
+    private TextField textField1 = new TextField();
 
-    public HtmlDataTable getDataTable1() {
-        return dataTable1;
-    }
-
-    public void setDataTable1(HtmlDataTable hdt) {
-        this.dataTable1 = hdt;
-    }
-    private DefaultTableDataModel dataTable1Model = new DefaultTableDataModel();
-
-    public DefaultTableDataModel getDataTable1Model() {
-        return dataTable1Model;
+    public TextField getTextField1() {
+        return textField1;
     }
 
-    public void setDataTable1Model(DefaultTableDataModel dtdm) {
-        this.dataTable1Model = dtdm;
-    }
-    private UIColumn column2 = new UIColumn();
-
-    public UIColumn getColumn2() {
-        return column2;
-    }
-
-    public void setColumn2(UIColumn uic) {
-        this.column2 = uic;
-    }
-    private HtmlOutputText outputText3 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText3() {
-        return outputText3;
-    }
-
-    public void setOutputText3(HtmlOutputText hot) {
-        this.outputText3 = hot;
-    }
-    private HtmlOutputText outputText4 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText4() {
-        return outputText4;
-    }
-
-    public void setOutputText4(HtmlOutputText hot) {
-        this.outputText4 = hot;
-    }
-    private UIColumn column3 = new UIColumn();
-
-    public UIColumn getColumn3() {
-        return column3;
-    }
-
-    public void setColumn3(UIColumn uic) {
-        this.column3 = uic;
-    }
-    private HtmlOutputText outputText5 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText5() {
-        return outputText5;
-    }
-
-    public void setOutputText5(HtmlOutputText hot) {
-        this.outputText5 = hot;
-    }
-    private HtmlOutputText outputText6 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText6() {
-        return outputText6;
-    }
-
-    public void setOutputText6(HtmlOutputText hot) {
-        this.outputText6 = hot;
-    }
-    private StaticText id_News1 = new StaticText();
-
-    public StaticText getId_News1() {
-        return id_News1;
-    }
-
-    public void setId_News1(StaticText st) {
-        this.id_News1 = st;
-    }
-    private Table table1 = new Table();
-
-    public Table getTable1() {
-        return table1;
-    }
-
-    public void setTable1(Table t) {
-        this.table1 = t;
-    }
-    private TableRowGroup tableRowGroup1 = new TableRowGroup();
-
-    public TableRowGroup getTableRowGroup1() {
-        return tableRowGroup1;
-    }
-
-    public void setTableRowGroup1(TableRowGroup trg) {
-        this.tableRowGroup1 = trg;
-    }
-    private DefaultTableDataProvider defaultTableDataProvider = new DefaultTableDataProvider();
-
-    public DefaultTableDataProvider getDefaultTableDataProvider() {
-        return defaultTableDataProvider;
-    }
-
-    public void setDefaultTableDataProvider(DefaultTableDataProvider dtdp) {
-        this.defaultTableDataProvider = dtdp;
-    }
-    private TableColumn tableColumn1 = new TableColumn();
-
-    public TableColumn getTableColumn1() {
-        return tableColumn1;
-    }
-
-    public void setTableColumn1(TableColumn tc) {
-        this.tableColumn1 = tc;
+    public void setTextField1(TextField tf) {
+        this.textField1 = tf;
     }
     private StaticText staticText1 = new StaticText();
 
@@ -238,31 +131,13 @@ public class MainPage extends AbstractPageBean {
     public void setStaticText1(StaticText st) {
         this.staticText1 = st;
     }
-    private TableColumn tableColumn2 = new TableColumn();
-
-    public TableColumn getTableColumn2() {
-        return tableColumn2;
-    }
-
-    public void setTableColumn2(TableColumn tc) {
-        this.tableColumn2 = tc;
-    }
-    private StaticText staticText2 = new StaticText();
-
-    public StaticText getStaticText2() {
-        return staticText2;
-    }
-
-    public void setStaticText2(StaticText st) {
-        this.staticText2 = st;
-    }
 
     // </editor-fold>
 
     /**
      * <p>Construct a new Page bean instance.</p>
      */
-    public MainPage() {
+    public LoginPage() {
     }
 
     /**
@@ -291,7 +166,7 @@ public class MainPage extends AbstractPageBean {
         try {
             _init();
         } catch (Exception e) {
-            log("MainPage Initialization Failure", e);
+            log("LoginPage Initialization Failure", e);
             throw e instanceof FacesException ? (FacesException) e: new FacesException(e);
         }
         
@@ -341,15 +216,6 @@ public class MainPage extends AbstractPageBean {
      *
      * @return reference to the scoped data bean
      */
-    protected SessionBean1 getSessionBean1() {
-        return (SessionBean1) getBean("SessionBean1");
-    }
-
-    /**
-     * <p>Return a reference to the scoped data bean.</p>
-     *
-     * @return reference to the scoped data bean
-     */
     protected RequestBean1 getRequestBean1() {
         return (RequestBean1) getBean("RequestBean1");
     }
@@ -359,8 +225,27 @@ public class MainPage extends AbstractPageBean {
      *
      * @return reference to the scoped data bean
      */
+    protected SessionBean1 getSessionBean1() {
+        return (SessionBean1) getBean("SessionBean1");
+    }
+
+    /**
+     * <p>Return a reference to the scoped data bean.</p>
+     *
+     * @return reference to the scoped data bean
+     */
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
+    }
+
+    public String button1_action() {
+        
+        this.textField1.setText("Hello world!");
+        
+        return null;
+    }
+
+    public void textField1_processValueChange(ValueChangeEvent event) {
     }
     
 }
