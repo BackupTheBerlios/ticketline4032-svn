@@ -1,0 +1,76 @@
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Automatic session close at end of transaction: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Automatic session close at end of transaction: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - JDBC batch size: 15
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - JDBC batch size: 15
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - JDBC batch updates for versioned data: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - JDBC batch updates for versioned data: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Scrollable result sets: enabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Scrollable result sets: enabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - JDBC3 getGeneratedKeys(): disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - JDBC3 getGeneratedKeys(): disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Connection release mode: auto
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Connection release mode: auto
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Default batch fetch size: 1
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Default batch fetch size: 1
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Generate SQL with comments: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Generate SQL with comments: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Order SQL updates by primary key: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Order SQL updates by primary key: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+499 [main] INFO org.hibernate.hql.ast.ASTQueryTranslatorFactory  - Using ASTQueryTranslatorFactory
+499 [main] INFO org.hibernate.hql.ast.ASTQueryTranslatorFactory  - Using ASTQueryTranslatorFactory
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Query language substitutions: {}
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Query language substitutions: {}
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - JPA-QL strict compliance: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - JPA-QL strict compliance: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Second-level cache: enabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Second-level cache: enabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Query cache: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Query cache: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Cache provider: org.hibernate.cache.NoCacheProvider
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Cache provider: org.hibernate.cache.NoCacheProvider
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Optimize cache for minimal puts: disabled
+499 [main] INFO org.hibernate.cfg.SettingsFactory  - Optimize cache for minimal puts: disabled
+515 [main] INFO org.hibernate.cfg.SettingsFactory  - Structured second-level cache entries: disabled
+515 [main] INFO org.hibernate.cfg.SettingsFactory  - Structured second-level cache entries: disabled
+515 [main] INFO org.hibernate.cfg.SettingsFactory  - Statistics: disabled
+515 [main] INFO org.hibernate.cfg.SettingsFactory  - Statistics: disabled
+515 [main] INFO org.hibernate.cfg.SettingsFactory  - Deleted entity synthetic identifier rollback: disabled
+515 [main] INFO org.hibernate.cfg.SettingsFactory  - Deleted entity synthetic identifier rollback: disabled
+515 [main] INFO org.hibernate.cfg.SettingsFactory  - Default entity-mode: pojo
+515 [main] INFO org.hibernate.cfg.SettingsFactory  - Default entity-mode: pojo
+530 [main] INFO org.hibernate.impl.SessionFactoryImpl  - building session factory
+530 [main] INFO org.hibernate.impl.SessionFactoryImpl  - building session factory
+780 [main] INFO org.hibernate.impl.SessionFactoryObjectFactory  - Not binding factory to JNDI, no JNDI name configured
+780 [main] INFO org.hibernate.impl.SessionFactoryObjectFactory  - Not binding factory to JNDI, no JNDI name configured
+842 [main] INFO ticketline.helper.SystemHelper  - Customer 1 successfully logged in!
+858 [main] WARN ticketline.helper.SystemHelper  - Customer null failed to log in!
+java.lang.IllegalArgumentException: id to load is required for loading
+	at org.hibernate.event.LoadEvent.<init>(LoadEvent.java:51)
+	at org.hibernate.event.LoadEvent.<init>(LoadEvent.java:33)
+	at org.hibernate.impl.SessionImpl.load(SessionImpl.java:792)
+	at org.hibernate.impl.SessionImpl.load(SessionImpl.java:788)
+	at ticketline.dao.hibernate.KundeDAOHibernate.get(KundeDAOHibernate.java:29)
+	at ticketline.helper.SystemHelper.checkLogin(SystemHelper.java:31)
+	at ticketline.helper.SystemHelperTest.NullInput(SystemHelperTest.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.junit.internal.runners.TestMethodRunner.executeMethodBody(TestMethodRunner.java:99)
+	at org.junit.internal.runners.TestMethodRunner.runUnprotected(TestMethodRunner.java:81)
+	at org.junit.internal.runners.BeforeAndAfterRunner.runProtected(BeforeAndAfterRunner.java:34)
+	at org.junit.internal.runners.TestMethodRunner.runMethod(TestMethodRunner.java:75)
+	at org.junit.internal.runners.TestMethodRunner.run(TestMethodRunner.java:45)
+	at org.junit.internal.runners.TestClassMethodsRunner.invokeTestMethod(TestClassMethodsRunner.java:71)
+	at org.junit.internal.runners.TestClassMethodsRunner.run(TestClassMethodsRunner.java:35)
+	at org.junit.internal.runners.TestClassRunner$1.runUnprotected(TestClassRunner.java:42)
+	at org.junit.internal.runners.BeforeAndAfterRunner.runProtected(BeforeAndAfterRunner.java:34)
+	at org.junit.internal.runners.TestClassRunner.run(TestClassRunner.java:52)
+	at junit.framework.JUnit4TestAdapter.run(JUnit4TestAdapter.java:32)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:421)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:912)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:766)
+873 [main] WARN ticketline.helper.SystemHelper  - Customer 1 failed to log in (wrong password)!
+873 [main] WARN ticketline.helper.SystemHelper  - Customer 61 failed to log in (wrong password)!
