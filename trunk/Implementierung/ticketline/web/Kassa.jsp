@@ -19,9 +19,11 @@
                         </div>
                         <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
                             <webuijsf:staticText binding="#{Kassa.staticText1}" id="staticText1"
-                                style="font-family: 'Arial','Helvetica',sans-serif; font-size: 24px; height: 100px; left: 24px; top: 96px; position: absolute; width: 453px" text="Hier wird ihre Rechnung steten, die wo Sie sich dann natürlich auch ausdrucken können"/>
+                                style="font-family: 'Arial','Helvetica',sans-serif; font-size: 24px; height: 100px; left: 24px; top: 96px; position: absolute; width: 453px" text="Hier wird ihre Rechnung stehen, die wo Sie sich dann natürlich auch ausdrucken können, muss mir aber erst anschauen wie man richtig rechnungen schreibt, wird aber so ca im amazon stil sein ..."/>
                             <webuijsf:button binding="#{Kassa.button1}" id="button1"
                                 style="height: 23px; left: 527px; top: 432px; position: absolute; width: 95px" text="Kaufen"/>
+                            <webuijsf:staticText binding="#{Kassa.staticText2}" id="staticText2"
+                                style="font-family: 'Arial','Helvetica',sans-serif; font-size: 30px; height: 45px; left: 312px; top: 24px; position: absolute; width: 93px" text="Kassa"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>
