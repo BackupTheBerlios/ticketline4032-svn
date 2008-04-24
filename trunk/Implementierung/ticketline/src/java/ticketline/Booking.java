@@ -1,7 +1,7 @@
 /*
- * Kassa.java
+ * Products.java
  *
- * Created on 23.04.2008, 18:57:04
+ * Created on 23.04.2008, 17:58:59
  */
  
 package ticketline;
@@ -15,6 +15,10 @@ import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.StaticText;
+import com.sun.webui.jsf.component.Table;
+import com.sun.webui.jsf.component.TableColumn;
+import com.sun.webui.jsf.component.TableRowGroup;
+import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import javax.faces.FacesException;
 
 /**
@@ -26,7 +30,7 @@ import javax.faces.FacesException;
  *
  * @author Dominik
  */
-public class Kassa extends AbstractPageBean {
+public class Booking extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -105,14 +109,41 @@ public class Kassa extends AbstractPageBean {
     public void setStaticText1(StaticText st) {
         this.staticText1 = st;
     }
-    private Button button1 = new Button();
+    private Table table1 = new Table();
 
-    public Button getButton1() {
-        return button1;
+    public Table getTable1() {
+        return table1;
     }
 
-    public void setButton1(Button b) {
-        this.button1 = b;
+    public void setTable1(Table t) {
+        this.table1 = t;
+    }
+    private TableRowGroup tableRowGroup1 = new TableRowGroup();
+
+    public TableRowGroup getTableRowGroup1() {
+        return tableRowGroup1;
+    }
+
+    public void setTableRowGroup1(TableRowGroup trg) {
+        this.tableRowGroup1 = trg;
+    }
+    private DefaultTableDataProvider defaultTableDataProvider = new DefaultTableDataProvider();
+
+    public DefaultTableDataProvider getDefaultTableDataProvider() {
+        return defaultTableDataProvider;
+    }
+
+    public void setDefaultTableDataProvider(DefaultTableDataProvider dtdp) {
+        this.defaultTableDataProvider = dtdp;
+    }
+    private TableColumn tableColumn1 = new TableColumn();
+
+    public TableColumn getTableColumn1() {
+        return tableColumn1;
+    }
+
+    public void setTableColumn1(TableColumn tc) {
+        this.tableColumn1 = tc;
     }
     private StaticText staticText2 = new StaticText();
 
@@ -123,13 +154,112 @@ public class Kassa extends AbstractPageBean {
     public void setStaticText2(StaticText st) {
         this.staticText2 = st;
     }
+    private TableColumn tableColumn2 = new TableColumn();
+
+    public TableColumn getTableColumn2() {
+        return tableColumn2;
+    }
+
+    public void setTableColumn2(TableColumn tc) {
+        this.tableColumn2 = tc;
+    }
+    private StaticText staticText3 = new StaticText();
+
+    public StaticText getStaticText3() {
+        return staticText3;
+    }
+
+    public void setStaticText3(StaticText st) {
+        this.staticText3 = st;
+    }
+    private TableColumn tableColumn3 = new TableColumn();
+
+    public TableColumn getTableColumn3() {
+        return tableColumn3;
+    }
+
+    public void setTableColumn3(TableColumn tc) {
+        this.tableColumn3 = tc;
+    }
+    private StaticText staticText4 = new StaticText();
+
+    public StaticText getStaticText4() {
+        return staticText4;
+    }
+
+    public void setStaticText4(StaticText st) {
+        this.staticText4 = st;
+    }
+    private Button button1 = new Button();
+
+    public Button getButton1() {
+        return button1;
+    }
+
+    public void setButton1(Button b) {
+        this.button1 = b;
+    }
+    private Button button2 = new Button();
+
+    public Button getButton2() {
+        return button2;
+    }
+
+    public void setButton2(Button b) {
+        this.button2 = b;
+    }
+    private TableColumn tableColumn4 = new TableColumn();
+
+    public TableColumn getTableColumn4() {
+        return tableColumn4;
+    }
+
+    public void setTableColumn4(TableColumn tc) {
+        this.tableColumn4 = tc;
+    }
+    private StaticText staticText6 = new StaticText();
+
+    public StaticText getStaticText6() {
+        return staticText6;
+    }
+
+    public void setStaticText6(StaticText st) {
+        this.staticText6 = st;
+    }
+    private TableColumn tableColumn5 = new TableColumn();
+
+    public TableColumn getTableColumn5() {
+        return tableColumn5;
+    }
+
+    public void setTableColumn5(TableColumn tc) {
+        this.tableColumn5 = tc;
+    }
+    private StaticText staticText7 = new StaticText();
+
+    public StaticText getStaticText7() {
+        return staticText7;
+    }
+
+    public void setStaticText7(StaticText st) {
+        this.staticText7 = st;
+    }
+    private Button button3 = new Button();
+
+    public Button getButton3() {
+        return button3;
+    }
+
+    public void setButton3(Button b) {
+        this.button3 = b;
+    }
 
     // </editor-fold>
 
     /**
      * <p>Construct a new Page bean instance.</p>
      */
-    public Kassa() {
+    public Booking() {
     }
 
     /**
@@ -158,7 +288,7 @@ public class Kassa extends AbstractPageBean {
         try {
             _init();
         } catch (Exception e) {
-            log("Kassa Initialization Failure", e);
+            log("Products Initialization Failure", e);
             throw e instanceof FacesException ? (FacesException) e: new FacesException(e);
         }
         
@@ -208,8 +338,8 @@ public class Kassa extends AbstractPageBean {
      *
      * @return reference to the scoped data bean
      */
-    protected SessionBean1 getSessionBean1() {
-        return (SessionBean1) getBean("SessionBean1");
+    protected ApplicationBean1 getApplicationBean1() {
+        return (ApplicationBean1) getBean("ApplicationBean1");
     }
 
     /**
@@ -217,8 +347,8 @@ public class Kassa extends AbstractPageBean {
      *
      * @return reference to the scoped data bean
      */
-    protected ApplicationBean1 getApplicationBean1() {
-        return (ApplicationBean1) getBean("ApplicationBean1");
+    protected SessionBean1 getSessionBean1() {
+        return (SessionBean1) getBean("SessionBean1");
     }
 
     /**

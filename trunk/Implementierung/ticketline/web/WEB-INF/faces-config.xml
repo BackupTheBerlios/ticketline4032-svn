@@ -71,4 +71,9 @@
         <managed-bean-class>ticketline.SearchResultAuffuehrungen</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>Booking</managed-bean-name>
+        <managed-bean-class>ticketline.Booking</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>
