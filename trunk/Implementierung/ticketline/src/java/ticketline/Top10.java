@@ -8,6 +8,7 @@ package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
+import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
@@ -207,6 +208,15 @@ public class Top10 extends AbstractPageBean {
     public void setStaticText5(StaticText st) {
         this.staticText5 = st;
     }
+    private Button button1 = new Button();
+
+    public Button getButton1() {
+        return button1;
+    }
+
+    public void setButton1(Button b) {
+        this.button1 = b;
+    }
 
     // </editor-fold>
 
@@ -312,6 +322,11 @@ public class Top10 extends AbstractPageBean {
      */
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
+    }
+
+    public String button1_action() {
+        
+        return "select";
     }
     
 }

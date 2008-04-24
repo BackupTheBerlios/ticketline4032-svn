@@ -38,7 +38,7 @@
                             </div>
                             <webuijsf:staticText binding="#{Products.staticText5}" id="staticText5"
                                 style="height: 100px; left: 24px; top: 264px; position: absolute; width: 453px" text="Hier könnte die Beschreibung ihre Ware stehen ..."/>
-                            <webuijsf:button binding="#{Products.button1}" id="button1"
+                            <webuijsf:button actionExpression="#{Products.button1_action}" binding="#{Products.button1}" id="button1"
                                 style="height: 23px; left: 527px; top: 96px; position: absolute; width: 119px" text="in den Warenkorb"/>
                         </div>
                     </webuijsf:form>

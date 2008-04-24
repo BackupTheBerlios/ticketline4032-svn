@@ -8,6 +8,7 @@ package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractFragmentBean;
 import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.Hyperlink;
 import com.sun.webui.jsf.component.ImageComponent;
 import com.sun.webui.jsf.component.Label;
 import com.sun.webui.jsf.component.PanelLayout;
@@ -155,6 +156,96 @@ public class MasterFragment extends AbstractFragmentBean {
     public void setStaticTextTitle(StaticText st) {
         this.staticTextTitle = st;
     }
+    private Hyperlink hyperlink1 = new Hyperlink();
+
+    public Hyperlink getHyperlink1() {
+        return hyperlink1;
+    }
+
+    public void setHyperlink1(Hyperlink h) {
+        this.hyperlink1 = h;
+    }
+    private Hyperlink hyperlink2 = new Hyperlink();
+
+    public Hyperlink getHyperlink2() {
+        return hyperlink2;
+    }
+
+    public void setHyperlink2(Hyperlink h) {
+        this.hyperlink2 = h;
+    }
+    private Hyperlink hyperlink4 = new Hyperlink();
+
+    public Hyperlink getHyperlink4() {
+        return hyperlink4;
+    }
+
+    public void setHyperlink4(Hyperlink h) {
+        this.hyperlink4 = h;
+    }
+    private Hyperlink hyperlink5 = new Hyperlink();
+
+    public Hyperlink getHyperlink5() {
+        return hyperlink5;
+    }
+
+    public void setHyperlink5(Hyperlink h) {
+        this.hyperlink5 = h;
+    }
+    private TextField textFieldSearch = new TextField();
+
+    public TextField getTextFieldSearch() {
+        return textFieldSearch;
+    }
+
+    public void setTextFieldSearch(TextField tf) {
+        this.textFieldSearch = tf;
+    }
+    private Button buttonSearch = new Button();
+
+    public Button getButtonSearch() {
+        return buttonSearch;
+    }
+
+    public void setButtonSearch(Button b) {
+        this.buttonSearch = b;
+    }
+    private Hyperlink hyperlink6 = new Hyperlink();
+
+    public Hyperlink getHyperlink6() {
+        return hyperlink6;
+    }
+
+    public void setHyperlink6(Hyperlink h) {
+        this.hyperlink6 = h;
+    }
+    private Hyperlink hyperlink7 = new Hyperlink();
+
+    public Hyperlink getHyperlink7() {
+        return hyperlink7;
+    }
+
+    public void setHyperlink7(Hyperlink h) {
+        this.hyperlink7 = h;
+    }
+    private ImageComponent imageLeftEnd = new ImageComponent();
+
+    public ImageComponent getImageLeftEnd() {
+        return imageLeftEnd;
+    }
+
+    public void setImageLeftEnd(ImageComponent ic) {
+        this.imageLeftEnd = ic;
+    }
+    private Hyperlink hyperlink3 = new Hyperlink();
+
+    public Hyperlink getHyperlink3() {
+        return hyperlink3;
+    }
+
+    public void setHyperlink3(Hyperlink h) {
+        this.hyperlink3 = h;
+    }
     // </editor-fold>
 
     public MasterFragment() {
@@ -191,6 +282,19 @@ public class MasterFragment extends AbstractFragmentBean {
         // Perform application initialization that must complete
         // *after* managed components are initialized
         // TODO - add your own initialization code here
+        
+        if(this.getSessionBean1().getLogin() == null)
+        {
+            this.panelLogout.setVisible(false);
+
+            this.labelStatusMessage.setText("");
+        }
+        else
+        {
+            this.panelLogin.setVisible(false);
+
+            this.labelStatusMessage.setText("");
+        }
     }
 
     /**
@@ -253,7 +357,7 @@ public class MasterFragment extends AbstractFragmentBean {
                 this.labelStatusMessage.setText("Login fehlgeschlagen!");
             }
 
-        } catch (NumberFormatException ex) {
+        } catch (Exception ex) {
             this.labelStatusMessage.setText("Login fehlgeschlagen!");
         }
         
@@ -269,10 +373,11 @@ public class MasterFragment extends AbstractFragmentBean {
         
         this.getSessionBean1().setLogin(null);
         
-        return null;
+        return "logout";
     }
 
-    public void textFieldUsername_processValueChange(ValueChangeEvent event) {
+    public String buttonSearch_action() {
+        
+        return "search";
     }
-
 }

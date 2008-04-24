@@ -41,8 +41,8 @@
                                     <webuijsf:tableColumn binding="#{SearchResult.tableColumn5}" headerText="Bundesland" id="tableColumn5" sort="Bundesland">
                                         <webuijsf:staticText binding="#{SearchResult.staticText5}" id="staticText5" text="Bundesland"/>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn4}" headerText="Straße" id="tableColumn4" sort="Straße">
-                                        <webuijsf:staticText binding="#{SearchResult.staticText4}" id="staticText4" text="Straße"/>
+                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn6}" headerText="Straße" id="tableColumn6" sort="Straße">
+                                        <webuijsf:staticText binding="#{SearchResult.staticText6}" id="staticText6" text="Straße"/>
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>

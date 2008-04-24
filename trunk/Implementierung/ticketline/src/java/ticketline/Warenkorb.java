@@ -30,7 +30,7 @@ import javax.faces.FacesException;
  *
  * @author Dominik
  */
-public class Products_3 extends AbstractPageBean {
+public class Warenkorb extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -208,13 +208,22 @@ public class Products_3 extends AbstractPageBean {
     public void setButton1(Button b) {
         this.button1 = b;
     }
+    private Button button2 = new Button();
+
+    public Button getButton2() {
+        return button2;
+    }
+
+    public void setButton2(Button b) {
+        this.button2 = b;
+    }
 
     // </editor-fold>
 
     /**
      * <p>Construct a new Page bean instance.</p>
      */
-    public Products_3() {
+    public Warenkorb() {
     }
 
     /**
@@ -315,13 +324,9 @@ public class Products_3 extends AbstractPageBean {
         return (RequestBean1) getBean("RequestBean1");
     }
 
-    /**
-     * <p>Return a reference to the scoped data bean.</p>
-     *
-     * @return reference to the scoped data bean
-     */
-    protected Booking getProducts_1() {
-        return (Booking) getBean("Products_1");
+    public String button2_action() {
+        
+        return "checkout";
     }
     
 }

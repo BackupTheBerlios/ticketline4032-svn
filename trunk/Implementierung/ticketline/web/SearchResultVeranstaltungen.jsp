@@ -17,7 +17,7 @@
                         <div style="left: 0px; top: 0px; position: absolute">
                             <jsp:directive.include file="MasterFragment.jspf"/>
                         </div>
-                        <div style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
+                        <div style="height: 454px; left: 190px; top: 140px; position: absolute; width: 742px">
                             <webuijsf:staticText binding="#{SearchResultVeranstaltungen.staticTextTitle}" id="staticTextTitle"
                                 style="font-size: 30px; left: 192px; top: 0px; position: absolute" text="gefundene Veranstaltungen"/>
                             <webuijsf:table augmentTitle="false" binding="#{SearchResultVeranstaltungen.table1}" id="table1"
@@ -42,6 +42,8 @@
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
+                            <webuijsf:button actionExpression="#{SearchResultVeranstaltungen.button1_action}" binding="#{SearchResultVeranstaltungen.button1}"
+                                id="button1" style="height: 19px; left: 29px; top: 210px; position: absolute; width: 129px" text="Auswählen"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

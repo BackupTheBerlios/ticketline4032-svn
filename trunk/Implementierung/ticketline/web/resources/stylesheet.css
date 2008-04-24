@@ -3,6 +3,12 @@
  * Click the Refresh button in the Visual Designer toolbar to refresh the page.
  */ 
 
+a:link {color: #006097;}
+a:visited {color: #006097;}
+a:hover {color: #3200C3;}
+a:focus {color: #3200C3;}
+a:active {color: #F73200;}
+
 /* Style rules to make Java Server faces Standarad data tables look better */
 
 .list-header {

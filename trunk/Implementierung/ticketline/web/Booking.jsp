@@ -44,10 +44,10 @@
                                     </webuijsf:tableRowGroup>
                                 </webuijsf:table>
                                 <webuijsf:button binding="#{Booking.button3}" id="button3"
-                                    style="height: 23px; left: 599px; top: 72px; position: absolute; width: 119px" text="Stornieren"/>
+                                    style="height: 23px; left: 589px; top: 80px; position: absolute; width: 110px" text="Stornieren"/>
+                                <webuijsf:button binding="#{Booking.button1}" id="button1"
+                                    style="height: 23px; left: 589px; top: 110px; position: absolute; width: 110px" text="Kaufen"/>
                             </div>
-                            <webuijsf:button binding="#{Booking.button1}" id="button1"
-                                style="height: 23px; left: 623px; top: 96px; position: absolute; width: 119px" text="in den Warenkorb"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

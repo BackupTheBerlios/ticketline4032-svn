@@ -48,6 +48,8 @@
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
+                            <webuijsf:button actionExpression="#{SearchResultAuffuehrungen.button1_action}" binding="#{SearchResultAuffuehrungen.button1}"
+                                id="button1" style="height: 19px; left: 29px; top: 210px; position: absolute; width: 129px" text="Auswählen"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

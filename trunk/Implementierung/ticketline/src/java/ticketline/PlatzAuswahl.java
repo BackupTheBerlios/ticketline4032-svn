@@ -276,9 +276,13 @@ public class PlatzAuswahl extends AbstractPageBean {
     }
 
     public String button2_action() {
-        // TODO: Process the action. Return value is a navigation
-        // case name where null will return to the same page.
-        return null;
+        
+        return "buy";
+    }
+
+    public String button1_action() {
+        
+        return "book";
     }
     
 }

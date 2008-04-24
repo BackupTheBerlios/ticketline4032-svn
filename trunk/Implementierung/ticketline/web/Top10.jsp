@@ -29,15 +29,15 @@
                                         sort="column2" width="515">
                                         <webuijsf:staticText binding="#{Top10.staticText2}" id="staticText2" text="#{currentRow.value['column2']}"/>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{Top10.tableColumn3}" headerText="Tickets" id="tableColumn3" sort="column3"
-                                            width="92">
-                                        <webuijsf:staticText binding="#{Top10.staticText3}"
-                                            id="staticText3" text="#{currentRow.value['column3']}"/>
+                                    <webuijsf:tableColumn binding="#{Top10.tableColumn3}" headerText="Tickets" id="tableColumn3" sort="column3" width="92">
+                                        <webuijsf:staticText binding="#{Top10.staticText3}" id="staticText3" text="#{currentRow.value['column3']}"/>
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
                             <webuijsf:staticText binding="#{Top10.staticText5}" id="staticText5"
                                 style="font-family: 'Arial','Helvetica',sans-serif; font-size: 30px; height: 45px; left: 312px; top: 24px; position: absolute; width: 93px" text="Top10"/>
+                            <webuijsf:button actionExpression="#{Top10.button1_action}" binding="#{Top10.button1}" id="button1"
+                                style="height: 19px; left: 9px; top: 300px; position: absolute; width: 129px" text="Auswählen"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>
