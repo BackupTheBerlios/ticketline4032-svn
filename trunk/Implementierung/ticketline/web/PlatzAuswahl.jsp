@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-    Document   : SearchResultVeranstaltungen
-    Created on : 23.04.2008, 17:12:14
-    Author     : Chris
+    Document   : PlatzAuswahl
+    Created on : 23.04.2008, 19:23:34
+    Author     : Christoph Auernig
 -->
 <jsp:root version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
     <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
@@ -18,20 +18,13 @@
                             <jsp:directive.include file="MasterFragment.jspf"/>
                         </div>
                         <div style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
-                            <webuijsf:staticText binding="#{PlatzAuswahl.staticTextVeranstaltungen1}" id="staticTextVeranstaltungen1"
+                            <webuijsf:staticText binding="#{PlatzAuswahl.staticTextTitle}" id="staticTextTitle"
                                 style="font-size: 30px; left: 240px; top: 0px; position: absolute" text="verfügbare Plätze"/>
-                            <h:dataTable binding="#{PlatzAuswahl.dataTable1}" headerClass="list-header" id="dataTable1" rowClasses="list-row-even,list-row-odd "
-                                style="left: 24px; top: 72px; position: absolute" value="#{PlatzAuswahl.dataTable1Model}" var="currentRow" width="695">
-                                <h:column binding="#{PlatzAuswahl.column1}" id="column1">
-                                    <h:outputText binding="#{PlatzAuswahl.outputText1}" id="outputText1" value="#{currentRow['COLUMN1']}"/>
-                                </h:column>
-                                <h:column binding="#{PlatzAuswahl.column2}" id="column2">
-                                    <h:outputText binding="#{PlatzAuswahl.outputText3}" id="outputText3" value="#{currentRow['COLUMN2']}"/>
-                                </h:column>
-                                <h:column binding="#{PlatzAuswahl.column3}" id="column3">
-                                    <h:outputText binding="#{PlatzAuswahl.outputText5}" id="outputText5" value="#{currentRow['COLUMN3']}"/>
-                                </h:column>
-                            </h:dataTable>
+                            <webuijsf:button binding="#{PlatzAuswahl.button1}" id="button1"
+                                style="height: 23px; left: 527px; top: 144px; position: absolute; width: 168px" text="Ausgewählte Plätze reservieren"/>
+                            <webuijsf:button actionExpression="#{PlatzAuswahl.button2_action}" binding="#{PlatzAuswahl.button2}" id="button2"
+                                style="height: 23px; left: 527px; top: 192px; position: absolute; width: 168px" text="ausgewählte Plätze kaufen"/>
+                            <webuijsf:image binding="#{PlatzAuswahl.image1}" id="image1" style="left: 48px; top: 72px; position: absolute" url="/resources/PlatzAuswahl.jpg"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

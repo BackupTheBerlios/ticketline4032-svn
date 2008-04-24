@@ -9,9 +9,11 @@ package ticketline;
 import com.sun.rave.faces.data.DefaultTableDataModel;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
+import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
+import com.sun.webui.jsf.component.ImageComponent;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.StaticText;
@@ -103,50 +105,14 @@ public class PlatzAuswahl extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
-    private StaticText staticTextVeranstaltungen1 = new StaticText();
+    private StaticText staticTextTitle = new StaticText();
 
-    public StaticText getStaticTextVeranstaltungen1() {
-        return staticTextVeranstaltungen1;
+    public StaticText getStaticTextTitle() {
+        return staticTextTitle;
     }
 
-    public void setStaticTextVeranstaltungen1(StaticText st) {
-        this.staticTextVeranstaltungen1 = st;
-    }
-    private HtmlDataTable dataTable1 = new HtmlDataTable();
-
-    public HtmlDataTable getDataTable1() {
-        return dataTable1;
-    }
-
-    public void setDataTable1(HtmlDataTable hdt) {
-        this.dataTable1 = hdt;
-    }
-    private DefaultTableDataModel dataTable1Model = new DefaultTableDataModel();
-
-    public DefaultTableDataModel getDataTable1Model() {
-        return dataTable1Model;
-    }
-
-    public void setDataTable1Model(DefaultTableDataModel dtdm) {
-        this.dataTable1Model = dtdm;
-    }
-    private UIColumn column1 = new UIColumn();
-
-    public UIColumn getColumn1() {
-        return column1;
-    }
-
-    public void setColumn1(UIColumn uic) {
-        this.column1 = uic;
-    }
-    private HtmlOutputText outputText1 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText1() {
-        return outputText1;
-    }
-
-    public void setOutputText1(HtmlOutputText hot) {
-        this.outputText1 = hot;
+    public void setStaticTextTitle(StaticText st) {
+        this.staticTextTitle = st;
     }
     private HtmlOutputText outputText2 = new HtmlOutputText();
 
@@ -157,24 +123,6 @@ public class PlatzAuswahl extends AbstractPageBean {
     public void setOutputText2(HtmlOutputText hot) {
         this.outputText2 = hot;
     }
-    private UIColumn column2 = new UIColumn();
-
-    public UIColumn getColumn2() {
-        return column2;
-    }
-
-    public void setColumn2(UIColumn uic) {
-        this.column2 = uic;
-    }
-    private HtmlOutputText outputText3 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText3() {
-        return outputText3;
-    }
-
-    public void setOutputText3(HtmlOutputText hot) {
-        this.outputText3 = hot;
-    }
     private HtmlOutputText outputText4 = new HtmlOutputText();
 
     public HtmlOutputText getOutputText4() {
@@ -184,24 +132,6 @@ public class PlatzAuswahl extends AbstractPageBean {
     public void setOutputText4(HtmlOutputText hot) {
         this.outputText4 = hot;
     }
-    private UIColumn column3 = new UIColumn();
-
-    public UIColumn getColumn3() {
-        return column3;
-    }
-
-    public void setColumn3(UIColumn uic) {
-        this.column3 = uic;
-    }
-    private HtmlOutputText outputText5 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText5() {
-        return outputText5;
-    }
-
-    public void setOutputText5(HtmlOutputText hot) {
-        this.outputText5 = hot;
-    }
     private HtmlOutputText outputText6 = new HtmlOutputText();
 
     public HtmlOutputText getOutputText6() {
@@ -210,6 +140,33 @@ public class PlatzAuswahl extends AbstractPageBean {
 
     public void setOutputText6(HtmlOutputText hot) {
         this.outputText6 = hot;
+    }
+    private Button button1 = new Button();
+
+    public Button getButton1() {
+        return button1;
+    }
+
+    public void setButton1(Button b) {
+        this.button1 = b;
+    }
+    private Button button2 = new Button();
+
+    public Button getButton2() {
+        return button2;
+    }
+
+    public void setButton2(Button b) {
+        this.button2 = b;
+    }
+    private ImageComponent image1 = new ImageComponent();
+
+    public ImageComponent getImage1() {
+        return image1;
+    }
+
+    public void setImage1(ImageComponent ic) {
+        this.image1 = ic;
     }
 
     // </editor-fold>
@@ -316,6 +273,12 @@ public class PlatzAuswahl extends AbstractPageBean {
      */
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
+    }
+
+    public String button2_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return null;
     }
     
 }

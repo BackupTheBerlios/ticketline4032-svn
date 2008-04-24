@@ -7,9 +7,9 @@
         <Node id="PlatzAuswahl.jsp" x="400" y="450" zoom="true"/>
         <Node id="Warenkorb.jsp" x="900" y="150" zoom="true"/>
         <Node id="SearchResult.jsp" x="705" y="428" zoom="true"/>
-        <Node id="Top10.jsp" x="655" y="280" zoom="true"/>
         <Node id="SearchResultAuffuehrungen.jsp" x="291" y="151" zoom="true"/>
         <Node id="SearchResultVeranstaltungen.jsp" x="42" y="220" zoom="true"/>
+        <Node id="Top10.jsp" x="655" y="280" zoom="true"/>
         <Node id="MainPage.jsp" x="104" y="80" zoom="true"/>
         <Node id="Kassa.jsp" x="400" y="310" zoom="true"/>
     </Scope>

@@ -99,14 +99,14 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
-    private StaticText staticTextVeranstaltungen1 = new StaticText();
+    private StaticText staticTextTitle = new StaticText();
 
-    public StaticText getStaticTextVeranstaltungen1() {
-        return staticTextVeranstaltungen1;
+    public StaticText getStaticTextTitle() {
+        return staticTextTitle;
     }
 
-    public void setStaticTextVeranstaltungen1(StaticText st) {
-        this.staticTextVeranstaltungen1 = st;
+    public void setStaticTextTitle(StaticText st) {
+        this.staticTextTitle = st;
     }
     private Table table1 = new Table();
 
@@ -224,6 +224,24 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
 
     public void setStaticText5(StaticText st) {
         this.staticText5 = st;
+    }
+    private TableColumn tableColumn6 = new TableColumn();
+
+    public TableColumn getTableColumn6() {
+        return tableColumn6;
+    }
+
+    public void setTableColumn6(TableColumn tc) {
+        this.tableColumn6 = tc;
+    }
+    private StaticText staticText6 = new StaticText();
+
+    public StaticText getStaticText6() {
+        return staticText6;
+    }
+
+    public void setStaticText6(StaticText st) {
+        this.staticText6 = st;
     }
 
     // </editor-fold>

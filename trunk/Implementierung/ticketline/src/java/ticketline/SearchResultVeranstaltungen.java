@@ -99,14 +99,14 @@ public class SearchResultVeranstaltungen extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
-    private StaticText staticTextVeranstaltungen1 = new StaticText();
+    private StaticText staticTextTitle = new StaticText();
 
-    public StaticText getStaticTextVeranstaltungen1() {
-        return staticTextVeranstaltungen1;
+    public StaticText getStaticTextTitle() {
+        return staticTextTitle;
     }
 
-    public void setStaticTextVeranstaltungen1(StaticText st) {
-        this.staticTextVeranstaltungen1 = st;
+    public void setStaticTextTitle(StaticText st) {
+        this.staticTextTitle = st;
     }
     private Table table1 = new Table();
 
