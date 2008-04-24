@@ -47,18 +47,28 @@
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>
-        <managed-bean-name>Top10_1</managed-bean-name>
-        <managed-bean-class>ticketline.Top10_1</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
-        <managed-bean-name>Products_2</managed-bean-name>
-        <managed-bean-class>ticketline.Products_2</managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-    </managed-bean>
-    <managed-bean>
         <managed-bean-name>Kassa</managed-bean-name>
         <managed-bean-class>ticketline.Kassa</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>SearchResultVeranstaltungen</managed-bean-name>
+        <managed-bean-class>ticketline.SearchResultVeranstaltungen</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>PlatzAuswahl</managed-bean-name>
+        <managed-bean-class>ticketline.PlatzAuswahl</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>SearchResult</managed-bean-name>
+        <managed-bean-class>ticketline.SearchResult</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>SearchResultAuffuehrungen</managed-bean-name>
+        <managed-bean-class>ticketline.SearchResultAuffuehrungen</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
 </faces-config>

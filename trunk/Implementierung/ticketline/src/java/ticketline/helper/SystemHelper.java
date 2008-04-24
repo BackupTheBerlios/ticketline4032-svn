@@ -30,7 +30,7 @@ public final class SystemHelper
         {
             Kunde kunde = DAOFactory.getKundeDAO().get(kartennr);
 
-            if(onlinepwd.equals(kunde.getOnlinepwd()))
+            if(onlinepwd != null && onlinepwd.equals(kunde.getOnlinepwd()))
             {
                 log.info("Customer " + kartennr + " successfully logged in!");
                 return kunde;
@@ -38,13 +38,17 @@ public final class SystemHelper
             else
             {
                 log.warn("Customer " + kartennr + " failed to log in (wrong password)!");
-                return null;
             }
         }
         catch(RuntimeException e)
         {
-            log.warn("Customer " + kartennr + " failed to log in (user does not exist)!");
-            return null;
+            log.warn("Customer " + kartennr + " failed to log in!", e);
         }
+        catch(Exception e)
+        {
+            log.error("Error during Login/out process!", e);
+        }
+        
+        return null;
     }
 }
