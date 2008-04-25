@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="Products.jsp" x="736" y="-146" zoom="true"/>
+        <Node id="ManageAccount.jsp" x="532" y="-90" zoom="true"/>
+        <Node id="PlatzAuswahl.jsp" x="614" y="439" zoom="true"/>
+        <Node id="Warenkorb.jsp" x="822" y="-31" zoom="true"/>
+        <Node id="SearchResult.jsp" x="287" y="209" zoom="true"/>
+        <Node id="Booking.jsp" x="613" y="171" zoom="true"/>
+        <Node id="SearchResultAuffuehrungen.jsp" x="312" y="338" zoom="true"/>
+        <Node id="Top10.jsp" x="434" y="169" zoom="true"/>
+        <Node id="SearchResultVeranstaltungen.jsp" x="56" y="167" zoom="true"/>
+        <Node id="MainPage.jsp" x="637" y="58" zoom="true"/>
+        <Node id="Kassa.jsp" x="815" y="170" zoom="true"/>
+    </Scope>
+</Scene>

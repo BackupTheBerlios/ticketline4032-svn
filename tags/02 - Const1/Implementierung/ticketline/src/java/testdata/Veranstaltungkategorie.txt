@@ -1,0 +1,12 @@
+Film
+Konzert
+Oper
+Theater
+Zirkus
+Lesung
+Tanz
+Schauspiel
+Ball
+Liederabend
+Ballet
+Open-Air
