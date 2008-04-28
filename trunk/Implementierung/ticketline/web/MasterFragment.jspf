@@ -8,46 +8,53 @@
     <f:subview id="MasterFragment">
         <webuijsf:panelLayout binding="#{MasterFragment.panelSide}" id="panelSide" panelLayout="grid" style="padding: 10px; background-color: #F7AE00; height: 458px; left: 10px; top: 120px; position: absolute; width: 146px; -rave-layout: grid">
             <webuijsf:panelLayout binding="#{MasterFragment.panelLogin}" id="panelLogin" panelLayout="flow" style="height: 128px; width: 143px">
-                <br/>
-                <webuijsf:textField binding="#{MasterFragment.textFieldUsername}" id="textFieldUsername" label="Kartennummer"/>
-                <br/>
-                <webuijsf:passwordField binding="#{MasterFragment.passwordField}" id="passwordField" label="Passwort"/>
-                <br/>
-                <webuijsf:button actionExpression="#{MasterFragment.buttonLogin_action}" binding="#{MasterFragment.buttonLogin}" id="buttonLogin" text="Einloggen"/>
-                <br/>
-                <br/>
-                <webuijsf:label binding="#{MasterFragment.labelStatusMessage}" id="labelStatusMessage"/>
+                <webuijsf:form binding="#{MasterFragment.formLogin}" id="formLogin">
+                    <br/>
+                    <webuijsf:textField binding="#{MasterFragment.textFieldUsername}" id="textFieldUsername" label="Kartennummer"/>
+                    <br/>
+                    <webuijsf:passwordField binding="#{MasterFragment.passwordField}" id="passwordField" label="Passwort"/>
+                    <br/>
+                    <webuijsf:button actionExpression="#{MasterFragment.buttonLogin_action}" binding="#{MasterFragment.buttonLogin}" id="buttonLogin" text="Einloggen"/>
+                    <br/>
+                    <br/>
+                    <webuijsf:label binding="#{MasterFragment.labelStatusMessage}" id="labelStatusMessage"/>
+                </webuijsf:form>
             </webuijsf:panelLayout>
             <webuijsf:panelLayout binding="#{MasterFragment.panelLogout}" id="panelLogout" panelLayout="flow" style="height: 128px; width: 143px">
-                <webuijsf:label binding="#{MasterFragment.label1}" id="label1" text="Eingeloggt als: "/>
-                <br/>
-                <webuijsf:staticText binding="#{MasterFragment.textUsername}" id="textUsername" text="#{SessionBean1.login.nname}"/>
-                <br/>
-                <br/>
-                <webuijsf:button actionExpression="#{MasterFragment.buttonLogout_action}" binding="#{MasterFragment.buttonLogout}" id="buttonLogout" text="Ausloggen"/>
-                <br/>
-                <br/>
-                <webuijsf:hyperlink binding="#{MasterFragment.hyperlink5}" id="hyperlink5" text="Account verwalten" url="/faces/ManageAccount.jsp"/>
-                <br/>
-                <webuijsf:hyperlink binding="#{MasterFragment.hyperlink6}" id="hyperlink6" text="Warenkorb" url="/faces/Warenkorb.jsp"/>
-                <br/>
-                <webuijsf:hyperlink binding="#{MasterFragment.hyperlink7}" id="hyperlink7" text="Reservierungen" url="/faces/Booking.jsp"/>
+                <webuijsf:form binding="#{MasterFragment.formLogout}" id="formLogout">
+                    <webuijsf:label binding="#{MasterFragment.label1}" id="label1" text="Eingeloggt als: "/>
+                    <br/>
+                    <webuijsf:staticText binding="#{MasterFragment.textUsername}" id="textUsername" text="#{SessionBean1.login.nname}"/>
+                    <br/>
+                    <br/>
+                    <webuijsf:button actionExpression="#{MasterFragment.buttonLogout_action}" binding="#{MasterFragment.buttonLogout}" id="buttonLogout" text="Ausloggen"/>
+                    <br/>
+                    <br/>
+                    <webuijsf:hyperlink binding="#{MasterFragment.hyperlink5}" id="hyperlink5" text="Account verwalten" url="/faces/ManageAccount.jsp"/>
+                    <br/>
+                    <webuijsf:hyperlink binding="#{MasterFragment.hyperlink6}" id="hyperlink6" text="Warenkorb" url="/faces/Warenkorb.jsp"/>
+                    <br/>
+                    <webuijsf:hyperlink binding="#{MasterFragment.hyperlink7}" id="hyperlink7" text="Reservierungen" url="/faces/Booking.jsp"/>
+                </webuijsf:form>
             </webuijsf:panelLayout>
         </webuijsf:panelLayout>
         <webuijsf:panelLayout binding="#{MasterFragment.panelTop}" id="panelTop" panelLayout="grid" style="padding: 10px; background-color: rgb(247, 174, 0); height: 98px; left: 10px; top: 0px; position: absolute; width: 915px; -rave-layout: grid">
-            <webuijsf:staticText binding="#{MasterFragment.staticTextTitle}" id="staticTextTitle"
-                style="font-size: 60px; left: 110px; top: 14px; position: absolute" text="TicketLine"/>
-            <webuijsf:image binding="#{MasterFragment.imageLogo}" height="80" id="imageLogo" style="left: 10px; top: 8px; position: absolute"
-                url="resources/logo.png" width="80"/>
-            <webuijsf:hyperlink binding="#{MasterFragment.hyperlink1}" id="hyperlink1" style="left: 230px; top: 100px; position: absolute" text="Merchandise" url="/faces/Products.jsp"/>
-            <webuijsf:hyperlink binding="#{MasterFragment.hyperlink2}" id="hyperlink2" style="left: 300px; top: 100px; position: absolute"
-                text="Veranstaltungen" url="/faces/SearchResultVeranstaltungen.jsp"/>
-            <webuijsf:hyperlink binding="#{MasterFragment.hyperlink4}" id="hyperlink4" style="left: 390px; top: 100px; position: absolute" text="Top 10" url="/faces/Top10.jsp"/>
-            <webuijsf:textField binding="#{MasterFragment.textFieldSearch}" id="textFieldSearch" label="Schnellsuche"
-                style="height: 20px; left: 740px; top: 80px; position: absolute; width: 100px" toolTip="Schnellsuche"/>
-            <webuijsf:button actionExpression="#{MasterFragment.buttonSearch_action}" binding="#{MasterFragment.buttonSearch}" id="buttonSearch"
-                style="height: 20px; left: 869px; top: 93px; position: absolute; width: 59px" text="Suchen"/>
-            <webuijsf:hyperlink binding="#{MasterFragment.hyperlink3}" id="hyperlink3" style="left: 170px; top: 100px; position: absolute" text="Hauptseite" url="/faces/MainPage.jsp"/>
+            <webuijsf:form binding="#{MasterFragment.formTop}" id="formTop">
+                <webuijsf:staticText binding="#{MasterFragment.staticTextTitle}" id="staticTextTitle"
+                    style="font-size: 60px; left: 110px; top: 14px; position: absolute" text="TicketLine"/>
+                <webuijsf:image binding="#{MasterFragment.imageLogo}" height="80" id="imageLogo" style="left: 10px; top: 8px; position: absolute"
+                    url="resources/logo.png" width="80"/>
+                <webuijsf:hyperlink binding="#{MasterFragment.hyperlink1}" id="hyperlink1" style="left: 230px; top: 100px; position: absolute"
+                    text="Merchandise" url="/faces/Products.jsp"/>
+                <webuijsf:hyperlink binding="#{MasterFragment.hyperlink2}" id="hyperlink2" style="left: 300px; top: 100px; position: absolute"
+                    text="Veranstaltungen" url="/faces/SearchResultVeranstaltungen.jsp"/>
+                <webuijsf:textField binding="#{MasterFragment.textFieldSearch}" id="textFieldSearch" label="Schnellsuche"
+                    style="height: 20px; left: 740px; top: 80px; position: absolute; width: 100px" toolTip="Schnellsuche"/>
+                <webuijsf:hyperlink binding="#{MasterFragment.hyperlink4}" id="hyperlink4" style="left: 390px; top: 100px; position: absolute" text="Top 10" url="/faces/Top10.jsp"/>
+                <webuijsf:button actionExpression="#{MasterFragment.buttonSearch_action}" binding="#{MasterFragment.buttonSearch}" id="buttonSearch"
+                    style="height: 20px; left: 869px; top: 93px; position: absolute; width: 59px" text="Suchen"/>
+                <webuijsf:hyperlink binding="#{MasterFragment.hyperlink3}" id="hyperlink3" style="left: 170px; top: 100px; position: absolute" text="Hauptseite" url="/faces/MainPage.jsp"/>
+            </webuijsf:form>
         </webuijsf:panelLayout>
         <webuijsf:image binding="#{MasterFragment.imageLeftEnd}" id="imageLeftEnd" style="left: 10px; top: 500px; position: absolute"
             url="/resources/leftend.jpg" width="166"/>

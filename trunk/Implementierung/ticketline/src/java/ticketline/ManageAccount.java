@@ -17,12 +17,23 @@ import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.PasswordField;
 import com.sun.webui.jsf.component.RadioButton;
-import com.sun.webui.jsf.component.RadioButtonGroup;
 import com.sun.webui.jsf.component.StaticText;
+import com.sun.webui.jsf.component.TextArea;
 import com.sun.webui.jsf.component.TextField;
-import com.sun.webui.jsf.model.SingleSelectOptionsList;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Calendar;
+import java.util.logging.Level;
 import javax.faces.FacesException;
 import javax.faces.event.ValueChangeEvent;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import ticketline.dao.DAOFactory;
+import ticketline.db.Kunde;
+import ticketline.exceptions.TicketLineException;
+import ticketline.exceptions.TicketLineSystemException;
+import ticketline.helper.KundenHelper;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -33,7 +44,10 @@ import javax.faces.event.ValueChangeEvent;
  *
  * @author Dominik
  */
-public class ManageAccount extends AbstractPageBean {
+public class ManageAccount extends AbstractPageBean 
+{
+    private static final Logger log = LogManager.getLogger(ManageAccount.class);
+    
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -103,401 +117,351 @@ public class ManageAccount extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
-    private Label label1 = new Label();
+    private Label labelForename = new Label();
 
-    public Label getLabel1() {
-        return label1;
+    public Label getLabelForename() {
+        return labelForename;
     }
 
-    public void setLabel1(Label l) {
-        this.label1 = l;
+    public void setLabelForename(Label l) {
+        this.labelForename = l;
     }
-    private Label label2 = new Label();
+    private Label labelSurname = new Label();
 
-    public Label getLabel2() {
-        return label2;
+    public Label getLabelSurname() {
+        return labelSurname;
     }
 
-    public void setLabel2(Label l) {
-        this.label2 = l;
+    public void setLabelSurname(Label l) {
+        this.labelSurname = l;
     }
-    private Label label3 = new Label();
+    private Label labelTitle = new Label();
 
-    public Label getLabel3() {
-        return label3;
+    public Label getLabelTitle() {
+        return labelTitle;
     }
 
-    public void setLabel3(Label l) {
-        this.label3 = l;
+    public void setLabelTitle(Label l) {
+        this.labelTitle = l;
     }
-    private Label label4 = new Label();
+    private Label labelSex = new Label();
 
-    public Label getLabel4() {
-        return label4;
+    public Label getLabelSex() {
+        return labelSex;
     }
 
-    public void setLabel4(Label l) {
-        this.label4 = l;
+    public void setLabelSex(Label l) {
+        this.labelSex = l;
     }
-    private Label label5 = new Label();
+    private Label labelBirth = new Label();
 
-    public Label getLabel5() {
-        return label5;
+    public Label getLabelBirth() {
+        return labelBirth;
     }
 
-    public void setLabel5(Label l) {
-        this.label5 = l;
+    public void setLabelBirth(Label l) {
+        this.labelBirth = l;
     }
-    private Label label6 = new Label();
+    private Label labelStreet = new Label();
 
-    public Label getLabel6() {
-        return label6;
+    public Label getLabelStreet() {
+        return labelStreet;
     }
 
-    public void setLabel6(Label l) {
-        this.label6 = l;
+    public void setLabelStreet(Label l) {
+        this.labelStreet = l;
     }
-    private StaticText staticText1 = new StaticText();
 
-    public StaticText getStaticText1() {
-        return staticText1;
-    }
-
-    public void setStaticText1(StaticText st) {
-        this.staticText1 = st;
-    }
-    private StaticText staticText2 = new StaticText();
-
-    public StaticText getStaticText2() {
-        return staticText2;
-    }
-
-    public void setStaticText2(StaticText st) {
-        this.staticText2 = st;
-    }
-    private StaticText staticText3 = new StaticText();
-
-    public StaticText getStaticText3() {
-        return staticText3;
-    }
-
-    public void setStaticText3(StaticText st) {
-        this.staticText3 = st;
-    }
-    private Label label7 = new Label();
-
-    public Label getLabel7() {
-        return label7;
-    }
-
-    public void setLabel7(Label l) {
-        this.label7 = l;
-    }
-    private Label label8 = new Label();
-
-    public Label getLabel8() {
-        return label8;
-    }
-
-    public void setLabel8(Label l) {
-        this.label8 = l;
-    }
-    private Label label9 = new Label();
-
-    public Label getLabel9() {
-        return label9;
-    }
-
-    public void setLabel9(Label l) {
-        this.label9 = l;
-    }
-    private Label label10 = new Label();
+    private Label labelCity = new Label();
 
-    public Label getLabel10() {
-        return label10;
+    public Label getLabelCity() {
+        return labelCity;
     }
 
-    public void setLabel10(Label l) {
-        this.label10 = l;
+    public void setLabelCity(Label l) {
+        this.labelCity = l;
     }
-    private Label label11 = new Label();
+    private Label labelZIP = new Label();
 
-    public Label getLabel11() {
-        return label11;
+    public Label getLabelZIP() {
+        return labelZIP;
     }
 
-    public void setLabel11(Label l) {
-        this.label11 = l;
+    public void setLabelZIP(Label l) {
+        this.labelZIP = l;
     }
-    private Label label12 = new Label();
+    private Label labelPhone = new Label();
 
-    public Label getLabel12() {
-        return label12;
+    public Label getLabelPhone() {
+        return labelPhone;
     }
 
-    public void setLabel12(Label l) {
-        this.label12 = l;
+    public void setLabelPhone(Label l) {
+        this.labelPhone = l;
     }
-    private Label label13 = new Label();
+    private Label labelEmail = new Label();
 
-    public Label getLabel13() {
-        return label13;
+    public Label getLabelEmail() {
+        return labelEmail;
     }
 
-    public void setLabel13(Label l) {
-        this.label13 = l;
+    public void setLabelEmail(Label l) {
+        this.labelEmail = l;
     }
-    private Label label14 = new Label();
+    private Label labelBankAccount = new Label();
 
-    public Label getLabel14() {
-        return label14;
+    public Label getLabelBankAccount() {
+        return labelBankAccount;
     }
 
-    public void setLabel14(Label l) {
-        this.label14 = l;
+    public void setLabelBankAccount(Label l) {
+        this.labelBankAccount = l;
     }
-    private Label label15 = new Label();
+    private Label labelBankNumber = new Label();
 
-    public Label getLabel15() {
-        return label15;
+    public Label getLabelBankNumber() {
+        return labelBankNumber;
     }
 
-    public void setLabel15(Label l) {
-        this.label15 = l;
+    public void setLabelBankNumber(Label l) {
+        this.labelBankNumber = l;
     }
-    private Label label16 = new Label();
+    private Label labelCreditCard = new Label();
 
-    public Label getLabel16() {
-        return label16;
+    public Label getLabelCreditCard() {
+        return labelCreditCard;
     }
 
-    public void setLabel16(Label l) {
-        this.label16 = l;
+    public void setLabelCreditCard(Label l) {
+        this.labelCreditCard = l;
     }
-    private RadioButtonGroup radioButtonGroup1 = new RadioButtonGroup();
+    private Label labelCreditCardValid = new Label();
 
-    public RadioButtonGroup getRadioButtonGroup1() {
-        return radioButtonGroup1;
+    public Label getLabelCreditCardValid() {
+        return labelCreditCardValid;
     }
 
-    public void setRadioButtonGroup1(RadioButtonGroup rbg) {
-        this.radioButtonGroup1 = rbg;
+    public void setLabelCreditCardValid(Label l) {
+        this.labelCreditCardValid = l;
     }
-    private RadioButton radioButton1 = new RadioButton();
+    private Label labelPasswordNew = new Label();
 
-    public RadioButton getRadioButton1() {
-        return radioButton1;
+    public Label getLabelPasswordNew() {
+        return labelPasswordNew;
     }
 
-    public void setRadioButton1(RadioButton rb) {
-        this.radioButton1 = rb;
+    public void setLabelPasswordNew(Label l) {
+        this.labelPasswordNew = l;
     }
-    private TextField textField1 = new TextField();
+    
+    private TextField textForename = new TextField();
 
-    public TextField getTextField1() {
-        return textField1;
+    public TextField getTextForename() {
+        return textForename;
     }
 
-    public void setTextField1(TextField tf) {
-        this.textField1 = tf;
+    public void setTextForename(TextField tf) {
+        this.textForename = tf;
     }
-    private TextField textField2 = new TextField();
+    private TextField textSurname = new TextField();
 
-    public TextField getTextField2() {
-        return textField2;
+    public TextField getTextSurname() {
+        return textSurname;
     }
 
-    public void setTextField2(TextField tf) {
-        this.textField2 = tf;
+    public void setTextSurname(TextField tf) {
+        this.textSurname = tf;
     }
-    private TextField textField3 = new TextField();
+    private TextField textTitle = new TextField();
 
-    public TextField getTextField3() {
-        return textField3;
+    public TextField getTextTitle() {
+        return textTitle;
     }
 
-    public void setTextField3(TextField tf) {
-        this.textField3 = tf;
+    public void setTextTitle(TextField tf) {
+        this.textTitle = tf;
     }
-    private TextField textField4 = new TextField();
+    private TextField textBirth = new TextField();
 
-    public TextField getTextField4() {
-        return textField4;
+    public TextField getTextBirth() {
+        return textBirth;
     }
 
-    public void setTextField4(TextField tf) {
-        this.textField4 = tf;
+    public void setTextBirth(TextField tf) {
+        this.textBirth = tf;
     }
-    private TextField textField5 = new TextField();
+    private TextField textStreet = new TextField();
 
-    public TextField getTextField5() {
-        return textField5;
+    public TextField getTextStreet() {
+        return textStreet;
     }
 
-    public void setTextField5(TextField tf) {
-        this.textField5 = tf;
+    public void setTextStreet(TextField tf) {
+        this.textStreet = tf;
     }
-    private TextField textField6 = new TextField();
+    private TextField textCity = new TextField();
 
-    public TextField getTextField6() {
-        return textField6;
+    public TextField getTextCity() {
+        return textCity;
     }
 
-    public void setTextField6(TextField tf) {
-        this.textField6 = tf;
+    public void setTextCity(TextField tf) {
+        this.textCity = tf;
     }
-    private TextField textField7 = new TextField();
+    private TextField textZIP = new TextField();
 
-    public TextField getTextField7() {
-        return textField7;
+    public TextField getTextZIP() {
+        return textZIP;
     }
 
-    public void setTextField7(TextField tf) {
-        this.textField7 = tf;
+    public void setTextZIP(TextField tf) {
+        this.textZIP = tf;
     }
-    private TextField textField8 = new TextField();
+    private TextField textPhone = new TextField();
 
-    public TextField getTextField8() {
-        return textField8;
+    public TextField getTextPhone() {
+        return textPhone;
     }
 
-    public void setTextField8(TextField tf) {
-        this.textField8 = tf;
+    public void setTextPhone(TextField tf) {
+        this.textPhone = tf;
     }
-    private TextField textField9 = new TextField();
+   
+    private TextField textEmail = new TextField();
 
-    public TextField getTextField9() {
-        return textField9;
+    public TextField getTextEmail() {
+        return textEmail;
     }
 
-    public void setTextField9(TextField tf) {
-        this.textField9 = tf;
+    public void setTextEmail(TextField tf) {
+        this.textEmail = tf;
     }
-    private TextField textField10 = new TextField();
+    private TextField textBankAccount = new TextField();
 
-    public TextField getTextField10() {
-        return textField10;
+    public TextField getTextBankAccount() {
+        return textBankAccount;
     }
 
-    public void setTextField10(TextField tf) {
-        this.textField10 = tf;
+    public void setTextBankAccount(TextField tf) {
+        this.textBankAccount = tf;
     }
-    private TextField textField11 = new TextField();
+    private TextField textBankNumber = new TextField();
 
-    public TextField getTextField11() {
-        return textField11;
+    public TextField getTextBankNumber() {
+        return textBankNumber;
     }
 
-    public void setTextField11(TextField tf) {
-        this.textField11 = tf;
+    public void setTextBankNumber(TextField tf) {
+        this.textBankNumber = tf;
     }
-    private TextField textField12 = new TextField();
+    private TextField textCreditCard = new TextField();
 
-    public TextField getTextField12() {
-        return textField12;
+    public TextField getTextCreditCard() {
+        return textCreditCard;
     }
 
-    public void setTextField12(TextField tf) {
-        this.textField12 = tf;
+    public void setTextCreditCard(TextField tf) {
+        this.textCreditCard = tf;
     }
-    private TextField textField13 = new TextField();
+    private TextField textCreditCardValid = new TextField();
 
-    public TextField getTextField13() {
-        return textField13;
+    public TextField getTextCreditCardValid() {
+        return textCreditCardValid;
     }
 
-    public void setTextField13(TextField tf) {
-        this.textField13 = tf;
+    public void setTextCreditCardValid(TextField tf) {
+        this.textCreditCardValid = tf;
     }
-    private TextField textField14 = new TextField();
+    private PasswordField passwordNew = new PasswordField();
 
-    public TextField getTextField14() {
-        return textField14;
+    public PasswordField getPasswordNew() {
+        return passwordNew;
     }
 
-    public void setTextField14(TextField tf) {
-        this.textField14 = tf;
+    public void setPasswordNew(PasswordField pf) {
+        this.passwordNew = pf;
     }
-    private TextField textField15 = new TextField();
+    private RadioButton radioMale = new RadioButton();
 
-    public TextField getTextField15() {
-        return textField15;
+    public RadioButton getRadioMale() {
+        return radioMale;
     }
 
-    public void setTextField15(TextField tf) {
-        this.textField15 = tf;
+    public void setRadioMale(RadioButton rb) {
+        this.radioMale = rb;
     }
-    private TextField textField16 = new TextField();
+   
+    private RadioButton radioFemale = new RadioButton();
 
-    public TextField getTextField16() {
-        return textField16;
+    public RadioButton getRadioFemale() {
+        return radioFemale;
     }
 
-    public void setTextField16(TextField tf) {
-        this.textField16 = tf;
+    public void setRadioFemale(RadioButton rb) {
+        this.radioFemale = rb;
     }
-    private PasswordField passwordField1 = new PasswordField();
+    private Button buttonSave = new Button();
 
-    public PasswordField getPasswordField1() {
-        return passwordField1;
+    public Button getButtonSave() {
+        return buttonSave;
     }
 
-    public void setPasswordField1(PasswordField pf) {
-        this.passwordField1 = pf;
+    public void setButtonSave(Button b) {
+        this.buttonSave = b;
     }
-    private RadioButton radioButton2 = new RadioButton();
+    private StaticText staticTextTitle = new StaticText();
 
-    public RadioButton getRadioButton2() {
-        return radioButton2;
+    public StaticText getStaticTextTitle() {
+        return staticTextTitle;
     }
 
-    public void setRadioButton2(RadioButton rb) {
-        this.radioButton2 = rb;
+    public void setStaticTextTitle(StaticText st) {
+        this.staticTextTitle = st;
     }
-    private RadioButton radioButton3 = new RadioButton();
+    private PasswordField passwordRepeat = new PasswordField();
 
-    public RadioButton getRadioButton3() {
-        return radioButton3;
+    public PasswordField getPasswordRepeat() {
+        return passwordRepeat;
     }
 
-    public void setRadioButton3(RadioButton rb) {
-        this.radioButton3 = rb;
+    public void setPasswordRepeat(PasswordField pf) {
+        this.passwordRepeat = pf;
     }
-    private SingleSelectOptionsList radioButtonGroup2DefaultOptions = new SingleSelectOptionsList();
+    private Label labelPasswordRepeat = new Label();
 
-    public SingleSelectOptionsList getRadioButtonGroup2DefaultOptions() {
-        return radioButtonGroup2DefaultOptions;
+    public Label getLabelPasswordRepeat() {
+        return labelPasswordRepeat;
     }
 
-    public void setRadioButtonGroup2DefaultOptions(SingleSelectOptionsList ssol) {
-        this.radioButtonGroup2DefaultOptions = ssol;
+    public void setLabelPasswordRepeat(Label l) {
+        this.labelPasswordRepeat = l;
     }
-    private RadioButton radioButton4 = new RadioButton();
+    private StaticText staticTextMessage = new StaticText();
 
-    public RadioButton getRadioButton4() {
-        return radioButton4;
+    public StaticText getStaticTextMessage() {
+        return staticTextMessage;
     }
 
-    public void setRadioButton4(RadioButton rb) {
-        this.radioButton4 = rb;
+    public void setStaticTextMessage(StaticText st) {
+        this.staticTextMessage = st;
     }
-    private Button button1 = new Button();
+    private TextArea textLikes = new TextArea();
 
-    public Button getButton1() {
-        return button1;
+    public TextArea getTextLikes() {
+        return textLikes;
     }
 
-    public void setButton1(Button b) {
-        this.button1 = b;
+    public void setTextLikes(TextArea ta) {
+        this.textLikes = ta;
     }
-    private StaticText staticText4 = new StaticText();
+    private Label labelLikes = new Label();
 
-    public StaticText getStaticText4() {
-        return staticText4;
+    public Label getLabelLikes() {
+        return labelLikes;
     }
 
-    public void setStaticText4(StaticText st) {
-        this.staticText4 = st;
+    public void setLabelLikes(Label l) {
+        this.labelLikes = l;
     }
 
     // </editor-fold>
@@ -524,9 +488,20 @@ public class ManageAccount extends AbstractPageBean {
     public void init() {
         // Perform initializations inherited from our superclass
         super.init();
-        // Perform application initialization that must complete
-        // *before* managed components are initialized
+
+
         // TODO - add your own initialiation code here
+        if (this.getSessionBean1().getLogin() == null) 
+        {
+            try 
+            {
+                this.getExternalContext().redirect("MainPage.jsp");
+            } 
+            catch (IOException ex) 
+            {
+                log.error("Could not redirect to MainPage.jsp!", ex);
+            }
+        }
         
         // <editor-fold defaultstate="collapsed" desc="Managed Component Initialization">
         // Initialize automatically managed components
@@ -535,13 +510,37 @@ public class ManageAccount extends AbstractPageBean {
             _init();
         } catch (Exception e) {
             log("ManageAccount Initialization Failure", e);
-            throw e instanceof FacesException ? (FacesException) e: new FacesException(e);
+            throw e instanceof FacesException ? (FacesException) e : new FacesException(e);
         }
-        
+
         // </editor-fold>
         // Perform application initialization that must complete
         // *after* managed components are initialized
         // TODO - add your own initialization code here
+        if (!this.isPostBack()) {
+            Kunde k = this.getSessionBean1().getLogin();
+
+            this.textBankAccount.setText(k.getKontonr());
+            this.textBankNumber.setText(k.getBlz());
+            if(k.getGeburtsdatum() != null) this.textBirth.setText(DateFormat.getDateInstance().format(k.getGeburtsdatum()));
+            this.textCity.setText(k.getOrt());
+            this.textCreditCard.setText(k.getKreditkartennr());
+            if(k.getKkgueltigbis() != null) this.textCreditCardValid.setText(DateFormat.getDateInstance().format(k.getKkgueltigbis()));
+            this.textEmail.setText(k.getEmail());
+            this.textForename.setText(k.getVname());
+            this.textLikes.setText(k.getVorlieben());
+            this.textPhone.setText(k.getTelnr());
+            this.textStreet.setText(k.getStrasse());
+            this.textSurname.setText(k.getNname());
+            this.textTitle.setText(k.getTitel());
+            this.textZIP.setText(k.getPlz());
+            
+            this.radioFemale.setSelected(k.getGeschlecht().equals("W"));
+            this.radioMale.setSelected(k.getGeschlecht().equals("M"));
+        }
+
+        this.passwordNew.setPassword(null);
+        this.passwordRepeat.setPassword(null);
     }
 
     /**
@@ -606,17 +605,141 @@ public class ManageAccount extends AbstractPageBean {
         return (ApplicationBean1) getBean("ApplicationBean1");
     }
 
-    public void textField7_processValueChange(ValueChangeEvent event) {
+    public String buttonSave_action() 
+    {        
+        if (this.getSessionBean1().getLogin() == null) return "logout";
+        
+        DateFormat df = DateFormat.getDateInstance();
+        Kunde k = new Kunde();
+        boolean changePassword = false;
+        
+        if(this.textBankNumber.getText() != null) k.setBlz(this.textBankNumber.getText().toString());
+        else k.setBlz(null);
+        
+        if(this.textEmail.getText() != null) k.setEmail(this.textEmail.getText().toString());
+        else k.setEmail(null);
+
+        try
+        {
+            if(this.textBirth.getText() != null && !this.textBirth.getText().equals(""))
+            {
+                k.setGeburtsdatum(df.parse(this.textBirth.getText().toString()));
+
+                if(k.getGeburtsdatum().compareTo(Calendar.getInstance().getTime()) > 0) throw new Exception();
+            }
+            else
+            {
+                k.setGeburtsdatum(null);
+            }
+        } 
+        catch (Exception ex) 
+        {
+            this.staticTextMessage.setText("Es wurde ein ungültiges Geburtsdatum eingegeben!");
+            return null;
+        }
+        
+        if(this.textCreditCard.getText() != null) k.setKreditkartennr(this.textCreditCard.getText().toString());
+        else k.setKreditkartennr(null);
+        
+        try
+        {
+            if(this.textCreditCardValid.getText() != null && !this.textCreditCardValid.getText().equals(""))
+            {
+                k.setKkgueltigbis(df.parse(this.textCreditCardValid.getText().toString()));
+
+                if(k.getKkgueltigbis().compareTo(Calendar.getInstance().getTime()) < 0) throw new Exception();
+            }
+            else
+            {   
+                if(k.getKreditkartennr() == null || k.getKreditkartennr().equals(""))
+                    k.setKkgueltigbis(null);
+                else
+                    throw new Exception();
+            }
+        } 
+        catch (Exception ex) 
+        {
+            this.staticTextMessage.setText("Es wurde ein ungültiges Kreditkartengültigkeitsdatum eingegeben!");
+            return null;
+        }
+        
+        if(this.radioFemale.isChecked()) k.setGeschlecht("W");
+        else if(this.radioMale.isChecked()) k.setGeschlecht("M");
+        else { this.staticTextMessage.setText("Es wurde kein Geschlecht angegeben!"); return null; }
+        
+        if(this.textBankAccount.getText() != null) k.setKontonr(this.textBankAccount.getText().toString());
+        else k.setKontonr(null);
+        
+        if(this.textSurname.getText() != null) k.setNname(this.textSurname.getText().toString());
+        else k.setNname(null);
+        
+        if(this.passwordNew.getText() != null && this.passwordNew.getText().equals(this.passwordRepeat.getText()))
+        {
+            k.setOnlinepwd(this.passwordNew.getText().toString());
+            changePassword = true;
+        }
+        else if(this.passwordNew.getText() != null)
+        {
+            this.staticTextMessage.setText("Die eingegebenen Passwörter stimmen nicht überein!");
+            return null;
+        }
+        
+        if(this.textCity.getText() != null) k.setOrt(this.textCity.getText().toString());
+        else k.setOrt(null);
+        
+        if(this.textZIP.getText() != null) k.setPlz(this.textZIP.getText().toString());
+        else k.setPlz(null);
+        
+        if(this.textStreet.getText() != null) k.setStrasse(this.textStreet.getText().toString());
+        else k.setStrasse(null);
+        
+        if(this.textPhone.getText() != null) k.setTelnr(this.textPhone.getText().toString());
+        else k.setTelnr(null);
+        
+        if(this.textTitle.getText() != null) k.setTitel(this.textTitle.getText().toString());
+        else k.setTitel(null);
+        
+        if(this.textForename.getText() != null) k.setVname(this.textForename.getText().toString());
+        else k.setVname(null);
+        
+        if(this.textLikes.getText() != null) k.setVorlieben(this.textLikes.getText().toString());
+        else k.setVorlieben(null);
+        
+        try
+        {
+            Kunde loggedIn = this.getSessionBean1().getLogin();
+            
+            loggedIn.setBlz(k.getBlz());
+            loggedIn.setEmail(k.getEmail());
+            loggedIn.setGeburtsdatum(k.getGeburtsdatum());
+            loggedIn.setGeschlecht(k.getGeschlecht());
+            loggedIn.setKkgueltigbis(k.getKkgueltigbis());
+            loggedIn.setKontonr(k.getKontonr());
+            loggedIn.setKreditkartennr(k.getKreditkartennr());
+            loggedIn.setNname(k.getNname());
+            if(changePassword) loggedIn.setOnlinepwd(k.getOnlinepwd());
+            loggedIn.setOrt(k.getOrt());
+            loggedIn.setPlz(k.getPlz());
+            loggedIn.setStrasse(k.getStrasse());
+            loggedIn.setTelnr(k.getTelnr());
+            loggedIn.setTitel(k.getTitel());
+            loggedIn.setVname(k.getVname());
+            loggedIn.setVorlieben(k.getVorlieben());
+            
+            KundenHelper.speichern(loggedIn);
+            return "saved";
+        }
+        catch(TicketLineSystemException e)
+        {
+            this.staticTextMessage.setText("Es trat ein unerwarteter Fehler auf!");
+            return null;
+        }
+        catch(TicketLineException e)
+        {
+            this.staticTextMessage.setText(e.getMessage());
+            return null;
+        }
     }
 
-    public void textField3_processValueChange(ValueChangeEvent event) {
-    }
-
-    public void textField1_processValueChange(ValueChangeEvent event) {
-    }
-
-    public void textField12_processValueChange(ValueChangeEvent event) {
-    }
-    
 }
 

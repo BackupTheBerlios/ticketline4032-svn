@@ -9,6 +9,8 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import ticketline.dao.DAOFactory;
 import ticketline.db.Kunde;
+import ticketline.exceptions.TicketLineException;
+import ticketline.exceptions.TicketLineSystemException;
 
 /**
  * This class provides methods to ease the login process and associated 
@@ -20,11 +22,9 @@ public final class SystemHelper
 {
     private static final Logger log = LogManager.getLogger(SystemHelper.class);
     
-    private SystemHelper() 
-    {
-    }
+    private SystemHelper() { } 
     
-    public static Kunde checkLogin(Integer kartennr, String onlinepwd)
+    public static Kunde checkLogin(Integer kartennr, String onlinepwd)  throws TicketLineException, TicketLineSystemException
     {
         try
         {
@@ -38,17 +38,18 @@ public final class SystemHelper
             else
             {
                 log.warn("Customer " + kartennr + " failed to log in (wrong password)!");
+                return null;
             }
         }
         catch(RuntimeException e)
         {
-            log.warn("Customer " + kartennr + " failed to log in!", e);
+            log.error("Error during database access!", e);
+            throw new TicketLineSystemException("Error during database access!", e);
         }
         catch(Exception e)
         {
-            log.error("Error during Login/out process!", e);
+            log.error("General error!", e);
+            throw new TicketLineSystemException("General error!", e);
         }
-        
-        return null;
     }
 }

@@ -6,7 +6,12 @@
 package ticketline.helper;
 
 import java.util.List;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import ticketline.dao.DAOFactory;
 import ticketline.db.Kunde;
+import ticketline.exceptions.TicketLineException;
+import ticketline.exceptions.TicketLineSystemException;
 
 /**
  *
@@ -14,13 +19,24 @@ import ticketline.db.Kunde;
  */
 public class KundenHelper 
 {
-    public List<Object> sucheNews(String kategorie, String ort)
+    private static final Logger log = LogManager.getLogger(KundenHelper.class);
+    
+    private KundenHelper() { }
+    
+    public static List<Object> sucheNews(String kategorie, String ort) throws TicketLineException, TicketLineSystemException
     {
         return null;
     }
     
-    public boolean speichern(Kunde k)
+    public static void speichern(Kunde k) throws TicketLineException, TicketLineSystemException
     {
-        return false;
+        try
+        {
+            DAOFactory.getKundeDAO().save(k);
+        }
+        catch(RuntimeException e)
+        {
+            throw new TicketLineSystemException("Error during database access!", e);
+        }
     }
 }

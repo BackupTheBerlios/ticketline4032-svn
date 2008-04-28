@@ -122,6 +122,10 @@
             <from-outcome>logout</from-outcome>
             <to-view-id>/MainPage.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>saved</from-outcome>
+            <to-view-id>/MainPage.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/SearchResultVeranstaltungen.jsp</from-view-id>

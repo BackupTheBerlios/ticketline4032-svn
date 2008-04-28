@@ -8,6 +8,8 @@ package ticketline.manager;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import ticketline.db.AuffuehrungKey;
 import ticketline.db.Belegung;
 import ticketline.db.Bestellung;
@@ -15,6 +17,8 @@ import ticketline.db.Kunde;
 import ticketline.db.ReiheKey;
 import ticketline.db.Transaktion;
 import ticketline.db.TransaktionKey;
+import ticketline.exceptions.TicketLineException;
+import ticketline.exceptions.TicketLineSystemException;
 
 /**
  *
@@ -22,36 +26,37 @@ import ticketline.db.TransaktionKey;
  */
 public class ReservierungsManager 
 {
-    public List<Belegung> sucheBelegungen(AuffuehrungKey auffuehrung)
+    private static final Logger log = LogManager.getLogger(ReservierungsManager.class);
+    
+    private ReservierungsManager() { }
+    
+    public static List<Belegung> sucheBelegungen(AuffuehrungKey auffuehrung) throws TicketLineException, TicketLineSystemException
     {
         return null;
     }
     
-    public Integer kaufeTickets(Kunde k, Date zeit, ReiheKey reihe, BigDecimal preis, Integer startplatz, 
-                                Integer anzahl, String zahlart, boolean reservierung)
+    public static Integer kaufeTickets(Kunde k, Date zeit, ReiheKey reihe, BigDecimal preis, Integer startplatz, 
+                                Integer anzahl, String zahlart, boolean reservierung) throws TicketLineException, TicketLineSystemException
     {
         return -1;
     }
     
-    public boolean storniereReservierung(TransaktionKey reservierung)
+    public static void storniereReservierung(TransaktionKey reservierung) throws TicketLineException, TicketLineSystemException
     {
-        return false;
     }
     
-    public List<Transaktion> sucheReservierungen(Kunde k, Date zeitVon, Date zeitBis, String reihenBezeichnung, 
+    public static List<Transaktion> sucheReservierungen(Kunde k, Date zeitVon, Date zeitBis, String reihenBezeichnung, 
                                                     String kategorieBezeichnung, String saalBezeichnung,
-                                                    String ortsBezeichnung, String ort)
+                                                    String ortsBezeichnung, String ort) throws TicketLineException, TicketLineSystemException
     {
         return null;
     }
     
-    public boolean kaufeReservierung(TransaktionKey transaktion)
+    public static void kaufeReservierung(TransaktionKey transaktion) throws TicketLineException, TicketLineSystemException
     {
-        return false;
     }
     
-    public boolean kaufeWerbematerial(Kunde k, Bestellung bestellung)
+    public static void kaufeWerbematerial(Kunde k, Bestellung bestellung) throws TicketLineException, TicketLineSystemException
     {
-        return false;
     }
 }

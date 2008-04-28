@@ -6,12 +6,16 @@
 package ticketline.helper;
 
 import java.util.List;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import ticketline.db.Kategorie;
 import ticketline.db.KategorieKey;
 import ticketline.db.OrtKey;
 import ticketline.db.Reihe;
 import ticketline.db.Saal;
 import ticketline.db.SaalKey;
+import ticketline.exceptions.TicketLineException;
+import ticketline.exceptions.TicketLineSystemException;
 
 /**
  *
@@ -19,18 +23,22 @@ import ticketline.db.SaalKey;
  */
 public class SaalHelper 
 {
-    public List<Saal> sucheSaele(String bezeichnung, String typ, Integer plaetzeMin,
-                                    OrtKey ort)
+    private static final Logger log = LogManager.getLogger(SaalHelper.class);
+    
+    private SaalHelper() { }
+    
+    public static List<Saal> sucheSaele(String bezeichnung, String typ, Integer plaetzeMin,
+                                    OrtKey ort) throws TicketLineException, TicketLineSystemException
     {
         return null;
     }
     
-    public List<Kategorie> sucheKategorien(SaalKey saal)
+    public static List<Kategorie> sucheKategorien(SaalKey saal) throws TicketLineException, TicketLineSystemException
     {
         return null;
     }
     
-    public List<Reihe> sucheReihen(KategorieKey key)
+    public static List<Reihe> sucheReihen(KategorieKey key) throws TicketLineException, TicketLineSystemException
     {
         return null;
     }

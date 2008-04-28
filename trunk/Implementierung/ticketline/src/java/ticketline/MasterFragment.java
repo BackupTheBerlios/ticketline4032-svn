@@ -8,6 +8,7 @@ package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractFragmentBean;
 import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Hyperlink;
 import com.sun.webui.jsf.component.ImageComponent;
 import com.sun.webui.jsf.component.Label;
@@ -246,6 +247,33 @@ public class MasterFragment extends AbstractFragmentBean {
     public void setHyperlink3(Hyperlink h) {
         this.hyperlink3 = h;
     }
+    private Form formLogin = new Form();
+
+    public Form getFormLogin() {
+        return formLogin;
+    }
+
+    public void setFormLogin(Form f) {
+        this.formLogin = f;
+    }
+    private Form formLogout = new Form();
+
+    public Form getFormLogout() {
+        return formLogout;
+    }
+
+    public void setFormLogout(Form f) {
+        this.formLogout = f;
+    }
+    private Form formTop = new Form();
+
+    public Form getFormTop() {
+        return formTop;
+    }
+
+    public void setFormTop(Form f) {
+        this.formTop = f;
+    }
     // </editor-fold>
 
     public MasterFragment() {
@@ -340,9 +368,11 @@ public class MasterFragment extends AbstractFragmentBean {
         
         Integer knr = -1;
         
-        try {
+        try 
+        {
             knr = Integer.parseInt(this.textFieldUsername.getText().toString());
             Kunde k;
+            
             if((k = SystemHelper.checkLogin(knr, this.passwordField.getPassword().toString())) != null)
             {
                 this.getSessionBean1().setLogin(k);
@@ -356,8 +386,9 @@ public class MasterFragment extends AbstractFragmentBean {
             {
                 this.labelStatusMessage.setText("Login fehlgeschlagen!");
             }
-
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) 
+        {
             this.labelStatusMessage.setText("Login fehlgeschlagen!");
         }
         
