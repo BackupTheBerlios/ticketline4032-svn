@@ -8,13 +8,15 @@ package ticketline.helper;
 import java.util.List;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import ticketline.dao.DAOFactory;
+import ticketline.dao.interfaces.OrtDAO;
 import ticketline.db.Ort;
 import ticketline.exceptions.TicketLineException;
 import ticketline.exceptions.TicketLineSystemException;
 
 /**
  *
- * @author Michael Morak
+ * @author Michael Morak, Christoph Auernig
  */
 public class OrtHelper 
 {    
@@ -23,9 +25,60 @@ public class OrtHelper
     private OrtHelper() { }
     
     public static List<Ort> sucheOrte(String bezeichnung, String strasse, String ort,
-                                String bundesland, String plz, boolean verkauf,
-                                boolean auffuehrung, boolean kiosk) throws TicketLineException, TicketLineSystemException
+                                String bundesland, String plz, Boolean verkauf,
+                                Boolean auffuehrung, Boolean kiosk) throws TicketLineException, TicketLineSystemException
     {
-        return null;
+        OrtDAO ortdao = DAOFactory.getOrtDAO();
+        
+        String query = "1 = 1 ";
+        
+       if(bezeichnung != null){
+           query +=  "AND bezeichnung like '%" + bezeichnung + "%' ";
+       }
+       if(strasse != null){
+           query +=  "AND strasse like '%" + strasse + "%' ";
+       }
+       if(ort != null){
+           query +=  "AND ort like '%" + ort + "%' ";
+       }
+       if(bundesland != null){
+           query +=  "AND bundesland like '%" + bundesland + "%' ";
+       }
+       if(plz != null){
+           query +=  "AND plz like '%" + plz + "%' ";
+       }
+       if(verkauf != null){
+           query +=  "AND verkaufsstelle is " + verkauf + " ";
+       }
+       if(auffuehrung != null){
+           query +=  "AND auffuehrungsort is " + auffuehrung + " ";
+       }
+       if(kiosk != null){
+           query +=  "AND kiosk IS " + kiosk + " ";
+       }
+       
+        log.info(query);
+        
+        try {
+            List list = ortdao.find(query);
+            log.info(list);
+            return list;
+        } catch (RuntimeException ex) {
+            throw new TicketLineSystemException("Datenbankfehler");
+        }
     }
+            
+        
+        
 }
+
+/*
+folgenden Test positiv ausgeführt (Einfügen in super.init()-Methode in Mainpage.java):
+
+try {
+    OrtHelper.sucheOrte("CENTRAL KINO LINZ", "Kokosnussgasse", "Holzdorf", "Wien", "3082", true, false, true);
+} catch (Exception ex) {
+    Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
+}
+
+*/
