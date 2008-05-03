@@ -52,4 +52,9 @@ public final class SystemHelper
             throw new TicketLineSystemException("General error!", e);
         }
     }
+    
+    public static String validateInput(String input)
+    {
+        return input.replace("'", "\\'");
+    }
 }

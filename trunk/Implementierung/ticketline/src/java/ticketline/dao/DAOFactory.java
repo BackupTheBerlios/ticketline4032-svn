@@ -9,6 +9,7 @@ import ticketline.dao.hibernate.KategorieDAOHibernate;
 import ticketline.dao.hibernate.KuenstlerDAOHibernate;
 import ticketline.dao.hibernate.KundeDAOHibernate;
 import ticketline.dao.hibernate.MitarbeiterDAOHibernate;
+import ticketline.dao.hibernate.NewsDAOHibernate;
 import ticketline.dao.hibernate.OrtDAOHibernate;
 import ticketline.dao.hibernate.ReiheDAOHibernate;
 import ticketline.dao.hibernate.SaalDAOHibernate;
@@ -24,6 +25,7 @@ import ticketline.dao.interfaces.KategorieDAO;
 import ticketline.dao.interfaces.KuenstlerDAO;
 import ticketline.dao.interfaces.KundeDAO;
 import ticketline.dao.interfaces.MitarbeiterDAO;
+import ticketline.dao.interfaces.NewsDAO;
 import ticketline.dao.interfaces.OrtDAO;
 import ticketline.dao.interfaces.ReiheDAO;
 import ticketline.dao.interfaces.SaalDAO;
@@ -67,6 +69,14 @@ public class DAOFactory {
 	private static TransaktionDAO transaktionDAO;
 
 	private static VeranstaltungDAO veranstaltungDAO;
+        
+        private static NewsDAO newsDAO;
+        
+        public static NewsDAO getNewsDAO() {
+            if(newsDAO == null)
+                newsDAO = new NewsDAOHibernate();
+            return newsDAO;
+        }
 
 	/**
 	 * @return Returns the artikelDAO.

@@ -68,3 +68,6 @@ alter table transaktion add constraint FK80118EE618C8D52A foreign key (mitarbeit
 alter table transaktion add constraint FK80118EE625417FE1 foreign key (verkaufsstelle, verkaufsort) references ort;
 alter table transaktion add constraint FK80118EE643D4A1A8 foreign key (kartennr) references kunde;
 alter table transaktion add constraint FK80118EE65E1C6830 foreign key (kundennr) references kunde;
+
+drop table news if exists;
+create table news (erstellt date not null, gueltig date not null, titel varchar(64) not null, inhalt varchar(1024) not null, primary key (erstellt));
