@@ -35,6 +35,7 @@ public class AuffuehrungsHelper
     public static List<Kuenstler> sucheKuenstler(String vorname, String nachname, Boolean maennlich) 
             throws TicketLineException, TicketLineSystemException
     {
+        try{
         KuenstlerDAO kuenstler = DAOFactory.getKuenstlerDAO();
         
         String query = "1 = 1 ";
@@ -45,16 +46,21 @@ public class AuffuehrungsHelper
     
         List list = kuenstler.find(query);
         
-        log.info(query); 
-        log.info(list);
+        log.info("Executing: " + query); 
         
         return list;
+        
+        }catch(RuntimeException e)
+        {
+            throw new TicketLineSystemException("Error during database access!", e);
+        }
     }
     
     public static List<Veranstaltung> sucheVeranstaltungen(String bezeichnung, String kategorie,
                                                     Integer dauerMin, Integer dauerMax, String inhalt) 
                                                     throws TicketLineException, TicketLineSystemException
     {
+        try{
         VeranstaltungDAO veranstaltung = DAOFactory.getVeranstaltungDAO();
         
         String query = "1=1 ";
@@ -66,15 +72,20 @@ public class AuffuehrungsHelper
          
         List list = veranstaltung.find(query);
         
-        log.info(query); 
-        log.info(list);
+        log.info("Executing: " + query); 
         return list;
+        
+        }catch(RuntimeException e)
+        {
+            throw new TicketLineSystemException("Error during database access!", e);
+        }
+        
     }
     
     public static List<Auffuehrung> sucheAuffuehrungen(Date zeitVon, Date zeitBis, Boolean storniert, Integer preisMin, Integer preisMax,
                                                 VeranstaltungKey veranstaltung, SaalKey saal) throws TicketLineException, TicketLineSystemException
     {
-      
+      try{
        String veranstaltungBezeichnung  = null;
        String veranstaltungKategorie = null;
       
@@ -119,33 +130,12 @@ public class AuffuehrungsHelper
        
        List list = auffuehrung.find(query);
        
-       log.info(query); 
-       log.info(list);
+       log.info("Executing: " + query); 
+       
        return list;
+      }catch(RuntimeException e)
+        {
+            throw new TicketLineSystemException("Error during database access!", e);
+        }
     }
 }
-/*
- try{
-        ticketline.helper.AuffuehrungsHelper.sucheKuenstler("e", "e", false);
-        }catch(Exception ex){
-            
-        }
-
-        try{
-         ticketline.helper.AuffuehrungsHelper.sucheVeranstaltungen("ee", "e", 0, 200, "");
-        }catch(Exception ex){
-            
-        }
-        
-       
-        try{
-            
-        //AuffuehrungsHelper.sucheAuffuehrungen(zeitVon, zeitBis, storniert, preisMin, preisMax, veranstaltung, saal);
-        ticketline.helper.AuffuehrungsHelper.sucheAuffuehrungen(null, null, false, 0, 300, null, null);
-        
-        
-        }catch(Exception ex){
-            
-        }
-
-*/
