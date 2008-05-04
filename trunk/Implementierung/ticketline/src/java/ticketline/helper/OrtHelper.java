@@ -33,19 +33,19 @@ public class OrtHelper
         String query = "1 = 1 ";
         
        if(bezeichnung != null){
-           query +=  "AND bezeichnung like '%" + bezeichnung + "%' ";
+           query +=  "AND bezeichnung like '%" + SystemHelper.validateInput(bezeichnung) + "%' ";
        }
        if(strasse != null){
-           query +=  "AND strasse like '%" + strasse + "%' ";
+           query +=  "AND strasse like '%" + SystemHelper.validateInput(strasse) + "%' ";
        }
        if(ort != null){
-           query +=  "AND ort like '%" + ort + "%' ";
+           query +=  "AND ort like '%" + SystemHelper.validateInput(ort) + "%' ";
        }
        if(bundesland != null){
-           query +=  "AND bundesland like '%" + bundesland + "%' ";
+           query +=  "AND bundesland like '%" + SystemHelper.validateInput(bundesland) + "%' ";
        }
        if(plz != null){
-           query +=  "AND plz like '%" + plz + "%' ";
+           query +=  "AND plz like '%" + SystemHelper.validateInput(plz) + "%' ";
        }
        if(verkauf != null){
            query +=  "AND verkaufsstelle is " + verkauf + " ";
@@ -54,7 +54,7 @@ public class OrtHelper
            query +=  "AND auffuehrungsort is " + auffuehrung + " ";
        }
        if(kiosk != null){
-           query +=  "AND kiosk IS " + kiosk + " ";
+           query +=  "AND kiosk is " + kiosk + " ";
        }
        
         log.info(query);
