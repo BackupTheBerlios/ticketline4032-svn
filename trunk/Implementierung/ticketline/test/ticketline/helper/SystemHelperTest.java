@@ -5,6 +5,8 @@
 
 package ticketline.helper;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,6 +15,8 @@ import org.junit.Test;
 import ticketline.dao.DAOFactory;
 import static org.junit.Assert.*;
 import ticketline.db.Kunde;
+import ticketline.exceptions.TicketLineException;
+import ticketline.exceptions.TicketLineSystemException;
 
 /**
  *
@@ -54,47 +58,62 @@ public class SystemHelperTest {
      */
     @Test
     public void checkLoginTrue() {
-        
-        System.out.println("checkLoginTrue");
-        kartennr = 1;
-        onlinepwd = "foobar";
-        result = SystemHelper.checkLogin(kartennr, onlinepwd);
-        assertEquals(result.getNname(), "Sobieski");
+        try {
+
+            System.out.println("checkLoginTrue");
+            kartennr = 1;
+            onlinepwd = "foobar";
+            result = SystemHelper.checkLogin(kartennr, onlinepwd);
+            assertEquals(result.getNname(), "Sobieski");
+        } catch (TicketLineException ex) {
+            Logger.getLogger(SystemHelperTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     @Test
-    public void PwdCheck() {
+    public void PwdCheck() { 
         System.out.println("PwdCheck");
         kartennr = 1;
         onlinepwd = "foobar";
         result = DAOFactory.getKundeDAO().get(kartennr);
         assertEquals(onlinepwd, result.getOnlinepwd());
-        
     }
     @Test
     public void NullInput() {
-        
-        System.out.println("NullInput");
-        result = SystemHelper.checkLogin(kartennr, onlinepwd);
-        assertEquals(null, result);
+        try {
+
+            System.out.println("NullInput");
+            result = SystemHelper.checkLogin(kartennr, onlinepwd);
+            assertEquals(null, result);
+        } catch (TicketLineException ex) {
+            Logger.getLogger(SystemHelperTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     @Test
     public void WrongPwd() {
-        
-        System.out.println("WrongPwd");
-        kartennr = 1;
-        result = SystemHelper.checkLogin(kartennr, onlinepwd);
-        assertEquals(null, result);
+        try {
+
+            System.out.println("WrongPwd");
+            kartennr = 1;
+            result = SystemHelper.checkLogin(kartennr, onlinepwd);
+            assertEquals(null, result);
+        } catch (TicketLineException ex) {
+            Logger.getLogger(SystemHelperTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     @Test
     public void WrongKartennr() {
-        
-        System.out.println("WrongKartennr");
-        kartennr = 61;
-        result = SystemHelper.checkLogin(kartennr, onlinepwd);
-        assertEquals(null, result);
+        try {
+
+            System.out.println("WrongKartennr");
+            kartennr = 61;
+            result = SystemHelper.checkLogin(kartennr, onlinepwd);
+            assertEquals(null, result);
+        } catch (TicketLineException ex) {
+            Logger.getLogger(SystemHelperTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 }
