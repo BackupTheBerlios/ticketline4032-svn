@@ -41,9 +41,11 @@ public class KundenHelper
                 query +=  "AND gueltig >= '" + ((java.sql.Date) gueltig).toString() + "' ";
             }
 
+            query += "ORDER BY gueltig DESC";
+            
+            log.info("Executing HQL-Query: " + query);
+            
             List list = dao.find(query);
-
-            log.info("Executing: " + query);
             
             return list;
         }

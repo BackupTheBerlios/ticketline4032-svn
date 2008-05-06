@@ -7,8 +7,15 @@
 package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.FacesException;
 import ticketline.db.Kunde;
+import ticketline.db.News;
+import ticketline.exceptions.TicketLineException;
+import ticketline.exceptions.TicketLineSystemException;
+import ticketline.helper.KundenHelper;
 
 /**
  * <p>Session scope data bean for your application.  Create properties
@@ -131,5 +138,15 @@ public class SessionBean1 extends AbstractSessionBean {
 
     public void setLogin(Kunde login) {
         this.login = login;
+    }
+
+    public News[] getNews() {
+        try {
+            List<News> list = KundenHelper.sucheNews(null, null);
+            News[] arr = new News[list.size()];
+            return list.toArray(arr);
+        } catch (Exception ex) {
+            return null;
+        }
     }
 }

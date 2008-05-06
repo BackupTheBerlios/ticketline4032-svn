@@ -6,7 +6,6 @@
  
 package ticketline;
 
-import com.sun.rave.faces.data.DefaultTableDataModel;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
 import com.sun.webui.jsf.component.Form;
@@ -14,15 +13,12 @@ import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
+import com.sun.webui.jsf.component.RadioButton;
 import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
-import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import javax.faces.FacesException;
-import javax.faces.component.UIColumn;
-import javax.faces.component.html.HtmlDataTable;
-import javax.faces.component.html.HtmlOutputText;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -93,114 +89,24 @@ public class MainPage extends AbstractPageBean {
     public void setBody1(Body b) {
         this.body1 = b;
     }
-    
-    private Form form1 = new Form();
-    
-    public Form getForm1() {
-        return form1;
-    }
-    
-    public void setForm1(Form f) {
-        this.form1 = f;
-    }
-    private StaticText id_News = new StaticText();
+       
+    private StaticText textNewsDetails = new StaticText();
 
-    public StaticText getId_News() {
-        return id_News;
+    public StaticText getTextNewsDetails() {
+        return textNewsDetails;
     }
 
-    public void setId_News(StaticText st) {
-        this.id_News = st;
+    public void setTextNewsDetails(StaticText st) {
+        this.textNewsDetails = st;
     }
-    private HtmlDataTable dataTable1 = new HtmlDataTable();
+    private Table tableNews = new Table();
 
-    public HtmlDataTable getDataTable1() {
-        return dataTable1;
-    }
-
-    public void setDataTable1(HtmlDataTable hdt) {
-        this.dataTable1 = hdt;
-    }
-    private DefaultTableDataModel dataTable1Model = new DefaultTableDataModel();
-
-    public DefaultTableDataModel getDataTable1Model() {
-        return dataTable1Model;
+    public Table getTableNews() {
+        return tableNews;
     }
 
-    public void setDataTable1Model(DefaultTableDataModel dtdm) {
-        this.dataTable1Model = dtdm;
-    }
-    private UIColumn column2 = new UIColumn();
-
-    public UIColumn getColumn2() {
-        return column2;
-    }
-
-    public void setColumn2(UIColumn uic) {
-        this.column2 = uic;
-    }
-    private HtmlOutputText outputText3 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText3() {
-        return outputText3;
-    }
-
-    public void setOutputText3(HtmlOutputText hot) {
-        this.outputText3 = hot;
-    }
-    private HtmlOutputText outputText4 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText4() {
-        return outputText4;
-    }
-
-    public void setOutputText4(HtmlOutputText hot) {
-        this.outputText4 = hot;
-    }
-    private UIColumn column3 = new UIColumn();
-
-    public UIColumn getColumn3() {
-        return column3;
-    }
-
-    public void setColumn3(UIColumn uic) {
-        this.column3 = uic;
-    }
-    private HtmlOutputText outputText5 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText5() {
-        return outputText5;
-    }
-
-    public void setOutputText5(HtmlOutputText hot) {
-        this.outputText5 = hot;
-    }
-    private HtmlOutputText outputText6 = new HtmlOutputText();
-
-    public HtmlOutputText getOutputText6() {
-        return outputText6;
-    }
-
-    public void setOutputText6(HtmlOutputText hot) {
-        this.outputText6 = hot;
-    }
-    private StaticText id_News1 = new StaticText();
-
-    public StaticText getId_News1() {
-        return id_News1;
-    }
-
-    public void setId_News1(StaticText st) {
-        this.id_News1 = st;
-    }
-    private Table table1 = new Table();
-
-    public Table getTable1() {
-        return table1;
-    }
-
-    public void setTable1(Table t) {
-        this.table1 = t;
+    public void setTableNews(Table t) {
+        this.tableNews = t;
     }
     private TableRowGroup tableRowGroup1 = new TableRowGroup();
 
@@ -211,15 +117,7 @@ public class MainPage extends AbstractPageBean {
     public void setTableRowGroup1(TableRowGroup trg) {
         this.tableRowGroup1 = trg;
     }
-    private DefaultTableDataProvider defaultTableDataProvider = new DefaultTableDataProvider();
 
-    public DefaultTableDataProvider getDefaultTableDataProvider() {
-        return defaultTableDataProvider;
-    }
-
-    public void setDefaultTableDataProvider(DefaultTableDataProvider dtdp) {
-        this.defaultTableDataProvider = dtdp;
-    }
     private TableColumn tableColumn1 = new TableColumn();
 
     public TableColumn getTableColumn1() {
@@ -256,7 +154,34 @@ public class MainPage extends AbstractPageBean {
     public void setStaticText2(StaticText st) {
         this.staticText2 = st;
     }
+    private TableColumn tableColumn3 = new TableColumn();
 
+    public TableColumn getTableColumn3() {
+        return tableColumn3;
+    }
+
+    public void setTableColumn3(TableColumn tc) {
+        this.tableColumn3 = tc;
+    }
+
+    private RadioButton radioButton1 = new RadioButton();
+
+    public RadioButton getRadioButton1() {
+        return radioButton1;
+    }
+
+    public void setRadioButton1(RadioButton rb) {
+        this.radioButton1 = rb;
+    }
+    private Form form2 = new Form();
+
+    public Form getForm2() {
+        return form2;
+    }
+
+    public void setForm2(Form f) {
+        this.form2 = f;
+    }
     // </editor-fold>
 
     /**
@@ -362,6 +287,5 @@ public class MainPage extends AbstractPageBean {
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
     }
-    
 }
 

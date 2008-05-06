@@ -33,5 +33,6 @@
 		<mapping resource="hbm/Reihe.hbm.xml" />
 		<mapping resource="hbm/Bestellung.hbm.xml" />
 		<mapping resource="hbm/Kuenstler.hbm.xml" />
+                <mapping resource="hbm/News.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>
