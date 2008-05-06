@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : VeranstaltungsFragment
+    Created on : May 6, 2008, 11:54:25 PM
+    Author     : RedFalcon
+-->
+<div style="-rave-layout: grid" xmlns:f="http://java.sun.com/jsf/core" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
+    <f:subview id="VeranstaltungsFragment">
+        <webuijsf:table augmentTitle="false" binding="#{VeranstaltungsFragment.table1}" id="table1" title="Veranstaltungen" width="741">
+            <webuijsf:tableRowGroup binding="#{VeranstaltungsFragment.tableRowGroup1}" id="tableRowGroup1" rows="10"
+                sourceData="#{VeranstaltungsFragment.defaultTableDataProvider}" sourceVar="currentRow">
+                <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn1}" headerText="column1" id="tableColumn1" sort="column1">
+                    <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText1}" id="staticText1" text="#{currentRow.value['column1']}"/>
+                </webuijsf:tableColumn>
+                <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn2}" headerText="column2" id="tableColumn2" sort="column2">
+                    <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText2}" id="staticText2" text="#{currentRow.value['column2']}"/>
+                </webuijsf:tableColumn>
+                <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn3}" headerText="column3" id="tableColumn3" sort="column3">
+                    <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText3}" id="staticText3" text="#{currentRow.value['column3']}"/>
+                </webuijsf:tableColumn>
+            </webuijsf:tableRowGroup>
+        </webuijsf:table>
+    </f:subview>
+</div>

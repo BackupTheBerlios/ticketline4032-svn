@@ -18,21 +18,25 @@
                     </div>
                     <webuijsf:form binding="#{MainPage.form2}" id="form2">
                         <webuijsf:table augmentTitle="false" binding="#{MainPage.tableNews}" id="tableNews" style="left: 192px; top: 144px; position: absolute"
-                            title="News" width="743">
-                            <webuijsf:tableRowGroup binding="#{MainPage.tableRowGroup1}" id="tableRowGroup1" rows="10" sourceData="#{SessionBean1.news}" sourceVar="currentRow">
-                                <webuijsf:tableColumn binding="#{MainPage.tableColumn1}" headerText="Datum" id="tableColumn1" sort="gueltig" width="185">
+                            title="News" width="741">
+                            <webuijsf:tableRowGroup binding="#{MainPage.tableRowGroup1}" emptyDataMsg="Keine News." id="tableRowGroup1" rows="5"
+                                selected="#{MainPage.selectedState}" sourceData="#{SessionBean1.news}" sourceVar="currentRow">
+                                <webuijsf:tableColumn binding="#{MainPage.tableColumn3}" id="tableColumn3"
+                                    onClick="setTimeout(function(){document.getElementById('form2:tableNews').initAllRows()}, 0);" selectId="radioButton1" width="10">
+                                    <webuijsf:radioButton binding="#{MainPage.radioButton1}" id="radioButton1" name="radioButton1"
+                                        selected="#{MainPage.selected}" selectedValue="#{MainPage.selectedValue}"/>
+                                </webuijsf:tableColumn>
+                                <webuijsf:tableColumn binding="#{MainPage.tableColumn1}" headerText="Datum" id="tableColumn1" width="120" sort="gueltig">
                                     <webuijsf:staticText binding="#{MainPage.staticText1}" id="staticText1" text="#{currentRow.value.gueltig}"/>
                                 </webuijsf:tableColumn>
-                                <webuijsf:tableColumn binding="#{MainPage.tableColumn2}" headerText="Eintrag" id="tableColumn2" sort="titel" width="408">
+                                <webuijsf:tableColumn binding="#{MainPage.tableColumn2}" headerText="Eintrag" id="tableColumn2" sort="titel">
                                     <webuijsf:staticText binding="#{MainPage.staticText2}" id="staticText2" text="#{currentRow.value.titel}"/>
-                                </webuijsf:tableColumn>
-                                <webuijsf:tableColumn binding="#{MainPage.tableColumn3}" headerText="Auswahl" id="tableColumn3">
-                                    <webuijsf:radioButton binding="#{MainPage.radioButton1}" id="radioButton1" label="Details"
-                                        name="radioButton-group-tableColumn3" />
                                 </webuijsf:tableColumn>
                             </webuijsf:tableRowGroup>
                         </webuijsf:table>
-                        <webuijsf:staticText binding="#{MainPage.textNewsDetails}" id="textNewsDetails" style="font-family: 'Arial','Helvetica',sans-serif; font-size: 12px; height: 118px; left: 192px; top: 288px; position: absolute; width: 741px"/>
+                        <webuijsf:staticText binding="#{MainPage.textNewsDetails}" id="textNewsDetails" style="font-family: 'Arial','Helvetica',sans-serif; font-size: 12px; height: 142px; left: 312px; top: 336px; position: absolute; width: 621px"/>
+                        <webuijsf:button actionExpression="#{MainPage.buttonDetails_action}" binding="#{MainPage.buttonDetails}" id="buttonDetails"
+                            style="left: 192px; top: 336px; position: absolute; width: 110px" text="Details zur Auswahl"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

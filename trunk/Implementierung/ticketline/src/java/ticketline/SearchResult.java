@@ -226,24 +226,6 @@ public class SearchResult extends AbstractPageBean {
     public void setStaticText7(StaticText st) {
         this.staticText7 = st;
     }
-    private Table table3 = new Table();
-
-    public Table getTable3() {
-        return table3;
-    }
-
-    public void setTable3(Table t) {
-        this.table3 = t;
-    }
-    private TableRowGroup tableRowGroup3 = new TableRowGroup();
-
-    public TableRowGroup getTableRowGroup3() {
-        return tableRowGroup3;
-    }
-
-    public void setTableRowGroup3(TableRowGroup trg) {
-        this.tableRowGroup3 = trg;
-    }
     private TableColumn tableColumn7 = new TableColumn();
 
     public TableColumn getTableColumn7() {
@@ -451,78 +433,6 @@ public class SearchResult extends AbstractPageBean {
     public void setTableColumn14(TableColumn tc) {
         this.tableColumn14 = tc;
     }
-    private StaticText staticText15 = new StaticText();
-
-    public StaticText getStaticText15() {
-        return staticText15;
-    }
-
-    public void setStaticText15(StaticText st) {
-        this.staticText15 = st;
-    }
-    private TableColumn tableColumn15 = new TableColumn();
-
-    public TableColumn getTableColumn15() {
-        return tableColumn15;
-    }
-
-    public void setTableColumn15(TableColumn tc) {
-        this.tableColumn15 = tc;
-    }
-    private StaticText staticText16 = new StaticText();
-
-    public StaticText getStaticText16() {
-        return staticText16;
-    }
-
-    public void setStaticText16(StaticText st) {
-        this.staticText16 = st;
-    }
-    private TableColumn tableColumn16 = new TableColumn();
-
-    public TableColumn getTableColumn16() {
-        return tableColumn16;
-    }
-
-    public void setTableColumn16(TableColumn tc) {
-        this.tableColumn16 = tc;
-    }
-    private StaticText staticText17 = new StaticText();
-
-    public StaticText getStaticText17() {
-        return staticText17;
-    }
-
-    public void setStaticText17(StaticText st) {
-        this.staticText17 = st;
-    }
-    private TableColumn tableColumn17 = new TableColumn();
-
-    public TableColumn getTableColumn17() {
-        return tableColumn17;
-    }
-
-    public void setTableColumn17(TableColumn tc) {
-        this.tableColumn17 = tc;
-    }
-    private StaticText staticText18 = new StaticText();
-
-    public StaticText getStaticText18() {
-        return staticText18;
-    }
-
-    public void setStaticText18(StaticText st) {
-        this.staticText18 = st;
-    }
-    private TableColumn tableColumn18 = new TableColumn();
-
-    public TableColumn getTableColumn18() {
-        return tableColumn18;
-    }
-
-    public void setTableColumn18(TableColumn tc) {
-        this.tableColumn18 = tc;
-    }
     private StaticText staticText19 = new StaticText();
 
     public StaticText getStaticText19() {
@@ -585,33 +495,6 @@ public class SearchResult extends AbstractPageBean {
 
     public void setStaticText21(StaticText st) {
         this.staticText21 = st;
-    }
-    private StaticText staticTextOrte = new StaticText();
-
-    public StaticText getStaticTextOrte() {
-        return staticTextOrte;
-    }
-
-    public void setStaticTextOrte(StaticText st) {
-        this.staticTextOrte = st;
-    }
-    private StaticText staticTextKuenstler = new StaticText();
-
-    public StaticText getStaticTextKuenstler() {
-        return staticTextKuenstler;
-    }
-
-    public void setStaticTextKuenstler(StaticText st) {
-        this.staticTextKuenstler = st;
-    }
-    private StaticText staticTextVeranstaltungen = new StaticText();
-
-    public StaticText getStaticTextVeranstaltungen() {
-        return staticTextVeranstaltungen;
-    }
-
-    public void setStaticTextVeranstaltungen(StaticText st) {
-        this.staticTextVeranstaltungen = st;
     }
 
     // </editor-fold>

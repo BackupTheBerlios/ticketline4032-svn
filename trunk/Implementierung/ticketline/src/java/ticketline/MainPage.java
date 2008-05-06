@@ -6,8 +6,11 @@
  
 package ticketline;
 
+import com.sun.data.provider.RowKey;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
+import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.Checkbox;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
@@ -18,7 +21,10 @@ import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
+import com.sun.webui.jsf.event.TableSelectPhaseListener;
 import javax.faces.FacesException;
+import javax.faces.event.ValueChangeEvent;
+import ticketline.db.News;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -154,6 +160,24 @@ public class MainPage extends AbstractPageBean {
     public void setStaticText2(StaticText st) {
         this.staticText2 = st;
     }
+    private Form form2 = new Form();
+
+    public Form getForm2() {
+        return form2;
+    }
+
+    public void setForm2(Form f) {
+        this.form2 = f;
+    }
+    private Button buttonDetails = new Button();
+
+    public Button getButtonDetails() {
+        return buttonDetails;
+    }
+
+    public void setButtonDetails(Button b) {
+        this.buttonDetails = b;
+    }
     private TableColumn tableColumn3 = new TableColumn();
 
     public TableColumn getTableColumn3() {
@@ -163,7 +187,6 @@ public class MainPage extends AbstractPageBean {
     public void setTableColumn3(TableColumn tc) {
         this.tableColumn3 = tc;
     }
-
     private RadioButton radioButton1 = new RadioButton();
 
     public RadioButton getRadioButton1() {
@@ -172,15 +195,6 @@ public class MainPage extends AbstractPageBean {
 
     public void setRadioButton1(RadioButton rb) {
         this.radioButton1 = rb;
-    }
-    private Form form2 = new Form();
-
-    public Form getForm2() {
-        return form2;
-    }
-
-    public void setForm2(Form f) {
-        this.form2 = f;
     }
     // </editor-fold>
 
@@ -286,6 +300,44 @@ public class MainPage extends AbstractPageBean {
      */
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
+    }
+    
+    private TableSelectPhaseListener tablePhaseListener =
+                                  new TableSelectPhaseListener();
+
+    public void setSelected(Object object) {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        if (rowKey != null) {
+            tablePhaseListener.setSelected(rowKey, object);
+        }
+    }
+
+    public Object getSelected(){
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener.getSelected(rowKey);
+
+    }
+
+    public Object getSelectedValue() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return (rowKey != null) ? rowKey.getRowId() : null;
+
+    }
+
+    public boolean getSelectedState() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener.isSelected(rowKey);
+    }
+
+    public String buttonDetails_action() {
+        
+        if(this.tableRowGroup1.getSelectedRowsCount() > 0)
+        {
+            RowKey sel = this.tableRowGroup1.getSelectedRowKeys()[0];
+            this.textNewsDetails.setText(((News[])this.tableRowGroup1.getSourceData())[Integer.parseInt(sel.getRowId())].getInhalt());
+        }
+        
+        return null;
     }
 }
 

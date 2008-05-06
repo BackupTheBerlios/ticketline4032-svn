@@ -19,11 +19,9 @@
                         </div>
                         <div style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
                             <webuijsf:staticText binding="#{SearchResult.staticTextTitle}" id="staticTextTitle"
-                                style="font-size: 30px; left: 264px; top: 0px; position: absolute" text="Suchergebnisse"/>
-                            <webuijsf:staticText binding="#{SearchResult.staticTextOrte}" id="staticTextOrte"
-                                style="font-size: 20px; left: 312px; top: 72px; position: absolute" text="gefundene Orte"/>
+                                style="font-size: 30px; left: 0px; top: 0px; position: absolute" text="Suchergebnisse"/>
                             <webuijsf:table augmentTitle="false" binding="#{SearchResult.table1}" id="table1"
-                                style="left: 24px; top: 120px; position: absolute; width: 696px" width="696">
+                                style="left: 0px; top: 48px; position: absolute; width: 741px" title="Orte" width="741">
                                 <webuijsf:tableRowGroup binding="#{SearchResult.tableRowGroup1}" id="tableRowGroup1" rows="5"
                                     sourceData="#{SearchResult.defaultTableDataProvider}" sourceVar="currentRow">
                                     <webuijsf:tableColumn binding="#{SearchResult.tableColumn1}" headerText="Bezeichnung" id="tableColumn1" sort="Bezeichnung">
@@ -46,10 +44,8 @@
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
-                            <webuijsf:staticText binding="#{SearchResult.staticTextKuenstler}" id="staticTextKuenstler"
-                                style="font-size: 20px; left: 312px; top: 288px; position: absolute" text="gefundene Künstler"/>
                             <webuijsf:table augmentTitle="false" binding="#{SearchResult.table2}" id="table2"
-                                style="left: 24px; top: 336px; position: absolute; width: 696px" width="696">
+                                style="left: 0px; top: 216px; position: absolute; width: 696px" title="Künstler" width="741">
                                 <webuijsf:tableRowGroup binding="#{SearchResult.tableRowGroup2}" id="tableRowGroup2" rows="5"
                                     sourceData="#{SearchResult.defaultTableDataProvider}" sourceVar="currentRow">
                                     <webuijsf:tableColumn binding="#{SearchResult.tableColumn9}" headerText="Nachname" id="tableColumn9" sort="Nachname">
@@ -63,26 +59,9 @@
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
-                            <webuijsf:staticText binding="#{SearchResult.staticTextVeranstaltungen}" id="staticTextVeranstaltungen"
-                                style="font-size: 20px; left: 264px; top: 504px; position: absolute" text="gefundene Veranstaltungen"/>
-                            <webuijsf:table augmentTitle="false" binding="#{SearchResult.table3}" id="table3"
-                                style="left: 24px; top: 552px; position: absolute; width: 696px" width="696">
-                                <webuijsf:tableRowGroup binding="#{SearchResult.tableRowGroup3}" id="tableRowGroup3" rows="5"
-                                    sourceData="#{SearchResult.defaultTableDataProvider}" sourceVar="currentRow">
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn15}" headerText="Bezeichnung" id="tableColumn15" sort="Bezeichnung">
-                                        <webuijsf:staticText binding="#{SearchResult.staticText15}" id="staticText15" text="Bezeichnung"/>
-                                    </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn16}" headerText="Kategorie" id="tableColumn16" sort="Kategorie">
-                                        <webuijsf:staticText binding="#{SearchResult.staticText16}" id="staticText16" text="Kategorie"/>
-                                    </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn17}" headerText="Dauer" id="tableColumn17" sort="Dauer">
-                                        <webuijsf:staticText binding="#{SearchResult.staticText17}" id="staticText17" text="Dauer"/>
-                                    </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn18}" headerText="Inhalt" id="tableColumn18" sort="Inhalt">
-                                        <webuijsf:staticText binding="#{SearchResult.staticText18}" id="staticText18" text="Inhalt"/>
-                                    </webuijsf:tableColumn>
-                                </webuijsf:tableRowGroup>
-                            </webuijsf:table>
+                            <div style="left: 0px; top: 384px; position: absolute">
+                                <jsp:directive.include file="VeranstaltungsFragment.jspf"/>
+                            </div>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>
