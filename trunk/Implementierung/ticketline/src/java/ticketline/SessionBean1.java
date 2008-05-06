@@ -7,15 +7,20 @@
 package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.FacesException;
+import ticketline.db.Kategorie;
 import ticketline.db.Kunde;
 import ticketline.db.News;
+import ticketline.db.Reihe;
+import ticketline.db.SaalKey;
 import ticketline.exceptions.TicketLineException;
 import ticketline.exceptions.TicketLineSystemException;
 import ticketline.helper.KundenHelper;
+import ticketline.helper.SaalHelper;
 
 /**
  * <p>Session scope data bean for your application.  Create properties
@@ -148,5 +153,13 @@ public class SessionBean1 extends AbstractSessionBean {
         } catch (Exception ex) {
             return null;
         }
+    }
+    
+    public Reihe[] getReihen(SaalKey saal) throws TicketLineSystemException, TicketLineException{
+        List<Reihe> listK = SaalHelper.sucheAlleReihen(saal);
+        
+        return (Reihe[]) listK.toArray();
+        
+        
     }
 }

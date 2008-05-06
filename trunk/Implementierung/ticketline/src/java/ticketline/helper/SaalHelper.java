@@ -52,6 +52,9 @@ public class SaalHelper
     {
        SaalDAO dao=DAOFactory.getSaalDAO();
        String query = "1 = 1 ";
+       bezeichnung=SystemHelper.validateInput(bezeichnung);
+       typ=SystemHelper.validateInput(typ);
+       
        
        if(bezeichnung != null){
            query+=  "AND bezeichnung like '%" + bezeichnung + "%' ";
@@ -102,6 +105,28 @@ public class SaalHelper
            query+=  "AND saalbez = '" + key.getSaalbez()+ "' ";
            query+=  "AND ortbez = '" + key.getOrtbez()+ "' ";
            query+=  "AND ort = '" + key.getOrt()+ "' ";
+
+           
+       }else{
+           return null;
+       }
+        
+               List list = dao.find(query);
+        
+        log.info(query); 
+        log.info(list);
+        return list;
+    }
+    
+        public static List<Reihe> sucheAlleReihen(SaalKey key) throws TicketLineException, TicketLineSystemException
+    {
+       ReiheDAO dao=DAOFactory.getReiheDAO();
+      
+       String query = "1 = 1 ";
+       if(key!=null){
+           query+=  "AND saalbez = '" + key.getBezeichnung()+ "' ";
+           query+=  "AND ortbez = '" + key.getOrtbez()+ "' ";
+           query+=  "AND ort = '" + key.getOrt()+ "' order by bezeichnung "; 
 
            
        }else{

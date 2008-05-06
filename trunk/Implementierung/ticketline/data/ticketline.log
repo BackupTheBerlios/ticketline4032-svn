@@ -1,5 +1,3 @@
 /*C2*/SET SCHEMA PUBLIC
 CONNECT USER SA
-create table news (erstellt date not null, gueltig date not null, titel varchar(64) not null, inhalt varchar(1024) not null, primary key (erstellt))
-INSERT INTO NEWS VALUES('2008-05-03','2008-05-03','Test-Newseintrag 1','Dies ist die ausf\u00fchrliche Beschreibung des Test-Newseintrags Nummer 1, der jetzt irgendwo zu sehen sein sollte.')
-DISCONNECT
+SET AUTOCOMMIT FALSE
