@@ -21,10 +21,11 @@
                             <webuijsf:staticText binding="#{PlatzAuswahl.staticTextTitle}" id="staticTextTitle"
                                 style="font-size: 30px; left: 240px; top: 0px; position: absolute" text="verfügbare Plätze"/>
                             <webuijsf:button actionExpression="#{PlatzAuswahl.button1_action}" binding="#{PlatzAuswahl.button1}" id="button1"
-                                style="height: 23px; left: 527px; top: 144px; position: absolute; width: 168px" text="Ausgewählte Plätze reservieren"/>
+                                style="height: 23px; left: -1px; top: 144px; position: absolute; width: 168px" text="Ausgewählte Plätze reservieren"/>
                             <webuijsf:button actionExpression="#{PlatzAuswahl.button2_action}" binding="#{PlatzAuswahl.button2}" id="button2"
-                                style="height: 23px; left: 527px; top: 192px; position: absolute; width: 168px" text="ausgewählte Plätze kaufen"/>
-                            <webuijsf:image binding="#{PlatzAuswahl.image1}" id="image1" style="left: 48px; top: 72px; position: absolute" url="/resources/PlatzAuswahl.jpg"/>
+                                style="height: 23px; left: -1px; top: 192px; position: absolute; width: 168px" text="ausgewählte Plätze kaufen"/>
+                            <jsp:useBean class="ticketline.PlatzAuswahl" id="PlatzAuswahl" scope="session"/>
+                            <jsp:getProperty name="PlatzAuswahl" property="platzformat"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

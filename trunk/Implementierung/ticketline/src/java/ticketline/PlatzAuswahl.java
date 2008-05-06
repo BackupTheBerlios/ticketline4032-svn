@@ -21,10 +21,15 @@ import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
+import java.util.Iterator;
+import java.util.List;
 import javax.faces.FacesException;
 import javax.faces.component.UIColumn;
 import javax.faces.component.html.HtmlDataTable;
 import javax.faces.component.html.HtmlOutputText;
+import ticketline.db.Reihe;
+import ticketline.exceptions.TicketLineException;
+import ticketline.helper.SaalHelper;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -284,6 +289,42 @@ public class PlatzAuswahl extends AbstractPageBean {
         
         return "book";
     }
+    
+    private String platzformat;
+
+    public String getPlatzformat() throws TicketLineException {
+           List<Reihe> l=SaalHelper.sucheAlleReihen(this.getRequestBean1().getPlaetze());
+        Iterator<Reihe> i=l.iterator();
+        String ret="<table style='border: 1px solid;left: 240px; top: 50px; position: absolute'>";
+        String akt=null,prev="";
+        int col=10;
+        while(i.hasNext()){
+            Reihe r=i.next();
+            akt=r.getKategorie().getComp_id().getBezeichnung();
+                if(!prev.equals(akt)){
+                    prev=akt;
+                    ret+="<tr/>";
+                    col=(col+10)%90+10;
+                }
+                ret+="<tr>";
+                ret+="<td>"+r.getKategorie().getComp_id().getBezeichnung()+"</td>";
+                ret+="<td>"+r.getComp_id().getBezeichnung()+"</td>";
+               for(int i2=1;i2<=r.getAnzplaetze();i2++){
+                    ret+="<td style='background-color:#"+col+"C0"+col+"'>X</td>";
+                }
+                ret+="</tr>";
+            }
+            
+        ret+="</table>";
+            
+        
+        return ret;
+    }
+
+    public void setPlatzformat(String platzformat) {
+        this.platzformat = platzformat;
+    }
+    
     
 }
 

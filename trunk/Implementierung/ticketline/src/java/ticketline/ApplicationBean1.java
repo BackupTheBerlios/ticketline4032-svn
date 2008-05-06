@@ -8,6 +8,7 @@ package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractApplicationBean;
 import javax.faces.FacesException;
+import ticketline.db.SaalKey;
 
 /**
  * <p>Application scope data bean for your application.  Create properties
@@ -88,6 +89,8 @@ public class ApplicationBean1 extends AbstractApplicationBean {
     public void destroy() {
     }
 
+    private SaalKey erg;
+    
     /**
      * <p>Return an appropriate character encoding based on the
      * <code>Locale</code> defined for the current JavaServer Faces

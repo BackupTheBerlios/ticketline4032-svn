@@ -7,7 +7,14 @@
 package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractRequestBean;
+import java.util.Iterator;
+import java.util.List;
 import javax.faces.FacesException;
+import ticketline.db.Reihe;
+import ticketline.db.Saal;
+import ticketline.db.SaalKey;
+import ticketline.exceptions.TicketLineException;
+import ticketline.helper.SaalHelper;
 
 /**
  * <p>Request scope data bean for your application.  Create properties
@@ -38,6 +45,7 @@ public class RequestBean1 extends AbstractRequestBean {
      * <p>Construct a new request data bean instance.</p>
      */
     public RequestBean1() {
+       
     }
 
     /**
@@ -104,5 +112,18 @@ public class RequestBean1 extends AbstractRequestBean {
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
     }
+    
+    private SaalKey plaetze=null;
+
+    public SaalKey getPlaetze() throws TicketLineException {
+        return ((Saal)(SaalHelper.sucheSaele("", "", null, null).iterator().next())).getComp_id();
+        
+        
+    }
+
+    public void setPlaetze(SaalKey plaetze) {
+        this.plaetze = plaetze;
+    }
+    
 
 }

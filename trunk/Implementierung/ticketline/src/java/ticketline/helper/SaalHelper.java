@@ -126,7 +126,7 @@ public class SaalHelper
        if(key!=null){
            query+=  "AND saalbez = '" + key.getBezeichnung()+ "' ";
            query+=  "AND ortbez = '" + key.getOrtbez()+ "' ";
-           query+=  "AND ort = '" + key.getOrt()+ "' order by bezeichnung "; 
+           query+=  "AND ort = '" + key.getOrt()+ "' order by kategoriebez,bezeichnung "; 
 
            
        }else{
