@@ -40,9 +40,9 @@ public class AuffuehrungsHelper
         
         String query = "1 = 1 ";
         
-        if (SystemHelper.validateInput(vorname) != null) query +=           "AND vname like '%" + SystemHelper.validateInput(vorname) + "%' ";
-        if (SystemHelper.validateInput(nachname) != null) query +=          "AND nname like '%" + SystemHelper.validateInput(nachname) + "%' ";
-        if (maennlich != null) query +=                                    "AND geschlecht = '" + (maennlich ? "M" : "W") + "' ";
+        if (vorname != null) query +=           "AND vname like '%" + SystemHelper.validateInput(vorname) + "%' ";
+        if (nachname != null) query +=          "AND nname like '%" + SystemHelper.validateInput(nachname) + "%' ";
+        if (maennlich != null) query +=         "AND geschlecht = '" + (maennlich ? "M" : "W") + "' ";
     
         List list = kuenstler.find(query);
         
@@ -65,10 +65,10 @@ public class AuffuehrungsHelper
         
         String query = "1=1 ";
         
-        if (SystemHelper.validateInput(bezeichnung) != null) query +=                   "OR bezeichnung like '%" + SystemHelper.validateInput(bezeichnung) + "%' ";
-        if (SystemHelper.validateInput(kategorie) != null) query +=                     "OR kategorie like '%" + SystemHelper.validateInput(kategorie) + "%' ";
-        if (SystemHelper.validateInput(inhalt) != null) query +=                        "OR inhalt like '%" + SystemHelper.validateInput(inhalt) + "%' ";
-        if (SystemHelper.validateInput(dauerMin.toString()) != null && SystemHelper.validateInput(dauerMax.toString()) != null) query +=  "AND dauer BETWEEN '" + SystemHelper.validateInput(dauerMin.toString()) + "' AND '" + SystemHelper.validateInput(dauerMax.toString()) + "' ";
+        if (bezeichnung != null) query +=                   "OR bezeichnung like '%" + SystemHelper.validateInput(bezeichnung) + "%' ";
+        if (kategorie != null) query +=                     "OR kategorie like '%" + SystemHelper.validateInput(kategorie) + "%' ";
+        if (inhalt != null) query +=                        "OR inhalt like '%" + SystemHelper.validateInput(inhalt) + "%' ";
+        if (dauerMin.toString() != null && dauerMax.toString() != null) query +=  "AND dauer BETWEEN '" + SystemHelper.validateInput(dauerMin.toString()) + "' AND '" + SystemHelper.validateInput(dauerMax.toString()) + "' ";
          
         List list = veranstaltung.find(query);
         
