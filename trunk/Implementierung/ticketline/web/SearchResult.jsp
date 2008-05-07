@@ -25,7 +25,7 @@
                                 <webuijsf:tableRowGroup binding="#{SearchResult.tableRowGroup1}"
                                     emptyDataMsg="Es wurden keine Orte gefunden die Ihrer Suchanfrage entsprechen." id="tableRowGroup1" rows="5"
                                     sourceData="#{SearchResult.orte}" sourceVar="currentRow">
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn1}" headerText="Bezeichnung" id="tableColumn1">
+                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn1}" headerText="Bezeichnung" id="tableColumn1" sort="comp_id.bezeichnung">
                                         <webuijsf:staticText binding="#{SearchResult.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.bezeichnung}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{SearchResult.tableColumn2}" headerText="Ort" id="tableColumn2" sort="comp_id.ort">
@@ -47,7 +47,7 @@
                                 <webuijsf:tableRowGroup binding="#{SearchResult.tableRowGroup2}"
                                     emptyDataMsg="Es wurden keine Künstler gefunden die Ihrer Suchanfrage entsprechen." id="tableRowGroup2" rows="5"
                                     sourceData="#{SearchResult.kuenstler}" sourceVar="currentRow">
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn9}" headerText="Nachname" id="tableColumn9">
+                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn9}" headerText="Nachname" id="tableColumn9" sort="nname">
                                         <webuijsf:staticText binding="#{SearchResult.staticText9}" id="staticText9" text="#{currentRow.value.nname}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{SearchResult.tableColumn10}" headerText="Vorname" id="tableColumn10" sort="vname">
