@@ -60,7 +60,7 @@
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
                             <div style="left: 0px; top: 384px; position: absolute">
-                                <jsp:directive.include file="VeranstaltungsFragment.jspf"/>
+                                <jsp:directive.include file="VeranstaltungsFragment.jspf" />
                             </div>
                         </div>
                     </webuijsf:form>

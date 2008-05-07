@@ -35,6 +35,7 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
+        table1.setInternalVirtualForm(true);
     }
     private Table table1 = new Table();
 
