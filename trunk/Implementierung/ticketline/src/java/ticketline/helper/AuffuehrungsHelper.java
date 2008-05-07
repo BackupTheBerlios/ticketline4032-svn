@@ -40,9 +40,9 @@ public class AuffuehrungsHelper
         
         String query = "1 = 1 ";
         
-        if (vorname != null) query +=           "AND vname like '%" + vorname + "%' ";
-        if (nachname != null) query +=          "AND nname like '%" + nachname + "%' ";
-        if (maennlich != null) query +=         "AND geschlecht = '" + (maennlich ? "M" : "W") + "' ";
+        if (SystemHelper.validateInput(vorname) != null) query +=           "AND vname like '%" + SystemHelper.validateInput(vorname) + "%' ";
+        if (SystemHelper.validateInput(nachname) != null) query +=          "AND nname like '%" + SystemHelper.validateInput(nachname) + "%' ";
+        if (maennlich != null) query +=                                    "AND geschlecht = '" + (maennlich ? "M" : "W") + "' ";
     
         List list = kuenstler.find(query);
         
@@ -65,10 +65,10 @@ public class AuffuehrungsHelper
         
         String query = "1=1 ";
         
-        if (bezeichnung != null) query +=                   "OR bezeichnung like '%" + bezeichnung + "%' ";
-        if (kategorie != null) query +=                     "OR kategorie like '%" + kategorie + "%' ";
-        if (inhalt != null) query +=                        "OR inhalt like '%" + inhalt + "%' ";
-        if (dauerMin != null && dauerMax != null) query +=  "AND dauer BETWEEN '" + dauerMin + "' AND '" + dauerMax + "' ";
+        if (SystemHelper.validateInput(bezeichnung) != null) query +=                   "OR bezeichnung like '%" + SystemHelper.validateInput(bezeichnung) + "%' ";
+        if (SystemHelper.validateInput(kategorie) != null) query +=                     "OR kategorie like '%" + SystemHelper.validateInput(kategorie) + "%' ";
+        if (SystemHelper.validateInput(inhalt) != null) query +=                        "OR inhalt like '%" + SystemHelper.validateInput(inhalt) + "%' ";
+        if (SystemHelper.validateInput(dauerMin.toString()) != null && SystemHelper.validateInput(dauerMax.toString()) != null) query +=  "AND dauer BETWEEN '" + SystemHelper.validateInput(dauerMin.toString()) + "' AND '" + SystemHelper.validateInput(dauerMax.toString()) + "' ";
          
         List list = veranstaltung.find(query);
         
@@ -117,15 +117,15 @@ public class AuffuehrungsHelper
        sqlZeitBis = java.sql.Date.valueOf(zeitBis.toString());
        }
        
-       if (zeitVon != null && zeitBis != null) query +=         "AND datumuhrzeit BETWEEN '" + sqlZeitVon.toString() + "' AND '" + sqlZeitBis.toString() + "' ";
+       if (zeitVon != null && zeitBis != null) query +=         "AND datumuhrzeit BETWEEN '" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' AND '" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
        if (storniert != null) query +=                          "AND storniert = '" + storniert + "' ";
-       if (preisMin != null && preisMax != null) query +=       "AND preis BETWEEN '" + preisMin + "' AND '" + preisMax + "' ";
+       if (preisMin != null && preisMax != null) query +=       "AND preis BETWEEN '" + SystemHelper.validateInput(preisMin.toString()) + "' AND '" + SystemHelper.validateInput(preisMax.toString()) + "' ";
       
-       if (veranstaltungBezeichnung != null) query +=           "OR bezeichnung like %'" + veranstaltungBezeichnung + "'% ";
-       if (veranstaltungKategorie != null) query +=             "OR kategorie like %'" + veranstaltungKategorie + "'% ";
-       if (saalBezeichnung != null) query +=                    "OR bezeichnung like %'" + saalBezeichnung + "'% ";
-       if (saalOrtBezeichnung != null) query +=                 "OR ortbez like %'" + saalOrtBezeichnung + "'% ";
-       if (saalOrt != null) query +=                            "OR ort like %'" + saalOrt + "'% ";
+       if (veranstaltungBezeichnung != null) query +=           "OR bezeichnung like %'" + SystemHelper.validateInput(veranstaltungBezeichnung) + "'% ";
+       if (veranstaltungKategorie != null) query +=             "OR kategorie like %'" + SystemHelper.validateInput(veranstaltungKategorie) + "'% ";
+       if (saalBezeichnung != null) query +=                    "OR bezeichnung like %'" + SystemHelper.validateInput(saalBezeichnung) + "'% ";
+       if (saalOrtBezeichnung != null) query +=                 "OR ortbez like %'" + SystemHelper.validateInput(saalOrtBezeichnung) + "'% ";
+       if (saalOrt != null) query +=                            "OR ort like %'" + SystemHelper.validateInput(saalOrt) + "'% ";
       
        
        List list = auffuehrung.find(query);

@@ -114,6 +114,24 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
     public void setStaticText3(StaticText st) {
         this.staticText3 = st;
     }
+    private TableColumn tableColumn4 = new TableColumn();
+
+    public TableColumn getTableColumn4() {
+        return tableColumn4;
+    }
+
+    public void setTableColumn4(TableColumn tc) {
+        this.tableColumn4 = tc;
+    }
+    private StaticText staticText4 = new StaticText();
+
+    public StaticText getStaticText4() {
+        return staticText4;
+    }
+
+    public void setStaticText4(StaticText st) {
+        this.staticText4 = st;
+    }
     // </editor-fold>
 
     public VeranstaltungsFragment() {

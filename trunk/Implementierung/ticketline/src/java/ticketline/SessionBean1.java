@@ -15,11 +15,14 @@ import javax.faces.FacesException;
 import ticketline.db.Kategorie;
 import ticketline.db.Kunde;
 import ticketline.db.News;
+import ticketline.db.Auffuehrung;
 import ticketline.db.Reihe;
 import ticketline.db.SaalKey;
+import ticketline.db.Veranstaltung;
 import ticketline.exceptions.TicketLineException;
 import ticketline.exceptions.TicketLineSystemException;
 import ticketline.helper.KundenHelper;
+import ticketline.helper.AuffuehrungsHelper;
 import ticketline.helper.SaalHelper;
 
 /**
@@ -162,4 +165,30 @@ public class SessionBean1 extends AbstractSessionBean {
         
         
     }
+   
+    
+    public Auffuehrung[] getAuffuehrung() {
+        try {
+            List<Auffuehrung> list = AuffuehrungsHelper.sucheAuffuehrungen(null, null, true, 0, 400, null, null);
+                   
+            Auffuehrung[] arr = new Auffuehrung[list.size()];
+            return list.toArray(arr);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+   
+    
+    public Veranstaltung[] getVeranstaltung() {
+        try {
+            List<Veranstaltung> list = AuffuehrungsHelper.sucheVeranstaltungen(null,null,0, 100, null);
+                   
+            Veranstaltung[] arr = new Veranstaltung[list.size()];
+            return list.toArray(arr);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+    
+    
 }
