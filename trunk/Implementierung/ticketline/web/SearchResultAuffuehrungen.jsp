@@ -18,12 +18,12 @@
                             <jsp:directive.include file="MasterFragment.jspf"/>
                         </div>
                         <div style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
-                            <webuijsf:staticText binding="#{SessionBean1.auffuehrung}" id="staticTextTitle"
+                            <webuijsf:staticText binding="#{SearchResultAuffuehrungen.auffuehrung}" id="staticTextTitle"
                                 style="font-size: 30px; left: 192px; top: 0px; position: absolute" text="gefundene Aufführungen"/>
                             <webuijsf:table augmentTitle="false" binding="#{SearchResultAuffuehrungen.table1}" id="table1"
                                 style="left: 24px; top: 72px; position: absolute" width="695">
                                 <webuijsf:tableRowGroup binding="#{SearchResultAuffuehrungen.tableRowGroup1}" id="tableRowGroup1" rows="5"
-                                    sourceData="#{SessionBean1.auffuehrung}" sourceVar="currentRow">
+                                    sourceData="#{SearchResultAuffuehrungen.auffuehrung}" sourceVar="currentRow">
                                     <webuijsf:tableColumn binding="#{SearchResultAuffuehrungen.tableColumn1}" headerText="DatumUhrzeit" id="tableColumn1"
                                         sort="DatumUhrzeit" width="100">
                                         <webuijsf:staticText binding="#{SearchResultAuffuehrungen.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.datumuhrzeit}"/>

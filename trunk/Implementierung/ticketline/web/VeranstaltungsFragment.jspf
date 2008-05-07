@@ -9,7 +9,7 @@
         <webuijsf:table augmentTitle="false" binding="#{VeranstaltungsFragment.table1}" id="table1"
             style="left: 0px; top: 0px; position: absolute; width: 450px" title="Table" width="450">
             <webuijsf:tableRowGroup binding="#{VeranstaltungsFragment.tableRowGroup1}" id="tableRowGroup1" rows="10"
-                sourceData="#{SessionBean1.veranstaltung}" sourceVar="currentRow">
+                sourceData="#{VeranstaltungsFragment.veranstaltung}" sourceVar="currentRow">
                 <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn1}" headerText="Bezeichnung" id="tableColumn1" sort="column1">
                     <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.bezeichnung}"/>
                 </webuijsf:tableColumn>

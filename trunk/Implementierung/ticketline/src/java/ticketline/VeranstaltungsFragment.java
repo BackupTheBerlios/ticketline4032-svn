@@ -12,7 +12,10 @@ import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
+import java.util.List;
 import javax.faces.FacesException;
+import ticketline.db.Veranstaltung;
+import ticketline.helper.AuffuehrungsHelper;
 
 /**
  * <p>Fragment bean that corresponds to a similarly named JSP page
@@ -181,5 +184,19 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
     @Override
     public void destroy() {
     }
+    
+       
+    
+    public Veranstaltung[] getVeranstaltung() {
+        try {
+            List<Veranstaltung> list = AuffuehrungsHelper.sucheVeranstaltungen(null,null,0, 100, null);
+                   
+            Veranstaltung[] arr = new Veranstaltung[list.size()];
+            return list.toArray(arr);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+    
 
 }

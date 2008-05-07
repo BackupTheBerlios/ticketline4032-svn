@@ -165,30 +165,5 @@ public class SessionBean1 extends AbstractSessionBean {
         
         
     }
-   
-    
-    public Auffuehrung[] getAuffuehrung() {
-        try {
-            List<Auffuehrung> list = AuffuehrungsHelper.sucheAuffuehrungen(null, null, true, 0, 400, null, null);
-                   
-            Auffuehrung[] arr = new Auffuehrung[list.size()];
-            return list.toArray(arr);
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-   
-    
-    public Veranstaltung[] getVeranstaltung() {
-        try {
-            List<Veranstaltung> list = AuffuehrungsHelper.sucheVeranstaltungen(null,null,0, 100, null);
-                   
-            Veranstaltung[] arr = new Veranstaltung[list.size()];
-            return list.toArray(arr);
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-    
-    
+  
 }

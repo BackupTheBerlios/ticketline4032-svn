@@ -19,7 +19,10 @@ import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
+import java.util.List;
 import javax.faces.FacesException;
+import ticketline.db.Auffuehrung;
+import ticketline.helper.AuffuehrungsHelper;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -365,5 +368,16 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
         return "select";
     }
     
+        public Auffuehrung[] getAuffuehrung() {
+        try {
+            List<Auffuehrung> list = AuffuehrungsHelper.sucheAuffuehrungen(null, null, true, 0, 400, null, null);
+                   
+            Auffuehrung[] arr = new Auffuehrung[list.size()];
+            return list.toArray(arr);
+        } catch (Exception ex) {
+            return null;
+        }
+    }
+
 }
 
