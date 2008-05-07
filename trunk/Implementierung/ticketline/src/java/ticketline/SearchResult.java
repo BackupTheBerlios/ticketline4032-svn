@@ -3,7 +3,6 @@
  *
  * Created on 23.04.2008, 10:19:10
  */
- 
 package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
@@ -17,8 +16,14 @@ import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
-import com.sun.webui.jsf.model.DefaultTableDataProvider;
+import java.util.List;
 import javax.faces.FacesException;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import ticketline.db.Kuenstler;
+import ticketline.db.Ort;
+import ticketline.helper.AuffuehrungsHelper;
+import ticketline.helper.OrtHelper;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -31,7 +36,6 @@ import javax.faces.FacesException;
  */
 public class SearchResult extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
-
     /**
      * <p>Automatically managed component initialization.  <strong>WARNING:</strong>
      * This method is automatically generated, so any user-specified code inserted
@@ -40,63 +44,57 @@ public class SearchResult extends AbstractPageBean {
     private void _init() throws Exception {
         table1.setInternalVirtualForm(true);
     }
-
     private Page page1 = new Page();
-    
+
     public Page getPage1() {
         return page1;
     }
-    
+
     public void setPage1(Page p) {
         this.page1 = p;
     }
-    
     private Html html1 = new Html();
-    
+
     public Html getHtml1() {
         return html1;
     }
-    
+
     public void setHtml1(Html h) {
         this.html1 = h;
     }
-    
     private Head head1 = new Head();
-    
+
     public Head getHead1() {
         return head1;
     }
-    
+
     public void setHead1(Head h) {
         this.head1 = h;
     }
-    
     private Link link1 = new Link();
-    
+
     public Link getLink1() {
         return link1;
     }
-    
+
     public void setLink1(Link l) {
         this.link1 = l;
     }
-    
     private Body body1 = new Body();
-    
+
     public Body getBody1() {
         return body1;
     }
-    
+
     public void setBody1(Body b) {
         this.body1 = b;
     }
-    
     private Form form1 = new Form();
-    
+
     public Form getForm1() {
         return form1;
     }
-    
+
     public void setForm1(Form f) {
         this.form1 = f;
     }
@@ -397,15 +395,6 @@ public class SearchResult extends AbstractPageBean {
     public void setTableRowGroup5(TableRowGroup trg) {
         this.tableRowGroup5 = trg;
     }
-    private DefaultTableDataProvider defaultTableDataProvider = new DefaultTableDataProvider();
-
-    public DefaultTableDataProvider getDefaultTableDataProvider() {
-        return defaultTableDataProvider;
-    }
-
-    public void setDefaultTableDataProvider(DefaultTableDataProvider dtdp) {
-        this.defaultTableDataProvider = dtdp;
-    }
     private TableColumn tableColumn13 = new TableColumn();
 
     public TableColumn getTableColumn13() {
@@ -498,6 +487,7 @@ public class SearchResult extends AbstractPageBean {
     }
 
     // </editor-fold>
+    private static final Logger log = LogManager.getLogger(SearchResult.class);
 
     /**
      * <p>Construct a new Page bean instance.</p>
@@ -511,7 +501,7 @@ public class SearchResult extends AbstractPageBean {
      * Customize this method to acquire resources that will be needed
      * for event handlers and lifecycle methods, whether or not this
      * page is performing post back processing.</p>
-     * 
+     *
      * <p>Note that, if the current request is a postback, the property
      * values of the components do <strong>not</strong> represent any
      * values submitted with this request.  Instead, they represent the
@@ -524,7 +514,7 @@ public class SearchResult extends AbstractPageBean {
         // Perform application initialization that must complete
         // *before* managed components are initialized
         // TODO - add your own initialiation code here
-        
+
         // <editor-fold defaultstate="collapsed" desc="Managed Component Initialization">
         // Initialize automatically managed components
         // *Note* - this logic should NOT be modified
@@ -532,13 +522,13 @@ public class SearchResult extends AbstractPageBean {
             _init();
         } catch (Exception e) {
             log("SearchResult Initialization Failure", e);
-            throw e instanceof FacesException ? (FacesException) e: new FacesException(e);
+            throw e instanceof FacesException ? (FacesException) e : new FacesException(e);
         }
-        
-        // </editor-fold>
-        // Perform application initialization that must complete
-        // *after* managed components are initialized
-        // TODO - add your own initialization code here
+
+    // </editor-fold>
+    // Perform application initialization that must complete
+    // *after* managed components are initialized
+    // TODO - add your own initialization code here
     }
 
     /**
@@ -575,6 +565,62 @@ public class SearchResult extends AbstractPageBean {
     @Override
     public void destroy() {
     }
-    
+
+    public Kuenstler[] getKuenstler() {
+        try {
+            String query = getRequestBean1().getQuery();
+            List<Kuenstler> list = AuffuehrungsHelper.sucheKuenstler(query, null, null);
+            List<Kuenstler> list1 = AuffuehrungsHelper.sucheKuenstler(null, query, null);
+            list.addAll(list1);
+            Kuenstler[] arr = new Kuenstler[list.size()];
+            return list.toArray(arr);
+        } catch (Exception ex) {
+            log.error("Fehler", ex);
+            return null;
+        }
+    }
+
+    public Ort[] getOrte() {
+        try {
+            String query = getRequestBean1().getQuery();
+            List<Ort> list = OrtHelper.sucheOrte(query, null, null, null, null, null, null, null);
+            List<Ort> list1 = OrtHelper.sucheOrte(null, null, query, null, null, null, null, null);
+            List<Ort> list2 = OrtHelper.sucheOrte(null, null, null, null, query, null, null, null);
+            list.addAll(list1);
+            list.addAll(list2);
+            Ort[] arr = new Ort[list.size()];
+            return list.toArray(arr);
+        } catch (Exception ex) {
+            log.error("Fehler", ex);
+            return null;
+        }
+    }
+
+    /**
+     * <p>Return a reference to the scoped data bean.</p>
+     *
+     * @return reference to the scoped data bean
+     */
+    protected SessionBean1 getSessionBean1() {
+        return (SessionBean1) getBean("SessionBean1");
+    }
+
+    /**
+     * <p>Return a reference to the scoped data bean.</p>
+     *
+     * @return reference to the scoped data bean
+     */
+    protected RequestBean1 getRequestBean1() {
+        return (RequestBean1) getBean("RequestBean1");
+    }
+
+    /**
+     * <p>Return a reference to the scoped data bean.</p>
+     *
+     * @return reference to the scoped data bean
+     */
+    protected ApplicationBean1 getApplicationBean1() {
+        return (ApplicationBean1) getBean("ApplicationBean1");
+    }
 }
 

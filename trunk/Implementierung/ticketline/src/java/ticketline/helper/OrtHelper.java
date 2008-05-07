@@ -64,7 +64,7 @@ public class OrtHelper
             log.info(list);
             return list;
         } catch (RuntimeException ex) {
-            throw new TicketLineSystemException("Datenbankfehler");
+            throw new TicketLineSystemException("Datenbankfehler", ex);
         }
     }
             
