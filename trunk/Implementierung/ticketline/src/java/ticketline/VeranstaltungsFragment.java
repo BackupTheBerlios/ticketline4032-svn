@@ -55,15 +55,6 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
     public void setTableRowGroup1(TableRowGroup trg) {
         this.tableRowGroup1 = trg;
     }
-    private DefaultTableDataProvider defaultTableDataProvider = new DefaultTableDataProvider();
-
-    public DefaultTableDataProvider getDefaultTableDataProvider() {
-        return defaultTableDataProvider;
-    }
-
-    public void setDefaultTableDataProvider(DefaultTableDataProvider dtdp) {
-        this.defaultTableDataProvider = dtdp;
-    }
     private TableColumn tableColumn1 = new TableColumn();
 
     public TableColumn getTableColumn1() {

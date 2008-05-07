@@ -20,12 +20,11 @@
                         <div style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
                             <webuijsf:staticText binding="#{SearchResultAuffuehrungen.auffuehrung}" id="staticTextTitle"
                                 style="font-size: 30px; left: 192px; top: 0px; position: absolute" text="gefundene Aufführungen"/>
-                            <webuijsf:table augmentTitle="false" binding="#{SearchResultAuffuehrungen.table1}" id="table1"
-                                style="left: 24px; top: 72px; position: absolute" width="695">
+                            <webuijsf:table augmentTitle="false" binding="#{SearchResultAuffuehrungen.table1}" id="table1" paginateButton="true"
+                                paginationControls="true" style="left: 24px; top: 72px; position: absolute" title="Aufführungen" width="695">
                                 <webuijsf:tableRowGroup binding="#{SearchResultAuffuehrungen.tableRowGroup1}" id="tableRowGroup1" rows="5"
                                     sourceData="#{SearchResultAuffuehrungen.auffuehrung}" sourceVar="currentRow">
-                                    <webuijsf:tableColumn binding="#{SearchResultAuffuehrungen.tableColumn1}" headerText="DatumUhrzeit" id="tableColumn1"
-                                        sort="DatumUhrzeit" width="100">
+                                    <webuijsf:tableColumn binding="#{SearchResultAuffuehrungen.tableColumn1}" headerText="DatumUhrzeit" id="tableColumn1" width="100">
                                         <webuijsf:staticText binding="#{SearchResultAuffuehrungen.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.datumuhrzeit}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{SearchResultAuffuehrungen.tableColumn2}" headerText="Storniert" id="tableColumn2"
@@ -49,7 +48,7 @@
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
                             <webuijsf:button actionExpression="#{SearchResultAuffuehrungen.button1_action}" binding="#{SearchResultAuffuehrungen.button1}"
-                                id="button1" style="height: 19px; left: 29px; top: 210px; position: absolute; width: 129px" text="Auswählen"/>
+                                id="button1" style="height: 19px; left: 23px; top: 288px; position: absolute; width: 129px" text="Auswählen"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>
