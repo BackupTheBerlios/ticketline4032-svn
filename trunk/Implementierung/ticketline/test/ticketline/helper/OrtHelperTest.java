@@ -68,9 +68,26 @@ public class OrtHelperTest {
      * Test of sucheOrte method, of class OrtHelper.
      */
     @Test
-    public void sucheOrte() throws Exception {
+    public void sucheOrteAlleNull() throws Exception {
         System.out.println("suche Orte: all empty");
         query= " 1 = 1";
+        expResult = ortdao.find(query);  
+        List<Ort> result = OrtHelper.sucheOrte(bezeichnung, strasse, ort, bundesland, plz, verkauf, auffuehrung, kiosk);
+        assertEquals(expResult, result);
+        
+    }
+    @Test
+    public void sucheOrteAlleF() throws Exception {
+        System.out.println("suche Orte: all empty");
+        bezeichnung = "f.."; 
+        strasse = "234lo";
+        ort = "    ";
+        bundesland = "Mö-dlün%";
+        plz = "vier";
+        verkauf = null;
+        auffuehrung = null;
+        kiosk = null;
+        query= " 1 = 1 AND bezeichnung like '%" + bezeichnung + "%' AND strasse like '%" + strasse + "%' AND ort like '%" + ort + "%' AND bundesland like '%" + bundesland + "%' " ;
         expResult = ortdao.find(query);  
         List<Ort> result = OrtHelper.sucheOrte(bezeichnung, strasse, ort, bundesland, plz, verkauf, auffuehrung, kiosk);
         assertEquals(expResult, result);
@@ -81,6 +98,26 @@ public class OrtHelperTest {
         System.out.println("suche Orte: bezeichnung");
         bezeichnung = "Halle 1";
         query = "bezeichnung like '%" + bezeichnung + "%' ";
+        expResult = ortdao.find(query);  
+        List<Ort> result = OrtHelper.sucheOrte(bezeichnung, strasse, ort, bundesland, plz, verkauf, auffuehrung, kiosk);
+        assertEquals(expResult, result);
+        
+    }
+    @Test
+    public void sucheOrteBundlT() throws Exception {
+        System.out.println("suche Orte: bezeichnung");
+        bundesland = "Wien";
+        query = "bundesland like '%" + bundesland + "%' ";
+        expResult = ortdao.find(query);  
+        List<Ort> result = OrtHelper.sucheOrte(bezeichnung, strasse, ort, bundesland, plz, verkauf, auffuehrung, kiosk);
+        assertEquals(expResult, result);
+        
+    }
+    @Test
+    public void sucheOrtePlzT() throws Exception {
+        System.out.println("suche Orte: bezeichnung");
+        plz = "6239";
+        query = "plz like '%" + plz + "%' ";
         expResult = ortdao.find(query);  
         List<Ort> result = OrtHelper.sucheOrte(bezeichnung, strasse, ort, bundesland, plz, verkauf, auffuehrung, kiosk);
         assertEquals(expResult, result);

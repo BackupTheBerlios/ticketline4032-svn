@@ -90,7 +90,7 @@ public class SaalHelperTest {
     }
     @Test
     public void sucheSaeleBezF() throws Exception {
-        System.out.println("sucheSaele");
+        System.out.println("suche Saele mit falscher Bezeichnung");
         bezeichnung = "2XYK23äi+#<sß?2^1,.";
         typ = "";
         plaetzeMin = null;
@@ -137,8 +137,17 @@ public class SaalHelperTest {
      * Test of sucheKategorien method, of class SaalHelper.
      */
     @Test
-    public void sucheKategorien() throws Exception {
-        System.out.println("sucheKategorien");
+    public void sucheKategorienNull() throws Exception {
+        System.out.println("suche Kategorien Null");
+        SaalKey saal = null;
+        List<Kategorie> expResult = null;
+        List<Kategorie> result = SaalHelper.sucheKategorien(saal);
+        assertEquals(expResult, result);
+        
+    }
+    @Test
+    public void sucheKategorienKatT() throws Exception {
+        System.out.println("suche nach Kategorien im Saal id 787");
         SaalKey saal = null;
         List<Kategorie> expResult = null;
         List<Kategorie> result = SaalHelper.sucheKategorien(saal);
