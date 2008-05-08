@@ -134,4 +134,14 @@ public class RequestBean1 extends AbstractRequestBean {
     public void setQuery(String query) {
         this.query = query;
     }
+    
+    private boolean newQuery = false;
+
+    public boolean isNewQuery() {
+        return newQuery;
+    }
+
+    public void setNewQuery(boolean newQuery) {
+        this.newQuery = newQuery;
+    }
 }

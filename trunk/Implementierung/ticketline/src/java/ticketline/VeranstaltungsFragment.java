@@ -11,9 +11,10 @@ import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
-import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import java.util.List;
 import javax.faces.FacesException;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import ticketline.db.Veranstaltung;
 import ticketline.helper.AuffuehrungsHelper;
 
@@ -131,6 +132,8 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
 
     public VeranstaltungsFragment() {
     }
+    
+    private static final Logger log = LogManager.getLogger(VeranstaltungsFragment.class);
 
     /**
      * <p>Callback method that is called whenever a page containing
@@ -177,15 +180,40 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
     public void destroy() {
     }
     
-       
+    /**
+     * <p>Return a reference to the scoped data bean.</p>
+     *
+     * @return reference to the scoped data bean
+     */
+    protected SessionBean1 getSessionBean1() {
+        return (SessionBean1) getBean("SessionBean1");
+    }
+
+    /**
+     * <p>Return a reference to the scoped data bean.</p>
+     *
+     * @return reference to the scoped data bean
+     */
+    protected RequestBean1 getRequestBean1() {
+        return (RequestBean1) getBean("RequestBean1");
+    }
+
+    /**
+     * <p>Return a reference to the scoped data bean.</p>
+     *
+     * @return reference to the scoped data bean
+     */
+    protected ApplicationBean1 getApplicationBean1() {
+        return (ApplicationBean1) getBean("ApplicationBean1");
+    }
     
     public Veranstaltung[] getVeranstaltung() {
         try {
-            List<Veranstaltung> list = AuffuehrungsHelper.sucheVeranstaltungen(null,null,0, 100, null);
-                   
+            List<Veranstaltung> list = AuffuehrungsHelper.sucheVeranstaltungen(getRequestBean1().getQuery(),null, 0, 99999, null);
             Veranstaltung[] arr = new Veranstaltung[list.size()];
             return list.toArray(arr);
         } catch (Exception ex) {
+            log.error("Error:", ex);
             return null;
         }
     }

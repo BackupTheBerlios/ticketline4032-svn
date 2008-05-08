@@ -9,6 +9,7 @@ import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
+import com.sun.webui.jsf.component.HiddenField;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
@@ -488,6 +489,15 @@ public class SearchResult extends AbstractPageBean {
 
     // </editor-fold>
     private static final Logger log = LogManager.getLogger(SearchResult.class);
+    private HiddenField hiddenFieldQuery = new HiddenField();
+
+    public HiddenField getHiddenFieldQuery() {
+        return hiddenFieldQuery;
+    }
+
+    public void setHiddenFieldQuery(HiddenField hf) {
+        this.hiddenFieldQuery = hf;
+    }
 
     /**
      * <p>Construct a new Page bean instance.</p>
@@ -526,9 +536,9 @@ public class SearchResult extends AbstractPageBean {
         }
 
     // </editor-fold>
-    // Perform application initialization that must complete
-    // *after* managed components are initialized
-    // TODO - add your own initialization code here
+        // Perform application initialization that must complete
+        // *after* managed components are initialized
+        // TODO - add your own initialization code here
     }
 
     /**
@@ -540,6 +550,7 @@ public class SearchResult extends AbstractPageBean {
      */
     @Override
     public void preprocess() {
+        this.getRequestBean1().setQuery((String)this.hiddenFieldQuery.getText());
     }
 
     /**
@@ -568,10 +579,9 @@ public class SearchResult extends AbstractPageBean {
 
     public Kuenstler[] getKuenstler() {
         try {
+            if(this.getRequestBean1().isNewQuery()) this.hiddenFieldQuery.setText(this.getRequestBean1().getQuery());
             String query = getRequestBean1().getQuery();
-            List<Kuenstler> list = AuffuehrungsHelper.sucheKuenstler(query, null, null);
-            List<Kuenstler> list1 = AuffuehrungsHelper.sucheKuenstler(null, query, null);
-            list.addAll(list1);
+            List<Kuenstler> list = AuffuehrungsHelper.sucheKuenstler(null, query, null);
             Kuenstler[] arr = new Kuenstler[list.size()];
             return list.toArray(arr);
         } catch (Exception ex) {
@@ -582,12 +592,9 @@ public class SearchResult extends AbstractPageBean {
 
     public Ort[] getOrte() {
         try {
+            if(this.getRequestBean1().isNewQuery()) this.hiddenFieldQuery.setText(this.getRequestBean1().getQuery());
             String query = getRequestBean1().getQuery();
-            List<Ort> list = OrtHelper.sucheOrte(query, null, null, null, null, null, null, null);
-            List<Ort> list1 = OrtHelper.sucheOrte(null, null, query, null, null, null, null, null);
-            List<Ort> list2 = OrtHelper.sucheOrte(null, null, null, null, query, null, null, null);
-            list.addAll(list1);
-            list.addAll(list2);
+            List<Ort> list = OrtHelper.sucheOrte(null, null, query, null, null, null, null, null);
             Ort[] arr = new Ort[list.size()];
             return list.toArray(arr);
         } catch (Exception ex) {

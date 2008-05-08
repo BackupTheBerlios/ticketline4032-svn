@@ -13,11 +13,12 @@
                     <webuijsf:link binding="#{SearchResult.link1}" id="link1" url="/resources/stylesheet.css"/>
                 </webuijsf:head>
                 <webuijsf:body binding="#{SearchResult.body1}" id="body1" style="-rave-layout: grid">
+                    <div style="left: 0px; top: 0px; position: absolute">
+                        <jsp:directive.include file="MasterFragment.jspf"/>
+                    </div>
                     <webuijsf:form binding="#{SearchResult.form1}" id="form1" virtualFormsConfig="">
-                        <div style="left: 0px; top: 0px; position: absolute">
-                            <jsp:directive.include file="MasterFragment.jspf"/>
-                        </div>
                         <div style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
+                            <webuijsf:hiddenField binding="#{SearchResult.hiddenFieldQuery}" id="hiddenFieldQuery"/>
                             <webuijsf:staticText binding="#{SearchResult.staticTextTitle}" id="staticTextTitle"
                                 style="font-size: 30px; left: 0px; top: 0px; position: absolute" text="Suchergebnisse"/>
                             <webuijsf:table augmentTitle="false" binding="#{SearchResult.table1}" id="table1" paginateButton="true" paginationControls="true"
@@ -59,7 +60,7 @@
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
                             <div style="left: 0px; top: 552px; position: absolute">
-                                <jsp:directive.include file="VeranstaltungsFragment.jspf" />
+                                <jsp:directive.include file="VeranstaltungsFragment.jspf"/>
                             </div>
                         </div>
                     </webuijsf:form>

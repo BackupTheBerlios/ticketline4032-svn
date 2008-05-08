@@ -174,8 +174,8 @@
         </navigation-case>
     </navigation-rule>
     <managed-bean>
-        <managed-bean-name>Products_3</managed-bean-name>
-        <managed-bean-class>ticketline.Products_3</managed-bean-class>
+        <managed-bean-name>VeranstaltungsFragment</managed-bean-name>
+        <managed-bean-class>ticketline.VeranstaltungsFragment</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
     <managed-bean>

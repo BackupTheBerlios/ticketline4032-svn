@@ -17,7 +17,6 @@ import com.sun.webui.jsf.component.PasswordField;
 import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.TextField;
 import javax.faces.FacesException;
-import javax.faces.event.ValueChangeEvent;
 import ticketline.db.Kunde;
 import ticketline.helper.SystemHelper;
 
@@ -408,6 +407,9 @@ public class MasterFragment extends AbstractFragmentBean {
     }
 
     public String buttonSearch_action() {
+        
+        this.getRequestBean1().setQuery((String)this.textFieldSearch.getText());
+        this.getRequestBean1().setNewQuery(true);
         
         return "search";
     }
