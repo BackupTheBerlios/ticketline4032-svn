@@ -84,6 +84,7 @@ public class SaalHelperTest {
         SaalDAO dao=DAOFactory.getSaalDAO();
         query = "bezeichnung like '%" + bezeichnung + "%' ";
         explist = dao.find(query);
+        System.out.println(query);
         List<Saal> result = SaalHelper.sucheSaele(bezeichnung, typ, plaetzeMin, ort);
         assertEquals(explist, result);
         

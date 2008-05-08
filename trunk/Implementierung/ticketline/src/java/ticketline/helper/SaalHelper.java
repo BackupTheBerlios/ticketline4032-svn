@@ -57,7 +57,7 @@ public class SaalHelper
        
        
        if(bezeichnung != null){
-           bezeichnung=SystemHelper.validateInput(bezeichnung);
+           //bezeichnung=SystemHelper.validateInput(bezeichnung);
            query+=  "AND bezeichnung like '%" + bezeichnung + "%' ";
        }
        if(typ != null){
