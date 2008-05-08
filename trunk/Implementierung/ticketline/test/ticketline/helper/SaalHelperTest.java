@@ -76,7 +76,7 @@ public class SaalHelperTest {
      */
     @Test
     public void sucheSaeleBezT() throws Exception {
-        System.out.println("sucheSaele");
+        System.out.println("sucheSaele nach Bezeichnung");
         bezeichnung = "Halle 1";
         typ = "";
         plaetzeMin = null;
@@ -124,9 +124,9 @@ public class SaalHelperTest {
         bezeichnung = "";
         typ = "";
         plaetzeMin = new Integer(10);
-        ort = new OrtKey();
+        ort = null;
         SaalDAO dao=DAOFactory.getSaalDAO();
-        query = "anzplaetze like '%" + plaetzeMin + "%' ";
+        query = "anzplaetze > " + plaetzeMin;
         explist = dao.find(query);
         List<Saal> result = SaalHelper.sucheSaele(bezeichnung, typ, plaetzeMin, ort);
         assertEquals(explist, result);

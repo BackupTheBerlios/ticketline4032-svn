@@ -62,6 +62,16 @@ public class OrtHelperTest {
 
     @After
     public void tearDown() {
+        bezeichnung = "";
+        strasse = "";
+        ort = "";
+        bundesland = "";
+        plz = "";
+        verkauf = null;
+        auffuehrung = null;
+        kiosk = null;
+        expResult = null;
+        query = "";
     }
 
     /**
