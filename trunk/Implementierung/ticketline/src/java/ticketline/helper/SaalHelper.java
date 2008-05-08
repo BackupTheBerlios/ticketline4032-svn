@@ -34,7 +34,7 @@ public class SaalHelper
      */
     public static void main(String args[]){
         try {
-            List<Saal> l=SaalHelper.sucheSaele(null, "Saal", null, null);
+            List<Saal> l=SaalHelper.sucheSaele("Halle 1", null, null, null);
             Saal s=l.iterator().next();
             List<Kategorie> l2=SaalHelper.sucheKategorien(s.getComp_id());
             SaalHelper.sucheReihen(l2.iterator().next().getComp_id());
@@ -52,14 +52,16 @@ public class SaalHelper
     {
        SaalDAO dao=DAOFactory.getSaalDAO();
        String query = "1 = 1 ";
-       bezeichnung=SystemHelper.validateInput(bezeichnung);
-       typ=SystemHelper.validateInput(typ);
+       
+       
        
        
        if(bezeichnung != null){
+           bezeichnung=SystemHelper.validateInput(bezeichnung);
            query+=  "AND bezeichnung like '%" + bezeichnung + "%' ";
        }
        if(typ != null){
+           typ=SystemHelper.validateInput(typ);
            query+=  "AND typ like '%" + typ + "%' ";
        }
        if(plaetzeMin != null){
