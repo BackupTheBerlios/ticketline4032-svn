@@ -29,6 +29,13 @@ import ticketline.db.SaalKey;
  */
 public class SaalHelperTest {
 
+    String bezeichnung;
+    String typ;
+    Integer plaetzeMin;
+    OrtKey ort;
+    String query;
+    List explist;
+        
     public SaalHelperTest() {
     }
 
@@ -42,7 +49,12 @@ public class SaalHelperTest {
 
     @Before
     public void setUp() {
-    
+        bezeichnung = "";
+        typ = "";
+        plaetzeMin = null;
+        ort = null;
+        query = "";
+        explist=null;
     }
 
     @After
@@ -65,13 +77,13 @@ public class SaalHelperTest {
     @Test
     public void sucheSaeleBezT() throws Exception {
         System.out.println("sucheSaele");
-        String bezeichnung = "Halle 1";
-        String typ = "";
-        Integer plaetzeMin = null;
-        OrtKey ort = null;
+        bezeichnung = "Halle 1";
+        typ = "";
+        plaetzeMin = null;
+        ort = null;
         SaalDAO dao=DAOFactory.getSaalDAO();
-        String query = "bezeichnung like '%" + bezeichnung + "%' ";
-        List explist = dao.find(query);
+        query = "bezeichnung like '%" + bezeichnung + "%' ";
+        explist = dao.find(query);
         List<Saal> result = SaalHelper.sucheSaele(bezeichnung, typ, plaetzeMin, ort);
         assertEquals(explist, result);
         
@@ -79,13 +91,13 @@ public class SaalHelperTest {
     @Test
     public void sucheSaeleBezF() throws Exception {
         System.out.println("sucheSaele");
-        String bezeichnung = "2XYK23äi+#<sß?2^1,.";
-        String typ = "";
-        Integer plaetzeMin = null;
-        OrtKey ort = null;
+        bezeichnung = "2XYK23äi+#<sß?2^1,.";
+        typ = "";
+        plaetzeMin = null;
+        ort = null;
         SaalDAO dao=DAOFactory.getSaalDAO();
-        String query = "bezeichnung like '%" + bezeichnung + "%' ";
-        List explist = dao.find(query);
+        query = "bezeichnung like '%" + bezeichnung + "%' ";
+        explist = dao.find(query);
         List<Saal> result = SaalHelper.sucheSaele(bezeichnung, typ, plaetzeMin, ort);
         assertEquals(explist, result);
         
@@ -95,13 +107,13 @@ public class SaalHelperTest {
     @Test
     public void sucheSaeleTypF() throws Exception {
         System.out.println("suche Saele nach Typ");
-        String bezeichnung = "";
-        String typ = "1";
-        Integer plaetzeMin = null;
-        OrtKey ort = null;
+        bezeichnung = "";
+        typ = "1";
+        plaetzeMin = null;
+        ort = null;
         SaalDAO dao=DAOFactory.getSaalDAO();
-        String query = "typ like '%" + typ + "%' ";
-        List explist = dao.find(query);
+        query = "typ like '%" + typ + "%' ";
+        explist = dao.find(query);
         List<Saal> result = SaalHelper.sucheSaele(bezeichnung, typ, plaetzeMin, ort);
         assertEquals(explist, result);
         
@@ -109,13 +121,13 @@ public class SaalHelperTest {
     @Test
     public void sucheSaelePlaetzeMinT() throws Exception {
         System.out.println("suche Saele nach mindestplaetze");
-        String bezeichnung = "";
-        String typ = "";
-        Integer plaetzeMin = new Integer(10);
-        OrtKey ort = new OrtKey();
+        bezeichnung = "";
+        typ = "";
+        plaetzeMin = new Integer(10);
+        ort = new OrtKey();
         SaalDAO dao=DAOFactory.getSaalDAO();
-        String query = "anzplaetze like '%" + plaetzeMin + "%' ";
-        List explist = dao.find(query);
+        query = "anzplaetze like '%" + plaetzeMin + "%' ";
+        explist = dao.find(query);
         List<Saal> result = SaalHelper.sucheSaele(bezeichnung, typ, plaetzeMin, ort);
         assertEquals(explist, result);
         
