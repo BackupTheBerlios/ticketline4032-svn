@@ -40,8 +40,8 @@ public class AuffuehrungsHelper
         
         String query = "1 = 1 ";
         
-        if (vorname != null) query +=           "AND vname like '%" + SystemHelper.validateInput(vorname) + "%' ";
-        if (nachname != null) query +=          "AND nname like '%" + SystemHelper.validateInput(nachname) + "%' ";
+        if (vorname != null) query +=           "AND LOWER(vname) like '%" + SystemHelper.validateInput(vorname) + "%' ";
+        if (nachname != null) query +=          "AND LOWER(nname) like '%" + SystemHelper.validateInput(nachname) + "%' ";
         if (maennlich != null) query +=         "AND geschlecht = '" + (maennlich ? "M" : "W") + "' ";
     
         List list = kuenstler.find(query);
@@ -65,9 +65,9 @@ public class AuffuehrungsHelper
         
         String query = "1=1 ";
         
-        if (bezeichnung != null) query +=                   "OR bezeichnung like '%" + SystemHelper.validateInput(bezeichnung) + "%' ";
-        if (kategorie != null) query +=                     "OR kategorie like '%" + SystemHelper.validateInput(kategorie) + "%' ";
-        if (inhalt != null) query +=                        "OR inhalt like '%" + SystemHelper.validateInput(inhalt) + "%' ";
+        if (bezeichnung != null) query +=                   "OR LOWER(bezeichnung) like '%" + SystemHelper.validateInput(bezeichnung) + "%' ";
+        if (kategorie != null) query +=                     "OR LOWER(kategorie) like '%" + SystemHelper.validateInput(kategorie) + "%' ";
+        if (inhalt != null) query +=                        "OR LOWER(inhalt) like '%" + SystemHelper.validateInput(inhalt) + "%' ";
         if (dauerMin.toString() != null && dauerMax.toString() != null) query +=  "AND dauer BETWEEN '" + SystemHelper.validateInput(dauerMin.toString()) + "' AND '" + SystemHelper.validateInput(dauerMax.toString()) + "' ";
          
         List list = veranstaltung.find(query);
@@ -121,11 +121,11 @@ public class AuffuehrungsHelper
        if (storniert != null) query +=                          "AND storniert = '" + storniert + "' ";
        if (preisMin != null && preisMax != null) query +=       "AND preis BETWEEN '" + SystemHelper.validateInput(preisMin.toString()) + "' AND '" + SystemHelper.validateInput(preisMax.toString()) + "' ";
       
-       if (veranstaltungBezeichnung != null) query +=           "OR bezeichnung like %'" + SystemHelper.validateInput(veranstaltungBezeichnung) + "'% ";
-       if (veranstaltungKategorie != null) query +=             "OR kategorie like %'" + SystemHelper.validateInput(veranstaltungKategorie) + "'% ";
-       if (saalBezeichnung != null) query +=                    "OR bezeichnung like %'" + SystemHelper.validateInput(saalBezeichnung) + "'% ";
-       if (saalOrtBezeichnung != null) query +=                 "OR ortbez like %'" + SystemHelper.validateInput(saalOrtBezeichnung) + "'% ";
-       if (saalOrt != null) query +=                            "OR ort like %'" + SystemHelper.validateInput(saalOrt) + "'% ";
+       if (veranstaltungBezeichnung != null) query +=           "OR LOWER(bezeichnung) like %'" + SystemHelper.validateInput(veranstaltungBezeichnung) + "'% ";
+       if (veranstaltungKategorie != null) query +=             "OR LOWER(kategorie) like %'" + SystemHelper.validateInput(veranstaltungKategorie) + "'% ";
+       if (saalBezeichnung != null) query +=                    "OR LOWER(bezeichnung) like %'" + SystemHelper.validateInput(saalBezeichnung) + "'% ";
+       if (saalOrtBezeichnung != null) query +=                 "OR LOWER(ortbez) like %'" + SystemHelper.validateInput(saalOrtBezeichnung) + "'% ";
+       if (saalOrt != null) query +=                            "OR LOWER(ort) like %'" + SystemHelper.validateInput(saalOrt) + "'% ";
       
        
        List list = auffuehrung.find(query);

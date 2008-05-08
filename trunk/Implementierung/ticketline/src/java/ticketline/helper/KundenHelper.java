@@ -34,7 +34,7 @@ public class KundenHelper
             String query = "1 = 1 ";
        
             if(inhalt != null){
-                query +=  "AND inhalt like '%" + inhalt + "%' ";
+                query +=  "AND LOWER(inhalt) like '%" + SystemHelper.validateInput(inhalt) + "%' ";
             }
             
             if(gueltig != null){

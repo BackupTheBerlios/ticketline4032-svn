@@ -53,27 +53,27 @@ public class SaalHelper
        SaalDAO dao=DAOFactory.getSaalDAO();
        String query = "1 = 1 ";
        
-       
+       bezeichnung = SystemHelper.validateInput(bezeichnung);
+       typ = SystemHelper.validateInput(typ);
        
        
        if(bezeichnung != null){
-           //bezeichnung=SystemHelper.validateInput(bezeichnung);
-           query+=  "AND bezeichnung like '%" + bezeichnung + "%' ";
+           query+=  "AND LOWER(bezeichnung) like '%" + bezeichnung + "%' ";
        }
        if(typ != null){
-           typ=SystemHelper.validateInput(typ);
-           query+=  "AND typ like '%" + typ + "%' ";
+           query+=  "AND LOWER(bezeichnung) like '%" + typ + "%' ";
        }
        if(plaetzeMin != null){
            query+=  "AND anzplaetze > " +plaetzeMin + " ";
        }
        if(ort != null){
-           query+=  "AND ort like '% " +ort.getOrt() + "%' ";
+           query+=  "AND LOWER(ort) like '% " +ort.getOrt() + "%' ";
        }
         List list = dao.find(query);
         
         log.info(query); 
         log.info(list);
+        
         return list;
     }
     

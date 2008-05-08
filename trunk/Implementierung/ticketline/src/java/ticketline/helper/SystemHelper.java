@@ -55,6 +55,7 @@ public final class SystemHelper
     
     public static String validateInput(String input)
     {
-        return input.replaceAll("'", "\"").toLowerCase();
+        if(input != null) return input.replaceAll("'", "\"").toLowerCase();
+        else return input;
     }
 }
