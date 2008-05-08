@@ -60,13 +60,13 @@ public class SaalHelper
            query+=  "AND bezeichnung like '%" + bezeichnung + "%' ";
        }
        if(typ != null){
-           query+=  "AND bezeichnung like '%" + typ + "%' ";
+           query+=  "AND typ like '%" + typ + "%' ";
        }
        if(plaetzeMin != null){
            query+=  "AND anzplaetze > " +plaetzeMin + " ";
        }
        if(ort != null){
-           query+=  "AND anzplaetze like '% " +ort.getOrt() + "%' ";
+           query+=  "AND ort like '% " +ort.getOrt() + "%' ";
        }
         List list = dao.find(query);
         
