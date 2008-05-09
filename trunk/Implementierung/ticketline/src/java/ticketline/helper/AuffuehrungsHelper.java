@@ -102,6 +102,8 @@ public class AuffuehrungsHelper
         if (kategorie != null) query +=                     "AND LOWER(kategorie) like '%" + SystemHelper.validateInput(kategorie) + "%' ";
         if (inhalt != null) query +=                        "AND LOWER(inhalt) like '%" + SystemHelper.validateInput(inhalt) + "%' ";
         if (dauerMin.toString() != null && dauerMax.toString() != null) query +=  "AND dauer BETWEEN '" + SystemHelper.validateInput(dauerMin.toString()) + "' AND '" + SystemHelper.validateInput(dauerMax.toString()) + "' ";
+        if (dauerMin != null && !(dauerMax != null)) query +=   "AND dauer > '" + SystemHelper.validateInput(dauerMin.toString()) + "' ";
+        if (!(dauerMin != null) && dauerMax != null) query +=   "AND dauer < '" + SystemHelper.validateInput(dauerMax.toString()) + "' ";
          
         List list = veranstaltung.find(query);
         
@@ -155,6 +157,9 @@ public class AuffuehrungsHelper
        if (zeitVon != null && zeitBis != null) query +=         "AND datumuhrzeit BETWEEN '" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' AND '" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
        if (storniert != null) query +=                          "AND storniert = '" + storniert + "' ";
        if (preisMin != null && preisMax != null) query +=       "AND preis BETWEEN '" + SystemHelper.validateInput(preisMin.toString()) + "' AND '" + SystemHelper.validateInput(preisMax.toString()) + "' ";
+       
+       if (preisMin != null && !(preisMax != null)) query +=    "AND preis > '" + SystemHelper.validateInput(preisMin.toString()) + "' ";
+       if (!(preisMin != null) && preisMax != null) query +=       "AND preis < '" + SystemHelper.validateInput(preisMax.toString()) + "' ";
       
        if (veranstaltungBezeichnung != null) query +=           "AND LOWER(veranstbez) like '%" + SystemHelper.validateInput(veranstaltungBezeichnung) + "%' ";
        if (veranstaltungKategorie != null) query +=             "AND LOWER(veranstkat) like '%" + SystemHelper.validateInput(veranstaltungKategorie) + "%' ";
