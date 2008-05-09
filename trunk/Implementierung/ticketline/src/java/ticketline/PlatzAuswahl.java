@@ -27,9 +27,11 @@ import javax.faces.FacesException;
 import javax.faces.component.UIColumn;
 import javax.faces.component.html.HtmlDataTable;
 import javax.faces.component.html.HtmlOutputText;
+import ticketline.db.Belegung;
 import ticketline.db.Reihe;
 import ticketline.exceptions.TicketLineException;
 import ticketline.helper.SaalHelper;
+import ticketline.manager.ReservierungsManager;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -293,7 +295,8 @@ public class PlatzAuswahl extends AbstractPageBean {
     private String platzformat;
 
     public String getPlatzformat() throws TicketLineException {
-        List<Reihe> l=SaalHelper.sucheAlleReihen(this.getRequestBean1().getPlaetze());
+        List<Reihe> l=SaalHelper.sucheAlleReihen(this.getRequestBean1().getAuffuehrung().getSaal().getComp_id());
+        List<Belegung> bl = ReservierungsManager.sucheBelegungen(this.getRequestBean1().getAuffuehrung().getComp_id());
         
         if(l == null)
             return "Keine Plätze gefunden!";

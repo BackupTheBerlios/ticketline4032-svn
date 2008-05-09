@@ -392,8 +392,8 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
         if(this.tableRowGroup1.getSelectedRowsCount() > 0)
         {
             RowKey sel = this.tableRowGroup1.getSelectedRowKeys()[0];
-            this.getRequestBean1().setPlaetze(
-                ((Auffuehrung[])this.tableRowGroup1.getSourceData())[Integer.parseInt(sel.getRowId())].getSaal().getComp_id()
+            this.getRequestBean1().setAuffuehrung(
+                ((Auffuehrung[])this.tableRowGroup1.getSourceData())[Integer.parseInt(sel.getRowId())]
             );
             
             return "select";

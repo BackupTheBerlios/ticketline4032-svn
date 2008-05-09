@@ -8,6 +8,7 @@ package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractRequestBean;
 import javax.faces.FacesException;
+import ticketline.db.Auffuehrung;
 import ticketline.db.Kuenstler;
 import ticketline.db.Ort;
 import ticketline.db.Saal;
@@ -115,16 +116,6 @@ public class RequestBean1 extends AbstractRequestBean {
         return (ApplicationBean1) getBean("ApplicationBean1");
     }
     
-    private SaalKey plaetze=null;
-
-    public SaalKey getPlaetze() throws TicketLineException {
-        return plaetze;
-    }
-
-    public void setPlaetze(SaalKey plaetze) {
-        this.plaetze = plaetze;
-    }
-    
     private String query = null;
 
     public String getQuery() {
@@ -173,5 +164,15 @@ public class RequestBean1 extends AbstractRequestBean {
 
     public void setOrt(Ort ort) {
         this.ort = ort;
+    }
+    
+    private Auffuehrung auffuehrung = null;
+
+    public Auffuehrung getAuffuehrung() {
+        return auffuehrung;
+    }
+
+    public void setAuffuehrung(Auffuehrung auffuehrung) {
+        this.auffuehrung = auffuehrung;
     }
 }
