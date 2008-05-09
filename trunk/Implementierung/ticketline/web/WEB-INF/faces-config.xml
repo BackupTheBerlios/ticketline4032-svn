@@ -140,6 +140,14 @@
             <from-outcome>select</from-outcome>
             <to-view-id>/SearchResultAuffuehrungen.jsp</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>selectort</from-outcome>
+            <to-view-id>/SearchResultVeranstaltungen.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>selectkuenstler</from-outcome>
+            <to-view-id>/SearchResultVeranstaltungen.jsp</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/Products.jsp</from-view-id>

@@ -6,23 +6,29 @@
 -->
 <div style="-rave-layout: grid" xmlns:f="http://java.sun.com/jsf/core" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
     <f:subview id="VeranstaltungsFragment">
-        <webuijsf:table augmentTitle="false" binding="#{VeranstaltungsFragment.table1}" id="table1" paginateButton="true" paginationControls="true" style="null"
-            title="Veranstaltungen" width="741">
-            <webuijsf:tableRowGroup binding="#{VeranstaltungsFragment.tableRowGroup1}" id="tableRowGroup1" rows="5"
-                sourceData="#{VeranstaltungsFragment.veranstaltung}" sourceVar="currentRow">
-                <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn1}" headerText="Bezeichnung" id="tableColumn1" sort="comp_id.bezeichnung">
-                    <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.bezeichnung}"/>
-                </webuijsf:tableColumn>
-                <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn2}" headerText="Kategorie" id="tableColumn2" sort="comp_id.kategorie">
-                    <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText2}" id="staticText2" text="#{currentRow.value.comp_id.kategorie}"/>
-                </webuijsf:tableColumn>
-                <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn3}" headerText="Dauer" id="tableColumn3" sort="dauer">
-                    <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText3}" id="staticText3" text="#{currentRow.value.dauer}"/>
-                </webuijsf:tableColumn>
-                <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn4}" headerText="Inhalt" id="tableColumn4" sort="inhalt" width="200">
-                    <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText4}" id="staticText4" text="#{currentRow.value.inhalt}"/>
-                </webuijsf:tableColumn>
-            </webuijsf:tableRowGroup>
-        </webuijsf:table>
+        <webuijsf:form binding="#{VeranstaltungsFragment.formVST1}" id="formVST1">
+            <webuijsf:button actionExpression="#{VeranstaltungsFragment.buttonSelect_action}" binding="#{VeranstaltungsFragment.buttonSelect}" id="buttonSelect"
+                style="width: 300px" text="Aufführungen zu gewählter Veranstaltung"/>
+            <webuijsf:table augmentTitle="false" binding="#{VeranstaltungsFragment.table1}" id="table1" paginateButton="true" paginationControls="true"
+                title="Veranstaltungen" width="741">
+                <webuijsf:tableRowGroup binding="#{VeranstaltungsFragment.tableRowGroup1}" id="tableRowGroup1" rows="5"
+                    selected="#{VeranstaltungsFragment.selectedState}" sourceData="#{VeranstaltungsFragment.veranstaltung}" sourceVar="currentRow">
+                    <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn5}" id="tableColumn5"
+                        onClick="setTimeout(function(){document.getElementById('VeranstaltungsFragment:formVST1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
+                        <webuijsf:radioButton binding="#{VeranstaltungsFragment.radioButton1}" id="radioButton1" name="radioButton1VST"
+                            selected="#{VeranstaltungsFragment.selected}" selectedValue="#{VeranstaltungsFragment.selectedValue}"/>
+                    </webuijsf:tableColumn>
+                    <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn1}" headerText="Bezeichnung" id="tableColumn1" width="500">
+                        <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.bezeichnung}"/>
+                    </webuijsf:tableColumn>
+                    <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn2}" headerText="Kategorie" id="tableColumn2" sort="comp_id.kategorie">
+                        <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText2}" id="staticText2" text="#{currentRow.value.comp_id.kategorie}"/>
+                    </webuijsf:tableColumn>
+                    <webuijsf:tableColumn binding="#{VeranstaltungsFragment.tableColumn3}" headerText="Dauer" id="tableColumn3" sort="dauer">
+                        <webuijsf:staticText binding="#{VeranstaltungsFragment.staticText3}" id="staticText3" text="#{currentRow.value.dauer}"/>
+                    </webuijsf:tableColumn>
+                </webuijsf:tableRowGroup>
+            </webuijsf:table>
+        </webuijsf:form>
     </f:subview>
 </div>

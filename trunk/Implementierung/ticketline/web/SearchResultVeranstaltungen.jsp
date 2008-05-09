@@ -13,11 +13,13 @@
                     <webuijsf:link binding="#{SearchResultVeranstaltungen.link1}" id="link1" url="/resources/stylesheet.css"/>
                 </webuijsf:head>
                 <webuijsf:body binding="#{SearchResultVeranstaltungen.body1}" id="body1" style="-rave-layout: grid">
-                    <webuijsf:form binding="#{SearchResultVeranstaltungen.form1}" id="form1">
-                        <div style="left: 0px; top: 0px; position: absolute">
-                            <jsp:directive.include file="MasterFragment.jspf"/>
-                        </div>
-                    </webuijsf:form>
+                    <div style="left: 0px; top: 0px; position: absolute">
+                        <jsp:directive.include file="MasterFragment.jspf"/>
+                    </div>
+                    <webuijsf:form binding="#{SearchResultVeranstaltungen.form1}" id="form1"/>
+                    <div style="left: 190px; top: 150px; position: absolute">
+                        <jsp:directive.include file="VeranstaltungsFragment.jspf"/>
+                    </div>
                 </webuijsf:body>
             </webuijsf:html>
         </webuijsf:page>

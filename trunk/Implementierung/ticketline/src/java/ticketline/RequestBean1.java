@@ -7,12 +7,13 @@
 package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractRequestBean;
-import java.util.Iterator;
-import java.util.List;
 import javax.faces.FacesException;
-import ticketline.db.Reihe;
+import ticketline.db.Kuenstler;
+import ticketline.db.Ort;
 import ticketline.db.Saal;
 import ticketline.db.SaalKey;
+import ticketline.db.Veranstaltung;
+import ticketline.db.VeranstaltungKey;
 import ticketline.exceptions.TicketLineException;
 import ticketline.helper.SaalHelper;
 
@@ -30,6 +31,7 @@ import ticketline.helper.SaalHelper;
  * @author Michael Morak
  */
 public class RequestBean1 extends AbstractRequestBean {
+
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -116,9 +118,7 @@ public class RequestBean1 extends AbstractRequestBean {
     private SaalKey plaetze=null;
 
     public SaalKey getPlaetze() throws TicketLineException {
-        return ((Saal)(SaalHelper.sucheSaele("", "", null, null).iterator().next())).getComp_id();
-        
-        
+        return plaetze;
     }
 
     public void setPlaetze(SaalKey plaetze) {
@@ -143,5 +143,35 @@ public class RequestBean1 extends AbstractRequestBean {
 
     public void setNewQuery(boolean newQuery) {
         this.newQuery = newQuery;
+    }
+    
+    private VeranstaltungKey veranstaltungKey = null;
+
+    public VeranstaltungKey getVeranstaltungKey() {
+        return veranstaltungKey;
+    }
+
+    public void setVeranstaltungKey(VeranstaltungKey veranstaltungKey) {
+        this.veranstaltungKey = veranstaltungKey;
+    }
+    
+    private Kuenstler kuenstler = null;
+    
+    private Ort ort = null;
+
+    public Kuenstler getKuenstler() {
+        return kuenstler;
+    }
+
+    public void setKuenstler(Kuenstler kuenstler) {
+        this.kuenstler = kuenstler;
+    }
+
+    public Ort getOrt() {
+        return ort;
+    }
+
+    public void setOrt(Ort ort) {
+        this.ort = ort;
     }
 }

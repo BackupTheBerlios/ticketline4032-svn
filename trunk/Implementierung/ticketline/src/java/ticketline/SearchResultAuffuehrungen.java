@@ -6,6 +6,7 @@
  
 package ticketline;
 
+import com.sun.data.provider.RowKey;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
 import com.sun.webui.jsf.component.Button;
@@ -14,13 +15,16 @@ import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
+import com.sun.webui.jsf.component.RadioButton;
 import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
-import com.sun.webui.jsf.model.DefaultTableDataProvider;
+import com.sun.webui.jsf.event.TableSelectPhaseListener;
 import java.util.List;
 import javax.faces.FacesException;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import ticketline.db.Auffuehrung;
 import ticketline.helper.AuffuehrungsHelper;
 
@@ -148,24 +152,6 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
     public void setStaticText1(StaticText st) {
         this.staticText1 = st;
     }
-    private TableColumn tableColumn2 = new TableColumn();
-
-    public TableColumn getTableColumn2() {
-        return tableColumn2;
-    }
-
-    public void setTableColumn2(TableColumn tc) {
-        this.tableColumn2 = tc;
-    }
-    private StaticText staticText2 = new StaticText();
-
-    public StaticText getStaticText2() {
-        return staticText2;
-    }
-
-    public void setStaticText2(StaticText st) {
-        this.staticText2 = st;
-    }
     private TableColumn tableColumn3 = new TableColumn();
 
     public TableColumn getTableColumn3() {
@@ -238,14 +224,32 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
     public void setStaticText6(StaticText st) {
         this.staticText6 = st;
     }
-    private Button button1 = new Button();
+    private Button buttonSelect = new Button();
 
-    public Button getButton1() {
-        return button1;
+    public Button getButtonSelect() {
+        return buttonSelect;
     }
 
-    public void setButton1(Button b) {
-        this.button1 = b;
+    public void setButtonSelect(Button b) {
+        this.buttonSelect = b;
+    }
+    private TableColumn tableColumn2 = new TableColumn();
+
+    public TableColumn getTableColumn2() {
+        return tableColumn2;
+    }
+
+    public void setTableColumn2(TableColumn tc) {
+        this.tableColumn2 = tc;
+    }
+    private RadioButton radioButton1 = new RadioButton();
+
+    public RadioButton getRadioButton1() {
+        return radioButton1;
+    }
+
+    public void setRadioButton1(RadioButton rb) {
+        this.radioButton1 = rb;
     }
 
     // </editor-fold>
@@ -292,6 +296,8 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
         // TODO - add your own initialization code here
     }
 
+    private static final Logger log = LogManager.getLogger(SearchResultAuffuehrungen.class);
+    
     /**
      * <p>Callback method that is called after the component tree has been
      * restored, but before any event processing takes place.  This method
@@ -353,19 +359,62 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
     }
+    
+    private TableSelectPhaseListener tablePhaseListener =
+                                  new TableSelectPhaseListener();
 
-    public String button1_action() {
+    public void setSelected(Object object) {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        if (rowKey != null) {
+            tablePhaseListener.setSelected(rowKey, object);
+        }
+    }
+
+    public Object getSelected(){
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener.getSelected(rowKey);
+
+    }
+
+    public Object getSelectedValue() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return (rowKey != null) ? rowKey.getRowId() : null;
+
+    }
+
+    public boolean getSelectedState() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener.isSelected(rowKey);
+    }
+
+    public String buttonSelect_action() {
         
-        return "select";
+        if(this.tableRowGroup1.getSelectedRowsCount() > 0)
+        {
+            RowKey sel = this.tableRowGroup1.getSelectedRowKeys()[0];
+            this.getRequestBean1().setPlaetze(
+                ((Auffuehrung[])this.tableRowGroup1.getSourceData())[Integer.parseInt(sel.getRowId())].getSaal().getComp_id()
+            );
+            
+            return "select";
+        }
+        else
+        {
+            return null;
+        }
     }
     
-        public Auffuehrung[] getAuffuehrung() {
-        try {
-            List<Auffuehrung> list = AuffuehrungsHelper.sucheAuffuehrungen(null, null, true, 0, 400, null, null);
-                   
+    public Auffuehrung[] getAuffuehrung() 
+    {
+        try 
+        {
+            List<Auffuehrung> list = AuffuehrungsHelper.sucheAuffuehrungen(null, null, false, null, null, this.getRequestBean1().getVeranstaltungKey(), null);
             Auffuehrung[] arr = new Auffuehrung[list.size()];
             return list.toArray(arr);
-        } catch (Exception ex) {
+        } 
+        catch (Exception ex) 
+        {
+            log.error("Fehler", ex);
             return null;
         }
     }

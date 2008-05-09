@@ -6,15 +6,21 @@
  
 package ticketline;
 
+import com.sun.data.provider.RowKey;
 import com.sun.rave.web.ui.appbase.AbstractFragmentBean;
+import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.Form;
+import com.sun.webui.jsf.component.RadioButton;
 import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
+import com.sun.webui.jsf.event.TableSelectPhaseListener;
 import java.util.List;
 import javax.faces.FacesException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import ticketline.db.Engagement;
 import ticketline.db.Veranstaltung;
 import ticketline.helper.AuffuehrungsHelper;
 
@@ -128,6 +134,42 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
     public void setStaticText4(StaticText st) {
         this.staticText4 = st;
     }
+    private TableColumn tableColumn5 = new TableColumn();
+
+    public TableColumn getTableColumn5() {
+        return tableColumn5;
+    }
+
+    public void setTableColumn5(TableColumn tc) {
+        this.tableColumn5 = tc;
+    }
+    private RadioButton radioButton1 = new RadioButton();
+
+    public RadioButton getRadioButton1() {
+        return radioButton1;
+    }
+
+    public void setRadioButton1(RadioButton rb) {
+        this.radioButton1 = rb;
+    }
+    private Form formVST1 = new Form();
+
+    public Form getFormVST1() {
+        return formVST1;
+    }
+
+    public void setFormVST1(Form f) {
+        this.formVST1 = f;
+    }
+    private Button buttonSelect = new Button();
+
+    public Button getButtonSelect() {
+        return buttonSelect;
+    }
+
+    public void setButtonSelect(Button b) {
+        this.buttonSelect = b;
+    }
     // </editor-fold>
 
     public VeranstaltungsFragment() {
@@ -209,7 +251,12 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
     
     public Veranstaltung[] getVeranstaltung() {
         try {
-            List<Veranstaltung> list = AuffuehrungsHelper.sucheVeranstaltungen(getRequestBean1().getQuery(),null, 0, 99999, null);
+            List<Veranstaltung> list;
+            
+            if(getRequestBean1().getKuenstler() != null) list = AuffuehrungsHelper.getVeranstaltungenVonKuenstler(this.getRequestBean1().getKuenstler());
+            else if(getRequestBean1().getOrt() != null) list = AuffuehrungsHelper.getVeranstaltungenVonOrt(this.getRequestBean1().getOrt());
+            else list = AuffuehrungsHelper.sucheVeranstaltungen(getRequestBean1().getQuery(), null, 0, 99999, null);
+            
             Veranstaltung[] arr = new Veranstaltung[list.size()];
             return list.toArray(arr);
         } catch (Exception ex) {
@@ -218,5 +265,47 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
         }
     }
     
+    private TableSelectPhaseListener tablePhaseListener =
+                                  new TableSelectPhaseListener();
 
+    public void setSelected(Object object) {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        if (rowKey != null) {
+            tablePhaseListener.setSelected(rowKey, object);
+        }
+    }
+
+    public Object getSelected(){
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener.getSelected(rowKey);
+
+    }
+
+    public Object getSelectedValue() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return (rowKey != null) ? rowKey.getRowId() : null;
+
+    }
+
+    public boolean getSelectedState() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener.isSelected(rowKey);
+    }
+
+    public String buttonSelect_action() {
+        
+        if(this.tableRowGroup1.getSelectedRowsCount() > 0)
+        {
+            RowKey sel = this.tableRowGroup1.getSelectedRowKeys()[0];
+            this.getRequestBean1().setVeranstaltungKey(
+                ((Veranstaltung[])this.tableRowGroup1.getSourceData())[Integer.parseInt(sel.getRowId())].getComp_id()
+            );
+            
+            return "select";
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

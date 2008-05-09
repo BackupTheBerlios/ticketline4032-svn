@@ -25,11 +25,16 @@
                                 style="left: 0px; top: 72px; position: absolute; width: 741px" title="Orte" width="741">
                                 <webuijsf:tableRowGroup binding="#{SearchResult.tableRowGroup1}"
                                     emptyDataMsg="Es wurden keine Orte gefunden die Ihrer Suchanfrage entsprechen." id="tableRowGroup1" rows="5"
-                                    sourceData="#{SearchResult.orte}" sourceVar="currentRow">
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn1}" headerText="Bezeichnung" id="tableColumn1" sort="comp_id.bezeichnung">
+                                    selected="#{SearchResult.selectedState1}" sourceData="#{SearchResult.orte}" sourceVar="currentRow">
+                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn15}" id="tableColumn15"
+                                        onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
+                                        <webuijsf:radioButton binding="#{SearchResult.radioButton1}" id="radioButton1" name="radioButton1"
+                                            selected="#{SearchResult.selected1}" selectedValue="#{SearchResult.selectedValue1}"/>
+                                    </webuijsf:tableColumn>
+                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn1}" headerText="Bezeichnung" id="tableColumn1">
                                         <webuijsf:staticText binding="#{SearchResult.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.bezeichnung}"/>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn2}" headerText="Ort" id="tableColumn2" sort="comp_id.ort">
+                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn2}" headerText="Ort" id="tableColumn2" sort="comp_id.ort" width="95">
                                         <webuijsf:staticText binding="#{SearchResult.staticText2}" id="staticText2" text="#{currentRow.value.comp_id.ort}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{SearchResult.tableColumn3}" headerText="PLZ" id="tableColumn3" sort="plz">
@@ -44,11 +49,16 @@
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
                             <webuijsf:table augmentTitle="false" binding="#{SearchResult.table2}" id="table2" paginateButton="true" paginationControls="true"
-                                style="left: 0px; top: 312px; position: absolute; width: 741px" title="Künstler" width="741">
+                                style="left: 0px; top: 310px; position: absolute; width: 741px" title="Künstler" width="741">
                                 <webuijsf:tableRowGroup binding="#{SearchResult.tableRowGroup2}"
                                     emptyDataMsg="Es wurden keine Künstler gefunden die Ihrer Suchanfrage entsprechen." id="tableRowGroup2" rows="5"
-                                    sourceData="#{SearchResult.kuenstler}" sourceVar="currentRow">
-                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn9}" headerText="Nachname" id="tableColumn9" sort="nname">
+                                    selected="#{SearchResult.selectedState2}" sourceData="#{SearchResult.kuenstler}" sourceVar="currentRow">
+                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn16}" id="tableColumn16"
+                                        onClick="setTimeout(function(){document.getElementById('form1:table2').initAllRows()}, 0);" selectId="radioButton2" width="10">
+                                        <webuijsf:radioButton binding="#{SearchResult.radioButton2}" id="radioButton2" name="radioButton2"
+                                            selected="#{SearchResult.selected2}" selectedValue="#{SearchResult.selectedValue2}"/>
+                                    </webuijsf:tableColumn>
+                                    <webuijsf:tableColumn binding="#{SearchResult.tableColumn9}" headerText="Nachname" id="tableColumn9">
                                         <webuijsf:staticText binding="#{SearchResult.staticText9}" id="staticText9" text="#{currentRow.value.nname}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{SearchResult.tableColumn10}" headerText="Vorname" id="tableColumn10" sort="vname">
@@ -59,11 +69,15 @@
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
-                            <div style="left: 0px; top: 552px; position: absolute">
-                                <jsp:directive.include file="VeranstaltungsFragment.jspf"/>
-                            </div>
+                            <webuijsf:button actionExpression="#{SearchResult.buttonSelectOrt_action}" binding="#{SearchResult.buttonSelectOrt}"
+                                id="buttonSelectOrt" style="left: -1px; top: 53px; width: 300px; position: absolute" text="Veranstaltungen an gewähltem Ort"/>
+                            <webuijsf:button actionExpression="#{SearchResult.buttonSelectKuenstler_action}" binding="#{SearchResult.buttonSelectKuenstler}"
+                                id="buttonSelectKuenstler" style="left: -1px; top: 292px; width: 300px; position: absolute" text="Veranstaltungen mit gewähltem Künstler"/>
                         </div>
                     </webuijsf:form>
+                    <div style="left: 190px; top: 680px; position: absolute">
+                        <jsp:directive.include file="VeranstaltungsFragment.jspf"/>
+                    </div>
                 </webuijsf:body>
             </webuijsf:html>
         </webuijsf:page>

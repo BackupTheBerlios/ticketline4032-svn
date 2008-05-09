@@ -5,18 +5,22 @@
  */
 package ticketline;
 
+import com.sun.data.provider.RowKey;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
+import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.HiddenField;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
+import com.sun.webui.jsf.component.RadioButton;
 import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
+import com.sun.webui.jsf.event.TableSelectPhaseListener;
 import java.util.List;
 import javax.faces.FacesException;
 import org.apache.log4j.LogManager;
@@ -488,7 +492,9 @@ public class SearchResult extends AbstractPageBean {
     }
 
     // </editor-fold>
+    
     private static final Logger log = LogManager.getLogger(SearchResult.class);
+    
     private HiddenField hiddenFieldQuery = new HiddenField();
 
     public HiddenField getHiddenFieldQuery() {
@@ -497,6 +503,60 @@ public class SearchResult extends AbstractPageBean {
 
     public void setHiddenFieldQuery(HiddenField hf) {
         this.hiddenFieldQuery = hf;
+    }
+    private Button buttonSelectOrt = new Button();
+
+    public Button getButtonSelectOrt() {
+        return buttonSelectOrt;
+    }
+
+    public void setButtonSelectOrt(Button b) {
+        this.buttonSelectOrt = b;
+    }
+    private Button buttonSelectKuenstler = new Button();
+
+    public Button getButtonSelectKuenstler() {
+        return buttonSelectKuenstler;
+    }
+
+    public void setButtonSelectKuenstler(Button b) {
+        this.buttonSelectKuenstler = b;
+    }
+    private TableColumn tableColumn15 = new TableColumn();
+
+    public TableColumn getTableColumn15() {
+        return tableColumn15;
+    }
+
+    public void setTableColumn15(TableColumn tc) {
+        this.tableColumn15 = tc;
+    }
+    private RadioButton radioButton1 = new RadioButton();
+
+    public RadioButton getRadioButton1() {
+        return radioButton1;
+    }
+
+    public void setRadioButton1(RadioButton rb) {
+        this.radioButton1 = rb;
+    }
+    private TableColumn tableColumn16 = new TableColumn();
+
+    public TableColumn getTableColumn16() {
+        return tableColumn16;
+    }
+
+    public void setTableColumn16(TableColumn tc) {
+        this.tableColumn16 = tc;
+    }
+    private RadioButton radioButton2 = new RadioButton();
+
+    public RadioButton getRadioButton2() {
+        return radioButton2;
+    }
+
+    public void setRadioButton2(RadioButton rb) {
+        this.radioButton2 = rb;
     }
 
     /**
@@ -628,6 +688,94 @@ public class SearchResult extends AbstractPageBean {
      */
     protected ApplicationBean1 getApplicationBean1() {
         return (ApplicationBean1) getBean("ApplicationBean1");
+    }
+    
+    private TableSelectPhaseListener tablePhaseListener1 =
+                                  new TableSelectPhaseListener();
+
+    public void setSelected1(Object object) {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        if (rowKey != null) {
+            tablePhaseListener1.setSelected(rowKey, object);
+        }
+    }
+
+    public Object getSelected1(){
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener1.getSelected(rowKey);
+
+    }
+
+    public Object getSelectedValue1() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return (rowKey != null) ? rowKey.getRowId() : null;
+
+    }
+
+    public boolean getSelectedState1() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener1.isSelected(rowKey);
+    }
+    
+    private TableSelectPhaseListener tablePhaseListener2 =
+                                  new TableSelectPhaseListener();
+
+    public void setSelected2(Object object) {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        if (rowKey != null) {
+            tablePhaseListener2.setSelected(rowKey, object);
+        }
+    }
+
+    public Object getSelected2(){
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener2.getSelected(rowKey);
+
+    }
+
+    public Object getSelectedValue2() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return (rowKey != null) ? rowKey.getRowId() : null;
+
+    }
+
+    public boolean getSelectedState2() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener2.isSelected(rowKey);
+    }
+
+    public String buttonSelectKuenstler_action() {
+        
+        if(this.tableRowGroup2.getSelectedRowsCount() > 0)
+        {
+            RowKey sel = this.tableRowGroup2.getSelectedRowKeys()[0];
+            this.getRequestBean1().setKuenstler(
+                ((Kuenstler[])this.tableRowGroup2.getSourceData())[Integer.parseInt(sel.getRowId())]
+            );
+            
+            return "selectkuenstler";
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public String buttonSelectOrt_action() {
+        
+        if(this.tableRowGroup1.getSelectedRowsCount() > 0)
+        {
+            RowKey sel = this.tableRowGroup1.getSelectedRowKeys()[0];
+            this.getRequestBean1().setOrt(
+                ((Ort[])this.tableRowGroup1.getSourceData())[Integer.parseInt(sel.getRowId())]
+            );
+            
+            return "selectort";
+        }
+        else
+        {
+            return null;
+        }
     }
 }
 

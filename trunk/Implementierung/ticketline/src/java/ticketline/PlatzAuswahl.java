@@ -293,7 +293,11 @@ public class PlatzAuswahl extends AbstractPageBean {
     private String platzformat;
 
     public String getPlatzformat() throws TicketLineException {
-           List<Reihe> l=SaalHelper.sucheAlleReihen(this.getRequestBean1().getPlaetze());
+        List<Reihe> l=SaalHelper.sucheAlleReihen(this.getRequestBean1().getPlaetze());
+        
+        if(l == null)
+            return "Keine Plätze gefunden!";
+        
         Iterator<Reihe> i=l.iterator();
         String ret="<table style='border: 1px solid;left: 240px; top: 50px; position: absolute'>";
         String akt=null,prev="";
