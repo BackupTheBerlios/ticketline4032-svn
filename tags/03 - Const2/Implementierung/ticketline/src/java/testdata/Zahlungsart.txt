@@ -1,0 +1,14 @@
+Visa
+Eurocard
+Mastercard
+Bankomatkarte
+Bar
+Bar
+Bar
+Bar
+TicketCard
+TicketCard
+TicketCard
+TicketCard
+Euroscheck
+per Nachname
