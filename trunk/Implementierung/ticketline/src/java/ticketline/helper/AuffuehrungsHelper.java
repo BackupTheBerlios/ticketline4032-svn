@@ -118,7 +118,7 @@ public class AuffuehrungsHelper
         
     }
     
-    @SuppressWarnings("unchecked")
+ 
     public static List<Auffuehrung> sucheAuffuehrungen(Date zeitVon, Date zeitBis, Boolean storniert, Integer preisMin, Integer preisMax,
                                                 VeranstaltungKey veranstaltung, SaalKey saal) throws TicketLineException, TicketLineSystemException
     {
@@ -160,15 +160,15 @@ public class AuffuehrungsHelper
        
        
        if (zeitVon != null && zeitBis != null) query +=         "AND datumuhrzeit BETWEEN '" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' AND '" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
-       if (zeitVon != null && !(zeitBis != null)) query +=         "AND datumuhrzeit >'" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' ";
-       if (!(zeitVon != null) && zeitBis != null) query +=         "AND datumuhrzeit <'" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
+       if (zeitVon != null && !(zeitBis != null)) query +=      "AND datumuhrzeit >'" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' ";
+       if (!(zeitVon != null) && zeitBis != null) query +=      "AND datumuhrzeit <'" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
        
        
        if (storniert != null) query +=                          "AND storniert = '" + storniert + "' ";
        if (preisMin != null && preisMax != null) query +=       "AND preis BETWEEN '" + SystemHelper.validateInput(preisMin.toString()) + "' AND '" + SystemHelper.validateInput(preisMax.toString()) + "' ";
        
        if (preisMin != null && !(preisMax != null)) query +=    "AND preis > '" + SystemHelper.validateInput(preisMin.toString()) + "' ";
-       if (!(preisMin != null) && preisMax != null) query +=       "AND preis < '" + SystemHelper.validateInput(preisMax.toString()) + "' ";
+       if (!(preisMin != null) && preisMax != null) query +=    "AND preis < '" + SystemHelper.validateInput(preisMax.toString()) + "' ";
       
        if (veranstaltungBezeichnung != null) query +=           "AND LOWER(veranstbez) like '%" + SystemHelper.validateInput(veranstaltungBezeichnung) + "%' ";
        if (veranstaltungKategorie != null) query +=             "AND LOWER(veranstkat) like '%" + SystemHelper.validateInput(veranstaltungKategorie) + "%' ";
