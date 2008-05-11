@@ -149,12 +149,21 @@ public class AuffuehrungsHelper
            saalOrtBezeichnung =          saal.getOrtbez();
        }
       
-       if (zeitVon != null && zeitBis != null){
+       if (zeitVon != null){
            sqlZeitVon = java.sql.Date.valueOf(zeitVon.toString());
+       }
+       
+       if (zeitBis != null){
            sqlZeitBis = java.sql.Date.valueOf(zeitBis.toString());
        }
        
+       
+       
        if (zeitVon != null && zeitBis != null) query +=         "AND datumuhrzeit BETWEEN '" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' AND '" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
+       if (zeitVon != null && !(zeitBis != null)) query +=         "AND datumuhrzeit >'" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' ";
+       if (!(zeitVon != null) && zeitBis != null) query +=         "AND datumuhrzeit <'" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
+       
+       
        if (storniert != null) query +=                          "AND storniert = '" + storniert + "' ";
        if (preisMin != null && preisMax != null) query +=       "AND preis BETWEEN '" + SystemHelper.validateInput(preisMin.toString()) + "' AND '" + SystemHelper.validateInput(preisMax.toString()) + "' ";
        
