@@ -12,7 +12,6 @@ import ticketline.dao.DAOFactory;
 import ticketline.dao.interfaces.BestellungDAO;
 import ticketline.dao.interfaces.TransaktionDAO;
 import ticketline.db.Bestellung;
-import ticketline.db.BestellungKey;
 import ticketline.db.Kunde;
 import ticketline.db.Transaktion;
 import ticketline.db.TransaktionKey;
@@ -114,114 +113,44 @@ public class ReservierungsManagerTemp {
 
     }
 
-    public static void kaufeReservierung(Transaktion transaktion) throws TicketLineException, TicketLineSystemException {
+    public static void kaufeReservierung(TransaktionKey transaktionKey) throws TicketLineException, TicketLineSystemException {
 
 	try {
-	    if (transaktion == null){
-	    TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
-	
-	    transaktion.setVerkauft(true);
+	    if (transaktionKey != null){
 	    
-	    log.info("Executing: " + transaktion);
-	    transaktionDAO.save(transaktion);
-	    } else log.info("Missing entity (transaktion)");
+		TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
+	
+		Transaktion transaktion = new Transaktion();
+		transaktion.setComp_id(transaktionKey);
+		transaktion.setVerkauft(true);
+	    
+		log.info("Executing: " + transaktion);
+		transaktionDAO.save(transaktion);
+		
+	    } else log.info("Missing entity (transaktionKey)");
 	} catch (RuntimeException e) {
 	    throw new TicketLineSystemException("Error during database access!", e);
 	}
 	
     }
 
-    public static void storniereReservierung(Transaktion transaktion) throws TicketLineException, TicketLineSystemException {
+    public static void storniereReservierung(TransaktionKey transaktionKey) throws TicketLineException, TicketLineSystemException {
 
 	try {
+	    if (transaktionKey != null){
 	    TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
 	
+	    Transaktion transaktion = new Transaktion();
 	    transaktion.setStorniert(true);
+	    transaktion.setComp_id(transaktionKey);
 	    
 	    log.info("Executing: " + transaktion);
 	    transaktionDAO.save(transaktion);
-	    
+	    } else log.info("Missing entity (transaktionKey)");
 	} catch (RuntimeException e) {
 	    throw new TicketLineSystemException("Error during database access!", e);
 	}
 	
     }
 
-    //    
-//    public static void storniereVerkauf(BestellungKey bestellung) throws TicketLineException, TicketLineSystemException {
-//	
-//	try {
-//	    BestellungDAO bestellungDAO = DAOFactory.getBestellungDAO();
-//	    bestellung.
-//	    
-//	    log.info("Executing: " + bestellung);
-//	    bestellungDAO.save(bestellung);
-//	    
-//	} catch (RuntimeException e) {
-//	    throw new TicketLineSystemException("Error during database access!", e);
-//	}
-//
-//
-//    }
 }
-
-    
-    
-// KAUFE WERBEMATERIAL: SO NICHT!
-//	    if (kunde != null && bestellung != null) {
-//		
-//		String menge = new Integer(bestellung.getMenge()).toString();
-//		
-//		if (bestellung.getComp_id().getDatumuhrzeit() != null && bestellung.getArtikel().getArtikelnr() != null && kunde.getKartennr() != null && menge != null && bestellung.getZahlart() != null) {
-//		    BestellungDAO bestellungDAO = DAOFactory.getBestellungDAO();
-//
-//		    java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(bestellung.getComp_id().getDatumuhrzeit().toString());
-//		    String datumuhrzeit = timestamp.toString();
-//		    String artikelnr = bestellung.getArtikel().getArtikelnr().toString();
-//		    String kartennr = kunde.getKartennr().toString();
-//		    
-//		    String zahlart = bestellung.getZahlart();
-//
-//
-//		    String query = "INSERT INTO bestellung (datumuhrzeit, artikelnr, kartennr, menge, zahlart) " +
-//			    "VALUES ('" + datumuhrzeit + "','" + artikelnr + "','" + kartennr + "','" + menge + "','" + zahlart + "')";
-
-//       create table bestellung (datumuhrzeit timestamp not null, artikelnr integer not null, kartennr integer not null, menge integer not null, zahlart varchar(20) not null, primary key (datumuhrzeit, artikelnr, kartennr));
-
-    
-//    try {
-
-//transaktion (datumuhrzeit timestamp not null, kundennr integer not null, mitarbeiternr integer not null, verkauft bit not null, 
-//	storniert bit not null, resnr integer, preis numeric not null, startplatz integer not null, anzplaetze integer not null, 
-//	zahlart varchar(20), reihebez varchar(30), kategoriebez varchar(30), saalbez varchar(30), ortbez varchar(30), ort varchar(30), 
-//	auffdatumuhrzeit timestamp, verkaufsstelle varchar(30), verkaufsort varchar(30), kartennr integer, primary key (datumuhrzeit, 
-//	kundennr, mitarbeiternr), unique (resnr));
-
-	
-// KAUFE RESERVIERUNG SO NICHT	
-//	    if (transaktion.getMitarbeiternr().toString() != null && transaktion.getKundennr() != null && transaktion.getDatumuhrzeit() != null) {
-//		TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
-//
-//		String mitarbeiternr = transaktion.getMitarbeiternr().toString();
-//		String kundennr = transaktion.getKundennr().toString();
-//
-//		java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(transaktion.getDatumuhrzeit().toString());
-//		String datumuhrzeit = timestamp.toString();
-//
-//		String query = "UPDATE transaktion WHERE datumuhrzeit = '" + datumuhrzeit +
-//			"', AND kundennr = '" + kundennr + "', AND mitarbeiternr = '" + mitarbeiternr + "'";
-//
-//		log.info("Executing: " + query);
-//		
-//	    } else {
-//		log.error("'NOT NULLABLE' attribute was can't get set to NULL");
-//	    }
-//
-//
-//	} catch (RuntimeException e) {
-//	    throw new TicketLineSystemException("Error during database access!", e);
-//	}
-//
-//
-//
-//    }
