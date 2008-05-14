@@ -302,11 +302,13 @@ public class PlatzAuswahl extends AbstractPageBean {
             return "Keine Plätze gefunden!";
         
         Iterator<Reihe> i=l.iterator();
+        Iterator<Belegung> ib=bl.iterator();
         String ret="<table style='border: 1px solid;left: 240px; top: 50px; position: absolute'>";
         String akt=null,prev="";
         int col=10;
         while(i.hasNext()){
             Reihe r=i.next();
+            Belegung b=ib.next();
             akt=r.getKategorie().getComp_id().getBezeichnung();
                 if(!prev.equals(akt)){
                     prev=akt;
@@ -317,7 +319,16 @@ public class PlatzAuswahl extends AbstractPageBean {
                 ret+="<td>"+r.getKategorie().getComp_id().getBezeichnung()+"</td>";
                 ret+="<td>"+r.getComp_id().getBezeichnung()+"</td>";
                for(int i2=1;i2<=r.getAnzplaetze();i2++){
-                    ret+="<td style='background-color:#"+col+"C0"+col+"'>X</td>";
+                   if(b.getBelegung().substring(i2-1,i2).equals("F")){
+                     ret+="<td style='background-color:#"+col+"C0"+col+"'>"+
+                           "<input style='height:10px;width:10px;' type='radio' class='Radio' name='test'/>"
+                            +"</td>";
+                   }
+                   else{
+                    ret+="<td style='background-color:#"+col+"C0"+col+"'>"+
+                            b.getBelegung().substring(i2-1,i2)
+                            +"</td>";
+                   }
                 }
                 ret+="</tr>";
             }

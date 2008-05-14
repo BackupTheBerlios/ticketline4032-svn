@@ -96,12 +96,35 @@ public class ReservierungsManager {
                 DAOFactory.getBelegungDAO().save(new Belegung(new BelegungKey(r.getComp_id().getBezeichnung(), r.getComp_id().getKategoriebez(), r.getComp_id().getSaalbez(), r.getComp_id().getOrtbez(), r.getComp_id().getOrt(), a.getComp_id().getDatumuhrzeit()), belegung, r.getAnzplaetze(), 0, 0, r, a, new java.util.HashSet()));
             }
 
-            return new Vector<Belegung>(a.getBelegungen());
+            return sucheAlleBelegungen(auffuehrung);
         }
         catch(Exception e)
         {
             throw new TicketLineSystemException("Fehler!", e);
         }
+    }
+    
+            private static List<Belegung> sucheAlleBelegungen(AuffuehrungKey key) throws TicketLineException, TicketLineSystemException
+    {
+       BelegungDAO dao=DAOFactory.getBelegungDAO();
+      
+       String query = "1 = 1 ";
+       if(key!=null){
+           query+=  "AND saalbez = '" + key.getSaalbez()+ "' ";
+           query+=  "AND ortbez = '" + key.getOrtbez()+ "' ";
+           query+=  "AND datumuhrzeit = '" + key.getDatumuhrzeit()+ "' ";
+           query+=  "AND ort = '" + key.getOrt()+ "' order by kategoriebez,reihebez"; 
+
+           
+       }else{
+           return null;
+       }
+        
+               List list = dao.find(query);
+        
+        log.info(query); 
+        log.info(list);
+        return list;
     }
     
     public static Integer kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrung, ReiheKey reihe, BigDecimal preis, Integer startplatz,
