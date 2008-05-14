@@ -10,8 +10,10 @@ import com.sun.rave.faces.data.DefaultTableDataModel;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
 import com.sun.webui.jsf.component.Button;
+import com.sun.webui.jsf.component.DropDown;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
+import com.sun.webui.jsf.component.HiddenField;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.ImageComponent;
 import com.sun.webui.jsf.component.Link;
@@ -21,6 +23,7 @@ import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
+import com.sun.webui.jsf.model.SingleSelectOptionsList;
 import java.util.Iterator;
 import java.util.List;
 import javax.faces.FacesException;
@@ -51,6 +54,7 @@ public class PlatzAuswahl extends AbstractPageBean {
      * here is subject to being replaced.</p>
      */
     private void _init() throws Exception {
+        anzahlDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("1", "1 Platz"), new com.sun.webui.jsf.model.Option("2", "2 Plätze"), new com.sun.webui.jsf.model.Option("3", "3 Plätze"), new com.sun.webui.jsf.model.Option("4", "4 Plätze"), new com.sun.webui.jsf.model.Option("5", "5 Plätze"), new com.sun.webui.jsf.model.Option("6", "6 Plätze")});
     }
 
     private Page page1 = new Page();
@@ -174,6 +178,33 @@ public class PlatzAuswahl extends AbstractPageBean {
 
     public void setImage1(ImageComponent ic) {
         this.image1 = ic;
+    }
+    private DropDown anzahl = new DropDown();
+
+    public DropDown getAnzahl() {
+        return anzahl;
+    }
+
+    public void setAnzahl(DropDown dd) {
+        this.anzahl = dd;
+    }
+    private SingleSelectOptionsList anzahlDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getAnzahlDefaultOptions() {
+        return anzahlDefaultOptions;
+    }
+
+    public void setAnzahlDefaultOptions(SingleSelectOptionsList ssol) {
+        this.anzahlDefaultOptions = ssol;
+    }
+    private HiddenField startplatz = new HiddenField();
+
+    public HiddenField getStartplatz() {
+        return startplatz;
+    }
+
+    public void setStartplatz(HiddenField hf) {
+        this.startplatz = hf;
     }
 
     // </editor-fold>
