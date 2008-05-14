@@ -122,6 +122,7 @@ public class ReservierungsManager {
 
                 if (reservierung) {
                     Transaktion transaktion = new Transaktion(transaktionKey, false, false, preis, startplatz, anzahl, belegung, ort);
+                    transaktion.setZahlart(zahlart);
                     Session s = HibernateSessionFactory.currentSession();
                     List l = s.createQuery("SELECT COALESCE(MAX(COALESCE(resnr, 0)),0)+1 FROM Transaktion").list();
                     int resnr = Integer.parseInt(l.get(0).toString());
@@ -131,6 +132,7 @@ public class ReservierungsManager {
                     return transaktionDAO.get(transaktionKey).getResnr();
                 } else {
                     Transaktion transaktion = new Transaktion(transaktionKey, true, false, preis, startplatz, anzahl, belegung, ort);
+                    transaktion.setZahlart(zahlart);
                     transaktionDAO.save(transaktion);
                     return -1;
                 }
