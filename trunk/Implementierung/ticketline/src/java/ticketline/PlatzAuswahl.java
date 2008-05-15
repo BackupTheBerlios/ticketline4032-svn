@@ -382,6 +382,7 @@ public class PlatzAuswahl extends AbstractPageBean {
                  +"var count=parseInt(anzahl.options[anzahl.selectedIndex].value);" 
                  +"element=element.parentNode;"
                  +"for(var z=0;z<count;z++){"
+                 
                 +"element.style.backgroundColor = '#cc0000';"
                  +"element=element.nextSibling;"
                 +"}}"
