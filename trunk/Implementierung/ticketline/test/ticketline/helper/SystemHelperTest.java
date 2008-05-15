@@ -109,6 +109,7 @@ public class SystemHelperTest {
 
             System.out.println("WrongKartennr");
             kartennr = 61;
+            onlinepwd = "foobar";
             result = SystemHelper.checkLogin(kartennr, onlinepwd);
             assertEquals(null, result);
         } catch (TicketLineException ex) {
