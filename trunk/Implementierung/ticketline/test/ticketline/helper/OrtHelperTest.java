@@ -88,7 +88,7 @@ public class OrtHelperTest {
     }
     @Test
     public void sucheOrteAlleF() throws Exception {
-        System.out.println("suche Orte: all empty");
+        System.out.println("suche Orte: Eingabe falsch");
         bezeichnung = "f.."; 
         strasse = "234lo";
         ort = "    ";
@@ -106,7 +106,7 @@ public class OrtHelperTest {
     @Test
     public void sucheOrteBezT() throws Exception {
         System.out.println("suche Orte: bezeichnung");
-        bezeichnung = "Halle 1";
+        bezeichnung = "UMMI GUMMI";
         query = "bezeichnung like '%" + bezeichnung + "%' ";
         expResult = ortdao.find(query);  
         List<Ort> result = OrtHelper.sucheOrte(bezeichnung, strasse, ort, bundesland, plz, verkauf, auffuehrung, kiosk);
