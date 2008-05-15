@@ -23,7 +23,7 @@ import ticketline.exceptions.TicketLineSystemException;
 
 /**
  *
- * @author Michael Morak
+ * @author Sriver
  */
 public class AuswertungsHelper 
 {
@@ -40,6 +40,14 @@ public class AuswertungsHelper
             
             log.info(zahl);
             
+            List<Veranstaltung> list = sucheTopTen();
+            
+            for(int k = 0; k <= 10; k++) {
+                
+                log.info(list.get(k).toString());
+                
+            }
+            
         } catch (Exception ex) {
            
         } 
@@ -47,7 +55,56 @@ public class AuswertungsHelper
     
     public static List<Veranstaltung> sucheTopTen() throws TicketLineException, TicketLineSystemException
     {
-        return null;
+       
+        VeranstaltungDAO veranstaltung = DAOFactory.getVeranstaltungDAO();
+        
+        List<Veranstaltung> list = veranstaltung.getAll();
+        ArrayList<Veranstaltung> gesList = new ArrayList<Veranstaltung>();
+        
+        
+        for(int i = 0; i < list.size(); i++) {
+            
+            if(i == 0) {
+                
+                gesList.add(list.get(i));
+                
+            }
+            else {
+            
+                 for(int j = 0; j < 10; j++) {
+                     
+                     if(j < gesList.size()) {
+                         
+                         if(berechneBesucherzahl(list.get(i).getComp_id()) > berechneBesucherzahl(gesList.get(j).getComp_id())) {
+                    
+                             gesList.add(j, list.get(i));
+                            
+                             break;
+                    
+                         }
+                         
+                     }
+                     else {
+                         
+                         gesList.add(list.get(i));
+                         
+                         break;
+                         
+                     }
+                
+                }
+                 
+            }
+            
+            if(gesList.size() > 10) {
+                                 
+                gesList.remove(10);
+                                 
+            }
+            
+        }
+        
+        return gesList;
     }
     
     public static Integer berechneBesucherzahl(VeranstaltungKey veranstaltungKey) throws TicketLineException, TicketLineSystemException
@@ -61,7 +118,7 @@ public class AuswertungsHelper
         
         Iterator<Auffuehrung> ia = auffuehrungSet.iterator();
         
-        Integer belegungGes = null;
+        int belegungGes = 0;
         
         while(ia.hasNext()) {
             
@@ -80,6 +137,6 @@ public class AuswertungsHelper
             
         }
         
-        return belegungGes;
+        return new Integer(belegungGes);
     }
 }
