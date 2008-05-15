@@ -71,9 +71,21 @@ public class SaalHelperTest {
         SaalHelper.main(args);
     }
 
-    /**
-     * Test of sucheSaele method, of class SaalHelper.
-     */
+    @Test
+    public void sucheSaeleKorrekt() throws Exception {
+        System.out.println("sucheSaele vorhandenen sälen");
+        bezeichnung = "Saal 4";
+        typ = "Theatersaal";
+        plaetzeMin = 10;
+        SaalDAO dao=DAOFactory.getSaalDAO();
+        query = "bezeichnung like '%" + bezeichnung + "%' AND typ like '%" + typ + "%' AND anzplaetze > " + plaetzeMin +"";
+        explist = dao.find(query);
+        System.out.println(query);
+        List<Saal> result = SaalHelper.sucheSaele(bezeichnung, typ, plaetzeMin, ort);
+        assertEquals(explist, result);
+        
+    }
+    
     @Test
     public void sucheSaeleBezT() throws Exception {
         System.out.println("sucheSaele nach Bezeichnung");
@@ -124,7 +136,7 @@ public class SaalHelperTest {
         System.out.println("suche Saele nach mindestplaetze");
         bezeichnung = "";
         typ = "";
-        plaetzeMin = new Integer(10);
+        plaetzeMin = new Integer(45);
         ort = null;
         SaalDAO dao=DAOFactory.getSaalDAO();
         query = "anzplaetze > " + plaetzeMin;

@@ -100,7 +100,7 @@ public class DAOFactoryTest {
         bezeichnung = "'Halle 1'";
         query = "bezeichnung like '%" + bezeichnung + "%'";
         List<Saal> resultKlein = saalDAO.find(query);
-        bezeichnung = "'Halle 1'";
+        bezeichnung = "Halle 1";
         query = "bezeichnung like '%" + bezeichnung + "%'";
         List<Saal> resultGross = saalDAO.find(query);
         assertEquals(resultKlein, resultGross);
