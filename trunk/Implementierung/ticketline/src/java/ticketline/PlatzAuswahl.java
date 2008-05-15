@@ -18,6 +18,8 @@ import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.ImageComponent;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
+import com.sun.webui.jsf.component.RadioButton;
+import com.sun.webui.jsf.component.RadioButtonGroup;
 import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
@@ -30,6 +32,7 @@ import javax.faces.FacesException;
 import javax.faces.component.UIColumn;
 import javax.faces.component.html.HtmlDataTable;
 import javax.faces.component.html.HtmlOutputText;
+import javax.faces.event.ValueChangeEvent;
 import ticketline.db.Belegung;
 import ticketline.db.Reihe;
 import ticketline.exceptions.TicketLineException;
@@ -352,9 +355,12 @@ public class PlatzAuswahl extends AbstractPageBean {
                for(int i2=1;i2<=r.getAnzplaetze();i2++){
                    if(b.getBelegung().substring(i2-1,i2).equals("F")){
                      ret+="<td style='background-color:#"+col+"C0"+col+"'>"+
-                           "<input style='height:10px;width:10px;' type='radio' class='Radio' name='test'/>"
-                            +"</td>";
+                           "<input onClick='resClick(this)' style='height:10px;width:10px;' type='radio' class='Radio' name='test'"
+                            + "value='"+r.getKategorie().getComp_id().getBezeichnung()+":"+r.getComp_id().getBezeichnung()+":"+i2+"'"
+                            + "/>" 
+                            + "</td>" ;
                    }
+                   
                    else{
                     ret+="<td style='background-color:#"+col+"C0"+col+"'>"+
                             b.getBelegung().substring(i2-1,i2)
@@ -365,13 +371,30 @@ public class PlatzAuswahl extends AbstractPageBean {
             }
             
         ret+="</table>";
-            
+          
+        ret="<script type='text/javascript'>"
+                +"function resClick(element) {"
+                +"var tds=document.getElementsByTagName('td');"
+                +"for(var k=0;k<tds.length;k++){ "
+                +"tds[k].style.backgroundColor='#30c030';"
+                +"}"
+                +"var anzahl=document.getElementById('form1:anzahl_list');"
+                 +"var count=parseInt(anzahl.options[anzahl.selectedIndex].value);" 
+                 +"for(var z=0;z<=count;z++){"
+                +"element.parentNode.style.backgroundColor = '#cc0000';"
+                 +"element=element.nextSibling;"
+                +"}}"
+                +"</script>"
+                +ret;
         
         return ret;
     }
 
     public void setPlatzformat(String platzformat) {
         this.platzformat = platzformat;
+    }
+
+    public void anzahl_processValueChange(ValueChangeEvent event) {
     }
     
     

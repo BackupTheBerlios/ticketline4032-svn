@@ -26,7 +26,7 @@
                                 style="height: 23px; left: -1px; top: 192px; position: absolute; width: 168px" text="ausgewählte Plätze kaufen"/>
                             <jsp:useBean class="ticketline.PlatzAuswahl" id="PlatzAuswahl" scope="session"/>
                             <jsp:getProperty name="PlatzAuswahl" property="platzformat"/>
-                            <webuijsf:dropDown binding="#{PlatzAuswahl.anzahl}" id="anzahl" items="#{PlatzAuswahl.anzahlDefaultOptions.options}"/>
+                            <webuijsf:dropDown binding="#{PlatzAuswahl.anzahl}" id="anzahl" items="#{PlatzAuswahl.anzahlDefaultOptions.options}" style="height: 23px; left: -1px; top: 110px; position: absolute; width: 168px"/>
                             <webuijsf:hiddenField binding="#{PlatzAuswahl.startplatz}" id="startplatz"/>
                         </div>
                     </webuijsf:form>
