@@ -61,7 +61,7 @@ public class SaalHelper
            query+=  "AND LOWER(bezeichnung) like '%" + bezeichnung + "%' ";
        }
        if(typ != null){
-           query+=  "AND LOWER(bezeichnung) like '%" + typ + "%' ";
+           query+=  "AND LOWER(typ) like '%" + typ + "%' ";
        }
        if(plaetzeMin != null){
            query+=  "AND anzplaetze > " +plaetzeMin + " ";

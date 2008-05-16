@@ -350,19 +350,19 @@ public class PlatzAuswahl extends AbstractPageBean {
                     col=(col+10)%90+10;
                 }
                 ret+="<tr>";
-                ret+="<td>"+r.getKategorie().getComp_id().getBezeichnung()+"</td>";
-                ret+="<td>"+r.getComp_id().getBezeichnung()+"</td>";
+                ret+="<th style='width:100px; background-color:#"+col+"C0"+col+"'>"+r.getKategorie().getComp_id().getBezeichnung()+"</th>";
+                ret+="<th style='width:100px; background-color:#"+col+"C0"+col+"'>"+r.getComp_id().getBezeichnung()+"</th>";
                for(int i2=1;i2<=r.getAnzplaetze();i2++){
                    if(b.getBelegung().substring(i2-1,i2).equals("F")){
-                     ret+="<td style='background-color:#"+col+"C0"+col+"'>"+
-                           "<input onClick='resClick(this)' style='height:10px;width:10px;' type='radio' class='Radio' name='test'"
+                     ret+="<td style='background-color:#F0F0F0;'>"+
+                           "<input  onClick='resClick(this)' style='height:10px;width:10px;' type='radio' class='Radio' name='test'"
                             + "value='"+r.getKategorie().getComp_id().getBezeichnung()+":"+r.getComp_id().getBezeichnung()+":"+i2+"'"
                             + "/>" 
                             + "</td>" ;
                    }
                    
                    else{
-                    ret+="<td style='background-color:#"+col+"C0"+col+"'>"+
+                    ret+="<td style='background-color:#F0F0F0;'>"+
                             b.getBelegung().substring(i2-1,i2)
                             +"</td>";
                    }
@@ -376,7 +376,7 @@ public class PlatzAuswahl extends AbstractPageBean {
                 +"function resClick(element) {"
                 +"var tds=document.getElementsByTagName('td');"
                 +"for(var k=0;k<tds.length;k++){ "
-                +"tds[k].style.backgroundColor='#30c030';"
+                +"tds[k].style.backgroundColor='#F0F0F0';"
                 +"}"
                 +"var anzahl=document.getElementById('form1:anzahl_list');"
                  +"var count=parseInt(anzahl.options[anzahl.selectedIndex].value);" 
