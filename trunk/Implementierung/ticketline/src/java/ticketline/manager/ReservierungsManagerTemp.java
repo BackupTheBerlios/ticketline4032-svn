@@ -33,30 +33,36 @@ public class ReservierungsManagerTemp {
 	    String ortsBezeichnung, String ort) throws TicketLineException, TicketLineSystemException {
 	try {
 	    TransaktionDAO transaktion = DAOFactory.getTransaktionDAO();
-
-	    Kunde kunde = null;
-
+	    log.info("Executing: ");
+	    
 	    java.sql.Date sqlZeitVon = null;
 	    java.sql.Date sqlZeitBis = null;
-
-	    if (k != null) {
-		kunde = k;
-	    }
-
+log.info("Executing: ");
+//	    if (k != null) {
+//		Kunde kunde = k;
+//	    }
+log.info("Executing: ");	    
+	    log.info(zeitVon);
+	    log.info(zeitBis);
+/**
 	    if (zeitVon != null) {
-		sqlZeitVon = java.sql.Date.valueOf(zeitVon.toString());
+		log.info(sqlZeitVon = java.sql.Date.valueOf(zeitVon.toString()));
 	    }
-
+log.info("Executing: ");
 	    if (zeitBis != null) {
 		sqlZeitBis = java.sql.Date.valueOf(zeitBis.toString());
 	    }
-
+log.info("Executing: ");
+ * 
+ * */
 	    String query = "1=1 ";
-
-	    if (kunde != null) {
-		query += "AND LOWER(kartennr) = '" + SystemHelper.validateInput(kunde.getKartennr().toString()) + "' ";
+	    
+	    log.info("Executing: " + query);
+	    
+	    if (k != null) {
+		query += "AND LOWER(kartennr) = '" + SystemHelper.validateInput(k.getKartennr().toString()) + "' ";
 	    }
-
+// Hier liegt der hund auch begraben
 	    if (zeitVon != null && zeitBis != null) {
 		query += "AND datumuhrzeit BETWEEN '" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' AND '" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
 	    }
@@ -77,17 +83,21 @@ public class ReservierungsManagerTemp {
 	    if (saalBezeichnung != null) {
 		query += "AND LOWER(saalbez) like '%" + SystemHelper.validateInput(saalBezeichnung) + "%' ";
 	    }
+	    
 	    if (ortsBezeichnung != null) {
 		query += "AND LOWER(ortbez) like '%" + SystemHelper.validateInput(ortsBezeichnung) + "%' ";
 	    }
+	    // HIER LIEGT DER HUND BEGRABEN
 	    if (ort != null) {
 		query += "AND LOWER(ort) like '%" + SystemHelper.validateInput(ort) + "%' ";
 	    }
 
+	    	log.info("Executing: " + query);
+		log.info(transaktion.find(query));	
 	    List list = transaktion.find(query);
 
 	    log.info("Executing: " + query);
-//		log.info("Executing: " + list);
+		log.info("Executing: " + list);
 	    return list;
 
 	} catch (RuntimeException e) {
@@ -127,25 +137,6 @@ public class ReservierungsManagerTemp {
 		log.info("Executing: " + transaktion);
 		transaktionDAO.save(transaktion);
 		
-	    } else log.info("Missing entity (transaktionKey)");
-	} catch (RuntimeException e) {
-	    throw new TicketLineSystemException("Error during database access!", e);
-	}
-	
-    }
-
-    public static void storniereReservierung(TransaktionKey transaktionKey) throws TicketLineException, TicketLineSystemException {
-
-	try {
-	    if (transaktionKey != null){
-	    TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
-	
-	    Transaktion transaktion = new Transaktion();
-	    transaktion.setStorniert(true);
-	    transaktion.setComp_id(transaktionKey);
-	    
-	    log.info("Executing: " + transaktion);
-	    transaktionDAO.save(transaktion);
 	    } else log.info("Missing entity (transaktionKey)");
 	} catch (RuntimeException e) {
 	    throw new TicketLineSystemException("Error during database access!", e);

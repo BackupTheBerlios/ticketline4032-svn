@@ -101,7 +101,7 @@ public class AuffuehrungsHelper
         if (bezeichnung != null) query +=                   "AND LOWER(bezeichnung) like '%" + SystemHelper.validateInput(bezeichnung) + "%' ";
         if (kategorie != null) query +=                     "AND LOWER(kategorie) like '%" + SystemHelper.validateInput(kategorie) + "%' ";
         if (inhalt != null) query +=                        "AND LOWER(inhalt) like '%" + SystemHelper.validateInput(inhalt) + "%' ";
-        if (dauerMin.toString() != null && dauerMax.toString() != null) query +=  "AND dauer BETWEEN '" + SystemHelper.validateInput(dauerMin.toString()) + "' AND '" + SystemHelper.validateInput(dauerMax.toString()) + "' ";
+        if (dauerMin != null && dauerMax != null) query +=  "AND dauer BETWEEN '" + SystemHelper.validateInput(dauerMin.toString()) + "' AND '" + SystemHelper.validateInput(dauerMax.toString()) + "' ";
         if (dauerMin != null && !(dauerMax != null)) query +=   "AND dauer > '" + SystemHelper.validateInput(dauerMin.toString()) + "' ";
         if (!(dauerMin != null) && dauerMax != null) query +=   "AND dauer < '" + SystemHelper.validateInput(dauerMax.toString()) + "' ";
          
