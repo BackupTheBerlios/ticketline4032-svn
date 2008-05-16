@@ -14,9 +14,6 @@
                 </webuijsf:head>
                 <webuijsf:body binding="#{PlatzAuswahl.body1}" id="body1" style="-rave-layout: grid">
                     <webuijsf:form binding="#{PlatzAuswahl.form1}" id="form1">
-                        <div style="left: 0px; top: 0px; position: absolute">
-                            <jsp:directive.include file="MasterFragment.jspf"/>
-                        </div>
                         <div style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
                             <webuijsf:staticText binding="#{PlatzAuswahl.staticTextTitle}" id="staticTextTitle"
                                 style="font-size: 30px; left: 240px; top: 0px; position: absolute" text="verfügbare Plätze"/>
@@ -30,6 +27,9 @@
                             <webuijsf:hiddenField binding="#{PlatzAuswahl.startplatz}" id="startplatz"/>
                         </div>
                     </webuijsf:form>
+                    <div style="left: 0px; top: 0px; position: absolute">
+                        <jsp:directive.include file="MasterFragment.jspf"/>
+                    </div>
                 </webuijsf:body>
             </webuijsf:html>
         </webuijsf:page>
