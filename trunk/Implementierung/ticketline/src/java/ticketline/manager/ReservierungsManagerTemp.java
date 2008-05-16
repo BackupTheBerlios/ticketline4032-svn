@@ -34,42 +34,31 @@ public class ReservierungsManagerTemp {
 	try {
 	    TransaktionDAO transaktion = DAOFactory.getTransaktionDAO();
 	    log.info("Executing: ");
-	    
+
 	    java.sql.Date sqlZeitVon = null;
 	    java.sql.Date sqlZeitBis = null;
-log.info("Executing: ");
-//	    if (k != null) {
-//		Kunde kunde = k;
-//	    }
-log.info("Executing: ");	    
-	    log.info(zeitVon);
-	    log.info(zeitBis);
-/**
+
 	    if (zeitVon != null) {
-		log.info(sqlZeitVon = java.sql.Date.valueOf(zeitVon.toString()));
+		sqlZeitVon = new java.sql.Date(zeitVon.getTime());
 	    }
-log.info("Executing: ");
+
 	    if (zeitBis != null) {
-		sqlZeitBis = java.sql.Date.valueOf(zeitBis.toString());
+		sqlZeitBis = new java.sql.Date(zeitBis.getTime());
 	    }
-log.info("Executing: ");
- * 
- * */
+
 	    String query = "1=1 ";
-	    
-	    log.info("Executing: " + query);
-	    
+
 	    if (k != null) {
 		query += "AND LOWER(kartennr) = '" + SystemHelper.validateInput(k.getKartennr().toString()) + "' ";
 	    }
-// Hier liegt der hund auch begraben
-	    if (zeitVon != null && zeitBis != null) {
+
+	    if (sqlZeitVon != null && sqlZeitBis != null) {
 		query += "AND datumuhrzeit BETWEEN '" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' AND '" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
 	    }
-	    if (zeitVon != null && !(zeitBis != null)) {
+	    if (sqlZeitVon != null && !(sqlZeitBis != null)) {
 		query += "AND datumuhrzeit >'" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' ";
 	    }
-	    if (!(zeitVon != null) && zeitBis != null) {
+	    if (!(sqlZeitVon != null) && sqlZeitBis != null) {
 		query += "AND datumuhrzeit <'" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
 	    }
 
@@ -83,21 +72,19 @@ log.info("Executing: ");
 	    if (saalBezeichnung != null) {
 		query += "AND LOWER(saalbez) like '%" + SystemHelper.validateInput(saalBezeichnung) + "%' ";
 	    }
-	    
+
 	    if (ortsBezeichnung != null) {
 		query += "AND LOWER(ortbez) like '%" + SystemHelper.validateInput(ortsBezeichnung) + "%' ";
 	    }
-	    // HIER LIEGT DER HUND BEGRABEN
+
 	    if (ort != null) {
-		query += "AND LOWER(ort) like '%" + SystemHelper.validateInput(ort) + "%' ";
+		query += "AND LOWER(ort.comp_id.ort) like '%" + SystemHelper.validateInput(ort) + "%' ";
 	    }
 
-	    	log.info("Executing: " + query);
-		log.info(transaktion.find(query));	
+	    log.info("Executing: " + query);
+	    
 	    List list = transaktion.find(query);
 
-	    log.info("Executing: " + query);
-		log.info("Executing: " + list);
 	    return list;
 
 	} catch (RuntimeException e) {
@@ -106,16 +93,18 @@ log.info("Executing: ");
     }
 
     public static void kaufeWerbematerial(Kunde kunde, Bestellung bestellung) throws TicketLineException, TicketLineSystemException {
-	
+
 	try {
-	    if(kunde != null && bestellung != null){
-	    BestellungDAO bestellungDAO = DAOFactory.getBestellungDAO();
-	    bestellung.setKunde(kunde);
-	    
-	    log.info("Executing: " + bestellung);
-	    bestellungDAO.save(bestellung);
-	    } else log.info("Missing entity");
-	    
+	    if (kunde != null && bestellung != null) {
+		BestellungDAO bestellungDAO = DAOFactory.getBestellungDAO();
+		bestellung.setKunde(kunde);
+
+		log.info("Executing: " + bestellung);
+		bestellungDAO.save(bestellung);
+	    } else {
+		log.info("Missing entity");
+	    }
+
 	} catch (RuntimeException e) {
 	    throw new TicketLineSystemException("Error during database access!", e);
 	}
@@ -126,22 +115,23 @@ log.info("Executing: ");
     public static void kaufeReservierung(TransaktionKey transaktionKey) throws TicketLineException, TicketLineSystemException {
 
 	try {
-	    if (transaktionKey != null){
-	    
+	    if (transaktionKey != null) {
+
 		TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
-	
+
 		Transaktion transaktion = new Transaktion();
 		transaktion.setComp_id(transaktionKey);
 		transaktion.setVerkauft(true);
-	    
+
 		log.info("Executing: " + transaktion);
 		transaktionDAO.save(transaktion);
-		
-	    } else log.info("Missing entity (transaktionKey)");
+
+	    } else {
+		log.info("Missing entity (transaktionKey)");
+	    }
 	} catch (RuntimeException e) {
 	    throw new TicketLineSystemException("Error during database access!", e);
 	}
-	
-    }
 
+    }
 }

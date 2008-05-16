@@ -149,19 +149,19 @@ public class AuffuehrungsHelper
            saalOrtBezeichnung =          saal.getOrtbez();
        }
       
-       if (zeitVon != null){
-           sqlZeitVon = java.sql.Date.valueOf(zeitVon.toString());
-       }
+       if (zeitVon != null) {
+		sqlZeitVon = new java.sql.Date(zeitVon.getTime());
+	    }
+
+	    if (zeitBis != null) {
+		sqlZeitBis = new java.sql.Date(zeitBis.getTime());
+	    }
        
-       if (zeitBis != null){
-           sqlZeitBis = java.sql.Date.valueOf(zeitBis.toString());
-       }
        
        
-       
-       if (zeitVon != null && zeitBis != null) query +=         "AND datumuhrzeit BETWEEN '" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' AND '" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
-       if (zeitVon != null && !(zeitBis != null)) query +=      "AND datumuhrzeit >'" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' ";
-       if (!(zeitVon != null) && zeitBis != null) query +=      "AND datumuhrzeit <'" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
+       if (sqlZeitVon != null && sqlZeitBis != null) query +=         "AND datumuhrzeit BETWEEN '" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' AND '" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
+       if (sqlZeitVon != null && !(sqlZeitBis != null)) query +=      "AND datumuhrzeit >'" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' ";
+       if (!(sqlZeitVon != null) && sqlZeitBis != null) query +=      "AND datumuhrzeit <'" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
        
        
        if (storniert != null) query +=                          "AND storniert = '" + storniert + "' ";
