@@ -108,7 +108,7 @@ public class SystemHelperTest {
         try {
 
             System.out.println("WrongKartennr");
-            kartennr = 61;
+            kartennr = 10000;
             onlinepwd = "foobar";
             result = SystemHelper.checkLogin(kartennr, onlinepwd);
             assertEquals(null, result);

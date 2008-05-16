@@ -158,8 +158,8 @@ public class AuffuehrungsHelperTest {
     }
     
      @Test
-    public void sucheAuffuehrungen() throws Exception {
-        System.out.println("Suche bestimmte Aufführung");
+    public void sucheAuffuehrungenStorniert() throws Exception {
+        System.out.println("Suche bestimmte Aufführung die storniert wurden");
         Date zeitVon = null;
         Date zeitBis = null;
         Boolean storniert = true;
