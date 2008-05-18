@@ -30,6 +30,7 @@ import ticketline.dao.interfaces.TransaktionDAO;
 import ticketline.dao.interfaces.VeranstaltungDAO;
 import ticketline.db.Ort;
 import ticketline.db.Saal;
+import ticketline.helper.SystemHelper;
 
 /**
  *
@@ -85,10 +86,10 @@ public class DAOFactoryTest {
         System.out.println("Klein - gross schreibung überprüfen bei der Suche in der Datenbank");
         SaalDAO saalDAO = DAOFactory.getSaalDAO();
         bezeichnung = "Halle 1";
-        query = "bezeichnung like '%" + bezeichnung + "%'";
+        query = "bezeichnung like '%" + SystemHelper.validateInput(bezeichnung) + "%'";
         List<Saal> resultKlein = saalDAO.find(query);
         bezeichnung = "halle 1";
-        query = "bezeichnung like '%" + bezeichnung + "%'";
+        query = "bezeichnung like '%" + SystemHelper.validateInput(bezeichnung) + "%'";
         List<Saal> resultGross = saalDAO.find(query);
         assertEquals(resultKlein, resultGross);
         
@@ -98,10 +99,10 @@ public class DAOFactoryTest {
         System.out.println("überprüfen bei der Suche Hochkomma zu einem Problem führt");
         SaalDAO saalDAO = DAOFactory.getSaalDAO();
         bezeichnung = "'Halle 1'";
-        query = "bezeichnung like '%" + bezeichnung + "%'";
+        query = "bezeichnung like '%" + SystemHelper.validateInput(bezeichnung) + "%'";
         List<Saal> resultKlein = saalDAO.find(query);
         bezeichnung = "Halle 1";
-        query = "bezeichnung like '%" + bezeichnung + "%'";
+        query = "bezeichnung like '%" + SystemHelper.validateInput(bezeichnung) + "%'";
         List<Saal> resultGross = saalDAO.find(query);
         assertEquals(resultKlein, resultGross);
         
