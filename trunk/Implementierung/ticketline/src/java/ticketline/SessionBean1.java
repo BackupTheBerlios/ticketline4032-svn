@@ -165,5 +165,15 @@ public class SessionBean1 extends AbstractSessionBean {
         
         
     }
+    
+    private Auffuehrung res;
+    
+    public Auffuehrung getRes(){
+        return this.res;
+    }
+    
+    public void setRes(Auffuehrung a){
+        this.res=a;
+    }
   
 }

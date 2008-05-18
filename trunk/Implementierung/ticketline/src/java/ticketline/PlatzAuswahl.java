@@ -26,6 +26,8 @@ import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import com.sun.webui.jsf.model.SingleSelectOptionsList;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.faces.FacesException;
@@ -35,6 +37,8 @@ import javax.faces.component.html.HtmlOutputText;
 import javax.faces.event.ValueChangeEvent;
 import ticketline.db.Belegung;
 import ticketline.db.Reihe;
+import ticketline.db.ReiheKey;
+import ticketline.db.SaalKey;
 import ticketline.exceptions.TicketLineException;
 import ticketline.helper.SaalHelper;
 import ticketline.manager.ReservierungsManager;
@@ -58,6 +62,7 @@ public class PlatzAuswahl extends AbstractPageBean {
      */
     private void _init() throws Exception {
         anzahlDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("1", "1 Platz"), new com.sun.webui.jsf.model.Option("2", "2 Plätze"), new com.sun.webui.jsf.model.Option("3", "3 Plätze"), new com.sun.webui.jsf.model.Option("4", "4 Plätze"), new com.sun.webui.jsf.model.Option("5", "5 Plätze"), new com.sun.webui.jsf.model.Option("6", "6 Plätze")});
+        zahlartDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("Kreditkarte", "Kreditkarte")});
     }
 
     private Page page1 = new Page();
@@ -209,6 +214,24 @@ public class PlatzAuswahl extends AbstractPageBean {
     public void setStartplatz(HiddenField hf) {
         this.startplatz = hf;
     }
+    private DropDown zahlart = new DropDown();
+
+    public DropDown getZahlart() {
+        return zahlart;
+    }
+
+    public void setZahlart(DropDown dd) {
+        this.zahlart = dd;
+    }
+    private SingleSelectOptionsList zahlartDefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getZahlartDefaultOptions() {
+        return zahlartDefaultOptions;
+    }
+
+    public void setZahlartDefaultOptions(SingleSelectOptionsList ssol) {
+        this.zahlartDefaultOptions = ssol;
+    }
 
     // </editor-fold>
 
@@ -316,13 +339,31 @@ public class PlatzAuswahl extends AbstractPageBean {
         return (ApplicationBean1) getBean("ApplicationBean1");
     }
 
-    public String button2_action() {
-        
+    public String button2_action() throws TicketLineException {
+                String clicked=this.getStartplatz().getValue().toString();
+        String split[]=clicked.split(":");
+        SessionBean1 sb=this.getSessionBean1();
+       SaalKey sk=sb.getRes().getSaal().getComp_id();
+        ReservierungsManager.kaufeTickets(sb.getLogin(), 
+                new Date(System.currentTimeMillis()), 
+                sb.getRes().getComp_id(),
+                new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new BigDecimal(0), new Integer(split[2]), 
+                new Integer(this.getAnzahl().getValue().toString()),
+                this.getZahlart().getValue().toString()       , false);
         return "buy";
     }
 
-    public String button1_action() {
-        
+    public String button1_action() throws TicketLineException {
+        String clicked=this.getStartplatz().getValue().toString();
+        String split[]=clicked.split(":");
+        SessionBean1 sb=this.getSessionBean1();
+       SaalKey sk=sb.getRes().getSaal().getComp_id();
+        ReservierungsManager.kaufeTickets(sb.getLogin(), 
+                new Date(System.currentTimeMillis()), 
+                sb.getRes().getComp_id(),
+                new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new BigDecimal(0), new Integer(split[2]), 
+                new Integer(this.getAnzahl().getValue().toString()),
+                this.getZahlart().getValue().toString()       , true);
         return "book";
     }
     
@@ -331,7 +372,7 @@ public class PlatzAuswahl extends AbstractPageBean {
     public String getPlatzformat() throws TicketLineException {
         List<Reihe> l=SaalHelper.sucheAlleReihen(this.getRequestBean1().getAuffuehrung().getSaal().getComp_id());
         List<Belegung> bl = ReservierungsManager.sucheBelegungen(this.getRequestBean1().getAuffuehrung().getComp_id());
-        
+        this.getSessionBean1().setRes(this.getRequestBean1().getAuffuehrung());
         if(l == null)
             return "Keine Plätze gefunden!";
         
@@ -379,6 +420,9 @@ public class PlatzAuswahl extends AbstractPageBean {
                 +"tds[k].style.backgroundColor='#F0F0F0';"
                 +"}"
                 +"var anzahl=document.getElementById('form1:anzahl_list');"
+                +"var startplatz=document.getElementById('form1:startplatz');"
+                +"startplatz.setAttribute('value',element.getAttribute('value'));"
+                
                  +"var count=parseInt(anzahl.options[anzahl.selectedIndex].value);" 
                  +"element=element.parentNode;"
                  +"for(var z=0;z<count;z++){"
