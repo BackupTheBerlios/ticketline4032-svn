@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ticketline.manager;
 
 import java.math.BigDecimal;
@@ -17,6 +16,7 @@ import org.hibernate.Session;
 import ticketline.dao.DAOFactory;
 import ticketline.dao.hibernate.HibernateSessionFactory;
 import ticketline.dao.interfaces.BelegungDAO;
+import ticketline.dao.interfaces.BestellungDAO;
 import ticketline.dao.interfaces.KundeDAO;
 import ticketline.dao.interfaces.OrtDAO;
 import ticketline.dao.interfaces.TransaktionDAO;
@@ -36,10 +36,11 @@ import ticketline.db.Transaktion;
 import ticketline.db.TransaktionKey;
 import ticketline.exceptions.TicketLineException;
 import ticketline.exceptions.TicketLineSystemException;
+import ticketline.helper.SystemHelper;
 
 /**
  *
- * @author Michael Morak
+ * @author Michael Morak, Christoph Auernig, Dominik Kontner
  */
 public class ReservierungsManager {
 
@@ -56,7 +57,7 @@ public class ReservierungsManager {
             AuffuehrungKey auffuehrungKey = auffuehrung.getComp_id();
 
             ReiheKey rk = ((Reihe) ((Kategorie) auffuehrung.getSaal().getKategorien().iterator().next()).getReihen().iterator().next()).getComp_id();
-            log.info(kaufeTickets(kunde, date, auffuehrungKey, rk, new BigDecimal(100), 1, 2, "Karte", true));
+            log.info(kaufeTickets(kunde, date, auffuehrungKey, rk, new BigDecimal(100), 3, 4, "Karte", true));
 //TransaktionKey transaktionKey = ((Transaktion)DAOFactory.getTransaktionDAO().getAll().get(1)).getComp_id();
 //storniereReservierung(transaktionKey);
 
@@ -64,69 +65,66 @@ public class ReservierungsManager {
             java.util.logging.Logger.getLogger(ReservierungsManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
     private static final Logger log = LogManager.getLogger(ReservierungsManager.class);
-    
-    private ReservierungsManager() { }
-    
-    public static List<Belegung> sucheBelegungen(AuffuehrungKey auffuehrung) throws TicketLineException, TicketLineSystemException
-    {
-        try
-        {
+
+    private ReservierungsManager() {
+    }
+
+    public static List<Belegung> sucheBelegungen(AuffuehrungKey auffuehrung) throws TicketLineException, TicketLineSystemException {
+        try {
             Auffuehrung a = DAOFactory.getAuffuehrungDAO().get(auffuehrung);
             Set bel = a.getBelegungen();
             Set kats = a.getSaal().getKategorien();
 
             List<Reihe> reihen = new Vector<Reihe>();
 
-            for(Object k : kats)
-                for(Object r : ((Kategorie)k).getReihen())
-                    reihen.add((Reihe)r);
+            for (Object k : kats) {
+                for (Object r : ((Kategorie) k).getReihen()) {
+                    reihen.add((Reihe) r);
+                }
+            }
 
-            for(Object b : bel)
-                reihen.remove(((Belegung)b).getReihe());
+            for (Object b : bel) {
+                reihen.remove(((Belegung) b).getReihe());
+            }
 
-            for(Reihe r : reihen)
-            {
+            for (Reihe r : reihen) {
                 String belegung = "";
-                for(int i = 0; i < r.getAnzplaetze(); ++i)
+                for (int i = 0; i < r.getAnzplaetze(); ++i) {
                     belegung += "F";
+                }
 
                 DAOFactory.getBelegungDAO().save(new Belegung(new BelegungKey(r.getComp_id().getBezeichnung(), r.getComp_id().getKategoriebez(), r.getComp_id().getSaalbez(), r.getComp_id().getOrtbez(), r.getComp_id().getOrt(), a.getComp_id().getDatumuhrzeit()), belegung, r.getAnzplaetze(), 0, 0, r, a, new java.util.HashSet()));
             }
 
             return sucheAlleBelegungen(auffuehrung);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             throw new TicketLineSystemException("Fehler!", e);
         }
     }
-    
-            private static List<Belegung> sucheAlleBelegungen(AuffuehrungKey key) throws TicketLineException, TicketLineSystemException
-    {
-       BelegungDAO dao=DAOFactory.getBelegungDAO();
-      
-       String query = "1 = 1 ";
-       if(key!=null){
-           query+=  "AND saalbez = '" + key.getSaalbez()+ "' ";
-           query+=  "AND ortbez = '" + key.getOrtbez()+ "' ";
-           query+=  "AND datumuhrzeit = '" + key.getDatumuhrzeit()+ "' ";
-           query+=  "AND ort = '" + key.getOrt()+ "' order by kategoriebez,reihebez"; 
 
-           
-       }else{
-           return null;
-       }
-        
-               List list = dao.find(query);
-        
-        log.info(query); 
+    private static List<Belegung> sucheAlleBelegungen(AuffuehrungKey key) throws TicketLineException, TicketLineSystemException {
+        BelegungDAO dao = DAOFactory.getBelegungDAO();
+
+        String query = "1 = 1 ";
+        if (key != null) {
+            query += "AND saalbez = '" + key.getSaalbez() + "' ";
+            query += "AND ortbez = '" + key.getOrtbez() + "' ";
+            query += "AND datumuhrzeit = '" + key.getDatumuhrzeit() + "' ";
+            query += "AND ort = '" + key.getOrt() + "' order by kategoriebez,reihebez";
+
+
+        } else {
+            return null;
+        }
+
+        List list = dao.find(query);
+
+        log.info(query);
         log.info(list);
         return list;
     }
-    
+
     public static Integer kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrung, ReiheKey reihe, BigDecimal preis, Integer startplatz,
             Integer anzahl, String zahlart, boolean reservierung) throws TicketLineException, TicketLineSystemException {
         try {
@@ -144,16 +142,17 @@ public class ReservierungsManager {
                 TransaktionKey transaktionKey = new TransaktionKey(zeit, k.getKartennr(), 2);
 
                 if (reservierung) {
+                    editiereBelegung(belegungKey, startplatz, anzahl, 'R', null);
                     Transaktion transaktion = new Transaktion(transaktionKey, false, false, preis, startplatz, anzahl, belegung, ort);
                     transaktion.setZahlart(zahlart);
                     Session s = HibernateSessionFactory.currentSession();
                     List l = s.createQuery("SELECT COALESCE(MAX(COALESCE(resnr, 0)),0)+1 FROM Transaktion").list();
                     int resnr = Integer.parseInt(l.get(0).toString());
                     transaktion.setResnr(resnr);
-                    
                     transaktionDAO.save(transaktion);
-                    return transaktionDAO.get(transaktionKey).getResnr();
+                    return resnr;
                 } else {
+                    editiereBelegung(belegungKey, startplatz, anzahl, 'V', false);
                     Transaktion transaktion = new Transaktion(transaktionKey, true, false, preis, startplatz, anzahl, belegung, ort);
                     transaktion.setZahlart(zahlart);
                     transaktionDAO.save(transaktion);
@@ -166,17 +165,187 @@ public class ReservierungsManager {
             throw new TicketLineSystemException("Fehler!", e);
         }
     }
-    
+
     public static void storniereReservierung(TransaktionKey reservierung) throws TicketLineException, TicketLineSystemException {
         try {
             if (reservierung != null) {
                 TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
                 Transaktion transaktion = transaktionDAO.get(reservierung);
-                transaktion.setStorniert(true);
+                transaktion.setStorniert(true);    
+                editiereBelegung(transaktion.getBelegung().getComp_id(), transaktion.getStartplatz(), transaktion.getAnzplaetze(), 'F', null);
                 transaktionDAO.save(transaktion);
             } else {
                 log.info("Missing entity (transaktionKey)");
             }
+        } catch (RuntimeException e) {
+            throw new TicketLineSystemException("Fehler!", e);
+        }
+    }
+
+public static List<Transaktion> sucheReservierungen(Kunde k, Date zeitVon, Date zeitBis, String reihenBezeichnung,
+	    String kategorieBezeichnung, String saalBezeichnung,
+	    String ortsBezeichnung, String ort) throws TicketLineException, TicketLineSystemException {
+	try {
+	    TransaktionDAO transaktion = DAOFactory.getTransaktionDAO();
+	    log.info("Executing: ");
+
+	    java.sql.Date sqlZeitVon = null;
+	    java.sql.Date sqlZeitBis = null;
+
+	    if (zeitVon != null) {
+		sqlZeitVon = new java.sql.Date(zeitVon.getTime());
+	    }
+
+	    if (zeitBis != null) {
+		sqlZeitBis = new java.sql.Date(zeitBis.getTime());
+	    }
+
+	    String query = "1=1 ";
+
+	    if (k != null) {
+		query += "AND LOWER(kartennr) = '" + SystemHelper.validateInput(k.getKartennr().toString()) + "' ";
+	    }
+
+	    if (sqlZeitVon != null && sqlZeitBis != null) {
+		query += "AND datumuhrzeit BETWEEN '" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' AND '" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
+	    }
+	    if (sqlZeitVon != null && !(sqlZeitBis != null)) {
+		query += "AND datumuhrzeit >'" + SystemHelper.validateInput(sqlZeitVon.toString()) + "' ";
+	    }
+	    if (!(sqlZeitVon != null) && sqlZeitBis != null) {
+		query += "AND datumuhrzeit <'" + SystemHelper.validateInput(sqlZeitBis.toString()) + "' ";
+	    }
+
+
+	    if (reihenBezeichnung != null) {
+		query += "AND LOWER(reihebez) like '%" + SystemHelper.validateInput(reihenBezeichnung) + "%' ";
+	    }
+	    if (kategorieBezeichnung != null) {
+		query += "AND LOWER(kategoriebez) like '%" + SystemHelper.validateInput(kategorieBezeichnung) + "%' ";
+	    }
+	    if (saalBezeichnung != null) {
+		query += "AND LOWER(saalbez) like '%" + SystemHelper.validateInput(saalBezeichnung) + "%' ";
+	    }
+
+	    if (ortsBezeichnung != null) {
+		query += "AND LOWER(ortbez) like '%" + SystemHelper.validateInput(ortsBezeichnung) + "%' ";
+	    }
+
+	    if (ort != null) {
+		query += "AND LOWER(ort.comp_id.ort) like '%" + SystemHelper.validateInput(ort) + "%' ";
+	    }
+
+	    log.info("Executing: " + query);
+	    
+	    List list = transaktion.find(query);
+
+	    return list;
+
+	} catch (RuntimeException e) {
+	    throw new TicketLineSystemException("Error during database access!", e);
+	}
+    }
+
+    public static void kaufeWerbematerial(Kunde kunde, Bestellung bestellung) throws TicketLineException, TicketLineSystemException {
+
+	try {
+	    if (kunde != null && bestellung != null) {
+		BestellungDAO bestellungDAO = DAOFactory.getBestellungDAO();
+		bestellung.setKunde(kunde);
+
+		log.info("Executing: " + bestellung);
+		bestellungDAO.save(bestellung);
+	    } else {
+		log.info("Missing entity");
+	    }
+
+	} catch (RuntimeException e) {
+	    throw new TicketLineSystemException("Error during database access!", e);
+	}
+
+
+    }
+
+    public static void kaufeReservierung(TransaktionKey transaktionKey) throws TicketLineException, TicketLineSystemException {
+
+	try {
+	    if (transaktionKey != null) {
+
+		TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
+		Transaktion transaktion = transaktionDAO.get(transaktionKey);
+		
+		transaktion.setVerkauft(true);
+                
+                editiereBelegung(transaktion.getBelegung().getComp_id(), transaktion.getStartplatz(), transaktion.getAnzplaetze(), 'F', true);
+
+		log.info("Executing: " + transaktion);
+		transaktionDAO.save(transaktion);
+
+	    } else {
+		log.info("Missing entity (transaktionKey)");
+	    }
+	} catch (RuntimeException e) {
+	    throw new TicketLineSystemException("Error during database access!", e);
+	}
+
+    }
+    
+    private static void editiereBelegung(BelegungKey belegungKey, int startplatz, int anzahl, char editMode, Boolean kaufeReservierung) throws TicketLineSystemException {
+        try {
+            if (editMode == 'F' || editMode == 'R' || editMode == 'V') {
+                BelegungDAO belegungDAO = DAOFactory.getBelegungDAO();
+                Belegung belegung = belegungDAO.get(belegungKey);
+
+//                log.info("anzfrei: " + belegung.getAnzfrei());
+//                log.info("anzres: " + belegung.getAnzres());
+//                log.info("anzverk: " + belegung.getAnzverk());
+                
+                if (editMode == 'F') {
+                    belegung.setAnzres(belegung.getAnzres() - anzahl);
+                    belegung.setAnzfrei(belegung.getAnzfrei() + anzahl);
+                }
+
+                if (editMode == 'R') {
+                    belegung.setAnzfrei(belegung.getAnzfrei() - anzahl);
+                    belegung.setAnzres(belegung.getAnzres() + anzahl);
+                }
+
+                if (editMode == 'V') {
+                    if (kaufeReservierung) {
+                        belegung.setAnzres(belegung.getAnzres() - anzahl);
+                    } else {
+                        belegung.setAnzfrei(belegung.getAnzfrei() - anzahl);
+                    }
+                    belegung.setAnzverk(belegung.getAnzverk() + anzahl);
+                }
+
+//                log.info("anzfrei: " + belegung.getAnzfrei());
+//                log.info("anzres: " + belegung.getAnzres());
+//                log.info("anzverk: " + belegung.getAnzverk());
+
+                String plaetze = belegung.getBelegung();
+                char[] temp = new char[plaetze.length()];
+                plaetze.getChars(0, plaetze.length(), temp, 0);
+
+                for (int i = -1; i < anzahl - 1; i++) {
+                    temp[startplatz + i] = editMode;
+                }
+//                log.info(plaetze);
+                plaetze = "";
+
+                for (char c : temp) {
+                    plaetze += c;
+                }
+
+//                log.info(plaetze);
+
+                belegung.setBelegung(plaetze);
+                belegungDAO.save(belegung);
+
+            } else {
+               log.info("Falscher editMode!");
+            }
+
         } catch (RuntimeException e) {
             throw new TicketLineSystemException("Fehler!", e);
         }
