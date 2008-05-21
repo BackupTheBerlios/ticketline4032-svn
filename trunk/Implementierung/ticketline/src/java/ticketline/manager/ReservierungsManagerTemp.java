@@ -118,9 +118,8 @@ public class ReservierungsManagerTemp {
 	    if (transaktionKey != null) {
 
 		TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
-
-		Transaktion transaktion = new Transaktion();
-		transaktion.setComp_id(transaktionKey);
+		Transaktion transaktion = transaktionDAO.get(transaktionKey);
+		
 		transaktion.setVerkauft(true);
 
 		log.info("Executing: " + transaktion);
