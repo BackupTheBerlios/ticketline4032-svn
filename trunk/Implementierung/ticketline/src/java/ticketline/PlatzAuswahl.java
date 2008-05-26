@@ -201,6 +201,8 @@ public class PlatzAuswahl extends AbstractPageBean {
     private SingleSelectOptionsList anzahlDefaultOptions = new SingleSelectOptionsList();
 
     public SingleSelectOptionsList getAnzahlDefaultOptions() {
+        anzahlDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("1", "1 Platz"), new com.sun.webui.jsf.model.Option("2", "2 Plätze"), new com.sun.webui.jsf.model.Option("3", "3 Plätze"), new com.sun.webui.jsf.model.Option("4", "4 Plätze"), new com.sun.webui.jsf.model.Option("5", "5 Plätze"), new com.sun.webui.jsf.model.Option("6", "6 Plätze")});
+       
         return anzahlDefaultOptions;
     }
 
@@ -228,6 +230,8 @@ public class PlatzAuswahl extends AbstractPageBean {
     private SingleSelectOptionsList zahlartDefaultOptions = new SingleSelectOptionsList();
 
     public SingleSelectOptionsList getZahlartDefaultOptions() {
+    
+        zahlartDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("Kreditkarte", "Kreditkarte"),new com.sun.webui.jsf.model.Option("Bar", "Bar"), new com.sun.webui.jsf.model.Option("PayPal", "PayPal")});
         return zahlartDefaultOptions;
     }
 
