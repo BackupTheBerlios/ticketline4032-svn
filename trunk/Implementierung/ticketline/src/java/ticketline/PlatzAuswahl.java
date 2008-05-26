@@ -367,7 +367,7 @@ public class PlatzAuswahl extends AbstractPageBean {
         ReservierungsManager.kaufeTickets(sb.getLogin(), 
                 new Date(System.currentTimeMillis()), 
                 sb.getRes().getComp_id(),
-                new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new BigDecimal(0), new Integer(split[2]), 
+                new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
                 new Integer(this.getAnzahl().getValue().toString()),
                 this.getZahlart().getValue().toString()       , false);
         
@@ -382,7 +382,7 @@ public class PlatzAuswahl extends AbstractPageBean {
         ReservierungsManager.kaufeTickets(sb.getLogin(), 
                 new Date(System.currentTimeMillis()), 
                 sb.getRes().getComp_id(),
-                new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new BigDecimal(0), new Integer(split[2]), 
+                new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
                 new Integer(this.getAnzahl().getValue().toString()),
                 this.getZahlart().getValue().toString()       , true);
         return "book";
