@@ -23,12 +23,14 @@
                                 style="height: 23px; left: -1px; top: 192px; position: absolute; width: 168px" text="ausgewählte Plätze kaufen"/>
                             <jsp:useBean class="ticketline.PlatzAuswahl" id="PlatzAuswahl" scope="session"/>
                             <jsp:getProperty name="PlatzAuswahl" property="platzformat"/>
+                             <webuijsf:dropDown binding="#{PlatzAuswahl.zahlart}" id="zahlart" items="#{PlatzAuswahl.zahlartDefaultOptions.options}" style="height: 23px; left: -1px; top: 80px; position: absolute; width: 168px"/>
                             <webuijsf:dropDown binding="#{PlatzAuswahl.anzahl}" id="anzahl" items="#{PlatzAuswahl.anzahlDefaultOptions.options}" style="height: 23px; left: -1px; top: 110px; position: absolute; width: 168px"/>
                             <webuijsf:hiddenField binding="#{PlatzAuswahl.startplatz}" id="startplatz"/>
                         </div>
                     </webuijsf:form>
                     <div style="left: 0px; top: 0px; position: absolute">
                         <jsp:directive.include file="MasterFragment.jspf"/>
+                       
                     </div>
                 </webuijsf:body>
             </webuijsf:html>

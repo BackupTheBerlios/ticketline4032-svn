@@ -17,6 +17,7 @@ import com.sun.webui.jsf.component.HiddenField;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.ImageComponent;
 import com.sun.webui.jsf.component.Link;
+import com.sun.webui.jsf.component.Listbox;
 import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.RadioButton;
 import com.sun.webui.jsf.component.RadioButtonGroup;
@@ -24,6 +25,7 @@ import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
+import com.sun.webui.jsf.model.DefaultOptionsList;
 import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import com.sun.webui.jsf.model.SingleSelectOptionsList;
 import java.math.BigDecimal;
@@ -62,7 +64,7 @@ public class PlatzAuswahl extends AbstractPageBean {
      */
     private void _init() throws Exception {
         anzahlDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("1", "1 Platz"), new com.sun.webui.jsf.model.Option("2", "2 Plätze"), new com.sun.webui.jsf.model.Option("3", "3 Plätze"), new com.sun.webui.jsf.model.Option("4", "4 Plätze"), new com.sun.webui.jsf.model.Option("5", "5 Plätze"), new com.sun.webui.jsf.model.Option("6", "6 Plätze")});
-        zahlartDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("Kreditkarte", "Kreditkarte")});
+        zahlartDefaultOptions.setOptions(new com.sun.webui.jsf.model.Option[]{new com.sun.webui.jsf.model.Option("Kreditkarte", "Kreditkarte"),new com.sun.webui.jsf.model.Option("Bar", "Bar"), new com.sun.webui.jsf.model.Option("PayPal", "PayPal")});
     }
 
     private Page page1 = new Page();
@@ -232,6 +234,24 @@ public class PlatzAuswahl extends AbstractPageBean {
     public void setZahlartDefaultOptions(SingleSelectOptionsList ssol) {
         this.zahlartDefaultOptions = ssol;
     }
+    private DropDown dropDown1 = new DropDown();
+
+    public DropDown getDropDown1() {
+        return dropDown1;
+    }
+
+    public void setDropDown1(DropDown dd) {
+        this.dropDown1 = dd;
+    }
+    private SingleSelectOptionsList dropDown1DefaultOptions = new SingleSelectOptionsList();
+
+    public SingleSelectOptionsList getDropDown1DefaultOptions() {
+        return dropDown1DefaultOptions;
+    }
+
+    public void setDropDown1DefaultOptions(SingleSelectOptionsList ssol) {
+        this.dropDown1DefaultOptions = ssol;
+    }
 
     // </editor-fold>
 
@@ -350,6 +370,7 @@ public class PlatzAuswahl extends AbstractPageBean {
                 new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new BigDecimal(0), new Integer(split[2]), 
                 new Integer(this.getAnzahl().getValue().toString()),
                 this.getZahlart().getValue().toString()       , false);
+        
         return "buy";
     }
 
