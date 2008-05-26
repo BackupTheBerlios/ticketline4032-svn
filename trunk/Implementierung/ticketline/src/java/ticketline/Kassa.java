@@ -18,6 +18,7 @@ import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.StaticText;
 import javax.faces.FacesException;
 import ticketline.db.Artikel;
+import ticketline.db.Transaktion;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -177,15 +178,29 @@ public class Kassa extends AbstractPageBean {
         sb.append("<table style=\"width: 600px; border: solid 1px\"><tr><td><b>Artikel</b></td><td><b>Preis</b></td></tr>");
         int gesamtpreis = 0;
         
-        for(Artikel a : this.getSessionBean1().getWarenkorb())
+        if(this.getRequestBean1().getTransaktion() != null)
         {
+            Transaktion t = this.getRequestBean1().getTransaktion();
             sb.append("<tr><td>");
-            sb.append(a.getBeschreibung() + ", " + a.getKurzbezeichnung() + " zu " + a.getVeranstaltung().getComp_id().getBezeichnung());
+            sb.append(t.getBelegung().getAuffuehrung().getVeranstaltung().getComp_id().getBezeichnung() + ", " + t.getAnzplaetze() + " Plätze ab Platz " + t.getStartplatz() + ", " + t.getBelegung().getReihe().getComp_id().getBezeichnung() + ", " + t.getBelegung().getReihe().getKategorie().getComp_id().getBezeichnung());
             sb.append("</td><td>");
-            sb.append("€ " + a.getPreis().toString());
+            sb.append("€ " + t.getPreis());
             sb.append("</td></tr>");
-            
-            gesamtpreis += a.getPreis().intValue();
+
+            gesamtpreis += t.getPreis().intValue();
+        }
+        else if(this.getSessionBean1().getWarenkorb().size() != 0)
+        {
+            for(Artikel a : this.getSessionBean1().getWarenkorb())
+            {
+                sb.append("<tr><td>");
+                sb.append(a.getBeschreibung() + ", " + a.getKurzbezeichnung() + " zu " + a.getVeranstaltung().getComp_id().getBezeichnung());
+                sb.append("</td><td>");
+                sb.append("€ " + a.getPreis().toString());
+                sb.append("</td></tr>");
+
+                gesamtpreis += a.getPreis().intValue();
+            }
         }
         
         sb.append("<tr><td><b>Gesamtpreis:</b></td><td><b>€ " + gesamtpreis + "</b></td></tr></table>");

@@ -13,6 +13,7 @@ import ticketline.db.Kuenstler;
 import ticketline.db.Ort;
 import ticketline.db.Saal;
 import ticketline.db.SaalKey;
+import ticketline.db.Transaktion;
 import ticketline.db.Veranstaltung;
 import ticketline.db.VeranstaltungKey;
 import ticketline.exceptions.TicketLineException;
@@ -186,5 +187,14 @@ public class RequestBean1 extends AbstractRequestBean {
         this.zahlungsmethode = zahlungsmethode;
     }
     
+    public Transaktion trans = null;
     
+    public void setTransaktion(Transaktion t) {
+        this.trans = t;
+    }
+    
+    public Transaktion getTransaktion()
+    {
+        return this.trans;
+    }
 }

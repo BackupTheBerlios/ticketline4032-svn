@@ -6,7 +6,6 @@
  
 package ticketline;
 
-import com.sun.rave.faces.data.DefaultTableDataModel;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
 import com.sun.webui.jsf.component.Button;
@@ -17,24 +16,13 @@ import com.sun.webui.jsf.component.HiddenField;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.ImageComponent;
 import com.sun.webui.jsf.component.Link;
-import com.sun.webui.jsf.component.Listbox;
 import com.sun.webui.jsf.component.Page;
-import com.sun.webui.jsf.component.RadioButton;
-import com.sun.webui.jsf.component.RadioButtonGroup;
 import com.sun.webui.jsf.component.StaticText;
-import com.sun.webui.jsf.component.Table;
-import com.sun.webui.jsf.component.TableColumn;
-import com.sun.webui.jsf.component.TableRowGroup;
-import com.sun.webui.jsf.model.DefaultOptionsList;
-import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import com.sun.webui.jsf.model.SingleSelectOptionsList;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.faces.FacesException;
-import javax.faces.component.UIColumn;
-import javax.faces.component.html.HtmlDataTable;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.event.ValueChangeEvent;
 import ticketline.db.Belegung;
@@ -368,12 +356,12 @@ public class PlatzAuswahl extends AbstractPageBean {
         String split[]=clicked.split(":");
         SessionBean1 sb=this.getSessionBean1();
        SaalKey sk=sb.getRes().getSaal().getComp_id();
-        ReservierungsManager.kaufeTickets(sb.getLogin(), 
+         this.getRequestBean1().setTransaktion(ReservierungsManager.kaufeTickets(sb.getLogin(), 
                 new Date(System.currentTimeMillis()), 
                 sb.getRes().getComp_id(),
                 new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
                 new Integer(this.getAnzahl().getValue().toString()),
-                this.getZahlart().getValue().toString()       , false);
+                this.getZahlart().getValue().toString()       , false));
         
         return "buy";
     }
@@ -383,12 +371,12 @@ public class PlatzAuswahl extends AbstractPageBean {
         String split[]=clicked.split(":");
         SessionBean1 sb=this.getSessionBean1();
        SaalKey sk=sb.getRes().getSaal().getComp_id();
-        ReservierungsManager.kaufeTickets(sb.getLogin(), 
+        this.getRequestBean1().setTransaktion(ReservierungsManager.kaufeTickets(sb.getLogin(), 
                 new Date(System.currentTimeMillis()), 
                 sb.getRes().getComp_id(),
                 new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
                 new Integer(this.getAnzahl().getValue().toString()),
-                this.getZahlart().getValue().toString()       , true);
+                this.getZahlart().getValue().toString()       , true));
         return "book";
     }
     

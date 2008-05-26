@@ -125,7 +125,7 @@ public class ReservierungsManager {
         return list;
     }
 
-    public static Integer kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrungKey, ReiheKey reihe, Integer startplatz,
+    public static Transaktion kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrungKey, ReiheKey reihe, Integer startplatz,
             Integer anzahl, String zahlart, boolean reservierung) throws TicketLineException, TicketLineSystemException {
         try {
             if (k != null && zeit != null && reihe != null && startplatz != null && anzahl != null && zahlart != null) {
@@ -162,16 +162,16 @@ public class ReservierungsManager {
                     int resnr = Integer.parseInt(l.get(0).toString());
                     transaktion.setResnr(resnr);
                     transaktionDAO.save(transaktion);
-                    return resnr;
+                    return transaktion;
                 } else {
                     editiereBelegung(belegungKey, startplatz, anzahl, 'V', false);
                     Transaktion transaktion = new Transaktion(transaktionKey, true, false, preis, startplatz, anzahl, belegung, ort);
                     transaktion.setZahlart(zahlart);
                     transaktionDAO.save(transaktion);
-                    return -1;
+                    return transaktion;
                 }
             } else {
-                return -1;
+                return null;
             }
         } catch (RuntimeException e) {
             throw new TicketLineSystemException("Fehler!", e);
@@ -199,7 +199,6 @@ public static List<Transaktion> sucheReservierungen(Kunde k, Date zeitVon, Date 
 	    String ortsBezeichnung, String ort) throws TicketLineException, TicketLineSystemException {
 	try {
 	    TransaktionDAO transaktion = DAOFactory.getTransaktionDAO();
-	    log.info("Executing: ");
 
 	    java.sql.Date sqlZeitVon = null;
 	    java.sql.Date sqlZeitBis = null;
@@ -212,7 +211,7 @@ public static List<Transaktion> sucheReservierungen(Kunde k, Date zeitVon, Date 
 		sqlZeitBis = new java.sql.Date(zeitBis.getTime());
 	    }
 
-	    String query = "1=1 ";
+	    String query = "1=1 AND storniert = FALSE AND verkauft = FALSE ";
 
 	    if (k != null) {
 		query += "AND LOWER(kundennr) = '" + SystemHelper.validateInput(k.getKartennr().toString()) + "' ";

@@ -12,6 +12,7 @@ import com.sun.webui.jsf.component.Body;
 import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
+import com.sun.webui.jsf.component.HiddenField;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
@@ -26,6 +27,7 @@ import javax.faces.FacesException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import ticketline.db.Auffuehrung;
+import ticketline.db.VeranstaltungKey;
 import ticketline.helper.AuffuehrungsHelper;
 
 /**
@@ -251,6 +253,15 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
     public void setRadioButton1(RadioButton rb) {
         this.radioButton1 = rb;
     }
+    private HiddenField hiddenField1 = new HiddenField();
+
+    public HiddenField getHiddenField1() {
+        return hiddenField1;
+    }
+
+    public void setHiddenField1(HiddenField hf) {
+        this.hiddenField1 = hf;
+    }
 
     // </editor-fold>
 
@@ -294,6 +305,11 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
         // Perform application initialization that must complete
         // *after* managed components are initialized
         // TODO - add your own initialization code here
+        
+        if(!this.isPostBack())
+        {
+            this.hiddenField1.setText(this.getRequestBean1().getVeranstaltungKey());
+        }
     }
 
     private static final Logger log = LogManager.getLogger(SearchResultAuffuehrungen.class);
@@ -307,6 +323,15 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
      */
     @Override
     public void preprocess() {
+        try
+        {
+            this.getRequestBean1().setVeranstaltungKey((VeranstaltungKey)this.hiddenField1.getText());
+            this.hiddenField1.setText(this.getRequestBean1().getVeranstaltungKey());
+        }
+        catch(Exception e)
+        {
+            log.error("Fehler: ", e);
+        }
     }
 
     /**

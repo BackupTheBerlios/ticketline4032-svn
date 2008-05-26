@@ -21,7 +21,7 @@
                             <webuijsf:table augmentTitle="false" binding="#{SearchResultAuffuehrungen.table1}" id="table1"
                                 style="left: 0px; top: 30px; position: absolute; width: 739px" title="Aufführungen" width="739">
                                 <webuijsf:tableRowGroup binding="#{SearchResultAuffuehrungen.tableRowGroup1}" id="tableRowGroup1"
-                                    sourceData="#{SearchResultAuffuehrungen.auffuehrung}" sourceVar="currentRow" selected="#{SearchResultAuffuehrungen.selectedState}">
+                                    selected="#{SearchResultAuffuehrungen.selectedState}" sourceData="#{SearchResultAuffuehrungen.auffuehrung}" sourceVar="currentRow">
                                     <webuijsf:tableColumn binding="#{SearchResultAuffuehrungen.tableColumn2}" id="tableColumn2"
                                         onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
                                         <webuijsf:radioButton binding="#{SearchResultAuffuehrungen.radioButton1}" id="radioButton1" name="radioButton1"
@@ -47,6 +47,7 @@
                             <webuijsf:button actionExpression="#{SearchResultAuffuehrungen.buttonSelect_action}"
                                 binding="#{SearchResultAuffuehrungen.buttonSelect}" id="buttonSelect"
                                 style="height: 19px; left: -1px; top: 0px; position: absolute; width: 129px" text="Auswählen"/>
+                            <webuijsf:hiddenField binding="#{SearchResultAuffuehrungen.hiddenField1}" id="hiddenField1"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

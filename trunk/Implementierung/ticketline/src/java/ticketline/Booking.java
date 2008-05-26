@@ -412,6 +412,10 @@ public class Booking extends AbstractPageBean {
             {
                 try {
                     ReservierungsManager.kaufeReservierung(t.getComp_id());
+                    
+                    this.getRequestBean1().setTransaktion(t);
+                    return "buy";
+                    
                 } catch (TicketLineSystemException ex) {
                     this.labelStatus.setText("Es trat ein unbekannter Fehler auf!");
                 } catch (TicketLineException ex) {
@@ -434,6 +438,7 @@ public class Booking extends AbstractPageBean {
             {
                 try {
                     ReservierungsManager.storniereReservierung(t.getComp_id());
+                    this.labelStatus.setText("Erfolgreich storniert!");
                 } catch (TicketLineSystemException ex) {
                     this.labelStatus.setText("Es trat ein unbekannter Fehler auf!");
                 } catch (TicketLineException ex) {
