@@ -13,31 +13,26 @@
                     <webuijsf:link binding="#{Top10.link1}" id="link1" url="/resources/stylesheet.css"/>
                 </webuijsf:head>
                 <webuijsf:body binding="#{Top10.body1}" id="body1" style="-rave-layout: grid">
+                    <div style="left: 0px; top: 0px; position: absolute">
+                        <jsp:directive.include file="MasterFragment.jspf"/>
+                    </div>
                     <webuijsf:form binding="#{Top10.form1}" id="form1">
-                        <div style="left: 0px; top: 0px; position: absolute">
-                            <jsp:directive.include file="MasterFragment.jspf"/>
-                        </div>
                         <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
                             <webuijsf:table augmentTitle="false" binding="#{Top10.table1}" id="table1"
-                                style="border-color: rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0); color: rgb(0, 0, 0); height: 220px; left: 0px; top: 72px; position: absolute; text-decoration: none; width: 743px" width="743">
-                                <webuijsf:tableRowGroup binding="#{Top10.tableRowGroup1}" id="tableRowGroup1" rows="10"
-                                    sourceData="#{Top10.defaultTableDataProvider}" sourceVar="currentRow">
-                                    <webuijsf:tableColumn binding="#{Top10.tableColumn1}" headerText="Platz" id="tableColumn1" sort="column1" style="null" width="101">
-                                        <webuijsf:staticText binding="#{Top10.staticText1}" id="staticText1" text="#{currentRow.value['column1']}"/>
+                                style="left: 0px; top: 48px; position: absolute; width: 743px" title="Top 10 Veranstaltungen" width="743">
+                                <webuijsf:tableRowGroup binding="#{Top10.tableRowGroup1}" emptyDataMsg="Keine Einträge gefunden." id="tableRowGroup1" rows="10"
+                                    selected="#{Top10.selectedState}" sourceData="#{Top10.top10}" sourceVar="currentRow">
+                                    <webuijsf:tableColumn binding="#{Top10.tableColumn1}" id="tableColumn1"
+                                        onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
+                                        <webuijsf:radioButton binding="#{Top10.radioButton1}" id="radioButton1" name="radioButton1" selected="#{Top10.selected}" selectedValue="#{Top10.selectedValue}"/>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{Top10.tableColumn2}" headerText="Name der Veranstaltung / Kategorie" id="tableColumn2"
-                                        sort="column2" width="515">
-                                        <webuijsf:staticText binding="#{Top10.staticText2}" id="staticText2" text="#{currentRow.value['column2']}"/>
-                                    </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{Top10.tableColumn3}" headerText="Tickets" id="tableColumn3" sort="column3" width="92">
-                                        <webuijsf:staticText binding="#{Top10.staticText3}" id="staticText3" text="#{currentRow.value['column3']}"/>
+                                    <webuijsf:tableColumn binding="#{Top10.tableColumn4}" headerText="Veranstaltung" id="tableColumn4">
+                                        <webuijsf:staticText binding="#{Top10.staticText5}" id="staticText5" text="#{currentRow.value.comp_id.bezeichnung}"/>
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
-                            <webuijsf:staticText binding="#{Top10.staticText5}" id="staticText5"
-                                style="font-family: 'Arial','Helvetica',sans-serif; font-size: 30px; height: 45px; left: 312px; top: 24px; position: absolute; width: 93px" text="Top10"/>
                             <webuijsf:button actionExpression="#{Top10.button1_action}" binding="#{Top10.button1}" id="button1"
-                                style="height: 19px; left: 9px; top: 300px; position: absolute; width: 129px" text="Auswählen"/>
+                                style="height: 19px; left: -1px; top: 24px; position: absolute; width: 129px" text="Auswählen"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

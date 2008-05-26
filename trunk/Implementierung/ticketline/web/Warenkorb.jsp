@@ -13,36 +13,39 @@
                     <webuijsf:link binding="#{Warenkorb.link1}" id="link1" url="/resources/stylesheet.css"/>
                 </webuijsf:head>
                 <webuijsf:body binding="#{Warenkorb.body1}" id="body1" style="-rave-layout: grid">
+                    <div style="left: 0px; top: 0px; position: absolute">
+                        <jsp:directive.include file="MasterFragment.jspf"/>
+                    </div>
                     <webuijsf:form binding="#{Warenkorb.form1}" id="form1">
-                        <div style="left: 0px; top: 0px; position: absolute">
-                            <jsp:directive.include file="MasterFragment.jspf"/>
-                        </div>
-                        <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
-                            <webuijsf:staticText binding="#{Warenkorb.staticText1}" id="staticText1"
-                                style="font-family: 'Arial','Helvetica',sans-serif; font-size: 30px; height: 45px; left: 312px; top: 24px; position: absolute; width: 93px" text="Warenkorb"/>
-                            <div style="height: 141px; left: 24px; top: 72px; position: absolute; width: 717px">
-                                <webuijsf:table augmentTitle="false" binding="#{Warenkorb.table1}" id="table1" width="450">
-                                    <webuijsf:tableRowGroup binding="#{Warenkorb.tableRowGroup1}" id="tableRowGroup1" rows="10"
-                                        sourceData="#{Warenkorb.defaultTableDataProvider}" sourceVar="currentRow">
-                                        <webuijsf:tableColumn binding="#{Warenkorb.tableColumn1}" headerText="Artikelnummer" id="tableColumn1" sort="column1">
-                                            <webuijsf:staticText binding="#{Warenkorb.staticText2}" id="staticText2" text="#{currentRow.value['column1']}"/>
-                                        </webuijsf:tableColumn>
-                                        <webuijsf:tableColumn binding="#{Warenkorb.tableColumn2}" headerText="Titel" id="tableColumn2" sort="column2">
-                                            <webuijsf:staticText binding="#{Warenkorb.staticText3}" id="staticText3" text="#{currentRow.value['column2']}"/>
-                                        </webuijsf:tableColumn>
-                                        <webuijsf:tableColumn binding="#{Warenkorb.tableColumn3}" headerText="Preis" id="tableColumn3" sort="column3">
-                                            <webuijsf:staticText binding="#{Warenkorb.staticText4}" id="staticText4" text="#{currentRow.value['column3']}"/>
-                                        </webuijsf:tableColumn>
-                                    </webuijsf:tableRowGroup>
-                                </webuijsf:table>
-                                <webuijsf:button actionExpression="#{Warenkorb.button2_action}" binding="#{Warenkorb.button2}" id="button2"
-                                    style="height: 23px; left: 503px; top: 72px; position: absolute; width: 119px" text="Zur Kassa"/>
-                            </div>
-                            <webuijsf:staticText binding="#{Warenkorb.staticText5}" id="staticText5"
-                                style="height: 100px; left: 24px; top: 264px; position: absolute; width: 453px" text="Hier könnte die Beschreibung ihre Ware stehen ..."/>
-                            <webuijsf:button binding="#{Warenkorb.button1}" id="button1"
-                                style="height: 23px; left: 527px; top: 96px; position: absolute; width: 119px" text="löschen"/>
-                        </div>
+                        <webuijsf:button actionExpression="#{Warenkorb.button2_action}" binding="#{Warenkorb.button2}" id="button2"
+                            style="height: 20px; left: 311px; top: 144px; position: absolute; width: 119px" text="Kaufen"/>
+                        <webuijsf:table augmentTitle="false" binding="#{Warenkorb.table1}" id="table1" style="left: 192px; top: 168px; position: absolute"
+                            title="Table" width="744">
+                            <webuijsf:tableRowGroup binding="#{Warenkorb.tableRowGroup1}" emptyDataMsg="Keine Produkte." id="tableRowGroup1" rows="10"
+                                selected="#{Warenkorb.selectedState}" sourceData="#{SessionBean1.warenkorb}" sourceVar="currentRow">
+                                <webuijsf:tableColumn binding="#{Warenkorb.tableColumn2}" id="tableColumn2"
+                                    onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
+                                    <webuijsf:radioButton binding="#{Warenkorb.radioButton1}" id="radioButton1" name="radioButton1"
+                                        selected="#{Warenkorb.selected}" selectedValue="#{Warenkorb.selectedValue}"/>
+                                </webuijsf:tableColumn>
+                                <webuijsf:tableColumn binding="#{Warenkorb.tableColumn4}" headerText="Typ" id="tableColumn4" sort="kurzbezeichnung" width="50">
+                                    <webuijsf:staticText binding="#{Warenkorb.staticText1}" id="staticText1" text="#{currentRow.value['kurzbezeichnung']}"/>
+                                </webuijsf:tableColumn>
+                                <webuijsf:tableColumn binding="#{Warenkorb.tableColumn5}" headerText="Veranstaltung" id="tableColumn5" width="150">
+                                    <webuijsf:staticText binding="#{Warenkorb.staticText5}" id="staticText5" text="#{currentRow.value.veranstaltung.comp_id.bezeichnung}"/>
+                                </webuijsf:tableColumn>
+                                <webuijsf:tableColumn binding="#{Warenkorb.tableColumn1}" headerText="Beschreibung" id="tableColumn1" sort="beschreibung">
+                                    <webuijsf:staticText binding="#{Warenkorb.staticText2}" id="staticText2" text="#{currentRow.value['beschreibung']}"/>
+                                </webuijsf:tableColumn>
+                                <webuijsf:tableColumn align="right" binding="#{Warenkorb.tableColumn6}" headerText="Preis €" id="tableColumn6" sort="preis" width="50">
+                                    <webuijsf:staticText binding="#{Warenkorb.staticText6}" id="staticText6" text="#{currentRow.value['preis']}"/>
+                                </webuijsf:tableColumn>
+                            </webuijsf:tableRowGroup>
+                        </webuijsf:table>
+                        <webuijsf:dropDown binding="#{Warenkorb.dropDown1}" id="dropDown1" items="#{Warenkorb.dropDown1DefaultOptions.options}"
+                            label="Zahlungsart" style="left: 456px; top: 144px; position: absolute; width: 200px"/>
+                        <webuijsf:button actionExpression="#{Warenkorb.button1_action}" binding="#{Warenkorb.button1}" id="button1"
+                            style="height: 20px; left: 191px; top: 144px; position: absolute; width: 119px" text="Artikel löschen"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

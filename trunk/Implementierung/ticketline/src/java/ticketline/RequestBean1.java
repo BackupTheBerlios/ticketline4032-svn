@@ -175,4 +175,16 @@ public class RequestBean1 extends AbstractRequestBean {
     public void setAuffuehrung(Auffuehrung auffuehrung) {
         this.auffuehrung = auffuehrung;
     }
+    
+    private String zahlungsmethode = "";
+
+    public String getZahlungsmethode() {
+        return zahlungsmethode;
+    }
+
+    public void setZahlungsmethode(String zahlungsmethode) {
+        this.zahlungsmethode = zahlungsmethode;
+    }
+    
+    
 }

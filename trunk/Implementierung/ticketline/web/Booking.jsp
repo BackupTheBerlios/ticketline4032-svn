@@ -13,41 +13,39 @@
                     <webuijsf:link binding="#{Booking.link1}" id="link1" url="/resources/stylesheet.css"/>
                 </webuijsf:head>
                 <webuijsf:body binding="#{Booking.body1}" id="body1" style="-rave-layout: grid">
+                    <div style="left: 0px; top: 0px; position: absolute">
+                        <jsp:directive.include file="MasterFragment.jspf"/>
+                    </div>
                     <webuijsf:form binding="#{Booking.form1}" id="form1">
-                        <div style="left: 0px; top: 0px; position: absolute">
-                            <jsp:directive.include file="MasterFragment.jspf"/>
-                        </div>
                         <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
-                            <webuijsf:staticText binding="#{Booking.staticText1}" id="staticText1"
-                                style="font-family: 'Arial','Helvetica',sans-serif; font-size: 30px; height: 45px; left: 264px; top: 24px; position: absolute; width: 213px" text="Reservierungen"/>
-                            <div style="height: 141px; left: 24px; top: 72px; position: absolute; width: 717px">
-                                <webuijsf:table augmentTitle="false" binding="#{Booking.table1}" id="table1" width="572">
-                                    <webuijsf:tableRowGroup binding="#{Booking.tableRowGroup1}" id="tableRowGroup1" rows="10"
-                                        sourceData="#{Booking.defaultTableDataProvider}" sourceVar="currentRow">
-                                        <webuijsf:tableColumn binding="#{Booking.tableColumn1}" headerText="Datum" id="tableColumn1" sort="column1" width="90">
-                                            <webuijsf:staticText binding="#{Booking.staticText2}" id="staticText2" text="#{currentRow.value['column1']}"/>
-                                        </webuijsf:tableColumn>
-                                        <webuijsf:tableColumn binding="#{Booking.tableColumn2}" headerText="Zeit" id="tableColumn2" sort="column2"
-                                                width="82">Zeit
-                                            <webuijsf:staticText
-                                                binding="#{Booking.staticText3}" id="staticText3" text="#{currentRow.value['column2']}"/>
-                                        </webuijsf:tableColumn>
-                                        <webuijsf:tableColumn binding="#{Booking.tableColumn3}" headerText="Aufführung" id="tableColumn3" sort="column3">
-                                            <webuijsf:staticText binding="#{Booking.staticText4}" id="staticText4" text="#{currentRow.value['column3']}"/>
-                                        </webuijsf:tableColumn>
-                                        <webuijsf:tableColumn binding="#{Booking.tableColumn4}" headerText="Reservierungsnummer" id="tableColumn4" width="200">
-                                            <webuijsf:staticText binding="#{Booking.staticText6}" id="staticText6" text="Static Text"/>
-                                        </webuijsf:tableColumn>
-                                        <webuijsf:tableColumn binding="#{Booking.tableColumn5}" headerText="Preis" id="tableColumn5" width="200">
-                                            <webuijsf:staticText binding="#{Booking.staticText7}" id="staticText7" text="Static Text"/>
-                                        </webuijsf:tableColumn>
-                                    </webuijsf:tableRowGroup>
-                                </webuijsf:table>
-                                <webuijsf:button binding="#{Booking.button3}" id="button3"
-                                    style="height: 23px; left: 589px; top: 80px; position: absolute; width: 110px" text="Stornieren"/>
-                                <webuijsf:button binding="#{Booking.button1}" id="button1"
-                                    style="height: 23px; left: 589px; top: 110px; position: absolute; width: 110px" text="Kaufen"/>
-                            </div>
+                            <webuijsf:table augmentTitle="false" binding="#{Booking.table1}" id="table1" style="left: 0px; top: 48px; position: absolute"
+                                title="Reservierungen" width="743">
+                                <webuijsf:tableRowGroup binding="#{Booking.tableRowGroup1}" id="tableRowGroup1" rows="10" selected="#{Booking.selectedState}"
+                                    sourceData="#{Booking.reservierungen}" sourceVar="currentRow">
+                                    <webuijsf:tableColumn binding="#{Booking.tableColumn1}" id="tableColumn1"
+                                        onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
+                                        <webuijsf:radioButton binding="#{Booking.radioButton1}" id="radioButton1" name="radioButton1"
+                                            selected="#{Booking.selected}" selectedValue="#{Booking.selectedValue}"/>
+                                    </webuijsf:tableColumn>
+                                    <webuijsf:tableColumn binding="#{Booking.tableColumn6}" headerText="Zeit" id="tableColumn6">
+                                        <webuijsf:staticText binding="#{Booking.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.datumuhrzeit}"/>
+                                    </webuijsf:tableColumn>
+                                    <webuijsf:tableColumn binding="#{Booking.tableColumn7}" headerText="Reservierung" id="tableColumn7" sort="resnr">
+                                        <webuijsf:staticText binding="#{Booking.staticText5}" id="staticText5" text="#{currentRow.value['resnr']}"/>
+                                    </webuijsf:tableColumn>
+                                    <webuijsf:tableColumn binding="#{Booking.tableColumn8}" headerText="Veranstaltung" id="tableColumn8">
+                                        <webuijsf:staticText binding="#{Booking.staticText8}" id="staticText8" text="#{currentRow.value.belegung.auffuehrung.veranstaltung.comp_id.bezeichnung}"/>
+                                    </webuijsf:tableColumn>
+                                    <webuijsf:tableColumn binding="#{Booking.tableColumn9}" headerText="Preis" id="tableColumn9" sort="preis">
+                                        <webuijsf:staticText binding="#{Booking.staticText9}" id="staticText9" text="#{currentRow.value['preis']}"/>
+                                    </webuijsf:tableColumn>
+                                </webuijsf:tableRowGroup>
+                            </webuijsf:table>
+                            <webuijsf:button actionExpression="#{Booking.buttonBuy_action}" binding="#{Booking.button1}" id="button1"
+                                style="height: 20px; left: -1px; top: 24px; position: absolute; width: 110px" text="Kaufen"/>
+                            <webuijsf:button actionExpression="#{Booking.buttonRevoke_action}" binding="#{Booking.button3}" id="button3"
+                                style="height: 20px; left: 119px; top: 24px; position: absolute; width: 110px" text="Stornieren"/>
+                            <webuijsf:label binding="#{Booking.labelStatus}" id="labelStatus" style="left: 240px; top: 24px; position: absolute"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

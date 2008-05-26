@@ -17,13 +17,10 @@
                         <div style="left: 0px; top: 0px; position: absolute">
                             <jsp:directive.include file="MasterFragment.jspf"/>
                         </div>
-                        <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
-                            <webuijsf:staticText binding="#{Kassa.staticText1}" id="staticText1"
-                                style="font-family: 'Arial','Helvetica',sans-serif; font-size: 24px; height: 100px; left: 24px; top: 96px; position: absolute; width: 453px" text="Hier wird ihre Rechnung stehen, die wo Sie sich dann natürlich auch ausdrucken können, muss mir aber erst anschauen wie man richtig rechnungen schreibt, wird aber so ca im amazon stil sein ..."/>
-                            <webuijsf:button actionExpression="#{Kassa.button1_action}" binding="#{Kassa.button1}" id="button1"
-                                style="height: 23px; left: 527px; top: 432px; position: absolute; width: 95px" text="Kaufen"/>
-                            <webuijsf:staticText binding="#{Kassa.staticText2}" id="staticText2"
-                                style="font-family: 'Arial','Helvetica',sans-serif; font-size: 30px; height: 45px; left: 312px; top: 24px; position: absolute; width: 93px" text="Kassa"/>
+                        <webuijsf:label binding="#{Kassa.label1}" id="label1" style="left: 192px; top: 125px; position: absolute" text="Rechnung"/>
+                        <div style="height: 478px; left: 192px; top: 150px; position: absolute; width: 750px">
+                            <jsp:useBean class="ticketline.Kassa" id="Kassa" scope="session"/>
+                            <jsp:getProperty name="Kassa" property="rechnung"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

@@ -101,7 +101,7 @@
             <to-view-id>/MainPage.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>checkout</from-outcome>
+            <from-outcome>buy</from-outcome>
             <to-view-id>/Kassa.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>

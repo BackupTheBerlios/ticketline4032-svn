@@ -7,22 +7,18 @@
 package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.FacesException;
-import ticketline.db.Kategorie;
+import ticketline.db.Artikel;
 import ticketline.db.Kunde;
 import ticketline.db.News;
 import ticketline.db.Auffuehrung;
 import ticketline.db.Reihe;
 import ticketline.db.SaalKey;
-import ticketline.db.Veranstaltung;
 import ticketline.exceptions.TicketLineException;
 import ticketline.exceptions.TicketLineSystemException;
 import ticketline.helper.KundenHelper;
-import ticketline.helper.AuffuehrungsHelper;
 import ticketline.helper.SaalHelper;
 
 /**
@@ -38,6 +34,7 @@ import ticketline.helper.SaalHelper;
  * @author Michael Morak
  */
 public class SessionBean1 extends AbstractSessionBean {
+
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
 
     /**
@@ -175,5 +172,26 @@ public class SessionBean1 extends AbstractSessionBean {
     public void setRes(Auffuehrung a){
         this.res=a;
     }
-  
+    
+    private List<Artikel> warenkorb = new ArrayList<Artikel>();
+    
+    public void addArtikel(Artikel a)
+    {
+        this.warenkorb.add(a);
+    }
+    
+    public void removeArtikel(int index)
+    {
+        if(this.warenkorb.size() > index)
+            this.warenkorb.remove(index);
+    }
+    
+    public List<Artikel> getWarenkorb()
+    {
+        return this.warenkorb;
+    }
+    
+    void resetWarenkorb() {
+        this.warenkorb.clear();
+    }
 }

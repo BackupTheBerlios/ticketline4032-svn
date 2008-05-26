@@ -12,10 +12,12 @@ import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
+import com.sun.webui.jsf.component.Label;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.StaticText;
 import javax.faces.FacesException;
+import ticketline.db.Artikel;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -96,15 +98,6 @@ public class Kassa extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
-    private StaticText staticText1 = new StaticText();
-
-    public StaticText getStaticText1() {
-        return staticText1;
-    }
-
-    public void setStaticText1(StaticText st) {
-        this.staticText1 = st;
-    }
     private Button button1 = new Button();
 
     public Button getButton1() {
@@ -122,6 +115,15 @@ public class Kassa extends AbstractPageBean {
 
     public void setStaticText2(StaticText st) {
         this.staticText2 = st;
+    }
+    private Label label1 = new Label();
+
+    public Label getLabel1() {
+        return label1;
+    }
+
+    public void setLabel1(Label l) {
+        this.label1 = l;
     }
 
     // </editor-fold>
@@ -166,6 +168,31 @@ public class Kassa extends AbstractPageBean {
         // Perform application initialization that must complete
         // *after* managed components are initialized
         // TODO - add your own initialization code here
+    }
+    
+    public String getRechnung()
+    {
+        StringBuilder sb = new StringBuilder();
+        
+        sb.append("<table style=\"width: 600px; border: solid 1px\"><tr><td><b>Artikel</b></td><td><b>Preis</b></td></tr>");
+        int gesamtpreis = 0;
+        
+        for(Artikel a : this.getSessionBean1().getWarenkorb())
+        {
+            sb.append("<tr><td>");
+            sb.append(a.getBeschreibung() + ", " + a.getKurzbezeichnung() + " zu " + a.getVeranstaltung().getComp_id().getBezeichnung());
+            sb.append("</td><td>");
+            sb.append("€ " + a.getPreis().toString());
+            sb.append("</td></tr>");
+            
+            gesamtpreis += a.getPreis().intValue();
+        }
+        
+        sb.append("<tr><td><b>Gesamtpreis:</b></td><td><b>€ " + gesamtpreis + "</b></td></tr></table>");
+        
+        this.getSessionBean1().resetWarenkorb();
+        
+        return sb.toString();
     }
 
     /**
@@ -228,12 +255,6 @@ public class Kassa extends AbstractPageBean {
      */
     protected RequestBean1 getRequestBean1() {
         return (RequestBean1) getBean("RequestBean1");
-    }
-
-    public String button1_action() {
-        
-        return "finish";
-    }
-    
+    }    
 }
 

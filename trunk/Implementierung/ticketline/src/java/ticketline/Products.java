@@ -6,6 +6,7 @@
  
 package ticketline;
 
+import com.sun.data.provider.RowKey;
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
 import com.sun.webui.jsf.component.Button;
@@ -14,12 +15,16 @@ import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
+import com.sun.webui.jsf.component.RadioButton;
 import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
-import com.sun.webui.jsf.model.DefaultTableDataProvider;
+import com.sun.webui.jsf.event.TableSelectPhaseListener;
+import java.util.List;
 import javax.faces.FacesException;
+import ticketline.dao.DAOFactory;
+import ticketline.db.Artikel;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -100,15 +105,6 @@ public class Products extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
-    private StaticText staticText1 = new StaticText();
-
-    public StaticText getStaticText1() {
-        return staticText1;
-    }
-
-    public void setStaticText1(StaticText st) {
-        this.staticText1 = st;
-    }
     private Table table1 = new Table();
 
     public Table getTable1() {
@@ -127,14 +123,68 @@ public class Products extends AbstractPageBean {
     public void setTableRowGroup1(TableRowGroup trg) {
         this.tableRowGroup1 = trg;
     }
-    private DefaultTableDataProvider defaultTableDataProvider = new DefaultTableDataProvider();
+    private Button button1 = new Button();
 
-    public DefaultTableDataProvider getDefaultTableDataProvider() {
-        return defaultTableDataProvider;
+    public Button getButton1() {
+        return button1;
     }
 
-    public void setDefaultTableDataProvider(DefaultTableDataProvider dtdp) {
-        this.defaultTableDataProvider = dtdp;
+    public void setButton1(Button b) {
+        this.button1 = b;
+    }
+    private TableColumn tableColumn4 = new TableColumn();
+
+    public TableColumn getTableColumn4() {
+        return tableColumn4;
+    }
+
+    public void setTableColumn4(TableColumn tc) {
+        this.tableColumn4 = tc;
+    }
+    private StaticText staticText1 = new StaticText();
+
+    public StaticText getStaticText1() {
+        return staticText1;
+    }
+
+    public void setStaticText1(StaticText st) {
+        this.staticText1 = st;
+    }
+    private TableColumn tableColumn5 = new TableColumn();
+
+    public TableColumn getTableColumn5() {
+        return tableColumn5;
+    }
+
+    public void setTableColumn5(TableColumn tc) {
+        this.tableColumn5 = tc;
+    }
+    private StaticText staticText5 = new StaticText();
+
+    public StaticText getStaticText5() {
+        return staticText5;
+    }
+
+    public void setStaticText5(StaticText st) {
+        this.staticText5 = st;
+    }
+    private TableColumn tableColumn6 = new TableColumn();
+
+    public TableColumn getTableColumn6() {
+        return tableColumn6;
+    }
+
+    public void setTableColumn6(TableColumn tc) {
+        this.tableColumn6 = tc;
+    }
+    private StaticText staticText6 = new StaticText();
+
+    public StaticText getStaticText6() {
+        return staticText6;
+    }
+
+    public void setStaticText6(StaticText st) {
+        this.staticText6 = st;
     }
     private TableColumn tableColumn1 = new TableColumn();
 
@@ -163,50 +213,14 @@ public class Products extends AbstractPageBean {
     public void setTableColumn2(TableColumn tc) {
         this.tableColumn2 = tc;
     }
-    private StaticText staticText3 = new StaticText();
+    private RadioButton radioButton1 = new RadioButton();
 
-    public StaticText getStaticText3() {
-        return staticText3;
+    public RadioButton getRadioButton1() {
+        return radioButton1;
     }
 
-    public void setStaticText3(StaticText st) {
-        this.staticText3 = st;
-    }
-    private TableColumn tableColumn3 = new TableColumn();
-
-    public TableColumn getTableColumn3() {
-        return tableColumn3;
-    }
-
-    public void setTableColumn3(TableColumn tc) {
-        this.tableColumn3 = tc;
-    }
-    private StaticText staticText4 = new StaticText();
-
-    public StaticText getStaticText4() {
-        return staticText4;
-    }
-
-    public void setStaticText4(StaticText st) {
-        this.staticText4 = st;
-    }
-    private StaticText staticText5 = new StaticText();
-
-    public StaticText getStaticText5() {
-        return staticText5;
-    }
-
-    public void setStaticText5(StaticText st) {
-        this.staticText5 = st;
-    }
-    private Button button1 = new Button();
-
-    public Button getButton1() {
-        return button1;
-    }
-
-    public void setButton1(Button b) {
-        this.button1 = b;
+    public void setRadioButton1(RadioButton rb) {
+        this.radioButton1 = rb;
     }
 
     // </editor-fold>
@@ -314,10 +328,52 @@ public class Products extends AbstractPageBean {
     protected RequestBean1 getRequestBean1() {
         return (RequestBean1) getBean("RequestBean1");
     }
+    
+    private TableSelectPhaseListener tablePhaseListener =
+                                  new TableSelectPhaseListener();
 
-    public String button1_action() {
-        return "select";
+    public void setSelected(Object object) {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        if (rowKey != null) {
+            tablePhaseListener.setSelected(rowKey, object);
+        }
+    }
+
+    public Object getSelected(){
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener.getSelected(rowKey);
+
+    }
+
+    public Object getSelectedValue() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return (rowKey != null) ? rowKey.getRowId() : null;
+
+    }
+
+    public boolean getSelectedState() {
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        return tablePhaseListener.isSelected(rowKey);
+    }
+
+    public String button1_action() 
+    {    
+        if(this.tableRowGroup1.getSelectedRowsCount() > 0)
+        {
+            RowKey sel = this.tableRowGroup1.getSelectedRowKeys()[0];
+            this.getSessionBean1().addArtikel(((List<Artikel>)this.tableRowGroup1.getSourceData()).get(Integer.parseInt(sel.getRowId())));
+            
+            return "select";
+        }
+        else
+        {
+            return null;
+        }
     }
     
+    public List<Artikel> getArtikel()
+    {
+        return DAOFactory.getArtikelDAO().getAll();
+    }
 }
 
