@@ -57,7 +57,7 @@ public class ReservierungsManager {
             AuffuehrungKey auffuehrungKey = auffuehrung.getComp_id();
 
             ReiheKey rk = ((Reihe) ((Kategorie) auffuehrung.getSaal().getKategorien().iterator().next()).getReihen().iterator().next()).getComp_id();
-            log.info(kaufeTickets(kunde, date, auffuehrungKey, rk, new BigDecimal(100), 3, 4, "Karte", true));
+            log.info(kaufeTickets(kunde, date, auffuehrungKey, rk, 3, 4, "Karte", true));
 //TransaktionKey transaktionKey = ((Transaktion)DAOFactory.getTransaktionDAO().getAll().get(1)).getComp_id();
 //storniereReservierung(transaktionKey);
 
@@ -125,13 +125,13 @@ public class ReservierungsManager {
         return list;
     }
 
-    public static Integer kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrung, ReiheKey reihe, BigDecimal preis, Integer startplatz,
+    public static Integer kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrungKey, ReiheKey reihe, Integer startplatz,
             Integer anzahl, String zahlart, boolean reservierung) throws TicketLineException, TicketLineSystemException {
         try {
-            if (k != null && zeit != null && reihe != null && preis != null && startplatz != null && anzahl != null && zahlart != null) {
+            if (k != null && zeit != null && reihe != null && startplatz != null && anzahl != null && zahlart != null) {
 
                 BelegungDAO belegungDAO = DAOFactory.getBelegungDAO();
-                BelegungKey belegungKey = new BelegungKey(reihe.getBezeichnung(), reihe.getKategoriebez(), reihe.getSaalbez(), reihe.getOrtbez(), reihe.getOrt(), auffuehrung.getDatumuhrzeit());
+                BelegungKey belegungKey = new BelegungKey(reihe.getBezeichnung(), reihe.getKategoriebez(), reihe.getSaalbez(), reihe.getOrtbez(), reihe.getOrt(), auffuehrungKey.getDatumuhrzeit());
                 Belegung belegung = belegungDAO.get(belegungKey);
 
                 OrtDAO ortDAO = DAOFactory.getOrtDAO();
@@ -140,6 +140,18 @@ public class ReservierungsManager {
 
                 TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
                 TransaktionKey transaktionKey = new TransaktionKey(zeit, k.getKartennr(), 2);
+                
+                Auffuehrung auffuehrung = DAOFactory.getAuffuehrungDAO().get(auffuehrungKey);
+                Kategorie kategorie = belegung.getReihe().getKategorie();
+                
+                String preisart = auffuehrung.getPreis();
+                BigDecimal preis = new BigDecimal(0);
+                        
+                        if (preisart.equals("0")) preis = kategorie.getPreismin();
+                        else if (preisart.equals("1")) preis = kategorie.getPreisstd();
+                        else preis = kategorie.getPreismax();
+                
+                preis =  preis.multiply(new BigDecimal(anzahl));
 
                 if (reservierung) {
                     editiereBelegung(belegungKey, startplatz, anzahl, 'R', null);
@@ -203,7 +215,7 @@ public static List<Transaktion> sucheReservierungen(Kunde k, Date zeitVon, Date 
 	    String query = "1=1 ";
 
 	    if (k != null) {
-		query += "AND LOWER(kartennr) = '" + SystemHelper.validateInput(k.getKartennr().toString()) + "' ";
+		query += "AND LOWER(kundennr) = '" + SystemHelper.validateInput(k.getKartennr().toString()) + "' ";
 	    }
 
 	    if (sqlZeitVon != null && sqlZeitBis != null) {
