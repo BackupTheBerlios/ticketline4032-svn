@@ -287,7 +287,7 @@ public static List<Transaktion> sucheReservierungen(Kunde k, Date zeitVon, Date 
 		
 		transaktion.setVerkauft(true);
                 
-                editiereBelegung(transaktion.getBelegung().getComp_id(), transaktion.getStartplatz(), transaktion.getAnzplaetze(), 'F', true);
+                editiereBelegung(transaktion.getBelegung().getComp_id(), transaktion.getStartplatz(), transaktion.getAnzplaetze(), 'V', true);
 
 		log.info("Executing: " + transaktion);
 		transaktionDAO.save(transaktion);
