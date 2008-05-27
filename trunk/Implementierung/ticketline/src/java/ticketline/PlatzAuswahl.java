@@ -391,7 +391,7 @@ public class PlatzAuswahl extends AbstractPageBean {
         
         Iterator<Reihe> i=l.iterator();
         Iterator<Belegung> ib=bl.iterator();
-        String ret="<table style='border: 1px solid;left: 240px; top: 50px; position: absolute'>";
+        String ret="<table style='left: 20px; top: 100px; position: absolute'>";
         String akt=null,prev="";
         int col=10;
         while(i.hasNext()){
@@ -409,7 +409,7 @@ public class PlatzAuswahl extends AbstractPageBean {
                for(int i2=1;i2<=r.getAnzplaetze();i2++){
                    if(b.getBelegung().substring(i2-1,i2).equals("F")){
                      ret+="<td style='background-color:#F0F0F0;'>"+
-                           "<input  onClick='resClick(this)' style='height:10px;width:10px;' type='radio' class='Radio' name='test'"
+                           "<input  onClick='resClick(this)' style='height:10px;width:10px;' type='radio' class='Radio' name='abutton' "
                             + "value='"+r.getKategorie().getComp_id().getBezeichnung()+":"+r.getComp_id().getBezeichnung()+":"+i2+"'"
                             + "/>" 
                             + "</td>" ;
@@ -427,7 +427,12 @@ public class PlatzAuswahl extends AbstractPageBean {
         ret+="</table>";
           
         ret="<script type='text/javascript'>"
+                +"function debuttons(ak){"
+                +"document.getElementById('form1:button1').disabled=ak; "
+                +"document.getElementById('form1:button2').disabled=ak; "
+                +"}"
                 +"function resClick(element) {"
+                +"debuttons(false);"
                 +"var tds=document.getElementsByTagName('td');"
                 +"for(var k=0;k<tds.length;k++){ "
                 +"tds[k].style.backgroundColor='#F0F0F0';"
@@ -439,13 +444,14 @@ public class PlatzAuswahl extends AbstractPageBean {
                  +"var count=parseInt(anzahl.options[anzahl.selectedIndex].value);" 
                  +"element=element.parentNode;"
                  +"for(var z=0;z<count;z++){"
-                 +"if(element==null){alert('Ausserhalb des Bereichs');}"
-                 +"else if(element.tagName!='TD'){alert('Ausserhalb des Bereichs');}"
-                 +"else if(element.firstChild.tagName!='INPUT'){alert('Reserviert');}"
+                 +"if(element==null){alert('Ausserhalb des Bereichs');debuttons(true);}"
+                 +"else if(element.tagName!='TD'){alert('Ausserhalb des Bereichs');debuttons(true);}"
+                 +"else if(element.firstChild.tagName!='INPUT'){alert('Reserviert');debuttons(true); }"
                  
                 +"element.style.backgroundColor = '#cc0000';"
                  +"element=element.nextSibling;"
                 +"}}"
+                
                 +"</script>"
                 +ret;
         
@@ -461,4 +467,5 @@ public class PlatzAuswahl extends AbstractPageBean {
     
     
 }
+
 
