@@ -18,17 +18,17 @@ Sie können Ihr Passwort ändern, wenn Sie sich erfolgreich eingeloggt haben. Klic
 
 News
 
-Auf der Hauptseite von TicketLine werden Sie über alles Aktuelle Informiert. Wenn sie erfahen möchten was sich hinter einer Schlagzeile verbirgt können Sie in der ersten Spalte auf den RadioButton klicken und somit die Zeile markieren. Danach klicken sie einfach auf "Details zur Auswahl" und schon wird der gesammte News-Artikel angezeigt.
+Auf der Hauptseite von TicketLine werden Sie über alles Aktuelle Informiert. Wenn sie erfahren möchten was sich hinter einer Schlagzeile verbirgt können Sie in der ersten Spalte auf den RadioButton klicken und somit die Zeile markieren. Danach klicken sie einfach auf "Details zur Auswahl" und schon wird der gesamte News-Artikel angezeigt.
 
 Hinweis: Sie können nur jeweils eine Schlagzeile markieren!
 
 Sortieren
-Sie können die Newseinträge nach Datum bzw. alphabetisch nach Eintrag sortieren. Klicken sie dazu einfach auf "Datum" bzw auf "Eintrag" und schon wird die Sortierreihenfolge geändert.
+Sie können die Newseinträge nach Datum bzw. alphabetisch nach Eintrag sortieren. Klicken sie dazu einfach auf "Datum" bzw. auf "Eintrag" und schon wird die Sortierreihenfolge geändert.
 
 
 Suchen
 
-TicketLine bietet Ihnen eine besonders komfortable Möglichkeit nach Veranstaltungsorten, Veranstalltungen und Aufführungen zu suchen. Egal wo Sie sich auf unserer Homepage befinden können Sie oben rechts in der TicketLine Leiste eingeben was Sie suchen möchten und die TicketLine Suchmaschine findet Ihnen alle Treffer zu allen drei Kategorien.
+TicketLine bietet Ihnen eine besonders komfortable Möglichkeit nach Veranstaltungsorten, Veranstaltungen und Aufführungen zu suchen. Egal wo Sie sich auf unserer Homepage befinden, können Sie oben rechts in der TicketLine Leiste eingeben was Sie suchen möchten und die TicketLine Suchmaschine findet Ihnen alle Treffer zu allen drei Kategorien.
 
 Wenn sie nicht genau wissen wonach sie suchen sollen, oder wie man Ihren Lieblingsinterpreten schreibt, dann geben sie einfach nur das ein, wo Sie sich sicher sind, dass es richtig ist, die TicketLine Suchmaschine findet auch ähnliche Begriffe.
 
@@ -39,7 +39,7 @@ Hinweis: Die Suche beachtet die Groß/Kleinschreibung nicht!
 Suchbeispiel:
 
 Suchbegriff: "herz"
-Suchergebniss: Herzbuben
+Suchergebnis: Herzbuben
 
 Sortieren
 Sie können die gefundenen Positionen nach Spaltennamen sortieren. Klicken sie dazu einfach auf den Spaltennamen und schon wird die Sortierreihenfolge geändert.
@@ -50,19 +50,26 @@ Wollen sie eine Position reservieren oder kaufen? Markieren Sie einfach die Posi
 
 Tickets Reservieren/Kaufen
 
-Um ein Ticket reservieren bzw kaufen zu können müssen Sie eingeloggt sein und eine Aufführung auswählen (näheres dazu im Punkt Suche).
+Um ein Ticket reservieren bzw. kaufen zu können müssen Sie eingeloggt sein und eine Aufführung auswählen (näheres dazu im Punkt Suche).
 Haben Sie eine Aufführung ausgewählt, so können Sie die Anzahl der Plätze, und die Zahlungsmethode definieren (wenn Sie nur reservieren ist es egal welche Zahlungsmethode Sie eingestellt haben).
 
-Sie können nur dann einen Platz reservieren/kaufen, wenn Sie diesen Auswählen können. Steht allerdings ein "V" für "bereits Verkauft" oder ein "R" für "bereits Reserviert" so ist es Ihnen nicht möglich diesen Platz fälschlicherweise nochmals zu reservieren/kaufen und es kann zu keinen doppelbelegungen kommen. Zum Reservieren wählen sie den gewünschten Platz und klicken Sie auf "ausgewählte Plätze reservieren". Möchten Sie mehrere Plätze nebeneinander reservieren so können Sie die Anzahl der Plätze definieren.
+Sie können nur dann einen Platz reservieren/kaufen, wenn Sie diesen Auswählen können. Steht allerdings ein "V" für "bereits Verkauft" oder ein "R" für "bereits Reserviert" so ist es Ihnen nicht möglich diesen Platz fälschlicherweise nochmals zu reservieren/kaufen und es kann zu keinen Doppelbelegungen kommen. Zum Reservieren wählen sie den gewünschten Platz und klicken Sie auf "ausgewählte Plätze reservieren". Möchten Sie mehrere Plätze nebeneinander reservieren so können Sie die Anzahl der Plätze definieren.
 
 Ist ein Platz nur reserviert, so können Sie zu einem späteren Zeitpunkt nochmals schauen, ob dieser vielleicht wieder freigegeben wurde.
 
-Wenn Sie einen Platz reservieren, wird dieser unter Ihren persönlichen Reservierungen gespeichert. Da haben Sie auchdie möglichkeit diesen gleich zu kaufen.
+Wenn Sie einen Platz reservieren, wird dieser unter Ihren persönlichen Reservierungen gespeichert. Da haben Sie auch die Möglichkeit diesen gleich zu kaufen.
 
-Sie müssen einen Platz nicht reservieren um ihn kaufen zu können. Dazu wählen Sie einfach eine Aufführung aus, wählen die gewünschte Zahllungsmethode und klicken auf "ausgewählte Plätze kaufen"
+Sie müssen einen Platz nicht reservieren um ihn kaufen zu können. Dazu wählen Sie einfach eine Aufführung aus, wählen die gewünschte Zahlungsmethode und klicken auf "ausgewählte Plätze kaufen"
+
+
 
 Werbeartikel kaufen
 
-Sie können von jeder Seite in TicketLine in der oberne Leiste auf den Link "Mearchandise" klicken. So kommen Sie zu unserer Werbeartikelliste.
+Sie können von jeder Seite in TicketLine in der oberen Leiste auf den Link "Merchandise" klicken. So kommen Sie zu unserer Werbeartikelliste.
 Wenn sie einen Artikel auswählen können Sie diesen in Ihren Warenkorb legen.
 
+Wenn Sie noch mehr Artikel kaufen möchten, so kommen Sie wieder mit dem "Merchandise" Link zur Artikelliste - und der zuletzt ausgewählte Artikel wartet auf Sie im Warenkorb.
+
+Sollten Sie sich umentschieden haben und einen Artikel der bereits im Warenkorb liegt doch nicht kaufen möchten, so können Sie diesen einfach auswählen und mit "Artikel löschen" wird dieser aus dem Warenkorb entfernt.
+
+Ist ihr Warenkorb voll und Sie möchten zur Kassa gehen wählen Sie bitte zuerst die Zahlungsmethode und klicken Sie dann auf Kaufen.
