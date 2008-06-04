@@ -1,8 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Dominik Kontner
  */
-
 package ticketline.helper;
 
 import java.util.Date;
@@ -26,15 +24,30 @@ import ticketline.db.VeranstaltungKey;
 import ticketline.exceptions.TicketLineException;
 import ticketline.exceptions.TicketLineSystemException;
 
-/**
- *
- * @author Dominik Kontner
- */
+
 public class AuffuehrungsHelper 
 {
     private static final Logger log = LogManager.getLogger(AuffuehrungsHelper.class);
     
+    /*
+     * Standardconstruktor
+    */
     private AuffuehrungsHelper() { }
+    
+    /*
+     * @param vorname Vorname des Künstlers
+     * @param nachname Nachname des Künstlers
+     * @param maennlich Geschlecht des Künstlers (true := maennlich)
+     * @return Liste der gefundenen Künstler
+     * 
+     * Suchfunktion
+     * 
+     * Es werden Vor und Nachname sowie das Geschlecht des Künstlers übergeben
+     * und es wird eine Liste mit allen Gefundenen Künstlern zurückgegeben
+     * 
+     * alle Werte können NULL sein - sind alle NULL werden alle in der DB vorhandenen 
+     * Künstler zurückgegeben
+     */
     
     public static List<Kuenstler> sucheKuenstler(String vorname, String nachname, Boolean maennlich) 
             throws TicketLineException, TicketLineSystemException
@@ -60,6 +73,14 @@ public class AuffuehrungsHelper
         }
     }
     
+    /*
+     *
+     * @param k Künstlerobjekt
+     * @return Liste aller Veranstalltungen
+     * 
+     * Sucht alle Veranstaltungen zu dem übergebenen Künstler
+     */
+    
     public static List<Veranstaltung> getVeranstaltungenVonKuenstler(Kuenstler k) 
     {
         List<Veranstaltung> list = new Vector<Veranstaltung>();
@@ -71,6 +92,15 @@ public class AuffuehrungsHelper
         
         return list;
     }
+    
+    /*
+     *
+     * @param o	Ortobjekt
+     * @return Liste aller Veranstalltungen
+     * 
+     * Sucht alle Veranstaltungen zu dem übergebenen Ort
+     */
+    
     
     public static List<Veranstaltung> getVeranstaltungenVonOrt(Ort o)
     {
@@ -88,6 +118,19 @@ public class AuffuehrungsHelper
         
         return list;
     }
+    
+    /*
+     *
+     * @param bezeichnung Bezeichnung der Veranstaltung
+     * @param kategorie	Kategorie der Veranstaltung
+     * @param dauerMin	minimale Dauer der Veranstaltung
+     * @param dauerMax	maximale Dauer der Veranstaltung
+     * @param inhalt	Inhalt der Veranstaltung
+     * @return Liste der Veranstaltungen
+     * 
+     * Sucht alle Veranstaltungen zu den übergebenen Suchparametern
+     */
+    
     
     public static List<Veranstaltung> sucheVeranstaltungen(String bezeichnung, String kategorie,
                                                     Integer dauerMin, Integer dauerMax, String inhalt) 
@@ -117,8 +160,19 @@ public class AuffuehrungsHelper
         }
         
     }
-    
- 
+    /*
+    * @param zeitVon Startzeit der Aufführung
+     * @param zeitBis	Endzeit der Aufführung
+     * @param storniert	Storniert ja, nein
+     * @param preisMin	Minimaler Preis
+     * @param preisMax	Maximaler Preis
+     * 
+     * @return Gibt die Liste der Aufführungen zurück
+     * 
+     * Sucht die Aufführung anhand der übergebenen Suchparameter
+     * 
+     * 
+    */
     public static List<Auffuehrung> sucheAuffuehrungen(Date zeitVon, Date zeitBis, Boolean storniert, Integer preisMin, Integer preisMax,
                                                 VeranstaltungKey veranstaltung, SaalKey saal) throws TicketLineException, TicketLineSystemException
     {
