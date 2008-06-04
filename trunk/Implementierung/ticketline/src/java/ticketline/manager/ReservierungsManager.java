@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ticketline.manager;
 
 import java.math.BigDecimal;
@@ -125,6 +121,21 @@ public class ReservierungsManager {
         return list;
     }
 
+    /*
+     * 
+     * 
+     * @param k	Kundenobjekt
+     * @param zeit  Zeit im Date format
+     * @param auffuehrungKey	AufführungsKey Objekt
+     * @param reihe Key der Reihe Objekt
+     * @param startplatz    Startplatz im Integer Format
+     * @param anzahl	Anzahl der Plätze   
+     * @param zahlart	gewählte Zahlart
+     * 
+     * @return gibt die Transaktion zurück
+     * 
+     * throws TicketLineException, TicketLineSystemException 
+     */ 
     public static Transaktion kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrungKey, ReiheKey reihe, Integer startplatz,
             Integer anzahl, String zahlart, boolean reservierung) throws TicketLineException, TicketLineSystemException {
         try {
@@ -182,6 +193,15 @@ public class ReservierungsManager {
         }
     }
 
+     /*
+     * 
+     * 
+     * @param reservierung Ist der Key der Transaktion (Objekt)
+     * 
+     * Storniert eine Reservierung - gibt nichts zurück
+     * throws TicketLineException, TicketLineSystemException 
+     */
+    
     public static void storniereReservierung(TransaktionKey reservierung) throws TicketLineException, TicketLineSystemException {
         try {
             if (reservierung != null) {
@@ -198,6 +218,21 @@ public class ReservierungsManager {
         }
     }
 
+     /*
+      * @param  k Kundenobjekt
+      * @param  zeitVon	Startzeit
+      * @param  zeitBis	Endzeit
+      * @param  reihenBezeichnung   Bezeichnung der Reihe
+      * @param  kategorieBezeichnung	Bezeichnung der Kategorie
+      * @param  saalBezeichnung	Bezeichnung des Saals
+      * @param  ortsBezeichnung	Bezeichnung des Ortes
+      * @param  ort Ortsobjekt
+      * 
+      * @return liste der gefundenen Transaktionen
+      * 
+      * Sucht anhand der übergebenen Parameter die Reservierungen und gibt eine Liste der Transaktionen zurück
+     */
+    
     public static List<Transaktion> sucheReservierungen(Kunde k, Date zeitVon, Date zeitBis, String reihenBezeichnung,
             String kategorieBezeichnung, String saalBezeichnung,
             String ortsBezeichnung, String ort) throws TicketLineException, TicketLineSystemException {
