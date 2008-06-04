@@ -356,17 +356,23 @@ public class PlatzAuswahl extends AbstractPageBean {
         String split[]=clicked.split(":");
         SessionBean1 sb=this.getSessionBean1();
        SaalKey sk=sb.getRes().getSaal().getComp_id();
-         this.getRequestBean1().setTransaktion(ReservierungsManager.kaufeTickets(sb.getLogin(), 
+try{
+       this.getRequestBean1().setTransaktion(ReservierungsManager.kaufeTickets(sb.getLogin(), 
                 new Date(System.currentTimeMillis()), 
                 sb.getRes().getComp_id(),
                 new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
                 new Integer(this.getAnzahl().getValue().toString()),
                 this.getZahlart().getValue().toString()       , false));
-        
+    
         return "buy";
+}catch(Exception e){
+    
+    return "stay";
+}
     }
 
     public String button1_action() throws TicketLineException {
+    try{
         String clicked=this.getStartplatz().getValue().toString();
         String split[]=clicked.split(":");
         SessionBean1 sb=this.getSessionBean1();
@@ -379,10 +385,15 @@ public class PlatzAuswahl extends AbstractPageBean {
                 this.getZahlart().getValue().toString()       , true));
         return "book";
     }
+    catch(Exception e){
+        return "stay";
+    }
+    }
     
     private String platzformat;
 
     public String getPlatzformat() throws TicketLineException {
+        try{
         List<Reihe> l=SaalHelper.sucheAlleReihen(this.getRequestBean1().getAuffuehrung().getSaal().getComp_id());
         List<Belegung> bl = ReservierungsManager.sucheBelegungen(this.getRequestBean1().getAuffuehrung().getComp_id());
         this.getSessionBean1().setRes(this.getRequestBean1().getAuffuehrung());
@@ -456,6 +467,9 @@ public class PlatzAuswahl extends AbstractPageBean {
                 +ret;
         
         return ret;
+        }catch(Exception e){
+            return "<div style='left: 20px; top: 160px; position: absolute'><h2 >Fehler</h2>"+e+"</div>";
+        }
     }
 
     public void setPlatzformat(String platzformat) {

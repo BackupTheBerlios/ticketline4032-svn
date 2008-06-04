@@ -181,6 +181,10 @@
             <to-view-id>/Kassa.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-outcome>stay</from-outcome>
+            <to-view-id>/PlatzAuswahl.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>book</from-outcome>
             <to-view-id>/Booking.jsp</to-view-id>
         </navigation-case>
