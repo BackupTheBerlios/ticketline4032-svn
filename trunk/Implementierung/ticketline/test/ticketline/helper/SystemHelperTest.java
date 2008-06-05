@@ -20,7 +20,7 @@ import ticketline.exceptions.TicketLineSystemException;
 
 /**
  *
- * @author Sriver
+ * @author Andreas Weißenbacher, Dominik Kontner
  */
 public class SystemHelperTest {
 
@@ -90,19 +90,7 @@ public class SystemHelperTest {
         }
         
     }
-    @Test
-    public void WrongPwd() {
-        try {
-
-            System.out.println("WrongPwd");
-            kartennr = 1;
-            result = SystemHelper.checkLogin(kartennr, onlinepwd);
-            assertEquals(null, result);
-        } catch (TicketLineException ex) {
-            Logger.getLogger(SystemHelperTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
+    
     @Test
     public void WrongKartennr() {
         try {
@@ -117,4 +105,20 @@ public class SystemHelperTest {
         }
         
     }
+    
+    @Test
+    public void WrongPwd() {
+        try {
+
+            System.out.println("WrongPwd");
+            kartennr = 1;
+            result = SystemHelper.checkLogin(kartennr, onlinepwd);
+            assertEquals(null, result);
+        } catch (TicketLineException ex) {
+            Logger.getLogger(SystemHelperTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    
 }
