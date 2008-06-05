@@ -66,6 +66,16 @@ public class ReservierungsManager {
     private ReservierungsManager() {
     }
 
+    /*
+     * @param auffuehrung AuffuehrungKey Objekt
+     * 
+     * @return Liste der gefundenen Belegungen
+     * 
+     * sucht übereinstimmende Belegungen und gibt eine Liste der gefundenen Belegungen zurück
+     * 
+     * throws TicketLineException, TicketLineSystemException 
+     */
+    
     public static List<Belegung> sucheBelegungen(AuffuehrungKey auffuehrung) throws TicketLineException, TicketLineSystemException {
         try {
             Auffuehrung a = DAOFactory.getAuffuehrungDAO().get(auffuehrung);
@@ -99,6 +109,16 @@ public class ReservierungsManager {
         }
     }
 
+    /*
+     * @param key AuffuehrungKey Objekt
+     * 
+     * @return Liste der gefundenen Belegungen
+     * 
+     * sucht übereinstimmende Belegungen und gibt eine Liste der gefundenen Belegungen zurück
+     * 
+     * throws TicketLineException, TicketLineSystemException 
+     */
+    
     private static List<Belegung> sucheAlleBelegungen(AuffuehrungKey key) throws TicketLineException, TicketLineSystemException {
         BelegungDAO dao = DAOFactory.getBelegungDAO();
 
@@ -122,17 +142,18 @@ public class ReservierungsManager {
     }
 
     /*
-     * 
-     * 
      * @param k	Kundenobjekt
      * @param zeit  Zeit im Date format
      * @param auffuehrungKey	AufführungsKey Objekt
-     * @param reihe Key der Reihe Objekt
+     * @param reihe     Key der Reihe Objekt
      * @param startplatz    Startplatz im Integer Format
      * @param anzahl	Anzahl der Plätze   
      * @param zahlart	gewählte Zahlart
+     * @param reservierung      true für Reservierung, sonst Kauf
      * 
      * @return gibt die Transaktion zurück
+     * 
+     * Legt eine neue Transaktion (Kauf oder Reservierung) an und gibt diese zurück
      * 
      * throws TicketLineException, TicketLineSystemException 
      */ 
@@ -194,11 +215,10 @@ public class ReservierungsManager {
     }
 
      /*
-     * 
-     * 
      * @param reservierung Ist der Key der Transaktion (Objekt)
      * 
      * Storniert eine Reservierung - gibt nichts zurück
+     * 
      * throws TicketLineException, TicketLineSystemException 
      */
     
@@ -228,7 +248,7 @@ public class ReservierungsManager {
       * @param  ortsBezeichnung	Bezeichnung des Ortes
       * @param  ort Ortsobjekt
       * 
-      * @return liste der gefundenen Transaktionen
+      * @return Liste der gefundenen Transaktionen
       * 
       * Sucht anhand der übergebenen Parameter die Reservierungen und gibt eine Liste der Transaktionen zurück
      */
@@ -296,6 +316,15 @@ public class ReservierungsManager {
         }
     }
 
+    /*
+     * @param kunde     Kundenobjekt
+     * @param bestellung    Bestellungsobjekt
+     * 
+     * kauft Werbematerial - gibt nichts zurück
+     * 
+     * throws TicketLineException, TicketLineSystemException
+     */
+    
     public static void kaufeWerbematerial(Kunde kunde, Bestellung bestellung) throws TicketLineException, TicketLineSystemException {
 
         try {
@@ -316,6 +345,14 @@ public class ReservierungsManager {
 
     }
 
+        /*
+     * @param kunde transaktionKey    TransaktionKey Objekt
+     * 
+     * kauft Werbematerial - gibt nichts zurück
+     * 
+     * throws TicketLineException, TicketLineSystemException
+     */
+    
     public static void kaufeReservierung(TransaktionKey transaktionKey) throws TicketLineException, TicketLineSystemException {
 
         try {
@@ -340,6 +377,17 @@ public class ReservierungsManager {
 
     }
 
+    /*
+     * @param belegungKey   BelegungKey Objekt
+     * @param startplatz    Startplatz im Integer Format
+     * @param anzahl	Anzahl der Plätze
+     * @param editMode  ein char, das angibt ob ein Platz als frei ('F'), reserviert ('R') oder verkauft ('V') markiert werden soll
+     * @param kaufeReservierung     true wenn eine vorhandene Reservierung gekauft werden soll
+     * 
+     * verändert in einer Belegung den Status der Plätze und je nach Bedarf die Anzahl der verkauften, freien und reservierten Plätze - gibt nichts zurück
+     * 
+     * throws TicketLineException, TicketLineSystemException
+     */
     private static void editiereBelegung(BelegungKey belegungKey, int startplatz, int anzahl, char editMode, Boolean kaufeReservierung) throws TicketLineSystemException {
         try {
             if (editMode == 'F' || editMode == 'R' || editMode == 'V') {
@@ -400,7 +448,7 @@ public class ReservierungsManager {
                     if (kaufeReservierung) {
 
                         for (int i = -1; i < anzahl - 1; i++) {
-                            if (temp[startplatz + i] == 'R') { //gehört noch verfeinert!!!!!!!!!!!!!!
+                            if (temp[startplatz + i] == 'R') {
                                 temp[startplatz + i] = editMode;
                             } else {
                                 throw new TicketLineSystemException("Reservierungskauffehler!");
@@ -418,7 +466,7 @@ public class ReservierungsManager {
                         belegung.setAnzfrei(belegung.getAnzfrei() - anzahl);
 
                         for (int i = -1; i < anzahl - 1; i++) {
-                            if (temp[startplatz + i] == 'F') { //gehört noch verfeinert!!!!!!!!!!!!!!
+                            if (temp[startplatz + i] == 'F') {
                                 temp[startplatz + i] = editMode;
                             } else {
                                 throw new TicketLineSystemException("Kauffehler!");
