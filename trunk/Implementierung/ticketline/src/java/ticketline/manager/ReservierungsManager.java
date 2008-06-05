@@ -137,7 +137,7 @@ public class ReservierungsManager {
         List list = dao.find(query);
 
         log.info(query);
-        log.info(list);
+        
         return list;
     }
 
@@ -157,7 +157,7 @@ public class ReservierungsManager {
      * 
      * throws TicketLineException, TicketLineSystemException 
      */ 
-    public static Transaktion kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrungKey, ReiheKey reihe, Integer startplatz,
+    public synchronized static Transaktion kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrungKey, ReiheKey reihe, Integer startplatz,
             Integer anzahl, String zahlart, boolean reservierung) throws TicketLineException, TicketLineSystemException {
         try {
             if (k != null && zeit != null && reihe != null && startplatz != null && anzahl != null && zahlart != null) {
@@ -222,7 +222,7 @@ public class ReservierungsManager {
      * throws TicketLineException, TicketLineSystemException 
      */
     
-    public static void storniereReservierung(TransaktionKey reservierung) throws TicketLineException, TicketLineSystemException {
+    public synchronized static void storniereReservierung(TransaktionKey reservierung) throws TicketLineException, TicketLineSystemException {
         try {
             if (reservierung != null) {
                 TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
@@ -325,7 +325,7 @@ public class ReservierungsManager {
      * throws TicketLineException, TicketLineSystemException
      */
     
-    public static void kaufeWerbematerial(Kunde kunde, Bestellung bestellung) throws TicketLineException, TicketLineSystemException {
+    public synchronized static void kaufeWerbematerial(Kunde kunde, Bestellung bestellung) throws TicketLineException, TicketLineSystemException {
 
         try {
             if (kunde != null && bestellung != null) {
@@ -353,7 +353,7 @@ public class ReservierungsManager {
      * throws TicketLineException, TicketLineSystemException
      */
     
-    public static void kaufeReservierung(TransaktionKey transaktionKey) throws TicketLineException, TicketLineSystemException {
+    public synchronized static void kaufeReservierung(TransaktionKey transaktionKey) throws TicketLineException, TicketLineSystemException {
 
         try {
             if (transaktionKey != null) {
@@ -388,7 +388,7 @@ public class ReservierungsManager {
      * 
      * throws TicketLineException, TicketLineSystemException
      */
-    private static void editiereBelegung(BelegungKey belegungKey, int startplatz, int anzahl, char editMode, Boolean kaufeReservierung) throws TicketLineSystemException {
+    private synchronized static void editiereBelegung(BelegungKey belegungKey, int startplatz, int anzahl, char editMode, Boolean kaufeReservierung) throws TicketLineSystemException {
         try {
             if (editMode == 'F' || editMode == 'R' || editMode == 'V') {
                 BelegungDAO belegungDAO = DAOFactory.getBelegungDAO();

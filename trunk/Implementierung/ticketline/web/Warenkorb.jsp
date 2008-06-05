@@ -17,7 +17,7 @@
                         <jsp:directive.include file="MasterFragment.jspf"/>
                     </div>
                     <webuijsf:form binding="#{Warenkorb.form1}" id="form1">
-                        <webuijsf:button actionExpression="#{Warenkorb.button2_action}" binding="#{Warenkorb.button2}" id="button2"
+                        <webuijsf:button actionExpression="#{Warenkorb.button2_action}" binding="#{Warenkorb.button2}" id="button2" onClick="javascript:confirm('Wollen sie die Artikel kaufen?');"
                             style="height: 20px; left: 311px; top: 144px; position: absolute; width: 119px" text="Kaufen"/>
                         <webuijsf:table augmentTitle="false" binding="#{Warenkorb.table1}" id="table1" style="left: 192px; top: 168px; position: absolute"
                             title="Table" width="744">
@@ -44,7 +44,7 @@
                         </webuijsf:table>
                         <webuijsf:dropDown binding="#{Warenkorb.dropDown1}" id="dropDown1" items="#{Warenkorb.dropDown1DefaultOptions.options}"
                             label="Zahlungsart" style="left: 456px; top: 144px; position: absolute; width: 200px"/>
-                        <webuijsf:button actionExpression="#{Warenkorb.button1_action}" binding="#{Warenkorb.button1}" id="button1"
+                        <webuijsf:button actionExpression="#{Warenkorb.button1_action}" binding="#{Warenkorb.button1}" id="button1" onClick="javascript:confirm('Wollen sie den gewählten Artikel entfernen?');"
                             style="height: 20px; left: 191px; top: 144px; position: absolute; width: 119px" text="Artikel löschen"/>
                     </webuijsf:form>
                 </webuijsf:body>

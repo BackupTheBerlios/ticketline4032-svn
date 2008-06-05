@@ -16,7 +16,11 @@
                     <div style="left: 0px; top: 0px; position: absolute">
                         <jsp:directive.include file="MasterFragment.jspf"/>
                     </div>
-                    <webuijsf:form binding="#{SearchResultVeranstaltungen.form1}" id="form1"/>
+                    <webuijsf:form binding="#{SearchResultVeranstaltungen.form1}" id="form1">
+                        <webuijsf:hiddenField binding="#{SearchResultVeranstaltungen.hiddenFieldKuenstlerNr}" id="hiddenFieldKuenstlerNr"/>
+                        <webuijsf:hiddenField binding="#{SearchResultVeranstaltungen.hiddenFieldOrt}" id="hiddenFieldOrt"/>
+                        <webuijsf:hiddenField binding="#{SearchResultVeranstaltungen.hiddenFieldBez}" id="hiddenFieldBez"/>
+                    </webuijsf:form>
                     <div style="left: 190px; top: 150px; position: absolute">
                         <jsp:directive.include file="VeranstaltungsFragment.jspf"/>
                     </div>

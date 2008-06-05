@@ -462,7 +462,7 @@ try{
                 +"element.style.backgroundColor = '#cc0000';"
                  +"element=element.nextSibling;"
                 +"}}"
-                
+                +"debuttons(true);"
                 +"</script>"
                 +ret;
         

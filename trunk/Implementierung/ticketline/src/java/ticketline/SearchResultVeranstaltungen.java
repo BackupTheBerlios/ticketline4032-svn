@@ -8,18 +8,15 @@ package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractPageBean;
 import com.sun.webui.jsf.component.Body;
-import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
+import com.sun.webui.jsf.component.HiddenField;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
-import com.sun.webui.jsf.component.StaticText;
-import com.sun.webui.jsf.component.Table;
-import com.sun.webui.jsf.component.TableColumn;
-import com.sun.webui.jsf.component.TableRowGroup;
-import com.sun.webui.jsf.model.DefaultTableDataProvider;
 import javax.faces.FacesException;
+import ticketline.dao.DAOFactory;
+import ticketline.db.OrtKey;
 
 /**
  * <p>Page bean that corresponds to a similarly named JSP page.  This
@@ -100,6 +97,33 @@ public class SearchResultVeranstaltungen extends AbstractPageBean {
     public void setForm1(Form f) {
         this.form1 = f;
     }
+    private HiddenField hiddenFieldKuenstlerNr = new HiddenField();
+
+    public HiddenField getHiddenFieldKuenstlerNr() {
+        return hiddenFieldKuenstlerNr;
+    }
+
+    public void setHiddenFieldKuenstlerNr(HiddenField hf) {
+        this.hiddenFieldKuenstlerNr = hf;
+    }
+    private HiddenField hiddenFieldBez = new HiddenField();
+
+    public HiddenField getHiddenFieldBez() {
+        return hiddenFieldBez;
+    }
+
+    public void setHiddenFieldBez(HiddenField hf) {
+        this.hiddenFieldBez = hf;
+    }
+    private HiddenField hiddenFieldOrt = new HiddenField();
+
+    public HiddenField getHiddenFieldOrt() {
+        return hiddenFieldOrt;
+    }
+
+    public void setHiddenFieldOrt(HiddenField hf) {
+        this.hiddenFieldOrt = hf;
+    }
 
     // </editor-fold>
 
@@ -143,6 +167,20 @@ public class SearchResultVeranstaltungen extends AbstractPageBean {
         // Perform application initialization that must complete
         // *after* managed components are initialized
         // TODO - add your own initialization code here
+        
+        if(!this.isPostBack())
+        {
+            if(this.getRequestBean1().getOrt() != null)
+            {
+                this.hiddenFieldBez.setText(this.getRequestBean1().getOrt().getComp_id().getBezeichnung());
+                this.hiddenFieldOrt.setText(this.getRequestBean1().getOrt().getComp_id().getOrt());
+            }
+            
+            if(this.getRequestBean1().getKuenstler() != null)
+            {
+                this.hiddenFieldKuenstlerNr.setText(this.getRequestBean1().getKuenstler().getKuenstlernr().toString());
+            }
+        }
     }
 
     /**
@@ -154,6 +192,18 @@ public class SearchResultVeranstaltungen extends AbstractPageBean {
      */
     @Override
     public void preprocess() {
+        if(this.hiddenFieldBez.getText() != null && !this.hiddenFieldBez.getText().toString().equals(""))
+        {
+            this.getRequestBean1().setOrt(DAOFactory.getOrtDAO().get(new OrtKey(this.hiddenFieldBez.getText().toString(), this.hiddenFieldOrt.getText().toString())));
+        }
+        else if(this.hiddenFieldKuenstlerNr.getText() != null && !this.hiddenFieldKuenstlerNr.getText().toString().equals(""))
+        {
+            this.getRequestBean1().setKuenstler(DAOFactory.getKuenstlerDAO().get(Integer.parseInt(this.hiddenFieldKuenstlerNr.getText().toString())));
+        }
+        else
+        {
+            this.getRequestBean1().setQuery("");
+        }
     }
 
     /**
@@ -170,6 +220,7 @@ public class SearchResultVeranstaltungen extends AbstractPageBean {
 
     /**
      * <p>Callback method that is called after rendering is completed for
+     * 
      * this request, if <code>init()</code> was called (regardless of whether
      * or not this was the page that was actually rendered).  Customize this
      * method to release resources acquired in the <code>init()</code>,

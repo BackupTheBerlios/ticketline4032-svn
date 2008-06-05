@@ -20,7 +20,6 @@ import java.util.List;
 import javax.faces.FacesException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import ticketline.db.Engagement;
 import ticketline.db.Veranstaltung;
 import ticketline.helper.AuffuehrungsHelper;
 

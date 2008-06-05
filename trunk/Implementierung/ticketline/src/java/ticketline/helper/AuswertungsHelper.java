@@ -74,7 +74,7 @@ public class AuswertungsHelper
                      
                      if(j < gesList.size()) {
                          
-                         if(berechneBesucherzahl(list.get(i).getComp_id()) > berechneBesucherzahl(gesList.get(j).getComp_id())) {
+                         if(berechneBesucherzahl(list.get(i).getComp_id()) >= berechneBesucherzahl(gesList.get(j).getComp_id())) {
                     
                              gesList.add(j, list.get(i));
                             
