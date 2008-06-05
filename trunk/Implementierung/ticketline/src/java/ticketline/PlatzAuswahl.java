@@ -40,7 +40,7 @@ import ticketline.manager.ReservierungsManager;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @author Chris
+ * @author Matthias Kausl
  */
 public class PlatzAuswahl extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">

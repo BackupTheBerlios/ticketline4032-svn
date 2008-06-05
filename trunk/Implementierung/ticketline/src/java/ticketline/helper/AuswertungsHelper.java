@@ -22,7 +22,7 @@ import ticketline.exceptions.TicketLineSystemException;
 
 /**
  *
- * @author Sriver
+ * @author Andreas Weißenbacher
  */
 public class AuswertungsHelper 
 {

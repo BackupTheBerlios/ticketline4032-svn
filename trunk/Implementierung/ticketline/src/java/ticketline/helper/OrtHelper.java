@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ticketline.helper;
 
 import java.util.List;
@@ -23,6 +18,23 @@ public class OrtHelper
     private static final Logger log = LogManager.getLogger(OrtHelper.class);
     
     private OrtHelper() { }
+    
+    /*
+     * @param bezeichnung   Bezeichnung der Location
+     * @param strasse   Straßenname
+     * @param ort   Ortbezeichnung
+     * @param bundesland    Name des Bundeslands
+     * @param plz   Postleitzahl
+     * @param verkauf   true: Verkaufsstelle
+     * @param auffuehrung   true: Auffuehrungsort
+     * @param kiosk     true: Kioskstandort
+     * 
+     * @return Liste der gefundenen Orte
+     * 
+     * sucht Orte die den übergebenen Parametern übersprechen und gibt eine Liste der gefundenen Orte zurück
+     * 
+     * throws TicketLineException, TicketLineSystemException 
+     */
     
     public static List<Ort> sucheOrte(String bezeichnung, String strasse, String ort,
                                 String bundesland, String plz, Boolean verkauf,
@@ -71,14 +83,3 @@ public class OrtHelper
         
         
 }
-
-/*
-folgenden Test positiv ausgeführt (Einfügen in super.init()-Methode in Mainpage.java):
-
-try {
-    OrtHelper.sucheOrte("CENTRAL KINO LINZ", "Kokosnussgasse", "Holzdorf", "Wien", "3082", true, false, true);
-} catch (Exception ex) {
-    Logger.getLogger(MainPage.class.getName()).log(Level.SEVERE, null, ex);
-}
-
-*/

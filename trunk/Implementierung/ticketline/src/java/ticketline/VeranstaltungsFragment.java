@@ -31,7 +31,7 @@ import ticketline.helper.AuffuehrungsHelper;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @author RedFalcon
+ * @author Michael Morak
  */
 public class VeranstaltungsFragment extends AbstractFragmentBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">

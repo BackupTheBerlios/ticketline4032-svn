@@ -2,7 +2,7 @@
 <!-- 
     Document   : VeranstaltungsFragment
     Created on : May 6, 2008, 11:54:25 PM
-    Author     : RedFalcon
+    Author     : Michael Morak
 -->
 <div style="-rave-layout: grid" xmlns:f="http://java.sun.com/jsf/core" xmlns:webuijsf="http://www.sun.com/webui/webuijsf">
     <f:subview id="VeranstaltungsFragment">

@@ -37,7 +37,7 @@ import ticketline.helper.AuffuehrungsHelper;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @author Chris
+ * @author Christoph Auernig
  */
 public class SearchResultAuffuehrungen extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">

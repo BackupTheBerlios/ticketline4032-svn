@@ -28,7 +28,7 @@ import javax.faces.FacesException;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @author Chris
+ * @author Christoph Auernig
  */
 public class SearchResultVeranstaltungen extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">

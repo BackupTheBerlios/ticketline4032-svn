@@ -42,7 +42,7 @@ import ticketline.helper.KundenHelper;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @author Dominik
+ * @author Dominik Kontner
  */
 public class ManageAccount extends AbstractPageBean 
 {

@@ -27,7 +27,7 @@ import ticketline.db.Transaktion;
  * lifecycle methods and event handlers where you may add behavior
  * to respond to incoming events.</p>
  *
- * @author Dominik
+ * @author Dominik Kontner
  */
 public class Kassa extends AbstractPageBean {
     // <editor-fold defaultstate="collapsed" desc="Managed Component Definition">
