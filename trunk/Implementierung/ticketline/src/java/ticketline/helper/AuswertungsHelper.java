@@ -51,6 +51,12 @@ public class AuswertungsHelper
            
         } 
     }
+        
+         
+    /*
+     * @return Liste der gefundenen 10 meistbesuchten Veranstaltungen
+     * 
+    */
     
     public static List<Veranstaltung> sucheTopTen() throws TicketLineException, TicketLineSystemException
     {
@@ -105,6 +111,16 @@ public class AuswertungsHelper
         
         return gesList;
     }
+    
+     /*
+     * @param VeranstaltungKey Bezeichnung und Kategorie der Veranstaltung
+     * 
+     *@return Zahl der verkauften Karten während einer Veranstaltung
+     * 
+     * Es wird mit dem VeranstaltungKey die Veranstaltung gesucht.
+     * Von dieser Veranstaltung werden dann alle verkauften Plätze einer Aufführung
+     * aufsummiert
+     */
     
     public static Integer berechneBesucherzahl(VeranstaltungKey veranstaltungKey) throws TicketLineException, TicketLineSystemException
     {

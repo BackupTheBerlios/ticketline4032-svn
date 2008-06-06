@@ -15,12 +15,11 @@ import org.junit.Test;
 import ticketline.dao.DAOFactory;
 import ticketline.dao.interfaces.NewsDAO;
 import static org.junit.Assert.*;
-import ticketline.db.Kunde;
 import ticketline.db.News;
 
 /**
  *
- * @author Sriver
+ * @author Andreas Weißenbacher
  */
 public class KundenHelperTest {
 
@@ -28,6 +27,8 @@ public class KundenHelperTest {
     }
 
     String query;
+    String inhalt;
+    Date gueltig;
     
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -39,10 +40,20 @@ public class KundenHelperTest {
 
     @Before
     public void setUp() {
+        
+        query = null;
+        inhalt = null;
+        gueltig = null;
+        
     }
 
     @After
     public void tearDown() {
+        
+        query = null;
+        inhalt = null;
+        gueltig = null;
+        
     }
 
     /**
@@ -51,8 +62,6 @@ public class KundenHelperTest {
     @Test
     public void sucheNewsAll() throws Exception {
         System.out.println("suche nach allen News");
-        String inhalt = "";
-        Date gueltig = null;
         query = "1 = 1 ORDER BY gueltig DESC";
         NewsDAO dao = DAOFactory.getNewsDAO();
         List<News> expResult = dao.find(query);
@@ -64,8 +73,7 @@ public class KundenHelperTest {
     @Test
     public void sucheNewsInhalt() throws Exception {
         System.out.println("suche nach allen News mit folgendem Inhalt");
-        String inhalt = "Test 2";
-        Date gueltig = null;
+        inhalt = "Test 2";
         query = "inhalt like '" + inhalt + "'"; 
         NewsDAO dao = DAOFactory.getNewsDAO();
         List<News> expResult = dao.find(query);

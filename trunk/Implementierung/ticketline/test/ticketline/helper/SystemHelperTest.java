@@ -16,7 +16,6 @@ import ticketline.dao.DAOFactory;
 import static org.junit.Assert.*;
 import ticketline.db.Kunde;
 import ticketline.exceptions.TicketLineException;
-import ticketline.exceptions.TicketLineSystemException;
 
 /**
  *
@@ -48,7 +47,7 @@ public class SystemHelperTest {
 
     @After
     public void tearDown() {
-        result = null;
+          result = null;
           onlinepwd = null;
           kartennr = null;
     }

@@ -25,7 +25,7 @@ import ticketline.db.VeranstaltungKey;
 
 /**
  *
- * @author Sriver
+ * @author Andreas Weißenbacher
  */
 public class AuffuehrungsHelperTest {
 
@@ -33,6 +33,23 @@ public class AuffuehrungsHelperTest {
     }
     
     String query;
+    String vorname;
+    String nachname;
+    Boolean maennlich;
+    
+    String bezeichnung;
+    String kategorie;
+    Integer dauerMin;
+    Integer dauerMax;
+    String inhalt;
+    
+    Date zeitVon;
+    Date zeitBis;
+    Boolean storniert;
+    Integer preisMin;
+    Integer preisMax;
+    VeranstaltungKey veranstaltung;
+    SaalKey saal;
 
     @BeforeClass
     public static void setUpClass() throws Exception {
@@ -44,10 +61,50 @@ public class AuffuehrungsHelperTest {
 
     @Before
     public void setUp() {
+        
+        query = null;
+        vorname = null;
+        nachname = null;
+        maennlich = null;
+        
+        bezeichnung = null;
+        kategorie = null;
+        dauerMin = null;
+        dauerMax = null;
+        inhalt = null;
+        
+        zeitVon = null;
+        zeitBis = null;
+        storniert = null;
+        preisMin = null;
+        preisMax = null;
+        veranstaltung = null;
+        saal = null;
+        
     }
 
     @After
     public void tearDown() {
+        
+        query = null;
+        vorname = null;
+        nachname = null;
+        maennlich = null;
+        
+        bezeichnung = null;
+        kategorie = null;
+        dauerMin = null;
+        dauerMax = null;
+        inhalt = null;
+        
+        zeitVon = null;
+        zeitBis = null;
+        storniert = null;
+        preisMin = null;
+        preisMax = null;
+        veranstaltung = null;
+        saal = null;
+        
     }
 
     /**
@@ -56,9 +113,6 @@ public class AuffuehrungsHelperTest {
     @Test
     public void sucheKuenstlerAll() throws Exception {
         System.out.println("suche alle Kuenstler");
-        String vorname = "";
-        String nachname = "";
-        Boolean maennlich = null;
         KuenstlerDAO dao = DAOFactory.getKuenstlerDAO();
         List<Kuenstler> expResult = dao.getAll();
         List<Kuenstler> result = AuffuehrungsHelper.sucheKuenstler(vorname, nachname, maennlich);
@@ -68,9 +122,7 @@ public class AuffuehrungsHelperTest {
     @Test
     public void sucheKuenstlerFalse() throws Exception {
         System.out.println("Falsche Eingabe");
-        String vorname = "inznho621736hj";
-        String nachname = "";
-        Boolean maennlich = null;
+        vorname = "inznho621736hj";
         query = "vname like '" + vorname + "'";
         KuenstlerDAO dao = DAOFactory.getKuenstlerDAO();
         List<Kuenstler> expResult = dao.find(query);
@@ -81,9 +133,8 @@ public class AuffuehrungsHelperTest {
     @Test
     public void sucheKuenstler() throws Exception {
         System.out.println("suche bestimmten Künstler");
-        String vorname = "Matthias";
-        String nachname = "Händel";
-        Boolean maennlich = null;
+        vorname = "Matthias";
+        nachname = "Händel";
         query = "vname like '" + vorname + "' AND nname like '" + nachname + "'";
         KuenstlerDAO dao = DAOFactory.getKuenstlerDAO();
         List<Kuenstler> expResult = dao.find(query);
@@ -97,11 +148,11 @@ public class AuffuehrungsHelperTest {
     @Test
     public void sucheVeranstaltungen() throws Exception {
         System.out.println("suche nach bestimmter Veranstaltung");
-        String bezeichnung = "Austria 3 in Concert";
-        String kategorie = "Tanz";
-        Integer dauerMin = 0;
-        Integer dauerMax = 100;
-        String inhalt = "1895, Dr. Alexander Hartdegen ist seiner Zeit weit voraus - im wahrsten Sinne des Wortes. Mit einfachsten Mitteln konstruiert er eine Zeitmachine, die ihn schließlich ins Jahr 802701 katapultiert.";
+        bezeichnung = "Austria 3 in Concert";
+        kategorie = "Tanz";
+        dauerMin = 0;
+        dauerMax = 100;
+        inhalt = "1895, Dr. Alexander Hartdegen ist seiner Zeit weit voraus - im wahrsten Sinne des Wortes. Mit einfachsten Mitteln konstruiert er eine Zeitmachine, die ihn schließlich ins Jahr 802701 katapultiert.";
         query = "bezeichnung like '" + bezeichnung + "' AND kategorie like '" + kategorie + "'";
         VeranstaltungDAO dao = DAOFactory.getVeranstaltungDAO();
         List<Veranstaltung> expResult = dao.find(query);
@@ -112,11 +163,6 @@ public class AuffuehrungsHelperTest {
     @Test
     public void sucheVeranstaltungenAll() throws Exception {
         System.out.println("suche alle Veranstaltungen");
-        String bezeichnung = "";
-        String kategorie = "";
-        Integer dauerMin = null;
-        Integer dauerMax = null;
-        String inhalt = "";
         VeranstaltungDAO dao = DAOFactory.getVeranstaltungDAO();
         List<Veranstaltung> expResult = dao.getAll();
         List<Veranstaltung> result = AuffuehrungsHelper.sucheVeranstaltungen(bezeichnung, kategorie, dauerMin, dauerMax, inhalt);
@@ -126,11 +172,8 @@ public class AuffuehrungsHelperTest {
     @Test
     public void sucheVeranstaltungenFalse() throws Exception {
         System.out.println("Ungültige Eingabe");
-        String bezeichnung = "gvz";
-        String kategorie = "gccztz";
-        Integer dauerMin = null;
-        Integer dauerMax = null;
-        String inhalt = "";
+        bezeichnung = "gvz";
+        kategorie = "gccztz";
         query = "bezeichnung like '" + bezeichnung + "' AND kategorie like '" + kategorie + "'";
         VeranstaltungDAO dao = DAOFactory.getVeranstaltungDAO();
         List<Veranstaltung> expResult = dao.find(query);
@@ -144,13 +187,6 @@ public class AuffuehrungsHelperTest {
     @Test
     public void sucheAuffuehrungenAll() throws Exception {
         System.out.println("suche alle Auffuehrungen");
-        Date zeitVon = null;
-        Date zeitBis = null;
-        Boolean storniert = null;
-        Integer preisMin = null;
-        Integer preisMax = null;
-        VeranstaltungKey veranstaltung = null;
-        SaalKey saal = null;
         AuffuehrungDAO dao = DAOFactory.getAuffuehrungDAO();
         List<Auffuehrung> expResult = dao.getAll();
         List<Auffuehrung> result = AuffuehrungsHelper.sucheAuffuehrungen(zeitVon, zeitBis, storniert, preisMin, preisMax, veranstaltung, saal);
@@ -160,13 +196,7 @@ public class AuffuehrungsHelperTest {
      @Test
     public void sucheAuffuehrungenStorniert() throws Exception {
         System.out.println("Suche bestimmte Aufführung die storniert wurden");
-        Date zeitVon = null;
-        Date zeitBis = null;
-        Boolean storniert = true;
-        Integer preisMin = null;
-        Integer preisMax = null;
-        VeranstaltungKey veranstaltung = null;
-        SaalKey saal = null;
+        storniert = true;
         AuffuehrungDAO dao = DAOFactory.getAuffuehrungDAO();
         query = "storniert = " + true;
         List<Auffuehrung> expResult = dao.find(query);

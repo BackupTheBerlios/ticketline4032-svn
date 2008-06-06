@@ -6,8 +6,6 @@
 package ticketline.helper;
 
 import java.util.List;
-import java.util.logging.LogManager;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

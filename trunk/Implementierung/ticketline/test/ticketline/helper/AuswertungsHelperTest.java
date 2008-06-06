@@ -64,12 +64,15 @@ public class AuswertungsHelperTest {
     @Test
     public void berechneBesucherzahl() throws Exception {
         System.out.println("berechneBesucherzahl");
-        VeranstaltungKey veranstaltungKey = null;
-        Integer expResult = null;
-        Integer result = null; //AuswertungsHelper.berechneBesucherzahl(veranstaltungKey);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        VeranstaltungKey veranstaltungKey = new VeranstaltungKey("Donald Duck", "Film");
+        
+        //Integer expResult = HibernateSessionFactory.currentSession().createQuery("SELECT SUM(anzverk) FROM Belegung WHERE auffuehrung.veranstaltung.comp_id = '" + veranstaltungKey + "'");
+        
+        Integer result = AuswertungsHelper.berechneBesucherzahl(veranstaltungKey); //AuswertungsHelper.berechneBesucherzahl(veranstaltungKey);
+        
+        assertEquals(0, result);
+        
     }
 
 }
