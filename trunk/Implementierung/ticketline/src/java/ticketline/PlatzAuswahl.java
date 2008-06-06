@@ -468,7 +468,7 @@ try{
         
         return ret;
         }catch(Exception e){
-            return "<div style='left: 20px; top: 160px; position: absolute'><h2 >Fehler</h2>"+e+"</div>";
+            return "<div style='left: 20px; top: 160px; position: absolute'><h2 >Fehler</h2> Das Ticket wurde von einem Anderen benutzer schon gekauft oder Sie haben keinen Platz ausgewählt</div>";
         }
     }
 

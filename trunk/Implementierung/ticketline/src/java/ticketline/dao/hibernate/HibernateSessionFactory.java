@@ -63,7 +63,7 @@ import org.hibernate.cfg.Configuration;
 public class HibernateSessionFactory {
 
 	private static final SessionFactory sessionFactory;
-
+        private static Session session;
 	private static final ThreadLocal<Session> threadSession = new ThreadLocal<Session>();
 
 	/** Holds a single instance of Session. */
@@ -88,11 +88,11 @@ public class HibernateSessionFactory {
 	 * @throws NestedRuntimeException
 	 */
 	public static Session currentSession() throws RuntimeException {
-		Session session = (Session) threadSession.get();
+		
 		try {
 			if (session == null) {
 				session = sessionFactory.openSession();
-				threadSession.set(session);
+				//threadSession.set(session);
 			}
 		} catch (HibernateException e) {
 			e.printStackTrace();
@@ -109,8 +109,8 @@ public class HibernateSessionFactory {
 	 */
 	public static void closeSession() throws RuntimeException {
 		try {
-			Session session = (Session) threadSession.get();
-			threadSession.set(null);
+			
+			
 			if (session != null && session.isOpen()) {
 				session.close();
 			}
