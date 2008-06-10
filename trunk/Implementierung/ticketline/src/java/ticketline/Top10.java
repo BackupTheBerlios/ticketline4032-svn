@@ -191,6 +191,24 @@ public class Top10 extends AbstractPageBean {
     public void setRadioButton1(RadioButton rb) {
         this.radioButton1 = rb;
     }
+    private TableColumn tableColumn2 = new TableColumn();
+
+    public TableColumn getTableColumn2() {
+        return tableColumn2;
+    }
+
+    public void setTableColumn2(TableColumn tc) {
+        this.tableColumn2 = tc;
+    }
+    private StaticText staticText1 = new StaticText();
+
+    public StaticText getStaticText1() {
+        return staticText1;
+    }
+
+    public void setStaticText1(StaticText st) {
+        this.staticText1 = st;
+    }
 
     // </editor-fold>
 

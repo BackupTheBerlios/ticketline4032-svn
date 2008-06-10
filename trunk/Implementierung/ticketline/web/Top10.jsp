@@ -18,21 +18,26 @@
                     </div>
                     <webuijsf:form binding="#{Top10.form1}" id="form1">
                         <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
-                            <webuijsf:table augmentTitle="false" binding="#{Top10.table1}" id="table1"
-                                style="left: 0px; top: 48px; position: absolute; width: 743px" title="Top 10 Veranstaltungen" width="743">
+                            <webuijsf:table augmentTitle="false" binding="#{Top10.table1}" id="table1" style="left: 0px; top: 24px; position: relative;"
+                                title="Top 10 Veranstaltungen" width="743">
                                 <webuijsf:tableRowGroup binding="#{Top10.tableRowGroup1}" emptyDataMsg="Keine Einträge gefunden." id="tableRowGroup1" rows="10"
                                     selected="#{Top10.selectedState}" sourceData="#{Top10.top10}" sourceVar="currentRow">
                                     <webuijsf:tableColumn binding="#{Top10.tableColumn1}" id="tableColumn1"
                                         onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
-                                        <webuijsf:radioButton binding="#{Top10.radioButton1}" id="radioButton1" name="radioButton1" selected="#{Top10.selected}" selectedValue="#{Top10.selectedValue}"/>
+                                        <webuijsf:radioButton binding="#{Top10.radioButton1}" id="radioButton1" label="" name="radioButton1"
+                                            selected="#{Top10.selected}" selectedValue="#{Top10.selectedValue}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{Top10.tableColumn4}" headerText="Veranstaltung" id="tableColumn4">
                                         <webuijsf:staticText binding="#{Top10.staticText5}" id="staticText5" text="#{currentRow.value.comp_id.bezeichnung}"/>
                                     </webuijsf:tableColumn>
+                                    <webuijsf:tableColumn binding="#{Top10.tableColumn2}" headerText="Kategorie" id="tableColumn2">
+                                        <webuijsf:staticText binding="#{Top10.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.kategorie}"/>
+                                    </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
+                            <br/>
                             <webuijsf:button actionExpression="#{Top10.button1_action}" binding="#{Top10.button1}" id="button1"
-                                style="height: 19px; left: -1px; top: 24px; position: absolute; width: 129px" text="Auswählen"/>
+                                style="height: 19px; left: 0px; position: relative; width: 129px" text="Auswählen"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

@@ -154,24 +154,6 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
     public void setStaticText1(StaticText st) {
         this.staticText1 = st;
     }
-    private TableColumn tableColumn3 = new TableColumn();
-
-    public TableColumn getTableColumn3() {
-        return tableColumn3;
-    }
-
-    public void setTableColumn3(TableColumn tc) {
-        this.tableColumn3 = tc;
-    }
-    private StaticText staticText3 = new StaticText();
-
-    public StaticText getStaticText3() {
-        return staticText3;
-    }
-
-    public void setStaticText3(StaticText st) {
-        this.staticText3 = st;
-    }
     private TableColumn tableColumn4 = new TableColumn();
 
     public TableColumn getTableColumn4() {
@@ -207,24 +189,6 @@ public class SearchResultAuffuehrungen extends AbstractPageBean {
 
     public void setStaticText5(StaticText st) {
         this.staticText5 = st;
-    }
-    private TableColumn tableColumn6 = new TableColumn();
-
-    public TableColumn getTableColumn6() {
-        return tableColumn6;
-    }
-
-    public void setTableColumn6(TableColumn tc) {
-        this.tableColumn6 = tc;
-    }
-    private StaticText staticText6 = new StaticText();
-
-    public StaticText getStaticText6() {
-        return staticText6;
-    }
-
-    public void setStaticText6(StaticText st) {
-        this.staticText6 = st;
     }
     private Button buttonSelect = new Button();
 

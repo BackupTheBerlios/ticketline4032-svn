@@ -18,10 +18,8 @@
                     </div>
                     <webuijsf:form binding="#{Products.form1}" id="form1">
                         <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
-                            <webuijsf:button actionExpression="#{Products.button1_action}" binding="#{Products.button1}" id="button1"
-                                style="height: 23px; left: 623px; top: 24px; position: absolute; width: 119px" text="in den Warenkorb"/>
-                            <webuijsf:table augmentTitle="false" binding="#{Products.table1}" id="table1" style="left: 0px; top: 24px; position: absolute"
-                                title="Artikel" width="605">
+                            <webuijsf:table augmentTitle="false" binding="#{Products.table1}" id="table1" style="top: 24px; position: relative;"
+                                title="Artikel" width="740">
                                 <webuijsf:tableRowGroup binding="#{Products.tableRowGroup1}" emptyDataMsg="Keine Produkte." id="tableRowGroup1" rows="10"
                                     selected="#{Products.selectedState}" sourceData="#{Products.artikel}" sourceVar="currentRow">
                                     <webuijsf:tableColumn binding="#{Products.tableColumn2}" id="tableColumn2" 
@@ -43,6 +41,9 @@
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
+                            <br />
+                            <webuijsf:button actionExpression="#{Products.button1_action}" binding="#{Products.button1}" id="button1"
+                                style="height: 23px; position: relative; width: 119px" text="in den Warenkorb"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>
