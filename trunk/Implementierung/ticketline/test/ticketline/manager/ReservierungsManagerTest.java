@@ -7,7 +7,6 @@ package ticketline.manager;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,7 +19,6 @@ import ticketline.dao.interfaces.TransaktionDAO;
 import ticketline.db.Auffuehrung;
 import static org.junit.Assert.*;
 import ticketline.db.AuffuehrungKey;
-import ticketline.db.Belegung;
 import ticketline.db.Bestellung;
 import ticketline.db.Kategorie;
 import ticketline.db.Kunde;
