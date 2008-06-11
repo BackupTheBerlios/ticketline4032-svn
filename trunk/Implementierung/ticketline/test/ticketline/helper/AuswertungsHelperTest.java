@@ -18,7 +18,7 @@ import ticketline.db.VeranstaltungKey;
 
 /**
  *
- * @author RedFalcon
+ * @author Michael Morak, Andreas Weißenbacher
  */
 public class AuswertungsHelperTest {
 
