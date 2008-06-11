@@ -25,22 +25,6 @@ public class AuswertungsHelperTest {
     public AuswertungsHelperTest() {
     }
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of sucheTopTen method, of class AuswertungsHelper.
      */
@@ -67,11 +51,13 @@ public class AuswertungsHelperTest {
         
         VeranstaltungKey veranstaltungKey = new VeranstaltungKey("Donald Duck", "Film");
         
-        //Integer expResult = HibernateSessionFactory.currentSession().createQuery("SELECT SUM(anzverk) FROM Belegung WHERE auffuehrung.veranstaltung.comp_id = '" + veranstaltungKey + "'");
+        List list = HibernateSessionFactory.currentSession().createQuery("SELECT SUM(anzverk) FROM Belegung WHERE auffuehrung.veranstaltung.comp_id.bezeichnung = '" + veranstaltungKey.getBezeichnung() + "' AND auffuehrung.veranstaltung.comp_id.kategorie = '" + veranstaltungKey.getKategorie() + "'").list();
+        
+        int expResult = Integer.parseInt(list.get(0).toString());
         
         Integer result = AuswertungsHelper.berechneBesucherzahl(veranstaltungKey); //AuswertungsHelper.berechneBesucherzahl(veranstaltungKey);
         
-        assertEquals(0, result);
+        assertEquals(expResult, result);
         
     }
 

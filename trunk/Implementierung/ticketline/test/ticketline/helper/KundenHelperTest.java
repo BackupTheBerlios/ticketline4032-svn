@@ -29,14 +29,6 @@ public class KundenHelperTest {
     String query;
     String inhalt;
     Date gueltig;
-    
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
 
     @Before
     public void setUp() {
