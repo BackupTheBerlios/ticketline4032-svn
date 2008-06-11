@@ -19,12 +19,14 @@ import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.model.SingleSelectOptionsList;
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.faces.FacesException;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.event.ValueChangeEvent;
+import ticketline.db.Auffuehrung;
 import ticketline.db.Belegung;
 import ticketline.db.Reihe;
 import ticketline.db.ReiheKey;
@@ -394,6 +396,7 @@ try{
 
     public String getPlatzformat() throws TicketLineException {
         try{
+            Auffuehrung diea=this.getRequestBean1().getAuffuehrung();
         List<Reihe> l=SaalHelper.sucheAlleReihen(this.getRequestBean1().getAuffuehrung().getSaal().getComp_id());
         List<Belegung> bl = ReservierungsManager.sucheBelegungen(this.getRequestBean1().getAuffuehrung().getComp_id());
         this.getSessionBean1().setRes(this.getRequestBean1().getAuffuehrung());
@@ -403,6 +406,7 @@ try{
         Iterator<Reihe> i=l.iterator();
         Iterator<Belegung> ib=bl.iterator();
         String ret="<table style='left: 20px; top: 100px; position: absolute'>";
+        ret="<h2>"+diea.getVeranstaltung().getComp_id().getBezeichnung()+" - "+diea.getSaal().getComp_id().getBezeichnung()+" - "+DateFormat.getDateInstance(DateFormat.LONG).format(diea.getComp_id().getDatumuhrzeit())+"</h2>"+ret;
         String akt=null,prev="";
         int col=10;
         while(i.hasNext()){

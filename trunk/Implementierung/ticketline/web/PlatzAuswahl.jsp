@@ -16,7 +16,7 @@
                     <webuijsf:form binding="#{PlatzAuswahl.form1}" id="form1">
                         <div onLoad="debuttons(true);" style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
                             <webuijsf:staticText binding="#{PlatzAuswahl.staticTextTitle}" id="staticTextTitle"
-                                style="font-size: 30px; left: 240px; top: 0px; position: absolute" text="verfügbare Plätze"/>
+                                style="font-size: 30px; left: 504px; top: 0px; position: absolute" text="verfügbare Plätze"/>
                             <webuijsf:button actionExpression="#{PlatzAuswahl.button1_action}" binding="#{PlatzAuswahl.button1}" id="button1"
                                 style="height: 23px; left: 520px; top: 60px; position: absolute; width: 168px" text="Ausgewählte Plätze reservieren"/>
                             <webuijsf:button actionExpression="#{PlatzAuswahl.button2_action}" binding="#{PlatzAuswahl.button2}" id="button2"
