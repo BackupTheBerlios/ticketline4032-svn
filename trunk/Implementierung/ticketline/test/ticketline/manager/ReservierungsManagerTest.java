@@ -71,7 +71,7 @@ public class ReservierungsManagerTest {
         Auffuehrung auffuehrung = (Auffuehrung) DAOFactory.getAuffuehrungDAO().getAll().get(1);
         AuffuehrungKey auffuehrungsKey = auffuehrung.getComp_id();
         ReiheKey reihe = ((Reihe) ((Kategorie) auffuehrung.getSaal().getKategorien().iterator().next()).getReihen().iterator().next()).getComp_id();
-        BigDecimal preis = new BigDecimal(100);
+
         Integer startplatz = 1;
         Integer anzahl = null;
         String zahlart = "Karte";
@@ -94,7 +94,6 @@ public class ReservierungsManagerTest {
         Auffuehrung auffuehrung = (Auffuehrung) DAOFactory.getAuffuehrungDAO().getAll().get(1);
         AuffuehrungKey auffuehrungsKey = auffuehrung.getComp_id();
         ReiheKey reihe = ((Reihe) ((Kategorie) auffuehrung.getSaal().getKategorien().iterator().next()).getReihen().iterator().next()).getComp_id();
-        BigDecimal preis = new BigDecimal(100);
         Integer startplatz = 1;
         Integer anzahl = 3;
         String zahlart = "Karte";
@@ -125,7 +124,6 @@ public class ReservierungsManagerTest {
         Auffuehrung auffuehrung = (Auffuehrung) DAOFactory.getAuffuehrungDAO().getAll().get(2);
         AuffuehrungKey auffuehrungsKey = auffuehrung.getComp_id();
         ReiheKey reihe = ((Reihe) ((Kategorie) auffuehrung.getSaal().getKategorien().iterator().next()).getReihen().iterator().next()).getComp_id();
-        BigDecimal preis = new BigDecimal(100);
         Integer startplatz = 1;
         Integer anzahl = 4;
         String zahlart = "Karte";

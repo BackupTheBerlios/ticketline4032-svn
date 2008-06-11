@@ -16,8 +16,9 @@
                     <div style="left: 0px; top: 0px; position: absolute">
                         <jsp:directive.include file="MasterFragment.jspf"/>
                     </div>
+                    <div style="left: 192px; top:144px; width: 742px; position: absolute;">
                     <webuijsf:form binding="#{SearchResult.form1}" id="form1" virtualFormsConfig="">
-                        <div style="left: 192px; top: 144px; position: relative; width: 742px">
+                        <div>
                             <webuijsf:hiddenField binding="#{SearchResult.hiddenFieldQuery}" id="hiddenFieldQuery"/>
                             <webuijsf:staticText binding="#{SearchResult.staticTextTitle}" id="staticTextTitle"
                                 style="font-size: 30px; left: 0px; top: 0px; position: absolute" text="Suchergebnisse"/>
@@ -51,12 +52,12 @@
                                 </webuijsf:table>
                                 <br />
                                 <webuijsf:button actionExpression="#{SearchResult.buttonSelectOrt_action}" binding="#{SearchResult.buttonSelectOrt}"
-                                    id="buttonSelectOrt" style="left: 0px; width: 300px; position: relative" text="Veranstaltungen an gewähltem Ort"/>
+                                    id="buttonSelectOrt" style="width: 300px;" text="Veranstaltungen an gewähltem Ort"/>
                             </div>
                             <br />
                             <div>
                                 <webuijsf:table augmentTitle="false" binding="#{SearchResult.table2}" id="table2" paginateButton="true" paginationControls="true"
-                                    style="left: 0px; top: 310px; position: absolute; width: 741px" title="Künstler" width="741">
+                                    style="left: 0px; width: 741px" title="Künstler" width="741">
                                     <webuijsf:tableRowGroup binding="#{SearchResult.tableRowGroup2}"
                                         emptyDataMsg="Es wurden keine Künstler gefunden die Ihrer Suchanfrage entsprechen." id="tableRowGroup2" rows="5"
                                         selected="#{SearchResult.selectedState2}" sourceData="#{SearchResult.kuenstler}" sourceVar="currentRow">
@@ -78,14 +79,15 @@
                                 </webuijsf:table>
                                 <br />
                                 <webuijsf:button actionExpression="#{SearchResult.buttonSelectKuenstler_action}" binding="#{SearchResult.buttonSelectKuenstler}"
-                                    id="buttonSelectKuenstler" style="left: 0px; width: 300px; position: relative" text="Veranstaltungen mit gewähltem Künstler"/>
+                                    id="buttonSelectKuenstler" style="width: 300px;" text="Veranstaltungen mit gewähltem Künstler"/>
                             </div>
                         </div>
                     </webuijsf:form>
                     <br />
-                    <div style="left: 190px; position: relative">
+                    <div>
                         <jsp:directive.include file="VeranstaltungsFragment.jspf"/>
                     </div>
+                </div>
                 </webuijsf:body>
             </webuijsf:html>
         </webuijsf:page>
