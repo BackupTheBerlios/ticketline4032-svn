@@ -186,7 +186,7 @@
 	<file>
 		<id>Bestellung</id>
 		<name>hbm/Bestellung.hbm.xml</name>
-		<field name='datumuhrzeit' type='RandDate2000$5'
+		<field name='datumuhrzeit' type='RandDate2009$5'
 			nullable='false' />
 		<field name='artikelnr' type='' nullable='false' />
 		<field name='kartennr' type='' nullable='false' />
@@ -294,7 +294,7 @@
 	<file>
 		<id>Auffuehrung</id>
 		<name>hbm/Auffuehrung.hbm.xml</name>
-		<field name='datumuhrzeit' type='RandDate1990$10'
+		<field name='datumuhrzeit' type='RandDate2009$10'
 			nullable='false' />
 		<field name='storniert' type='List[true;false]'
 			nullable='false' />
@@ -323,13 +323,13 @@
 			nullable='false' />
 		<field name='kreditkartennr' type='RandInt5000000$1000000'
 			nullable='false' />
-		<field name='kkgueltigbis' type='RandDate2005$1'
+		<field name='kkgueltigbis' type='RandDate2019$1'
 			nullable='false' />
 		<field name='kontostand' type='RandInt10$100' nullable='false' />
 		<field name='kontolimit' type='RandInt10$1000' nullable='false' />
 		<field name='ermaessigung'
 			type='List[0;0.1;0.2;0.3;0.4;0.5;0.6;0.7]' nullable='false' />
-		<field name='tkgueltigbis' type='RandDate2005$1'
+		<field name='tkgueltigbis' type='RandDate2019$1'
 			nullable='false' />
 		<field name='gesperrt' type='List[true;false]' nullable='false' />
 		<field name='onlinepwd' type='RandString7' nullable='false' />
