@@ -33,7 +33,7 @@ public class OrtHelper
      * 
      * sucht Orte die den übergebenen Parametern übersprechen und gibt eine Liste der gefundenen Orte zurück
      * 
-     * throws TicketLineException, TicketLineSystemException 
+     * @throws TicketLineException, TicketLineSystemException 
      */
     
     public static List<Ort> sucheOrte(String bezeichnung, String strasse, String ort,

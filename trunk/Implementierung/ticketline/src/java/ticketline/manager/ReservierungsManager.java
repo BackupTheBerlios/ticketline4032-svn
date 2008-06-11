@@ -73,7 +73,7 @@ public class ReservierungsManager {
      * 
      * sucht übereinstimmende Belegungen und gibt eine Liste der gefundenen Belegungen zurück
      * 
-     * throws TicketLineException, TicketLineSystemException 
+     * @throws TicketLineException, TicketLineSystemException 
      */
     
     public static List<Belegung> sucheBelegungen(AuffuehrungKey auffuehrung) throws TicketLineException, TicketLineSystemException {
@@ -116,7 +116,7 @@ public class ReservierungsManager {
      * 
      * sucht übereinstimmende Belegungen und gibt eine Liste der gefundenen Belegungen zurück
      * 
-     * throws TicketLineException, TicketLineSystemException 
+     * @throws TicketLineException, TicketLineSystemException 
      */
     
     private static List<Belegung> sucheAlleBelegungen(AuffuehrungKey key) throws TicketLineException, TicketLineSystemException {
@@ -155,7 +155,7 @@ public class ReservierungsManager {
      * 
      * Legt eine neue Transaktion (Kauf oder Reservierung) an und gibt diese zurück
      * 
-     * throws TicketLineException, TicketLineSystemException 
+     * @throws TicketLineException, TicketLineSystemException 
      */ 
     public synchronized static Transaktion kaufeTickets(Kunde k, Date zeit, AuffuehrungKey auffuehrungKey, ReiheKey reihe, Integer startplatz,
             Integer anzahl, String zahlart, boolean reservierung) throws TicketLineException, TicketLineSystemException {
@@ -171,7 +171,7 @@ public class ReservierungsManager {
                 Ort ort = ortDAO.get(ortKey);
 
                 TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
-                TransaktionKey transaktionKey = new TransaktionKey(zeit, k.getKartennr(), 2);
+                TransaktionKey transaktionKey = new TransaktionKey(zeit, k.getKartennr(), 1);
 
                 Auffuehrung auffuehrung = DAOFactory.getAuffuehrungDAO().get(auffuehrungKey);
                 Kategorie kategorie = belegung.getReihe().getKategorie();
@@ -219,7 +219,7 @@ public class ReservierungsManager {
      * 
      * Storniert eine Reservierung - gibt nichts zurück
      * 
-     * throws TicketLineException, TicketLineSystemException 
+     * @throws TicketLineException, TicketLineSystemException 
      */
     
     public synchronized static void storniereReservierung(TransaktionKey reservierung) throws TicketLineException, TicketLineSystemException {
@@ -251,6 +251,8 @@ public class ReservierungsManager {
       * @return Liste der gefundenen Transaktionen
       * 
       * Sucht anhand der übergebenen Parameter die Reservierungen und gibt eine Liste der Transaktionen zurück
+      * 
+      * @throws TicketLineException, TicketLineSystemException
      */
     
     public static List<Transaktion> sucheReservierungen(Kunde k, Date zeitVon, Date zeitBis, String reihenBezeichnung,
@@ -322,7 +324,7 @@ public class ReservierungsManager {
      * 
      * kauft Werbematerial - gibt nichts zurück
      * 
-     * throws TicketLineException, TicketLineSystemException
+     * @throws TicketLineException, TicketLineSystemException
      */
     
     public synchronized static void kaufeWerbematerial(Kunde kunde, Bestellung bestellung) throws TicketLineException, TicketLineSystemException {
@@ -350,7 +352,7 @@ public class ReservierungsManager {
      * 
      * kauft Werbematerial - gibt nichts zurück
      * 
-     * throws TicketLineException, TicketLineSystemException
+     * @throws TicketLineException, TicketLineSystemException
      */
     
     public synchronized static void kaufeReservierung(TransaktionKey transaktionKey) throws TicketLineException, TicketLineSystemException {
@@ -386,9 +388,9 @@ public class ReservierungsManager {
      * 
      * verändert in einer Belegung den Status der Plätze und je nach Bedarf die Anzahl der verkauften, freien und reservierten Plätze - gibt nichts zurück
      * 
-     * throws TicketLineException, TicketLineSystemException
+     * @throws TicketLineException, TicketLineSystemException
      */
-    private synchronized static void editiereBelegung(BelegungKey belegungKey, int startplatz, int anzahl, char editMode, Boolean kaufeReservierung) throws TicketLineSystemException {
+    private synchronized static void editiereBelegung(BelegungKey belegungKey, int startplatz, int anzahl, char editMode, Boolean kaufeReservierung) throws TicketLineException, TicketLineSystemException {
         try {
             if (editMode == 'F' || editMode == 'R' || editMode == 'V') {
                 BelegungDAO belegungDAO = DAOFactory.getBelegungDAO();
@@ -409,7 +411,7 @@ public class ReservierungsManager {
                         if (temp[startplatz + i] == 'R') {
                             temp[startplatz + i] = editMode;
                         } else {
-                            throw new TicketLineSystemException("Stornierungsfehler!");
+                            throw new TicketLineException("Stornierungsfehler!");
                         }
                     }
 //                log.info(plaetze);
@@ -429,7 +431,7 @@ public class ReservierungsManager {
                         if (temp[startplatz + i] == 'F') {
                             temp[startplatz + i] = editMode;
                         } else {
-                            throw new TicketLineSystemException("Reservierungsfehler!");
+                            throw new TicketLineException("Reservierungsfehler!");
                         }
                     }
 //                log.info(plaetze);
@@ -451,7 +453,7 @@ public class ReservierungsManager {
                             if (temp[startplatz + i] == 'R') {
                                 temp[startplatz + i] = editMode;
                             } else {
-                                throw new TicketLineSystemException("Reservierungskauffehler!");
+                                throw new TicketLineException("Reservierungskauffehler!");
                             }
                         }
 //                log.info(plaetze);
@@ -469,7 +471,7 @@ public class ReservierungsManager {
                             if (temp[startplatz + i] == 'F') {
                                 temp[startplatz + i] = editMode;
                             } else {
-                                throw new TicketLineSystemException("Kauffehler!");
+                                throw new TicketLineException("Kauffehler!");
                             }
                         }
 //                log.info(plaetze);
