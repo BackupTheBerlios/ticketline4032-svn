@@ -54,7 +54,7 @@
                 <webuijsf:button actionExpression="#{MasterFragment.buttonSearch_action}" binding="#{MasterFragment.buttonSearch}" id="buttonSearch"
                     style="height: 20px; left: 869px; top: 93px; position: absolute; width: 59px" text="Suchen"/>
                 <webuijsf:hyperlink binding="#{MasterFragment.hyperlink3}" id="hyperlink3" style="left: 170px; top: 100px; position: absolute" text="Hauptseite" url="/faces/MainPage.jsp"/>
-                <webuijsf:hyperlink binding="#{MasterFragment.hyperlink8}" id="hyperlink8" style="left: 440px; top: 100px; position: absolute" text="Hilfe" url="/resources/hilfe.htm"/>
+                <webuijsf:hyperlink binding="#{MasterFragment.hyperlink8}" id="hyperlink8" style="left: 440px; top: 100px; position: absolute" text="Hilfe" url="/resources/hilfe.htm" target="_blank"/>
             </webuijsf:form>
         </webuijsf:panelLayout>
         <webuijsf:image binding="#{MasterFragment.imageLeftEnd}" id="imageLeftEnd" style="left: 10px; top: 500px; position: absolute"
