@@ -7,10 +7,6 @@ package ticketline.manager;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import ticketline.dao.DAOFactory;
 import ticketline.dao.interfaces.BestellungDAO;
@@ -37,25 +33,6 @@ public class ReservierungsManagerTest {
 
     public ReservierungsManagerTest() {
     }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
-
-
-    
 
     /**
      * Test of kaufeTickets method, of class ReservierungsManager.

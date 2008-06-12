@@ -6,10 +6,6 @@
 package ticketline.helper;
 
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import ticketline.dao.hibernate.HibernateSessionFactory;
 import static org.junit.Assert.*;
