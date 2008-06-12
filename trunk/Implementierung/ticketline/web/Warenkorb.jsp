@@ -21,7 +21,7 @@
                             onClick="javascript:confirm('Wollen sie die Artikel kaufen?');"
                             style="height: 20px; left: 311px; top: 144px; position: absolute; width: 119px" text="Kaufen"/>
                         <webuijsf:table augmentTitle="false" binding="#{Warenkorb.table1}" id="table1" style="left: 192px; top: 168px; position: absolute"
-                            title="Table" width="744">
+                            title="Warenkorb" width="744">
                             <webuijsf:tableRowGroup binding="#{Warenkorb.tableRowGroup1}" emptyDataMsg="Keine Produkte." id="tableRowGroup1" rows="10"
                                 selected="#{Warenkorb.selectedState}" sourceData="#{SessionBean1.warenkorb}" sourceVar="currentRow">
                                 <webuijsf:tableColumn binding="#{Warenkorb.tableColumn2}" id="tableColumn2"
