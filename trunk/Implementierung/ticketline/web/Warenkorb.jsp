@@ -41,7 +41,8 @@
                                 <webuijsf:tableColumn binding="#{Warenkorb.tableColumn3}" headerText="Stück" id="tableColumn3" width="20">
                                     <webuijsf:staticText binding="#{Warenkorb.staticText4}" id="staticText4" text="#{Warenkorb.stueck}"/>
                                 </webuijsf:tableColumn>
-                                <webuijsf:tableColumn align="right" binding="#{Warenkorb.tableColumn6}" headerText="Preis €" id="tableColumn6" sort="preis" width="50">
+                                <webuijsf:tableColumn align="right" binding="#{Warenkorb.tableColumn6}" headerText="Preis € / Stück" id="tableColumn6"
+                                    sort="preis" width="100">
                                     <webuijsf:staticText binding="#{Warenkorb.staticText6}" id="staticText6" text="#{currentRow.value['preis']}"/>
                                 </webuijsf:tableColumn>
                             </webuijsf:tableRowGroup>

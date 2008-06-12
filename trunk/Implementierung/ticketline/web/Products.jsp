@@ -23,10 +23,10 @@
                                     selected="#{Products.selectedState}" sourceData="#{Products.artikel}" sourceVar="currentRow">
                                     <webuijsf:tableColumn binding="#{Products.tableColumn2}" id="tableColumn2"
                                         onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
-                                        <webuijsf:radioButton binding="#{Products.radioButton1}" id="radioButton1" name="radioButton1"
+                                        <webuijsf:radioButton binding="#{Products.radioButton1}" id="radioButton1" label="" name="radioButton1"
                                             selected="#{Products.selected}" selectedValue="#{Products.selectedValue}"/>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn binding="#{Products.tableColumn4}" headerText="Typ" id="tableColumn4" sort="kurzbezeichnung" width="50">
+                                    <webuijsf:tableColumn binding="#{Products.tableColumn4}" headerText="Typ" id="tableColumn4" sort="kurzbezeichnung" width="70">
                                         <webuijsf:staticText binding="#{Products.staticText1}" id="staticText1" text="#{currentRow.value['kurzbezeichnung']}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{Products.tableColumn5}" headerText="Veranstaltung" id="tableColumn5" width="150">
@@ -35,7 +35,7 @@
                                     <webuijsf:tableColumn binding="#{Products.tableColumn1}" headerText="Beschreibung" id="tableColumn1" sort="beschreibung">
                                         <webuijsf:staticText binding="#{Products.staticText2}" id="staticText2" text="#{currentRow.value['beschreibung']}"/>
                                     </webuijsf:tableColumn>
-                                    <webuijsf:tableColumn align="right" binding="#{Products.tableColumn6}" headerText="Preis €" id="tableColumn6" sort="preis" width="50">
+                                    <webuijsf:tableColumn align="right" binding="#{Products.tableColumn6}" headerText="Preis €" id="tableColumn6" sort="preis" width="70">
                                         <webuijsf:staticText binding="#{Products.staticText6}" id="staticText6" text="#{currentRow.value['preis']}"/>
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>

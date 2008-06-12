@@ -372,6 +372,8 @@ public class Products extends AbstractPageBean {
         try
         {
             v = Integer.valueOf((String)this.textField1.getText());
+            
+            if (v < 1) throw new Exception("");
         }
         catch(Exception e)
         {

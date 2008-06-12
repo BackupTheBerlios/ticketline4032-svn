@@ -605,7 +605,7 @@ public class ManageAccount extends AbstractPageBean
         return (ApplicationBean1) getBean("ApplicationBean1");
     }
 
-    public String buttonSave_action() 
+    public String buttonSave_action()
     {        
         if (this.getSessionBean1().getLogin() == null) return "logout";
         
@@ -616,8 +616,21 @@ public class ManageAccount extends AbstractPageBean
         if(this.textBankNumber.getText() != null) k.setBlz(this.textBankNumber.getText().toString());
         else k.setBlz(null);
         
-        if(this.textEmail.getText() != null) k.setEmail(this.textEmail.getText().toString());
-        else k.setEmail(null);
+        
+        try {
+            if (this.textEmail.getText() != null) {
+                if (((String) this.textEmail.getText()).matches("[a-zA-Z0-9]+[\\.\\-_]?[a-zA-Z0-9]+[@][a-zA-Z0-9]+[\\.][a-zA-Z]+")){
+                    k.setEmail(this.textEmail.getText().toString());
+                } else {
+                    throw new Exception("ungueltige e-Mail-Adresse");
+                }
+            } else {
+                k.setEmail(null);
+            }
+        } catch (Exception ex) {
+            this.staticTextMessage.setText("Es wurde eine ungültige e-Mail-Adresse eingegeben!");
+            return null;
+        }
 
         try
         {
@@ -687,8 +700,21 @@ public class ManageAccount extends AbstractPageBean
         if(this.textCity.getText() != null) k.setOrt(this.textCity.getText().toString());
         else k.setOrt(null);
         
-        if(this.textZIP.getText() != null) k.setPlz(this.textZIP.getText().toString());
-        else k.setPlz(null);
+        try {
+            if (this.textZIP.getText() != null) {
+                if (((String) this.textZIP.getText()).length() == 4) {
+                    Integer.parseInt(((String) this.textZIP.getText()));
+                    k.setPlz(this.textZIP.getText().toString());
+                } else {
+                    throw new Exception("ungueltige Postleitzahl");
+                }
+            } else {
+                k.setPlz(null);
+            }
+        } catch (Exception ex) {
+            this.staticTextMessage.setText("Es wurde eine ungültige Postleitzahl (ungleich 4 Zeichen) eingegeben!");
+            return null;
+        }
         
         if(this.textStreet.getText() != null) k.setStrasse(this.textStreet.getText().toString());
         else k.setStrasse(null);
@@ -727,6 +753,7 @@ public class ManageAccount extends AbstractPageBean
             loggedIn.setVorlieben(k.getVorlieben());
             
             KundenHelper.speichern(loggedIn);
+            this.staticTextMessage.setText("");
             return "saved";
         }
         catch(TicketLineSystemException e)
