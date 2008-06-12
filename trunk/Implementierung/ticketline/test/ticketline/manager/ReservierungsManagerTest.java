@@ -5,7 +5,6 @@
 
 package ticketline.manager;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import org.junit.Test;
 import ticketline.dao.DAOFactory;
@@ -45,7 +44,7 @@ public class ReservierungsManagerTest {
         KundeDAO kundeDAO = DAOFactory.getKundeDAO();
         Kunde kunde = kundeDAO.get(1);
         Date zeit = new Date();
-        Auffuehrung auffuehrung = (Auffuehrung) DAOFactory.getAuffuehrungDAO().getAll().get(1);
+        Auffuehrung auffuehrung = (Auffuehrung) DAOFactory.getAuffuehrungDAO().getAll().get(0);
         AuffuehrungKey auffuehrungsKey = auffuehrung.getComp_id();
         ReiheKey reihe = ((Reihe) ((Kategorie) auffuehrung.getSaal().getKategorien().iterator().next()).getReihen().iterator().next()).getComp_id();
 
@@ -66,12 +65,12 @@ public class ReservierungsManagerTest {
         TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
         int anzTransStart = transaktionDAO.find("storniert is 'false'").size();
         KundeDAO kundeDAO = DAOFactory.getKundeDAO();
-        Kunde kunde = kundeDAO.get(1);
+        Kunde kunde = kundeDAO.get(2);
         Date zeit = new Date();
-        Auffuehrung auffuehrung = (Auffuehrung) DAOFactory.getAuffuehrungDAO().getAll().get(1);
+        Auffuehrung auffuehrung = (Auffuehrung) DAOFactory.getAuffuehrungDAO().getAll().get(3);
         AuffuehrungKey auffuehrungsKey = auffuehrung.getComp_id();
         ReiheKey reihe = ((Reihe) ((Kategorie) auffuehrung.getSaal().getKategorien().iterator().next()).getReihen().iterator().next()).getComp_id();
-        Integer startplatz = 1;
+        Integer startplatz = 4;
         Integer anzahl = 3;
         String zahlart = "Karte";
         boolean reservierung = true;
@@ -79,14 +78,14 @@ public class ReservierungsManagerTest {
         System.out.println("Die reservierungsnummer lautet: " + result);
         int anzTransRes = transaktionDAO.find("storniert is 'false'").size();
         assertTrue(anzTransStart+1 == anzTransRes);
+        assertFalse(result.isStorniert());
         System.out.println(anzTransStart+1 + " zu "+ anzTransRes);
         TransaktionKey transaktionKey = ((Transaktion)DAOFactory.getTransaktionDAO().find("resnr is " + result.getResnr()).get(0)).getComp_id();
         ReservierungsManager.storniereReservierung(transaktionKey);
         int anzTransStor = transaktionDAO.find("storniert is 'false'").size();
         System.out.println(anzTransStart + " zu "+ anzTransStor);
         assertTrue(anzTransStart==anzTransStor);
-        
-        System.out.println("Ende des Funktionstests");
+        assertTrue(result.isStorniert());
         
     }
 
@@ -96,25 +95,27 @@ public class ReservierungsManagerTest {
         TransaktionDAO transaktionDAO = DAOFactory.getTransaktionDAO();
         int anzTransStart = transaktionDAO.find("storniert is 'false'").size();
         KundeDAO kundeDAO = DAOFactory.getKundeDAO();
-        Kunde kunde = kundeDAO.get(1);
+        Kunde kunde = kundeDAO.get(2);
         Date zeit = new Date();
-        Auffuehrung auffuehrung = (Auffuehrung) DAOFactory.getAuffuehrungDAO().getAll().get(2);
+        Auffuehrung auffuehrung = (Auffuehrung) DAOFactory.getAuffuehrungDAO().getAll().get(1);
         AuffuehrungKey auffuehrungsKey = auffuehrung.getComp_id();
         ReiheKey reihe = ((Reihe) ((Kategorie) auffuehrung.getSaal().getKategorien().iterator().next()).getReihen().iterator().next()).getComp_id();
-        Integer startplatz = 1;
-        Integer anzahl = 4;
+        Integer startplatz = 2;
+        Integer anzahl = 1;
         String zahlart = "Karte";
         boolean reservierung = true;
         Transaktion result = ReservierungsManager.kaufeTickets(kunde, zeit, auffuehrungsKey, reihe, startplatz, anzahl, zahlart, reservierung);
         System.out.println("Die reservierungsnummer lautet: " + result);
         int anzTransRes = transaktionDAO.find("storniert is 'false'").size();
         assertTrue(anzTransStart+1 == anzTransRes);
+        assertFalse(result.isStorniert());
         System.out.println(anzTransStart+1 + " zu "+ anzTransRes);
         TransaktionKey transaktionKey = ((Transaktion)DAOFactory.getTransaktionDAO().find("resnr is " + result.getResnr()).get(0)).getComp_id();
         ReservierungsManager.storniereReservierung(transaktionKey);
         int anzTransStor = transaktionDAO.find("storniert is 'false'").size();
         System.out.println(anzTransStart + " zu "+ anzTransStor);
         assertTrue(anzTransStart==anzTransStor);
+        assertTrue(result.isStorniert());
         
         System.out.println("Ende des Funktionstests");
         
