@@ -452,11 +452,11 @@ public class PlatzAuswahl extends AbstractPageBean {
                         col=(col+10)%90+10;
                     }
                     ret+="<tr>";
-                    ret+="<th style='width:100px; background-color:#"+col+"C0"+col+"'>"+r.getKategorie().getComp_id().getBezeichnung()+"</th>";
-                    ret+="<th style='width:100px; background-color:#"+col+"C0"+col+"'>"+r.getComp_id().getBezeichnung()+"</th>";
+                    ret+="<th style='padding:3px; background-color:#"+col+"C0"+col+"'>"+r.getKategorie().getComp_id().getBezeichnung().toString().replace(" ","&nbsp;")+"</th>";
+                    ret+="<th style='padding:3px; background-color:#"+col+"C0"+col+"'>"+r.getComp_id().getBezeichnung()+"</th>";
                    for(int i2=1;i2<=r.getAnzplaetze();i2++){
                        if(b.getBelegung().substring(i2-1,i2).equals("F")){
-                         ret+="<td style='background-color:#F0F0F0;'>"+
+                         ret+="<td style='background-color:#F0F0F0;height:15px;width:15px;'>"+
                                "<input  onClick='resClick(this)' style='height:10px;width:10px;' type='radio' class='Radio' name='abutton' "
                                 + "value='"+r.getKategorie().getComp_id().getBezeichnung()+":"+r.getComp_id().getBezeichnung()+":"+i2+"'"
                                 + "/>" 
@@ -491,10 +491,10 @@ public class PlatzAuswahl extends AbstractPageBean {
 
                      +"var count=parseInt(anzahl.options[anzahl.selectedIndex].value);" 
                      +"element=element.parentNode;"
-                     +"for(var z=0;z<count;z++){"
-                     +"if(element==null){alert('Ausserhalb des Bereichs');debuttons(true);}"
-                     +"else if(element.tagName!='TD'){alert('Ausserhalb des Bereichs');debuttons(true);}"
-                     +"else if(element.firstChild.tagName!='INPUT'){alert('Reserviert');debuttons(true); }"
+                     +"for(var z=0;z<count;z++){ var schonmal=true;"
+                     +"if(element==null){if(schonmal){alert('Die Auswahl ist ausserhalb des Bereichs!');schonmal=false;}debuttons(true);}"
+                     +"else if(element.tagName!='TD'){if(schonmal){alert('Die Auswahl ist ausserhalb des Bereichs!');schonmal=false;}debuttons(true);}"
+                     +"else if(element.firstChild.tagName!='INPUT'){if(schonmal){alert('Dieser Platz ist reserviert!');schonmal=false;}debuttons(true); }"
 
                     +"element.style.backgroundColor = '#cc0000';"
                      +"element=element.nextSibling;"
