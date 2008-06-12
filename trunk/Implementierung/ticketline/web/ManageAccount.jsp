@@ -68,7 +68,7 @@
                                 style="height: 20px; left: 310px; top: 110px; position: absolute; width: 117px" text="Neues Passwort"/>
                             <webuijsf:passwordField binding="#{ManageAccount.passwordNew}" id="passwordNew" style="height: 20px; left: 460px; top: 110px; position: absolute; width: 117px"/>
                             <webuijsf:label binding="#{ManageAccount.labelPasswordRepeat}" id="labelPasswordRepeat"
-                                style="height: 20px; left: 310px; top: 130px; position: absolute; width: 117px" text="Neues Passwort"/>
+                                style="height: 20px; left: 310px; top: 130px; position: absolute; width: 143px" text="Passwort wiederholen"/>
                             <webuijsf:passwordField binding="#{ManageAccount.passwordRepeat}" id="passwordRepeat" style="height: 20px; left: 460px; top: 130px; position: absolute; width: 117px"/>
                             <webuijsf:button actionExpression="#{ManageAccount.buttonSave_action}" binding="#{ManageAccount.buttonSave}" id="buttonSave"
                                 style="height: 20px; left: 9px; top: 390px; position: absolute; width: 117px" text="Speichern"/>
