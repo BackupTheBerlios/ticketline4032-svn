@@ -15,6 +15,7 @@ import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.HiddenField;
 import com.sun.webui.jsf.component.Html;
 import com.sun.webui.jsf.component.ImageComponent;
+import com.sun.webui.jsf.component.Label;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.StaticText;
@@ -246,6 +247,15 @@ public class PlatzAuswahl extends AbstractPageBean {
     public void setDropDown1DefaultOptions(SingleSelectOptionsList ssol) {
         this.dropDown1DefaultOptions = ssol;
     }
+    private Label label1 = new Label();
+
+    public Label getLabel1() {
+        return label1;
+    }
+
+    public void setLabel1(Label l) {
+        this.label1 = l;
+    }
 
     // </editor-fold>
 
@@ -354,42 +364,45 @@ public class PlatzAuswahl extends AbstractPageBean {
     }
 
     public String button2_action() throws TicketLineException {
-                String clicked=this.getStartplatz().getValue().toString();
-        String split[]=clicked.split(":");
-        SessionBean1 sb=this.getSessionBean1();
-       SaalKey sk=sb.getRes().getSaal().getComp_id();
-try{
-       this.getRequestBean1().setTransaktion(ReservierungsManager.kaufeTickets(sb.getLogin(), 
-                new Date(System.currentTimeMillis()), 
-                sb.getRes().getComp_id(),
-                new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
-                new Integer(this.getAnzahl().getValue().toString()),
-                this.getZahlart().getValue().toString()       , false));
-    
-        return "buy";
-}catch(Exception e){
-    
-    return "stay";
-}
+        try{
+            if(this.getSessionBean1().getLogin() == null) throw new Exception();
+            String clicked=this.getStartplatz().getValue().toString();
+            String split[]=clicked.split(":");
+            SessionBean1 sb=this.getSessionBean1();
+           SaalKey sk=sb.getRes().getSaal().getComp_id();
+           this.getRequestBean1().setTransaktion(ReservierungsManager.kaufeTickets(sb.getLogin(), 
+                    new Date(System.currentTimeMillis()), 
+                    sb.getRes().getComp_id(),
+                    new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
+                    new Integer(this.getAnzahl().getValue().toString()),
+                    this.getZahlart().getValue().toString()       , false));
+
+            return "buy";
+        }catch(Exception e){
+            this.label1.setText("Sie sind nicht eingeloggt, oder es wurde eine ungültige Auswahl getroffen!");
+            return "stay";
+        }
     }
 
     public String button1_action() throws TicketLineException {
-    try{
-        String clicked=this.getStartplatz().getValue().toString();
-        String split[]=clicked.split(":");
-        SessionBean1 sb=this.getSessionBean1();
-       SaalKey sk=sb.getRes().getSaal().getComp_id();
-        this.getRequestBean1().setTransaktion(ReservierungsManager.kaufeTickets(sb.getLogin(), 
-                new Date(System.currentTimeMillis()), 
-                sb.getRes().getComp_id(),
-                new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
-                new Integer(this.getAnzahl().getValue().toString()),
-                this.getZahlart().getValue().toString()       , true));
-        return "book";
-    }
-    catch(Exception e){
-        return "stay";
-    }
+        try{
+            if(this.getSessionBean1().getLogin() == null) throw new Exception();
+            String clicked=this.getStartplatz().getValue().toString();
+            String split[]=clicked.split(":");
+            SessionBean1 sb=this.getSessionBean1();
+           SaalKey sk=sb.getRes().getSaal().getComp_id();
+            this.getRequestBean1().setTransaktion(ReservierungsManager.kaufeTickets(sb.getLogin(), 
+                    new Date(System.currentTimeMillis()), 
+                    sb.getRes().getComp_id(),
+                    new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
+                    new Integer(this.getAnzahl().getValue().toString()),
+                    this.getZahlart().getValue().toString()       , true));
+            return "book";
+        }
+        catch(Exception e){
+            this.label1.setText("Sie sind nicht eingeloggt, oder es wurde eine ungültige Auswahl getroffen!");
+            return "stay";
+        }
     }
     
     private String platzformat;
@@ -397,82 +410,83 @@ try{
     public String getPlatzformat() throws TicketLineException {
         try{
             Auffuehrung diea=this.getRequestBean1().getAuffuehrung();
-        List<Reihe> l=SaalHelper.sucheAlleReihen(this.getRequestBean1().getAuffuehrung().getSaal().getComp_id());
-        List<Belegung> bl = ReservierungsManager.sucheBelegungen(this.getRequestBean1().getAuffuehrung().getComp_id());
-        this.getSessionBean1().setRes(this.getRequestBean1().getAuffuehrung());
-        if(l == null)
-            return "Keine Plätze gefunden!";
-        
-        Iterator<Reihe> i=l.iterator();
-        Iterator<Belegung> ib=bl.iterator();
-        String ret="<table style='left: 20px; top: 100px; position: absolute'>";
-        ret="<h2>"+diea.getVeranstaltung().getComp_id().getBezeichnung()+" - "+diea.getSaal().getComp_id().getBezeichnung()+" - "+DateFormat.getDateInstance(DateFormat.LONG).format(diea.getComp_id().getDatumuhrzeit())+"</h2>"+ret;
-        String akt=null,prev="";
-        int col=10;
-        while(i.hasNext()){
-            Reihe r=i.next();
-            Belegung b=ib.next();
-            akt=r.getKategorie().getComp_id().getBezeichnung();
-                if(!prev.equals(akt)){
-                    prev=akt;
-                    ret+="<tr/>";
-                    col=(col+10)%90+10;
+            if(diea == null) diea = this.getSessionBean1().getRes();
+            List<Reihe> l=SaalHelper.sucheAlleReihen(diea.getSaal().getComp_id());
+            List<Belegung> bl = ReservierungsManager.sucheBelegungen(diea.getComp_id());
+            this.getSessionBean1().setRes(diea);
+            if(l == null)
+                return "Keine Plätze gefunden!";
+
+            Iterator<Reihe> i=l.iterator();
+            Iterator<Belegung> ib=bl.iterator();
+            String ret="<table style='left: 20px; top: 100px; position: absolute'>";
+            ret="<h2>"+diea.getVeranstaltung().getComp_id().getBezeichnung()+" - "+diea.getSaal().getComp_id().getBezeichnung()+" - "+DateFormat.getDateInstance(DateFormat.LONG).format(diea.getComp_id().getDatumuhrzeit())+"</h2>"+ret;
+            String akt=null,prev="";
+            int col=10;
+            while(i.hasNext()){
+                Reihe r=i.next();
+                Belegung b=ib.next();
+                akt=r.getKategorie().getComp_id().getBezeichnung();
+                    if(!prev.equals(akt)){
+                        prev=akt;
+                        ret+="<tr/>";
+                        col=(col+10)%90+10;
+                    }
+                    ret+="<tr>";
+                    ret+="<th style='width:100px; background-color:#"+col+"C0"+col+"'>"+r.getKategorie().getComp_id().getBezeichnung()+"</th>";
+                    ret+="<th style='width:100px; background-color:#"+col+"C0"+col+"'>"+r.getComp_id().getBezeichnung()+"</th>";
+                   for(int i2=1;i2<=r.getAnzplaetze();i2++){
+                       if(b.getBelegung().substring(i2-1,i2).equals("F")){
+                         ret+="<td style='background-color:#F0F0F0;'>"+
+                               "<input  onClick='resClick(this)' style='height:10px;width:10px;' type='radio' class='Radio' name='abutton' "
+                                + "value='"+r.getKategorie().getComp_id().getBezeichnung()+":"+r.getComp_id().getBezeichnung()+":"+i2+"'"
+                                + "/>" 
+                                + "</td>" ;
+                       }
+
+                       else{
+                        ret+="<td style='background-color:#F0F0F0;'>"+
+                                b.getBelegung().substring(i2-1,i2)
+                                +"</td>";
+                       }
+                    }
+                    ret+="</tr>";
                 }
-                ret+="<tr>";
-                ret+="<th style='width:100px; background-color:#"+col+"C0"+col+"'>"+r.getKategorie().getComp_id().getBezeichnung()+"</th>";
-                ret+="<th style='width:100px; background-color:#"+col+"C0"+col+"'>"+r.getComp_id().getBezeichnung()+"</th>";
-               for(int i2=1;i2<=r.getAnzplaetze();i2++){
-                   if(b.getBelegung().substring(i2-1,i2).equals("F")){
-                     ret+="<td style='background-color:#F0F0F0;'>"+
-                           "<input  onClick='resClick(this)' style='height:10px;width:10px;' type='radio' class='Radio' name='abutton' "
-                            + "value='"+r.getKategorie().getComp_id().getBezeichnung()+":"+r.getComp_id().getBezeichnung()+":"+i2+"'"
-                            + "/>" 
-                            + "</td>" ;
-                   }
-                   
-                   else{
-                    ret+="<td style='background-color:#F0F0F0;'>"+
-                            b.getBelegung().substring(i2-1,i2)
-                            +"</td>";
-                   }
-                }
-                ret+="</tr>";
-            }
-            
-        ret+="</table>";
-          
-        ret="<script type='text/javascript'>"
-                +"function debuttons(ak){"
-                +"document.getElementById('form1:button1').disabled=ak; "
-                +"document.getElementById('form1:button2').disabled=ak; "
-                +"}"
-                +"function resClick(element) {"
-                +"debuttons(false);"
-                +"var tds=document.getElementsByTagName('td');"
-                +"for(var k=0;k<tds.length;k++){ "
-                +"tds[k].style.backgroundColor='#F0F0F0';"
-                +"}"
-                +"var anzahl=document.getElementById('form1:anzahl_list');"
-                +"var startplatz=document.getElementById('form1:startplatz');"
-                +"startplatz.setAttribute('value',element.getAttribute('value'));"
-                
-                 +"var count=parseInt(anzahl.options[anzahl.selectedIndex].value);" 
-                 +"element=element.parentNode;"
-                 +"for(var z=0;z<count;z++){"
-                 +"if(element==null){alert('Ausserhalb des Bereichs');debuttons(true);}"
-                 +"else if(element.tagName!='TD'){alert('Ausserhalb des Bereichs');debuttons(true);}"
-                 +"else if(element.firstChild.tagName!='INPUT'){alert('Reserviert');debuttons(true); }"
-                 
-                +"element.style.backgroundColor = '#cc0000';"
-                 +"element=element.nextSibling;"
-                +"}}"
-                +"debuttons(true);"
-                +"</script>"
-                +ret;
-        
-        return ret;
+
+            ret+="</table>";
+
+            ret="<script type='text/javascript'>"
+                    +"function debuttons(ak){"
+                    +"document.getElementById('form1:button1').disabled=ak; "
+                    +"document.getElementById('form1:button2').disabled=ak; "
+                    +"}"
+                    +"function resClick(element) {"
+                    +"debuttons(false);"
+                    +"var tds=document.getElementsByTagName('td');"
+                    +"for(var k=0;k<tds.length;k++){ "
+                    +"tds[k].style.backgroundColor='#F0F0F0';"
+                    +"}"
+                    +"var anzahl=document.getElementById('form1:anzahl_list');"
+                    +"var startplatz=document.getElementById('form1:startplatz');"
+                    +"startplatz.setAttribute('value',element.getAttribute('value'));"
+
+                     +"var count=parseInt(anzahl.options[anzahl.selectedIndex].value);" 
+                     +"element=element.parentNode;"
+                     +"for(var z=0;z<count;z++){"
+                     +"if(element==null){alert('Ausserhalb des Bereichs');debuttons(true);}"
+                     +"else if(element.tagName!='TD'){alert('Ausserhalb des Bereichs');debuttons(true);}"
+                     +"else if(element.firstChild.tagName!='INPUT'){alert('Reserviert');debuttons(true); }"
+
+                    +"element.style.backgroundColor = '#cc0000';"
+                     +"element=element.nextSibling;"
+                    +"}}"
+                    +"debuttons(true);"
+                    +"</script>"
+                    +ret;
+
+            return ret;
         }catch(Exception e){
-            return "<div style='left: 20px; top: 160px; position: absolute'><h2 >Fehler</h2> Das Ticket wurde von einem Anderen benutzer schon gekauft oder Sie haben keinen Platz ausgewählt</div>";
+            return "<div style='left: 20px; top: 160px; position: absolute'><h2 >Fehler</h2> Das Ticket wurde von einem anderen Benutzer schon gekauft oder Sie haben keinen Platz ausgewählt.</div>";
         }
     }
 

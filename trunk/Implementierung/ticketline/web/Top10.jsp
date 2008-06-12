@@ -17,8 +17,8 @@
                         <jsp:directive.include file="MasterFragment.jspf"/>
                     </div>
                     <webuijsf:form binding="#{Top10.form1}" id="form1">
-                        <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
-                            <webuijsf:table augmentTitle="false" binding="#{Top10.table1}" id="table1" style="left: 0px; top: 24px; position: relative;"
+                        <div style="height: 478px; left: 192px; top: 144px; position: absolute; width: 750px">
+                            <webuijsf:table augmentTitle="false" binding="#{Top10.table1}" id="table1"
                                 title="Top 10 Veranstaltungen" width="743">
                                 <webuijsf:tableRowGroup binding="#{Top10.tableRowGroup1}" emptyDataMsg="Keine Einträge gefunden." id="tableRowGroup1" rows="10"
                                     selected="#{Top10.selectedState}" sourceData="#{Top10.top10}" sourceVar="currentRow">
@@ -37,7 +37,7 @@
                             </webuijsf:table>
                             <br/>
                             <webuijsf:button actionExpression="#{Top10.button1_action}" binding="#{Top10.button1}" id="button1"
-                                style="height: 19px; left: 0px; position: relative; width: 129px" text="Auswählen"/>
+                                style="height: 19px; width: 129px" text="Auswählen"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

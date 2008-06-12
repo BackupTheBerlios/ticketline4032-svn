@@ -97,24 +97,6 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
     public void setStaticText2(StaticText st) {
         this.staticText2 = st;
     }
-    private TableColumn tableColumn3 = new TableColumn();
-
-    public TableColumn getTableColumn3() {
-        return tableColumn3;
-    }
-
-    public void setTableColumn3(TableColumn tc) {
-        this.tableColumn3 = tc;
-    }
-    private StaticText staticText3 = new StaticText();
-
-    public StaticText getStaticText3() {
-        return staticText3;
-    }
-
-    public void setStaticText3(StaticText st) {
-        this.staticText3 = st;
-    }
     private TableColumn tableColumn4 = new TableColumn();
 
     public TableColumn getTableColumn4() {
@@ -168,6 +150,24 @@ public class VeranstaltungsFragment extends AbstractFragmentBean {
 
     public void setButtonSelect(Button b) {
         this.buttonSelect = b;
+    }
+    private TableColumn tableColumn6 = new TableColumn();
+
+    public TableColumn getTableColumn6() {
+        return tableColumn6;
+    }
+
+    public void setTableColumn6(TableColumn tc) {
+        this.tableColumn6 = tc;
+    }
+    private StaticText staticText5 = new StaticText();
+
+    public StaticText getStaticText5() {
+        return staticText5;
+    }
+
+    public void setStaticText5(StaticText st) {
+        this.staticText5 = st;
     }
     // </editor-fold>
 

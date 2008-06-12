@@ -36,7 +36,7 @@
                                         <webuijsf:tableColumn binding="#{SearchResult.tableColumn1}" headerText="Bezeichnung" id="tableColumn1">
                                             <webuijsf:staticText binding="#{SearchResult.staticText1}" id="staticText1" text="#{currentRow.value.comp_id.bezeichnung}"/>
                                         </webuijsf:tableColumn>
-                                        <webuijsf:tableColumn binding="#{SearchResult.tableColumn2}" headerText="Ort" id="tableColumn2" sort="comp_id.ort" width="95">
+                                        <webuijsf:tableColumn binding="#{SearchResult.tableColumn2}" headerText="Ort" id="tableColumn2" width="95">
                                             <webuijsf:staticText binding="#{SearchResult.staticText2}" id="staticText2" text="#{currentRow.value.comp_id.ort}"/>
                                         </webuijsf:tableColumn>
                                         <webuijsf:tableColumn binding="#{SearchResult.tableColumn3}" headerText="PLZ" id="tableColumn3" sort="plz">
@@ -66,7 +66,7 @@
                                             <webuijsf:radioButton binding="#{SearchResult.radioButton2}" id="radioButton2" name="radioButton2"
                                                 selected="#{SearchResult.selected2}" selectedValue="#{SearchResult.selectedValue2}"/>
                                         </webuijsf:tableColumn>
-                                        <webuijsf:tableColumn binding="#{SearchResult.tableColumn9}" headerText="Nachname" id="tableColumn9">
+                                        <webuijsf:tableColumn binding="#{SearchResult.tableColumn9}" headerText="Nachname" id="tableColumn9" sort="nname">
                                             <webuijsf:staticText binding="#{SearchResult.staticText9}" id="staticText9" text="#{currentRow.value.nname}"/>
                                         </webuijsf:tableColumn>
                                         <webuijsf:tableColumn binding="#{SearchResult.tableColumn10}" headerText="Vorname" id="tableColumn10" sort="vname">

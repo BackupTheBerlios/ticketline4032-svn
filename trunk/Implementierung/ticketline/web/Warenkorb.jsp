@@ -17,7 +17,8 @@
                         <jsp:directive.include file="MasterFragment.jspf"/>
                     </div>
                     <webuijsf:form binding="#{Warenkorb.form1}" id="form1">
-                        <webuijsf:button actionExpression="#{Warenkorb.button2_action}" binding="#{Warenkorb.button2}" id="button2" onClick="javascript:confirm('Wollen sie die Artikel kaufen?');"
+                        <webuijsf:button actionExpression="#{Warenkorb.button2_action}" binding="#{Warenkorb.button2}" id="button2"
+                            onClick="javascript:confirm('Wollen sie die Artikel kaufen?');"
                             style="height: 20px; left: 311px; top: 144px; position: absolute; width: 119px" text="Kaufen"/>
                         <webuijsf:table augmentTitle="false" binding="#{Warenkorb.table1}" id="table1" style="left: 192px; top: 168px; position: absolute"
                             title="Table" width="744">
@@ -25,7 +26,7 @@
                                 selected="#{Warenkorb.selectedState}" sourceData="#{SessionBean1.warenkorb}" sourceVar="currentRow">
                                 <webuijsf:tableColumn binding="#{Warenkorb.tableColumn2}" id="tableColumn2"
                                     onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
-                                    <webuijsf:radioButton binding="#{Warenkorb.radioButton1}" id="radioButton1" name="radioButton1"
+                                    <webuijsf:radioButton binding="#{Warenkorb.radioButton1}" id="radioButton1" label="" name="radioButton1"
                                         selected="#{Warenkorb.selected}" selectedValue="#{Warenkorb.selectedValue}"/>
                                 </webuijsf:tableColumn>
                                 <webuijsf:tableColumn binding="#{Warenkorb.tableColumn4}" headerText="Typ" id="tableColumn4" sort="kurzbezeichnung" width="50">
@@ -37,6 +38,9 @@
                                 <webuijsf:tableColumn binding="#{Warenkorb.tableColumn1}" headerText="Beschreibung" id="tableColumn1" sort="beschreibung">
                                     <webuijsf:staticText binding="#{Warenkorb.staticText2}" id="staticText2" text="#{currentRow.value['beschreibung']}"/>
                                 </webuijsf:tableColumn>
+                                <webuijsf:tableColumn binding="#{Warenkorb.tableColumn3}" headerText="Stück" id="tableColumn3" width="20">
+                                    <webuijsf:staticText binding="#{Warenkorb.staticText4}" id="staticText4" text="#{Warenkorb.stueck}"/>
+                                </webuijsf:tableColumn>
                                 <webuijsf:tableColumn align="right" binding="#{Warenkorb.tableColumn6}" headerText="Preis €" id="tableColumn6" sort="preis" width="50">
                                     <webuijsf:staticText binding="#{Warenkorb.staticText6}" id="staticText6" text="#{currentRow.value['preis']}"/>
                                 </webuijsf:tableColumn>
@@ -44,8 +48,10 @@
                         </webuijsf:table>
                         <webuijsf:dropDown binding="#{Warenkorb.dropDown1}" id="dropDown1" items="#{Warenkorb.dropDown1DefaultOptions.options}"
                             label="Zahlungsart" style="left: 456px; top: 144px; position: absolute; width: 200px"/>
-                        <webuijsf:button actionExpression="#{Warenkorb.button1_action}" binding="#{Warenkorb.button1}" id="button1" onClick="javascript:confirm('Wollen sie den gewählten Artikel entfernen?');"
+                        <webuijsf:button actionExpression="#{Warenkorb.button1_action}" binding="#{Warenkorb.button1}" id="button1"
+                            onClick="javascript:confirm('Wollen sie den gewählten Artikel entfernen?');"
                             style="height: 20px; left: 191px; top: 144px; position: absolute; width: 119px" text="Artikel löschen"/>
+                        <webuijsf:label binding="#{Warenkorb.label1}" id="label1" style="color: #990000; left: 620px; top: 150px; position: absolute"/>
                     </webuijsf:form>
                 </webuijsf:body>
             </webuijsf:html>

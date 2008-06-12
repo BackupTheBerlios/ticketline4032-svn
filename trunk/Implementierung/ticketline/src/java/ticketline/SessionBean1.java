@@ -8,6 +8,7 @@ package ticketline;
 
 import com.sun.rave.web.ui.appbase.AbstractSessionBean;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import javax.faces.FacesException;
 import ticketline.db.Artikel;
@@ -174,21 +175,35 @@ public class SessionBean1 extends AbstractSessionBean {
     }
     
     private List<Artikel> warenkorb = new ArrayList<Artikel>();
+    private HashMap<Artikel, Integer> wk = new HashMap<Artikel, Integer>();
     
-    public void addArtikel(Artikel a)
+    public void addArtikel(Artikel a, Integer value)
     {
-        this.warenkorb.add(a);
+        if(wk.containsKey(a))
+        {
+            this.wk.put(a, value + wk.get(a));
+        }
+        else
+        {
+            this.wk.put(a, value);
+            this.warenkorb.add(a);
+        }
     }
     
-    public void removeArtikel(int index)
+    public void removeArtikel(Artikel a)
     {
-        if(this.warenkorb.size() > index)
-            this.warenkorb.remove(index);
+        this.wk.remove(a);
+        this.warenkorb.remove(a);
     }
     
     public List<Artikel> getWarenkorb()
     {
         return this.warenkorb;
+    }
+    
+    public int getAnzahl(Artikel a)
+    {
+        return this.wk.get(a).intValue();
     }
     
     void resetWarenkorb() {

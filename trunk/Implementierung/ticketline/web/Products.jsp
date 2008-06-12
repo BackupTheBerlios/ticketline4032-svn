@@ -17,14 +17,13 @@
                         <jsp:directive.include file="MasterFragment.jspf"/>
                     </div>
                     <webuijsf:form binding="#{Products.form1}" id="form1">
-                        <div style="height: 478px; left: 192px; top: 120px; position: absolute; width: 750px">
-                            <webuijsf:table augmentTitle="false" binding="#{Products.table1}" id="table1" style="top: 24px; position: relative;"
-                                title="Artikel" width="740">
+                        <div style="height: 478px; left: 190px; top: 140px; position: absolute; width: 750px">
+                            <webuijsf:table augmentTitle="false" binding="#{Products.table1}" id="table1" title="Artikel" width="740">
                                 <webuijsf:tableRowGroup binding="#{Products.tableRowGroup1}" emptyDataMsg="Keine Produkte." id="tableRowGroup1" rows="10"
                                     selected="#{Products.selectedState}" sourceData="#{Products.artikel}" sourceVar="currentRow">
-                                    <webuijsf:tableColumn binding="#{Products.tableColumn2}" id="tableColumn2" 
+                                    <webuijsf:tableColumn binding="#{Products.tableColumn2}" id="tableColumn2"
                                         onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
-                                        <webuijsf:radioButton binding="#{Products.radioButton1}" id="radioButton1" name="radioButton1" 
+                                        <webuijsf:radioButton binding="#{Products.radioButton1}" id="radioButton1" name="radioButton1"
                                             selected="#{Products.selected}" selectedValue="#{Products.selectedValue}"/>
                                     </webuijsf:tableColumn>
                                     <webuijsf:tableColumn binding="#{Products.tableColumn4}" headerText="Typ" id="tableColumn4" sort="kurzbezeichnung" width="50">
@@ -41,9 +40,11 @@
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
-                            <br />
-                            <webuijsf:button actionExpression="#{Products.button1_action}" binding="#{Products.button1}" id="button1"
-                                style="height: 23px; position: relative; width: 119px" text="in den Warenkorb"/>
+                            <br/>
+                            <webuijsf:textField binding="#{Products.textField1}" id="textField1" style="height: 19px; width: 50px;"
+                                text="1"/>Stück
+                            <webuijsf:button actionExpression="#{Products.button1_action}"
+                                binding="#{Products.button1}" id="button1" style="height: 19px; position: relative; width: 119px" text="In den Warenkorb"/>
                         </div>
                     </webuijsf:form>
                 </webuijsf:body>

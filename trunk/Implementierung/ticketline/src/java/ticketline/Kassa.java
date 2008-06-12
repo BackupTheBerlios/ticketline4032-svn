@@ -12,10 +12,15 @@ import com.sun.webui.jsf.component.Button;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
-import com.sun.webui.jsf.component.Label;
+import com.sun.webui.jsf.component.Hyperlink;
+import com.sun.webui.jsf.component.ImageComponent;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
+import com.sun.webui.jsf.component.PanelLayout;
 import com.sun.webui.jsf.component.StaticText;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.faces.FacesException;
 import ticketline.db.Artikel;
 import ticketline.db.Transaktion;
@@ -117,14 +122,41 @@ public class Kassa extends AbstractPageBean {
     public void setStaticText2(StaticText st) {
         this.staticText2 = st;
     }
-    private Label label1 = new Label();
+    private PanelLayout panelTop1 = new PanelLayout();
 
-    public Label getLabel1() {
-        return label1;
+    public PanelLayout getPanelTop1() {
+        return panelTop1;
     }
 
-    public void setLabel1(Label l) {
-        this.label1 = l;
+    public void setPanelTop1(PanelLayout pl) {
+        this.panelTop1 = pl;
+    }
+    private StaticText staticTextTitle1 = new StaticText();
+
+    public StaticText getStaticTextTitle1() {
+        return staticTextTitle1;
+    }
+
+    public void setStaticTextTitle1(StaticText st) {
+        this.staticTextTitle1 = st;
+    }
+    private ImageComponent imageLogo1 = new ImageComponent();
+
+    public ImageComponent getImageLogo1() {
+        return imageLogo1;
+    }
+
+    public void setImageLogo1(ImageComponent ic) {
+        this.imageLogo1 = ic;
+    }
+    private Hyperlink hyperlink1 = new Hyperlink();
+
+    public Hyperlink getHyperlink1() {
+        return hyperlink1;
+    }
+
+    public void setHyperlink1(Hyperlink h) {
+        this.hyperlink1 = h;
     }
 
     // </editor-fold>
@@ -174,7 +206,11 @@ public class Kassa extends AbstractPageBean {
     public String getRechnung()
     {
         StringBuilder sb = new StringBuilder();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         
+        sb.append("Rechnung für " + this.getSessionBean1().getLogin().getNname() + ", " + this.getSessionBean1().getLogin().getVname());
+        sb.append(", am ");
+        sb.append(sdf.format(new Date()));
         sb.append("<table style=\"width: 600px; border: solid 1px\"><tr><td><b>Artikel</b></td><td><b>Preis</b></td></tr>");
         int gesamtpreis = 0;
         
@@ -195,8 +231,9 @@ public class Kassa extends AbstractPageBean {
             {
                 sb.append("<tr><td>");
                 sb.append(a.getBeschreibung() + ", " + a.getKurzbezeichnung() + " zu " + a.getVeranstaltung().getComp_id().getBezeichnung());
+                sb.append(", " + this.getSessionBean1().getAnzahl(a));
                 sb.append("</td><td>");
-                sb.append("€ " + a.getPreis().toString());
+                sb.append("€ " + a.getPreis().multiply(new BigDecimal(this.getSessionBean1().getAnzahl(a))).toString());
                 sb.append("</td></tr>");
 
                 gesamtpreis += a.getPreis().intValue();
@@ -270,6 +307,12 @@ public class Kassa extends AbstractPageBean {
      */
     protected RequestBean1 getRequestBean1() {
         return (RequestBean1) getBean("RequestBean1");
-    }    
+    }
+
+    public String buttonSearch_action() {
+        // TODO: Process the action. Return value is a navigation
+        // case name where null will return to the same page.
+        return null;
+    }
 }
 

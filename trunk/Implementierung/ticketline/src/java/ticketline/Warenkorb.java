@@ -14,6 +14,7 @@ import com.sun.webui.jsf.component.DropDown;
 import com.sun.webui.jsf.component.Form;
 import com.sun.webui.jsf.component.Head;
 import com.sun.webui.jsf.component.Html;
+import com.sun.webui.jsf.component.Label;
 import com.sun.webui.jsf.component.Link;
 import com.sun.webui.jsf.component.Page;
 import com.sun.webui.jsf.component.RadioButton;
@@ -264,6 +265,33 @@ public class Warenkorb extends AbstractPageBean {
     public void setDropDown1DefaultOptions(SingleSelectOptionsList ssol) {
         this.dropDown1DefaultOptions = ssol;
     }
+    private TableColumn tableColumn3 = new TableColumn();
+
+    public TableColumn getTableColumn3() {
+        return tableColumn3;
+    }
+
+    public void setTableColumn3(TableColumn tc) {
+        this.tableColumn3 = tc;
+    }
+    private StaticText staticText4 = new StaticText();
+
+    public StaticText getStaticText4() {
+        return staticText4;
+    }
+
+    public void setStaticText4(StaticText st) {
+        this.staticText4 = st;
+    }
+    private Label label1 = new Label();
+
+    public Label getLabel1() {
+        return label1;
+    }
+
+    public void setLabel1(Label l) {
+        this.label1 = l;
+    }
 
     // </editor-fold>
 
@@ -386,6 +414,13 @@ public class Warenkorb extends AbstractPageBean {
         return tablePhaseListener.getSelected(rowKey);
 
     }
+    
+    public int getStueck(){
+        RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
+        Artikel foo = this.getSessionBean1().getWarenkorb().get(Integer.parseInt(rowKey.getRowId()));
+        
+        return this.getSessionBean1().getAnzahl(foo);
+    }
 
     public Object getSelectedValue() {
         RowKey rowKey = (RowKey)getValue("#{currentRow.tableRow}");
@@ -407,7 +442,7 @@ public class Warenkorb extends AbstractPageBean {
             for(Artikel a : this.getSessionBean1().getWarenkorb())
             {
                 BestellungKey key = new BestellungKey(new Date(), a.getArtikelnr(), this.getSessionBean1().getLogin().getKartennr());
-                Bestellung b = new Bestellung(key, 1, "Kreditkarte");
+                Bestellung b = new Bestellung(key, this.getSessionBean1().getAnzahl(a), this.dropDown1.getSelected().toString());
                 bd.save(b);
             }
             
@@ -415,6 +450,7 @@ public class Warenkorb extends AbstractPageBean {
         }
         else
         {
+            this.label1.setText("Sie müssen eingeloggt sein!");
             return null;
         }
     }
@@ -424,7 +460,8 @@ public class Warenkorb extends AbstractPageBean {
         if(this.tableRowGroup1.getSelectedRowsCount() > 0)
         {
             RowKey sel = this.tableRowGroup1.getSelectedRowKeys()[0];
-            this.getSessionBean1().removeArtikel(Integer.parseInt(sel.getRowId()));
+            Artikel a = this.getSessionBean1().getWarenkorb().get(Integer.parseInt(sel.getRowId()));
+            this.getSessionBean1().removeArtikel(a);
         }
         
         return null;

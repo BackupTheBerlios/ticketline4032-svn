@@ -18,10 +18,10 @@
                     </div>
                     <webuijsf:form binding="#{SearchResultAuffuehrungen.form1}" id="form1">
                         <div style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
-                            <webuijsf:table augmentTitle="false" binding="#{SearchResultAuffuehrungen.table1}" id="table1"
-                                style="left: 0px; top: 0px; position: relative;" title="Aufführungen" width="739">
-                                <webuijsf:tableRowGroup binding="#{SearchResultAuffuehrungen.tableRowGroup1}" id="tableRowGroup1" rows="10"
-                                    selected="#{SearchResultAuffuehrungen.selectedState}" sourceData="#{SearchResultAuffuehrungen.auffuehrung}" sourceVar="currentRow">
+                            <webuijsf:table augmentTitle="false" binding="#{SearchResultAuffuehrungen.table1}" id="table1" title="Aufführungen" width="739">
+                                <webuijsf:tableRowGroup binding="#{SearchResultAuffuehrungen.tableRowGroup1}" emptyDataMsg="Keine Aufführungen."
+                                    id="tableRowGroup1" rows="10" selected="#{SearchResultAuffuehrungen.selectedState}"
+                                    sourceData="#{SearchResultAuffuehrungen.auffuehrung}" sourceVar="currentRow">
                                     <webuijsf:tableColumn binding="#{SearchResultAuffuehrungen.tableColumn2}" id="tableColumn2"
                                         onClick="setTimeout(function(){document.getElementById('form1:table1').initAllRows()}, 0);" selectId="radioButton1" width="10">
                                         <webuijsf:radioButton binding="#{SearchResultAuffuehrungen.radioButton1}" id="radioButton1" label="" name="radioButton1"
@@ -38,10 +38,9 @@
                                     </webuijsf:tableColumn>
                                 </webuijsf:tableRowGroup>
                             </webuijsf:table>
-                            <br />
+                            <br/>
                             <webuijsf:button actionExpression="#{SearchResultAuffuehrungen.buttonSelect_action}"
-                                binding="#{SearchResultAuffuehrungen.buttonSelect}" id="buttonSelect"
-                                style="height: 19px; left: 0px; position: relative; width: 129px" text="Auswählen"/>
+                                binding="#{SearchResultAuffuehrungen.buttonSelect}" id="buttonSelect" style="height: 19px; width: 129px" text="Auswählen"/>
                             <webuijsf:hiddenField binding="#{SearchResultAuffuehrungen.hiddenField1}" id="hiddenField1"/>
                         </div>
                     </webuijsf:form>

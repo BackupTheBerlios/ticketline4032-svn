@@ -194,4 +194,9 @@
         <managed-bean-class>ticketline.VeranstaltungsFragment</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <application>
+        <locale-config>
+            <default-locale>de</default-locale>
+        </locale-config>
+    </application>
 </faces-config>

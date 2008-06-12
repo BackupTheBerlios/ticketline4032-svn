@@ -20,6 +20,7 @@ import com.sun.webui.jsf.component.StaticText;
 import com.sun.webui.jsf.component.Table;
 import com.sun.webui.jsf.component.TableColumn;
 import com.sun.webui.jsf.component.TableRowGroup;
+import com.sun.webui.jsf.component.TextField;
 import com.sun.webui.jsf.event.TableSelectPhaseListener;
 import java.util.List;
 import javax.faces.FacesException;
@@ -222,6 +223,15 @@ public class Products extends AbstractPageBean {
     public void setRadioButton1(RadioButton rb) {
         this.radioButton1 = rb;
     }
+    private TextField textField1 = new TextField();
+
+    public TextField getTextField1() {
+        return textField1;
+    }
+
+    public void setTextField1(TextField tf) {
+        this.textField1 = tf;
+    }
 
     // </editor-fold>
 
@@ -358,10 +368,20 @@ public class Products extends AbstractPageBean {
 
     public String button1_action() 
     {    
+        Integer v;
+        try
+        {
+            v = Integer.valueOf((String)this.textField1.getText());
+        }
+        catch(Exception e)
+        {
+            return null;
+        }
+        
         if(this.tableRowGroup1.getSelectedRowsCount() > 0)
         {
             RowKey sel = this.tableRowGroup1.getSelectedRowKeys()[0];
-            this.getSessionBean1().addArtikel(((List<Artikel>)this.tableRowGroup1.getSourceData()).get(Integer.parseInt(sel.getRowId())));
+            this.getSessionBean1().addArtikel(((List<Artikel>)this.tableRowGroup1.getSourceData()).get(Integer.parseInt(sel.getRowId())), v);
             
             return "select";
         }
