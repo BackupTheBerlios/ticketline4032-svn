@@ -45,7 +45,7 @@ public class AuswertungsHelperTest {
     public void berechneBesucherzahl() throws Exception {
         System.out.println("berechneBesucherzahl");
         
-        VeranstaltungKey veranstaltungKey = new VeranstaltungKey("Donald Duck", "Film");
+        VeranstaltungKey veranstaltungKey = new VeranstaltungKey("Bush", "Theater");
         
         List list = HibernateSessionFactory.currentSession().createQuery("SELECT SUM(anzverk) FROM Belegung WHERE auffuehrung.veranstaltung.comp_id.bezeichnung = '" + veranstaltungKey.getBezeichnung() + "' AND auffuehrung.veranstaltung.comp_id.kategorie = '" + veranstaltungKey.getKategorie() + "'").list();
         

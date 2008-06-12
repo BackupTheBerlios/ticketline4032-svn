@@ -64,7 +64,7 @@ public class SystemHelperTest {
     @Test
     public void PwdCheck() { 
         System.out.println("PwdCheck");
-        kartennr = 1;
+        kartennr = 2;
         onlinepwd = "foobar";
         result = DAOFactory.getKundeDAO().get(kartennr);
         assertEquals(onlinepwd, result.getOnlinepwd());
