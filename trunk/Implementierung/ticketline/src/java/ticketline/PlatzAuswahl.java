@@ -256,6 +256,15 @@ public class PlatzAuswahl extends AbstractPageBean {
     public void setLabel1(Label l) {
         this.label1 = l;
     }
+    private StaticText staticText1 = new StaticText();
+
+    public StaticText getStaticText1() {
+        return staticText1;
+    }
+
+    public void setStaticText1(StaticText st) {
+        this.staticText1 = st;
+    }
 
     // </editor-fold>
 
@@ -299,6 +308,9 @@ public class PlatzAuswahl extends AbstractPageBean {
         // Perform application initialization that must complete
         // *after* managed components are initialized
         // TODO - add your own initialization code here
+        
+        this.label1.setText("");
+        this.staticText1.setText(null);
     }
 
     /**
@@ -310,6 +322,8 @@ public class PlatzAuswahl extends AbstractPageBean {
      */
     @Override
     public void preprocess() {
+        this.label1.setText("");
+        this.staticText1.setText(null);
     }
 
     /**
@@ -376,10 +390,12 @@ public class PlatzAuswahl extends AbstractPageBean {
                     new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
                     new Integer(this.getAnzahl().getValue().toString()),
                     this.getZahlart().getValue().toString()       , false));
+           
+           this.staticText1.setText("");
 
             return "buy";
         }catch(Exception e){
-            this.label1.setText("Sie sind nicht eingeloggt, oder es wurde eine ungültige Auswahl getroffen!");
+            this.staticText1.setText("Sie sind nicht eingeloggt, oder es wurde eine ungültige Auswahl getroffen!");
             return "stay";
         }
     }
@@ -397,10 +413,13 @@ public class PlatzAuswahl extends AbstractPageBean {
                     new ReiheKey(split[1],split[0],sk.getBezeichnung(),sk.getOrtbez(),sk.getOrt()), new Integer(split[2]), 
                     new Integer(this.getAnzahl().getValue().toString()),
                     this.getZahlart().getValue().toString()       , true));
+            
+            this.staticText1.setText("");
+            
             return "book";
         }
         catch(Exception e){
-            this.label1.setText("Sie sind nicht eingeloggt, oder es wurde eine ungültige Auswahl getroffen!");
+            this.staticText1.setText("Sie sind nicht eingeloggt, oder es wurde eine ungültige Auswahl getroffen!");
             return "stay";
         }
     }

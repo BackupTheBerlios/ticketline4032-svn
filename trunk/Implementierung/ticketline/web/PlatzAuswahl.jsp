@@ -15,7 +15,7 @@
                 <webuijsf:body binding="#{PlatzAuswahl.body1}" id="body1" style="-rave-layout: grid">
                     <webuijsf:form binding="#{PlatzAuswahl.form1}" id="form1">
                         <div style="height: 694px; left: 192px; top: 144px; position: absolute; width: 742px">
-                            <webuijsf:label binding="#{PlatzAuswahl.label1}" id="label1" style="color: #cc0000; left: 20px; top: 40px; position: absolute"/>
+                            <webuijsf:staticText binding="#{PlatzAuswahl.staticText1}" id="staticText1" style="color: #cc0000; left: 20px; top: 40px; position: absolute"/>
                             <webuijsf:button actionExpression="#{PlatzAuswahl.button1_action}" binding="#{PlatzAuswahl.button1}" id="button1"
                                 style="height: 23px; left: 520px; top: 60px; position: absolute; width: 168px" text="Ausgewählte Plätze reservieren"/>
                             <webuijsf:button actionExpression="#{PlatzAuswahl.button2_action}" binding="#{PlatzAuswahl.button2}" id="button2"
