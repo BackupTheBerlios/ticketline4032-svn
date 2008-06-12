@@ -213,7 +213,7 @@ public class Kassa extends AbstractPageBean {
         sb.append(sdf.format(new Date()));
         sb.append("<table style=\"width: 600px; border: solid 1px\"><tr><td><b>Artikel</b></td><td><b>Preis</b></td></tr>");
         int gesamtpreis = 0;
-        
+  
         if(this.getRequestBean1().getTransaktion() != null)
         {
             Transaktion t = this.getRequestBean1().getTransaktion();
@@ -227,16 +227,21 @@ public class Kassa extends AbstractPageBean {
         }
         else if(this.getSessionBean1().getWarenkorb().size() != 0)
         {
+	   
             for(Artikel a : this.getSessionBean1().getWarenkorb())
-            {
+            {	
+		int anz = Math.abs(this.getSessionBean1().getAnzahl(a));
+			
+		BigDecimal bigAnz = new BigDecimal(anz);
+		
                 sb.append("<tr><td>");
                 sb.append(a.getBeschreibung() + ", " + a.getKurzbezeichnung() + " zu " + a.getVeranstaltung().getComp_id().getBezeichnung());
                 sb.append(", " + this.getSessionBean1().getAnzahl(a));
                 sb.append("</td><td>");
-                sb.append("€ " + a.getPreis().multiply(new BigDecimal(this.getSessionBean1().getAnzahl(a))).toString());
+                sb.append("€ " + a.getPreis().multiply(bigAnz).toString());
                 sb.append("</td></tr>");
 
-                gesamtpreis += a.getPreis().intValue();
+                gesamtpreis += a.getPreis().multiply(bigAnz).intValue();
             }
         }
         
